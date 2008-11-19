@@ -1,11 +1,10 @@
-#import <AudioToolbox/AudioQueue.h>
-#import <AudioToolbox/AudioFile.h>
-#import <AudioToolbox/AudioToolbox.h>
+#import <UIKit/UIKit.h>
+#include <pthread.h>
+#include <AudioToolbox/AudioToolbox.h>
 
-
-#define kNumAQBufs	3			// number of audio queue buffers we allocate
-#define kAQMaxPacketDescs   128
-#define kAQBufSize			64 * 1024
+#define kNumAQBufs 3   // number of audio queue buffers we allocate
+#define kAQMaxPacketDescs 128
+#define kAQBufSize 64 * 1024
 
 typedef enum {
 	EAudioStateClosed,
@@ -19,69 +18,64 @@ typedef enum {
 
 @interface Player : NSObject
 {
-	id								delegate;
-	AudioFileStreamID				audioFileStream;
-	AudioQueueRef					audioQueue;
-	//AudioQueueBufferRef				audioQueueBuffer[kNumAQBufs];
-	AudioQueueBufferRef				*audioQueueBuffer;
-	AudioStreamPacketDescription	packetDescs[kAQMaxPacketDescs];
+ @private
+	id delegate;
+	AudioFileStreamID audioFileStream;
+	AudioQueueRef audioQueue;
+	AudioQueueBufferRef audioQueueBuffer[kNumAQBufs];
+	AudioStreamPacketDescription packetDescs[kAQMaxPacketDescs];
 	
-	NSURLConnection					*connection;
-	NSURLRequest					*request;
+  NSURL *url;
+	NSURLConnection *connection;
 	
-	UInt64							fillBufferIndex;
-	UInt64							fillBufferCount;
-	UInt64							enqueuedBuffer;
-	UInt64							emptieddBuffer;
-	UInt32							bytesFilled;	
-	UInt32							packetsFilled;
+	UInt64 fillBufferIndex;
+	UInt32 bytesFilled;	
+	UInt32 packetsFilled;
 	
-	UInt64							packetIndex;
-	UInt32							numPacketsToRead;
-	UInt32							ckeckIFEnded;
+	UInt64 packetIndex;
+	UInt32 numPacketsToRead;
+	UInt32 ckeckIFEnded;
 	
-	//BOOL							inuse[kNumAQBufs];	
-	BOOL							*inuse;	
-	BOOL							started;			
-	BOOL							failed;	
-	BOOL							repeat;
-	BOOL							closed;
-	BOOL							ended;	
+	BOOL inuse[kNumAQBufs];
+  
+  BOOL isPlaying;
+	BOOL started;
+  BOOL failed;
+  BOOL finished;
+  BOOL discontinuous;
 	
-	
-	EAudioState						audioState;
-
+	EAudioState audioState;
+  
+  pthread_mutex_t mutex;
+  pthread_cond_t cond;
+  
+  NSThread *controlThread;
 }
 
-	- (BOOL) PlayerDidStablishConnection;
-- (void)setDelegate:(id)val;
-- (id)delegate;
+@property(nonatomic, assign) id delegate;
 
-//- (void)init;
-- (void)LoadUrl:(NSString*)url;
+// designated constructor
+- (id)initWithURL:(NSURL *)newUrl;
+
+- (id)initWithString:(NSString *)urlString;
+
+- (void)start;
+
 - (void)stop;
+
 - (void)pause;
+
 - (void)setGain:(Float32)gain;
-- (void)connection:(NSURLConnection*)connection didReceiveData:(NSData*)data;
-- (void)propertyChanged:(AudioFileStreamPropertyID)propertyID flags:(UInt32*)flags;
-- (void)packetData:(const void*)data
-   numberOfPackets:(UInt32)numPackets
-	 numberOfBytes:(UInt32)numBytes
-packetDescriptions:(AudioStreamPacketDescription*)packetDescriptions;
-- (void)playBackIsRunningStateChanged;
-- (void)enqueueBuffer;
-- (int)findQueueBuffer:(AudioQueueBufferRef)inBuffer;
-- (void)outputCallbackWithBufferReference:(AudioQueueBufferRef)buffer;
-- (void)close;
+
 - (void)dealloc;
 
 @end
 
 @protocol PlayerDelegate<NSObject>
 
-@optional
+ @optional
 
-- (void)PlayerDidStablishConnection:(Player *)player;      // called when scrolling animation finished. may be called immediately if already at top
+- (void)playerDidEstablishConnection:(Player *)player;
 
 @end
 
