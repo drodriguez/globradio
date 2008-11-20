@@ -1,16 +1,10 @@
 #import "AudioClass.h"
 
-NSString *PlayerDidStopNotification = @"PlayerDidStopNotification";
-NSString *PlayerAudioDidEndedPlayingNotification =
-  @"PlayerAudioDidEndedPlayingNotification";
-NSString *PlayerDidFinishedPlayingNotification =
-  @"PlayerDidFinishedPlayingNotification";
-NSString *PlayerDidEstablishConnection = @"PlayerDidEstablishConnection";
-NSString *PlayerProducedAnErrorNotification =
-  @"PlayerProducedAnErrorNotification";
-
 // Private implementation
 @interface Player ()
+
+@property(nonatomic, assign, readwrite) BOOL isPlaying;
+@property(nonatomic, assign, readwrite) BOOL failed;
 
 - (void)startPrivate;
 
@@ -21,8 +15,6 @@ NSString *PlayerProducedAnErrorNotification =
    numberOfPackets:(UInt32)numPackets
      numberOfBytes:(UInt32)numBytes
 packetDescriptions:(AudioStreamPacketDescription*)packetDescriptions;
-
-// - (void)playBackIsRunningStateChanged;
 
 - (void)enqueueBuffer;
 
@@ -75,7 +67,7 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
 
 @implementation Player
 
-@synthesize delegate;
+@synthesize isPlaying, failed;
 
 - (id)initWithString:(NSString *)urlString {
   return [self initWithURL:[NSURL URLWithString:urlString]];
@@ -180,11 +172,7 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
       return;
     }
   }
-  
-  [[NSNotificationCenter defaultCenter]
-    postNotificationName:PlayerDidStopNotification
-                  object:self]
-  
+    
   [pool release];
 }
 
@@ -209,7 +197,8 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
     pthread_cond_signal(&cond);
     pthread_mutex_unlock(&mutex);
   } else {
-    // FIX:?
+    // self.isPlaying = YES;
+    // self.isPlaying = FALSE;
     finished = YES;
   }
 }
@@ -227,13 +216,6 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
 }
 
 
-
-// NSConnection delegate method
-- (void)connection:(NSURLConnection *)inconnection
-didReceiveResponse:(NSURLResponse *)response {
-  // TODO:
-  // FIX: we suppose nobody is going to use multipart/x-mixed-replace
-}
 
 // NSConnection delegate method
 - (NSCachedURLResponse *)connection:(NSURLConnection *)inConnection
@@ -254,7 +236,7 @@ didReceiveResponse:(NSURLResponse *)response {
                                                kAudioFileStreamParseFlag_Discontinuity);
       if (err) {
         NSLog(@"AudioFileStreamParseBytes err %d", err);
-        failed = YES;
+        self.failed = YES;
       }
     } else {
       OSStatus err = AudioFileStreamParseBytes(audioFileStream,
@@ -263,7 +245,7 @@ didReceiveResponse:(NSURLResponse *)response {
                                                0);
       if (err) {
         NSLog(@"AudioFileStreamParseBytes err %d", err);
-        failed = YES;
+        self.failed = YES;
       }
     }
   }
@@ -294,7 +276,7 @@ didReceiveResponse:(NSURLResponse *)response {
       return;
     }
   } else if (!started) {
-    failed = YES;
+    self.failed = YES;
     [self stop];
     return;
   }
@@ -330,7 +312,7 @@ didReceiveResponse:(NSURLResponse *)response {
                                        &asbd);
 			if (err) {
         NSLog(@"get kAudioFileStreamProperty_DataFormat failed");
-        failed = true;
+        self.failed = YES;
         // TODO: warn the delegate?
         break;
       }
@@ -344,7 +326,7 @@ didReceiveResponse:(NSURLResponse *)response {
                                 &audioQueue);
 			if (err) {
         NSLog(@"AudioQueueNewOutput err %d", err);
-        failed = true;
+        self.failed = YES;
         // TODO: warn the delegate?
         break;
       }
@@ -355,7 +337,7 @@ didReceiveResponse:(NSURLResponse *)response {
                                           self);
       if (err) {
         NSLog(@"AudioQueueAddPropertyListener err %d", err);
-        failed = true;
+        self.failed = YES;
         // TODO: warn the delegate;
         break;
       }
@@ -367,7 +349,7 @@ didReceiveResponse:(NSURLResponse *)response {
         
         if (err) {
           NSLog(@"AudioQueueAllocateBuffer err %d", err);
-          failed = true;
+          self.failed = YES;
           break; // FIX: break for or break case?
         }
       }
@@ -503,7 +485,7 @@ packetDescriptions:(AudioStreamPacketDescription*)packetDescriptions {
   
 	if (err) {
     NSLog(@"AudioQueueEnqueueBuffer failed %d", err);
-    failed = YES;
+    self.failed = YES;
     // TODO: warn the delegate?
     return;
   }
@@ -515,7 +497,7 @@ packetDescriptions:(AudioStreamPacketDescription*)packetDescriptions {
 		
     if (err) {
       NSLog(@"AudioQueueStart failed");
-      failed = YES;
+      self.failed = YES;
       // TODO: warn the delegate?
       return;
     }
@@ -560,34 +542,14 @@ packetDescriptions:(AudioStreamPacketDescription*)packetDescriptions {
 }
 
 - (void)isRunning {
-  isPlaying = !isPlaying;
+  self.isPlaying = !self.isPlaying;
   
   if (!isPlaying) {
-    finished = true;
+    finished = YES;
     [self release];
     return;
   }
 }
-
-- (void)postTrackFinishedPlayingNotification:(id)object {
-	[[NSNotificationCenter defaultCenter]
-   postNotificationName:PlayerDidFinishedPlayingNotification object:self];
-}
-
-/* - (void)playBackIsRunningStateChanged {
-	if (ended) {
-		// go ahead and close the track now
-		closed = YES;
-		AudioQueueDispose(audioQueue, YES);
-		AudioFileStreamClose(audioFileStream);
-		NSLog(@"audioQueueBuffer before freeing: %p",audioQueueBuffer);
-		free(audioQueueBuffer);
-		audioQueueBuffer = (AudioQueueBufferRef*)0x0;
-		[self performSelectorOnMainThread:@selector(postTrackFinishedPlayingNotification:)
-                           withObject:nil
-                        waitUntilDone:NO];
-	}
-} */
 
 @end
 

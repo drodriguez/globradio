@@ -6,20 +6,9 @@
 #define kAQMaxPacketDescs 128
 #define kAQBufSize 64 * 1024
 
-typedef enum {
-	EAudioStateClosed,
-	EAudioStateStopped,
-	EAudioStatePlaying,
-	EAudioStatePaused,
-	EAudioStateSeeking
-} EAudioState;
-
-@protocol PlayerDelegate;
-
 @interface Player : NSObject
 {
  @private
-	id delegate;
 	AudioFileStreamID audioFileStream;
 	AudioQueueRef audioQueue;
 	AudioQueueBufferRef audioQueueBuffer[kNumAQBufs];
@@ -43,8 +32,6 @@ typedef enum {
   BOOL failed;
   BOOL finished;
   BOOL discontinuous;
-	
-	EAudioState audioState;
   
   pthread_mutex_t mutex;
   pthread_cond_t cond;
@@ -52,7 +39,8 @@ typedef enum {
   NSThread *controlThread;
 }
 
-@property(nonatomic, assign) id delegate;
+@property(nonatomic, assign, readonly) BOOL isPlaying;
+@property(nonatomic, assign, readonly) BOOL failed;
 
 // designated constructor
 - (id)initWithURL:(NSURL *)newUrl;
