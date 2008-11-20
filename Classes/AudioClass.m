@@ -1,12 +1,13 @@
 #import "AudioClass.h"
 
 NSString *PlayerDidStopNotification = @"PlayerDidStopNotification";
-NSString *PlayerDidCloseNotification = @"PlayerDidCloseNotification";
 NSString *PlayerAudioDidEndedPlayingNotification =
   @"PlayerAudioDidEndedPlayingNotification";
 NSString *PlayerDidFinishedPlayingNotification =
   @"PlayerDidFinishedPlayingNotification";
 NSString *PlayerDidEstablishConnection = @"PlayerDidEstablishConnection";
+NSString *PlayerProducedAnErrorNotification =
+  @"PlayerProducedAnErrorNotification";
 
 // Private implementation
 @interface Player ()
@@ -33,6 +34,8 @@ packetDescriptions:(AudioStreamPacketDescription*)packetDescriptions;
 
 @end
 
+
+// Callbacks
 void MyPropertyListenerProc(void *inClientData,
                             AudioFileStreamID inAudioFileStream,
                             AudioFileStreamPropertyID	inPropertyID,
@@ -68,6 +71,8 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
   [player isRunning];
 }
 
+
+
 @implementation Player
 
 @synthesize delegate;
@@ -88,7 +93,6 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
 - (void)dealloc {
   [url release];
   [connection release];
-  // FIX: ??
 	[super dealloc];
 }
 
@@ -177,25 +181,12 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
     }
   }
   
+  [[NSNotificationCenter defaultCenter]
+    postNotificationName:PlayerDidStopNotification
+                  object:self]
+  
   [pool release];
 }
-
-
-/*
-	
-	if (connection)
-	{
-		NSLog(@"connection created");
-		if ( [delegate respondsToSelector:@selector(PlayerDidStablishConnection:)] ) 
-		{
-			//[delegate PlayerDidStablishConnection];
-		//[[NSNotificationCenter defaultCenter] postNotificationName:PlayerDidStablishConnection object:self];
-		}
-	}
-	else
-		NSLog(@"connection failed");
-	NSLog(@"address inData:%p", (void *)self);
-} */
 
 - (void)stop {
   if (connection) {
@@ -221,14 +212,6 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
     // FIX:?
     finished = YES;
   }
-    
-    /* free(audioQueueBuffer);
-		if (packetDescs != nil)
-			free(packetDescs);
-		[[NSNotificationCenter defaultCenter]
-     postNotificationName:PlayerDidStopNotification
-     object:self];
-	} */
 }
 
 - (void)pause {
@@ -243,14 +226,23 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
 	AudioQueueSetParameter(audioQueue, kAudioQueueParam_Volume, gain);
 }
 
+
+
 // NSConnection delegate method
-- (NSCachedURLResponse *)connection:(NSURLConnection *)connection
+- (void)connection:(NSURLConnection *)inconnection
+didReceiveResponse:(NSURLResponse *)response {
+  // TODO:
+  // FIX: we suppose nobody is going to use multipart/x-mixed-replace
+}
+
+// NSConnection delegate method
+- (NSCachedURLResponse *)connection:(NSURLConnection *)inConnection
                   willCacheResponse:(NSCachedURLResponse *)cachedResponse {
   return nil;
 }
 
 // NSConnection delegate method
-- (void)connection:(NSURLConnection*)connection didReceiveData:(NSData*)data {
+- (void)connection:(NSURLConnection*)inConnection didReceiveData:(NSData*)data {
   if (failed)
     return;
   
