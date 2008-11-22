@@ -197,8 +197,8 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
     pthread_cond_signal(&cond);
     pthread_mutex_unlock(&mutex);
   } else {
-    // self.isPlaying = YES;
-    // self.isPlaying = FALSE;
+    self.isPlaying = YES;
+    self.isPlaying = FALSE;
     finished = YES;
   }
 }
@@ -492,7 +492,7 @@ packetDescriptions:(AudioStreamPacketDescription*)packetDescriptions {
 	
 	
 	if (!started) {
-    // FIX: ??
+    [self retain];
 		err = AudioQueueStart(audioQueue, NULL);
 		
     if (err) {

@@ -104,6 +104,11 @@ void parseEXTINF
   return self;
 }
 
+- (void)dealloc {
+  [self setContents:nil];
+  [super dealloc];
+}
+
 + (NSArray *)parse:(NSString *)c {
   RNM3UParser *parser =
     [[[RNM3UParser alloc] initWithContents:c] autorelease];
@@ -112,7 +117,7 @@ void parseEXTINF
 }
 
 - (NSArray *)parse {
-  NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:1];
+  NSMutableArray *results = [[[NSMutableArray alloc] initWithCapacity:1] autorelease];
   
   NSArray *lines =
     [contents componentsSeparatedByCharactersInSet:
@@ -143,10 +148,10 @@ void parseEXTINF
         location = cleanLine;
         
         NSDictionary *entry = [NSDictionary dictionaryWithObjectsAndKeys:
-                               location, @"location",
-                               name, @"name",
-                               artist, @"artist",
-                               duration, @"duration"];
+                                location, @"location",
+                                name, @"name",
+                                artist, @"artist",
+                                duration, @"duration"];
         [results addObject:entry];
         
         // Cleanup
