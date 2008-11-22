@@ -16,6 +16,9 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* radio3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* radio3ViewController.m */; };
 		651606940ED883BC0031CDBE /* rowBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 651606930ED883BC0031CDBE /* rowBackground.png */; };
+		651606CA0ED8A2C00031CDBE /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 651606C90ED8A2C00031CDBE /* play.png */; };
+		651606CD0ED8A5D70031CDBE /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 651606CC0ED8A5D70031CDBE /* pause.png */; };
+		651606E00ED8AA690031CDBE /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 651606DF0ED8AA690031CDBE /* loading.png */; };
 		654B1E560ECDFDD500E28E7E /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
 		658687900ECF023100EB9D99 /* GTMIPhoneUnitTestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6586878C0ECF023100EB9D99 /* GTMIPhoneUnitTestDelegate.m */; };
 		658687910ECF023100EB9D99 /* GTMIPhoneUnitTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6586878D0ECF023100EB9D99 /* GTMIPhoneUnitTestMain.m */; };
@@ -47,6 +50,9 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* radio3_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = radio3_Prefix.pch; sourceTree = "<group>"; };
 		651606930ED883BC0031CDBE /* rowBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rowBackground.png; sourceTree = "<group>"; };
+		651606C90ED8A2C00031CDBE /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		651606CC0ED8A5D70031CDBE /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		651606DF0ED8AA690031CDBE /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
 		654B1E540ECDFDD500E28E7E /* RNM3UParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNM3UParser.h; sourceTree = "<group>"; };
 		654B1E550ECDFDD500E28E7E /* RNM3UParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNM3UParser.m; sourceTree = "<group>"; };
 		658687530ECEFB9100EB9D99 /* Unit tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unit tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +152,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				651606DF0ED8AA690031CDBE /* loading.png */,
+				651606CC0ED8A5D70031CDBE /* pause.png */,
+				651606C90ED8A2C00031CDBE /* play.png */,
 				651606930ED883BC0031CDBE /* rowBackground.png */,
 				A73C06690EC851E700A1B6F5 /* background.png */,
 				A73C06510EC8502800A1B6F5 /* soundiconmax.png */,
@@ -264,6 +273,9 @@
 				A73C066A0EC851E700A1B6F5 /* background.png in Resources */,
 				65AC95670ED4AEEF00ADD701 /* radios.plist in Resources */,
 				651606940ED883BC0031CDBE /* rowBackground.png in Resources */,
+				651606CA0ED8A2C00031CDBE /* play.png in Resources */,
+				651606CD0ED8A5D70031CDBE /* pause.png in Resources */,
+				651606E00ED8AA690031CDBE /* loading.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
