@@ -15,6 +15,7 @@
 		2899E5220DE3E06400AC0155 /* radio3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* radio3ViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* radio3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* radio3ViewController.m */; };
+		651606940ED883BC0031CDBE /* rowBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 651606930ED883BC0031CDBE /* rowBackground.png */; };
 		654B1E560ECDFDD500E28E7E /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
 		658687900ECF023100EB9D99 /* GTMIPhoneUnitTestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6586878C0ECF023100EB9D99 /* GTMIPhoneUnitTestDelegate.m */; };
 		658687910ECF023100EB9D99 /* GTMIPhoneUnitTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6586878D0ECF023100EB9D99 /* GTMIPhoneUnitTestMain.m */; };
@@ -45,6 +46,7 @@
 		28D7ACF70DDB3853001CB0EB /* radio3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = radio3ViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* radio3_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = radio3_Prefix.pch; sourceTree = "<group>"; };
+		651606930ED883BC0031CDBE /* rowBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rowBackground.png; sourceTree = "<group>"; };
 		654B1E540ECDFDD500E28E7E /* RNM3UParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNM3UParser.h; sourceTree = "<group>"; };
 		654B1E550ECDFDD500E28E7E /* RNM3UParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNM3UParser.m; sourceTree = "<group>"; };
 		658687530ECEFB9100EB9D99 /* Unit tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unit tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +146,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				651606930ED883BC0031CDBE /* rowBackground.png */,
 				A73C06690EC851E700A1B6F5 /* background.png */,
 				A73C06510EC8502800A1B6F5 /* soundiconmax.png */,
 				A73C06520EC8502800A1B6F5 /* soundiconmin.png */,
@@ -260,6 +263,7 @@
 				A73C06540EC8502800A1B6F5 /* soundiconmin.png in Resources */,
 				A73C066A0EC851E700A1B6F5 /* background.png in Resources */,
 				65AC95670ED4AEEF00ADD701 /* radios.plist in Resources */,
+				651606940ED883BC0031CDBE /* rowBackground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
