@@ -30,6 +30,8 @@
 		65AC95670ED4AEEF00ADD701 /* radios.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65AC95660ED4AEEF00ADD701 /* radios.plist */; };
 		65B0210B0EDB6428005AF1B6 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B0210A0EDB6428005AF1B6 /* info.png */; };
 		65D36A010ED9FD36009A548C /* altavoz.png in Resources */ = {isa = PBXBuildFile; fileRef = 65D36A000ED9FD36009A548C /* altavoz.png */; };
+		65E102F10EE06051009FA316 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E102F00EE06051009FA316 /* InfoView.xib */; };
+		65E1033A0EE069B3009FA316 /* RadiosView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E103390EE069B3009FA316 /* RadiosView.xib */; };
 		A72D13BD0EC7A06800CBB890 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A72D13BC0EC7A06800CBB890 /* Default.png */; };
 		A73C064E0EC84FE500A1B6F5 /* soundicon.png in Resources */ = {isa = PBXBuildFile; fileRef = A73C064D0EC84FE500A1B6F5 /* soundicon.png */; };
 		A73C06530EC8502800A1B6F5 /* soundiconmax.png in Resources */ = {isa = PBXBuildFile; fileRef = A73C06510EC8502800A1B6F5 /* soundiconmax.png */; };
@@ -74,6 +76,8 @@
 		65AC95660ED4AEEF00ADD701 /* radios.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = radios.plist; sourceTree = "<group>"; };
 		65B0210A0EDB6428005AF1B6 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		65D36A000ED9FD36009A548C /* altavoz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = altavoz.png; sourceTree = "<group>"; };
+		65E102F00EE06051009FA316 /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
+		65E103390EE069B3009FA316 /* RadiosView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadiosView.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A72D13BC0EC7A06800CBB890 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A73C064D0EC84FE500A1B6F5 /* soundicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundicon.png; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 				2899E5210DE3E06400AC0155 /* radio3ViewController.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
+				65E102F00EE06051009FA316 /* InfoView.xib */,
+				65E103390EE069B3009FA316 /* RadiosView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -292,6 +298,8 @@
 				65B0210B0EDB6428005AF1B6 /* info.png in Resources */,
 				6534D1710EDCA968008B1124 /* volume-thumb.png in Resources */,
 				6534D1720EDCA968008B1124 /* volume-track.png in Resources */,
+				65E102F10EE06051009FA316 /* InfoView.xib in Resources */,
+				65E1033A0EE069B3009FA316 /* RadiosView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
