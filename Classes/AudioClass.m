@@ -287,6 +287,7 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
 // NSConnection delegate method
 - (void)connection:(NSURLConnection *)inConnection
   didFailWithError:(NSError *)error {
+  self.failed = YES;
   [self stop];
 }
 
