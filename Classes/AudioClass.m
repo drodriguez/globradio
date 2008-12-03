@@ -136,8 +136,8 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
                                      &audioFileStream);
   
   if (err) {
-    // TODO: Warn the delegate?
     NSLog(@"AudioFileStreamOpen err %d", err);
+    // FIX: self.failed = true ?
     return;
   }
   
@@ -152,7 +152,6 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
     if (failed) {
       [self stop];
       
-      // TODO: Warn the delegate?
       break;
     }
   } while (!finished || isPlaying);
@@ -160,7 +159,7 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
   err = AudioFileStreamClose(audioFileStream);
   if (err) {
     NSLog(@"AudioFileStreamClose err %d", err);
-    // TODO: warn the delegate?
+    // FIX: self.failed = true ?
     return;
   }
   
@@ -168,7 +167,7 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
     err = AudioQueueDispose(audioQueue, true);
     if (err) {
       NSLog(@"AudioQueueDispose err %d", err);
-      // TODO: warn the delegate?
+      // FIX: self.failed = true ?
       return;
     }
   }
@@ -189,7 +188,7 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
 		OSStatus err = AudioQueueStop(audioQueue, true);
 		if (err) {
       NSLog(@"AudioQueueStop failed");
-      // TODO: warn the delegate?
+      // FIX: self.failed = true ?
       return;
     }
     
@@ -265,14 +264,14 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
     OSStatus err = AudioQueueFlush(audioQueue);
     if (err) {
       NSLog(@"AudioQueueFlush err %d", err);
-      // TODO: warn the delegate?
+      // FIX: self.failed = true ?
       return;
     }
     
     err = AudioQueueStop(audioQueue, false);
     if (err) {
       NSLog(@"AudioQueueStop err %d", err);
-      // TODO: warn the delegate?
+      // FIX: self.failed = true ?
       return;
     }
   } else if (!started) {
@@ -289,7 +288,6 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
 - (void)connection:(NSURLConnection *)inConnection
   didFailWithError:(NSError *)error {
   [self stop];
-  // TODO: warn the delegate?
 }
 
 
@@ -313,7 +311,6 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
 			if (err) {
         NSLog(@"get kAudioFileStreamProperty_DataFormat failed");
         self.failed = YES;
-        // TODO: warn the delegate?
         break;
       }
 			
@@ -327,7 +324,6 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
 			if (err) {
         NSLog(@"AudioQueueNewOutput err %d", err);
         self.failed = YES;
-        // TODO: warn the delegate?
         break;
       }
       
@@ -338,7 +334,6 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
       if (err) {
         NSLog(@"AudioQueueAddPropertyListener err %d", err);
         self.failed = YES;
-        // TODO: warn the delegate;
         break;
       }
 			
@@ -486,7 +481,6 @@ packetDescriptions:(AudioStreamPacketDescription*)packetDescriptions {
 	if (err) {
     NSLog(@"AudioQueueEnqueueBuffer failed %d", err);
     self.failed = YES;
-    // TODO: warn the delegate?
     return;
   }
 	
@@ -498,7 +492,6 @@ packetDescriptions:(AudioStreamPacketDescription*)packetDescriptions {
     if (err) {
       NSLog(@"AudioQueueStart failed");
       self.failed = YES;
-      // TODO: warn the delegate?
       return;
     }
     
