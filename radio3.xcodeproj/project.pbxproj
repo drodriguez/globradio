@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* radio3AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* radio3AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
-		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		2899E5220DE3E06400AC0155 /* radio3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* radio3ViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* radio3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* radio3ViewController.m */; };
@@ -22,7 +19,6 @@
 		6534D1710EDCA968008B1124 /* volume-thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 6534D16F0EDCA968008B1124 /* volume-thumb.png */; };
 		6534D1720EDCA968008B1124 /* volume-track.png in Resources */ = {isa = PBXBuildFile; fileRef = 6534D1700EDCA968008B1124 /* volume-track.png */; };
 		654B1E560ECDFDD500E28E7E /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
-		657D3A100EE55118005283BC /* RNLinkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 657D3A0F0EE55118005283BC /* RNLinkButton.m */; };
 		6581FAD10EE6CD9100441607 /* pause-hl.png in Resources */ = {isa = PBXBuildFile; fileRef = 6581FAD00EE6CD9100441607 /* pause-hl.png */; };
 		6581FB3A0EE73DF700441607 /* loading_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 6581FB360EE73DF700441607 /* loading_0.png */; };
 		6581FB3B0EE73DF700441607 /* loading_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6581FB370EE73DF700441607 /* loading_1.png */; };
@@ -34,25 +30,27 @@
 		658687A00ECF03A000EB9D99 /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
 		658687A30ECF040200EB9D99 /* RNM3UParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 658687A20ECF040200EB9D99 /* RNM3UParserTest.m */; };
 		65AC95670ED4AEEF00ADD701 /* radios.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65AC95660ED4AEEF00ADD701 /* radios.plist */; };
-		65B0210B0EDB6428005AF1B6 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B0210A0EDB6428005AF1B6 /* info.png */; };
+		65C452940EED3D77006AB1DD /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C452930EED3D77006AB1DD /* Reachability.m */; };
+		65C452B90EED473E006AB1DD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C452B80EED473E006AB1DD /* SystemConfiguration.framework */; };
 		65D36A010ED9FD36009A548C /* altavoz.png in Resources */ = {isa = PBXBuildFile; fileRef = 65D36A000ED9FD36009A548C /* altavoz.png */; };
 		65E102F10EE06051009FA316 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E102F00EE06051009FA316 /* InfoView.xib */; };
 		65E1033A0EE069B3009FA316 /* RadiosView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E103390EE069B3009FA316 /* RadiosView.xib */; };
 		A72D13BD0EC7A06800CBB890 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A72D13BC0EC7A06800CBB890 /* Default.png */; };
-		A73C06540EC8502800A1B6F5 /* soundiconmin.png in Resources */ = {isa = PBXBuildFile; fileRef = A73C06520EC8502800A1B6F5 /* soundiconmin.png */; };
 		A73C066A0EC851E700A1B6F5 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A73C06690EC851E700A1B6F5 /* background.png */; };
+		A756BCB60EE9497200BECFFA /* entl.plist in Resources */ = {isa = PBXBuildFile; fileRef = A756BCB50EE9497200BECFFA /* entl.plist */; };
 		A7A28D8B0EC7781700963966 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A28D8A0EC7781700963966 /* Icon.png */; };
+		A7E7611A0EE9C4BF00E2F2BE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761150EE9C4BF00E2F2BE /* AudioToolbox.framework */; };
+		A7E7611B0EE9C4BF00E2F2BE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761160EE9C4BF00E2F2BE /* CoreGraphics.framework */; };
+		A7E7611D0EE9C4BF00E2F2BE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761180EE9C4BF00E2F2BE /* Security.framework */; };
+		A7E7611E0EE9C4BF00E2F2BE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761190EE9C4BF00E2F2BE /* UIKit.framework */; };
+		A7E761730EE9C5F100E2F2BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761720EE9C5F100E2F2BE /* Foundation.framework */; };
 		A7EF8EB70EC6E85A004FE559 /* AudioClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* AudioClass.m */; };
-		A7EF924A0EC6EB25004FE559 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7EF92490EC6EB25004FE559 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* radio3AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = radio3AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* radio3AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = radio3AppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* radio3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = radio3.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1D6058910D05DD3D006BFB54 /* RNE Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RNE Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2899E5210DE3E06400AC0155 /* radio3ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = radio3ViewController.xib; sourceTree = "<group>"; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		28D7ACF60DDB3853001CB0EB /* radio3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = radio3ViewController.h; sourceTree = "<group>"; };
@@ -67,8 +65,6 @@
 		6534D1700EDCA968008B1124 /* volume-track.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "volume-track.png"; sourceTree = "<group>"; };
 		654B1E540ECDFDD500E28E7E /* RNM3UParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNM3UParser.h; sourceTree = "<group>"; };
 		654B1E550ECDFDD500E28E7E /* RNM3UParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNM3UParser.m; sourceTree = "<group>"; };
-		657D3A0E0EE55118005283BC /* RNLinkButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLinkButton.h; sourceTree = "<group>"; };
-		657D3A0F0EE55118005283BC /* RNLinkButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLinkButton.m; sourceTree = "<group>"; };
 		6581FAD00EE6CD9100441607 /* pause-hl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause-hl.png"; sourceTree = "<group>"; };
 		6581FB360EE73DF700441607 /* loading_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_0.png; sourceTree = "<group>"; };
 		6581FB370EE73DF700441607 /* loading_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_1.png; sourceTree = "<group>"; };
@@ -85,18 +81,24 @@
 		658687A10ECF040200EB9D99 /* RNM3UParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNM3UParserTest.h; path = Test/RNM3UParserTest.h; sourceTree = "<group>"; };
 		658687A20ECF040200EB9D99 /* RNM3UParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNM3UParserTest.m; path = Test/RNM3UParserTest.m; sourceTree = "<group>"; };
 		65AC95660ED4AEEF00ADD701 /* radios.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = radios.plist; sourceTree = "<group>"; };
-		65B0210A0EDB6428005AF1B6 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		65C452920EED3D77006AB1DD /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		65C452930EED3D77006AB1DD /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		65C452B80EED473E006AB1DD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		65D36A000ED9FD36009A548C /* altavoz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = altavoz.png; sourceTree = "<group>"; };
 		65E102F00EE06051009FA316 /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
 		65E103390EE069B3009FA316 /* RadiosView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadiosView.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A72D13BC0EC7A06800CBB890 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		A73C06520EC8502800A1B6F5 /* soundiconmin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundiconmin.png; sourceTree = "<group>"; };
 		A73C06690EC851E700A1B6F5 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		A756BCB50EE9497200BECFFA /* entl.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = entl.plist; sourceTree = "<group>"; };
 		A7A28D8A0EC7781700963966 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		A7E761150EE9C4BF00E2F2BE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A7E761160EE9C4BF00E2F2BE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A7E761180EE9C4BF00E2F2BE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A7E761190EE9C4BF00E2F2BE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A7E761720EE9C5F100E2F2BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A7EF8EB50EC6E85A004FE559 /* AudioClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioClass.h; sourceTree = "<group>"; };
 		A7EF8EB60EC6E85A004FE559 /* AudioClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioClass.m; sourceTree = "<group>"; };
-		A7EF92490EC6EB25004FE559 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +106,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
-				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
-				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
-				A7EF924A0EC6EB25004FE559 /* AudioToolbox.framework in Frameworks */,
+				A7E7611A0EE9C4BF00E2F2BE /* AudioToolbox.framework in Frameworks */,
+				A7E7611B0EE9C4BF00E2F2BE /* CoreGraphics.framework in Frameworks */,
+				A7E7611D0EE9C4BF00E2F2BE /* Security.framework in Frameworks */,
+				A7E7611E0EE9C4BF00E2F2BE /* UIKit.framework in Frameworks */,
+				A7E761730EE9C5F100E2F2BE /* Foundation.framework in Frameworks */,
+				65C452B90EED473E006AB1DD /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +128,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				65C452920EED3D77006AB1DD /* Reachability.h */,
+				65C452930EED3D77006AB1DD /* Reachability.m */,
 				654B1E540ECDFDD500E28E7E /* RNM3UParser.h */,
 				654B1E550ECDFDD500E28E7E /* RNM3UParser.m */,
 				1D3623240D0F684500981E51 /* radio3AppDelegate.h */,
@@ -132,8 +138,6 @@
 				28D7ACF70DDB3853001CB0EB /* radio3ViewController.m */,
 				A7EF8EB50EC6E85A004FE559 /* AudioClass.h */,
 				A7EF8EB60EC6E85A004FE559 /* AudioClass.m */,
-				657D3A0E0EE55118005283BC /* RNLinkButton.h */,
-				657D3A0F0EE55118005283BC /* RNLinkButton.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -141,7 +145,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* radio3.app */,
+				1D6058910D05DD3D006BFB54 /* RNE Radio.app */,
 				658687530ECEFB9100EB9D99 /* Unit tests.app */,
 			);
 			name = Products;
@@ -183,19 +187,18 @@
 				65255AD80EE574C100F4142C /* play-hl.png */,
 				6534D16F0EDCA968008B1124 /* volume-thumb.png */,
 				6534D1700EDCA968008B1124 /* volume-track.png */,
-				65B0210A0EDB6428005AF1B6 /* info.png */,
 				65D36A000ED9FD36009A548C /* altavoz.png */,
 				651606CC0ED8A5D70031CDBE /* pause.png */,
 				651606C90ED8A2C00031CDBE /* play.png */,
 				651606930ED883BC0031CDBE /* rowBackground.png */,
 				A73C06690EC851E700A1B6F5 /* background.png */,
-				A73C06520EC8502800A1B6F5 /* soundiconmin.png */,
 				A7A28D8A0EC7781700963966 /* Icon.png */,
 				2899E5210DE3E06400AC0155 /* radio3ViewController.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				65E102F00EE06051009FA316 /* InfoView.xib */,
 				65E103390EE069B3009FA316 /* RadiosView.xib */,
+				A756BCB50EE9497200BECFFA /* entl.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -203,11 +206,13 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				65C452B80EED473E006AB1DD /* SystemConfiguration.framework */,
+				A7E761720EE9C5F100E2F2BE /* Foundation.framework */,
+				A7E761150EE9C4BF00E2F2BE /* AudioToolbox.framework */,
+				A7E761160EE9C4BF00E2F2BE /* CoreGraphics.framework */,
+				A7E761180EE9C4BF00E2F2BE /* Security.framework */,
+				A7E761190EE9C4BF00E2F2BE /* UIKit.framework */,
 				A72D13BC0EC7A06800CBB890 /* Default.png */,
-				A7EF92490EC6EB25004FE559 /* AudioToolbox.framework */,
-				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
-				1D30AB110D05D00D00671497 /* Foundation.framework */,
-				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -251,7 +256,7 @@
 			);
 			name = radio3.app;
 			productName = radio3;
-			productReference = 1D6058910D05DD3D006BFB54 /* radio3.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* RNE Radio.app */;
 			productType = "com.apple.product-type.application";
 		};
 		658687520ECEFB9100EB9D99 /* Unit tests */ = {
@@ -299,14 +304,12 @@
 				2899E5220DE3E06400AC0155 /* radio3ViewController.xib in Resources */,
 				A7A28D8B0EC7781700963966 /* Icon.png in Resources */,
 				A72D13BD0EC7A06800CBB890 /* Default.png in Resources */,
-				A73C06540EC8502800A1B6F5 /* soundiconmin.png in Resources */,
 				A73C066A0EC851E700A1B6F5 /* background.png in Resources */,
 				65AC95670ED4AEEF00ADD701 /* radios.plist in Resources */,
 				651606940ED883BC0031CDBE /* rowBackground.png in Resources */,
 				651606CA0ED8A2C00031CDBE /* play.png in Resources */,
 				651606CD0ED8A5D70031CDBE /* pause.png in Resources */,
 				65D36A010ED9FD36009A548C /* altavoz.png in Resources */,
-				65B0210B0EDB6428005AF1B6 /* info.png in Resources */,
 				6534D1710EDCA968008B1124 /* volume-thumb.png in Resources */,
 				6534D1720EDCA968008B1124 /* volume-track.png in Resources */,
 				65E102F10EE06051009FA316 /* InfoView.xib in Resources */,
@@ -317,6 +320,7 @@
 				6581FB3B0EE73DF700441607 /* loading_1.png in Resources */,
 				6581FB3C0EE73DF700441607 /* loading_2.png in Resources */,
 				6581FB3D0EE73DF700441607 /* loading_3.png in Resources */,
+				A756BCB60EE9497200BECFFA /* entl.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +360,7 @@
 				28D7ACF80DDB3853001CB0EB /* radio3ViewController.m in Sources */,
 				A7EF8EB70EC6E85A004FE559 /* AudioClass.m in Sources */,
 				654B1E560ECDFDD500E28E7E /* RNM3UParser.m in Sources */,
-				657D3A100EE55118005283BC /* RNLinkButton.m in Sources */,
+				65C452940EED3D77006AB1DD /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,7 +390,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radio3_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				PRODUCT_NAME = radio3;
+				PRODUCT_NAME = "RNE Radio";
 			};
 			name = Debug;
 		};
@@ -399,7 +403,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radio3_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				PRODUCT_NAME = radio3;
+				PRODUCT_NAME = "RNE Radio";
 			};
 			name = Release;
 		};
@@ -454,6 +458,67 @@
 			};
 			name = Release;
 		};
+		A751413C0EE899880059A754 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Steape LTD";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				PROVISIONING_PROFILE = "CBED7EBA-7757-4D96-BAC2-763243744394";
+				SDKROOT = iphoneos2.2;
+			};
+			name = Beta;
+		};
+		A751413D0EE899880059A754 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = entl.plist;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Steape LTD";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Steape LTD";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Steape LTD";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = radio3_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_NAME = "RNE Radio";
+				PROVISIONING_PROFILE = "928A56F4-6123-48DA-8C61-CAD296A196FD";
+				"PROVISIONING_PROFILE[sdk=*]" = "928A56F4-6123-48DA-8C61-CAD296A196FD";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "928A56F4-6123-48DA-8C61-CAD296A196FD";
+			};
+			name = Beta;
+		};
+		A751413E0EE899880059A754 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				GCC_PREPROCESSOR_DEFINITIONS = TESTING;
+				INFOPLIST_FILE = "Unit tests-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Unit tests";
+				SDKROOT = iphoneos2.1;
+				ZERO_LINK = NO;
+			};
+			name = Beta;
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -465,7 +530,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos2.1;
+				PROVISIONING_PROFILE = DefaultProfileUuid;
+				SDKROOT = iphoneos2.2;
 			};
 			name = Debug;
 		};
@@ -479,7 +545,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos2.1;
+				PROVISIONING_PROFILE = DefaultProfileUuid;
+				SDKROOT = iphoneos2.2;
 			};
 			name = Release;
 		};
@@ -491,6 +558,7 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+				A751413D0EE899880059A754 /* Beta */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -500,6 +568,7 @@
 			buildConfigurations = (
 				658687560ECEFB9200EB9D99 /* Debug */,
 				658687570ECEFB9200EB9D99 /* Release */,
+				A751413E0EE899880059A754 /* Beta */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -509,6 +578,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				A751413C0EE899880059A754 /* Beta */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
