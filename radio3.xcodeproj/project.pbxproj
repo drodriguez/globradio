@@ -19,6 +19,7 @@
 		6534D1710EDCA968008B1124 /* volume-thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 6534D16F0EDCA968008B1124 /* volume-thumb.png */; };
 		6534D1720EDCA968008B1124 /* volume-track.png in Resources */ = {isa = PBXBuildFile; fileRef = 6534D1700EDCA968008B1124 /* volume-track.png */; };
 		654B1E560ECDFDD500E28E7E /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
+		656A605E0EF196EF004CE686 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 656A605C0EF196DF004CE686 /* iTunesArtwork.png */; };
 		6576DD330EEF2992004370D6 /* altavoz-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 6576DD320EEF2992004370D6 /* altavoz-on.png */; };
 		6581FAD10EE6CD9100441607 /* pause-hl.png in Resources */ = {isa = PBXBuildFile; fileRef = 6581FAD00EE6CD9100441607 /* pause-hl.png */; };
 		6581FB3A0EE73DF700441607 /* loading_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 6581FB360EE73DF700441607 /* loading_0.png */; };
@@ -66,6 +67,7 @@
 		6534D1700EDCA968008B1124 /* volume-track.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "volume-track.png"; sourceTree = "<group>"; };
 		654B1E540ECDFDD500E28E7E /* RNM3UParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNM3UParser.h; sourceTree = "<group>"; };
 		654B1E550ECDFDD500E28E7E /* RNM3UParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNM3UParser.m; sourceTree = "<group>"; };
+		656A605C0EF196DF004CE686 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		6576DD320EEF2992004370D6 /* altavoz-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "altavoz-on.png"; sourceTree = "<group>"; };
 		6581FAD00EE6CD9100441607 /* pause-hl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause-hl.png"; sourceTree = "<group>"; };
 		6581FB360EE73DF700441607 /* loading_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_0.png; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				656A605C0EF196DF004CE686 /* iTunesArtwork.png */,
 				6576DD320EEF2992004370D6 /* altavoz-on.png */,
 				6581FB360EE73DF700441607 /* loading_0.png */,
 				6581FB370EE73DF700441607 /* loading_1.png */,
@@ -325,6 +328,7 @@
 				6581FB3D0EE73DF700441607 /* loading_3.png in Resources */,
 				A756BCB60EE9497200BECFFA /* entl.plist in Resources */,
 				6576DD330EEF2992004370D6 /* altavoz-on.png in Resources */,
+				656A605E0EF196EF004CE686 /* iTunesArtwork.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +415,116 @@
 			};
 			name = Release;
 		};
+		656A60760EF197EC004CE686 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				PROVISIONING_PROFILE = DefaultProfileUuid;
+				SDKROOT = iphoneos2.2;
+			};
+			name = Beta;
+		};
+		656A60770EF197EC004CE686 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = entl.plist;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Rodríguez Troitiño";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = radio3_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_NAME = "RNE Radio";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A515ACC0-3059-4B6D-AEEC-47CA1197575A";
+			};
+			name = Beta;
+		};
+		656A60780EF197EC004CE686 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				GCC_PREPROCESSOR_DEFINITIONS = TESTING;
+				INFOPLIST_FILE = "Unit tests-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Unit tests";
+				SDKROOT = iphoneos2.1;
+				ZERO_LINK = NO;
+			};
+			name = Beta;
+		};
+		656A60930EF19BCC004CE686 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos2.1]" = "";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				PROVISIONING_PROFILE = DefaultProfileUuid;
+				SDKROOT = iphoneos2.2;
+			};
+			name = Distribution;
+		};
+		656A60940EF19BCC004CE686 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Rodríguez Troitiño";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = radio3_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_NAME = "RNE Radio";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A1A47762-F15A-41A9-9ED0-493F64EEFACA";
+			};
+			name = Distribution;
+		};
+		656A60950EF19BCC004CE686 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				GCC_PREPROCESSOR_DEFINITIONS = TESTING;
+				INFOPLIST_FILE = "Unit tests-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Unit tests";
+				SDKROOT = iphoneos2.1;
+				ZERO_LINK = NO;
+			};
+			name = Distribution;
+		};
 		658687560ECEFB9200EB9D99 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -462,67 +576,6 @@
 			};
 			name = Release;
 		};
-		A751413C0EE899880059A754 /* Beta */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Steape LTD";
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
-				PROVISIONING_PROFILE = "CBED7EBA-7757-4D96-BAC2-763243744394";
-				SDKROOT = iphoneos2.2;
-			};
-			name = Beta;
-		};
-		A751413D0EE899880059A754 /* Beta */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_ENTITLEMENTS = entl.plist;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Steape LTD";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Steape LTD";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Steape LTD";
-				COPY_PHASE_STRIP = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = radio3_Prefix.pch;
-				INFOPLIST_FILE = Info.plist;
-				PRODUCT_NAME = "RNE Radio";
-				PROVISIONING_PROFILE = "928A56F4-6123-48DA-8C61-CAD296A196FD";
-				"PROVISIONING_PROFILE[sdk=*]" = "928A56F4-6123-48DA-8C61-CAD296A196FD";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "928A56F4-6123-48DA-8C61-CAD296A196FD";
-			};
-			name = Beta;
-		};
-		A751413E0EE899880059A754 /* Beta */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
-				GCC_PREPROCESSOR_DEFINITIONS = TESTING;
-				INFOPLIST_FILE = "Unit tests-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					UIKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = "Unit tests";
-				SDKROOT = iphoneos2.1;
-				ZERO_LINK = NO;
-			};
-			name = Beta;
-		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -562,7 +615,8 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
-				A751413D0EE899880059A754 /* Beta */,
+				656A60940EF19BCC004CE686 /* Distribution */,
+				656A60770EF197EC004CE686 /* Beta */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -572,7 +626,8 @@
 			buildConfigurations = (
 				658687560ECEFB9200EB9D99 /* Debug */,
 				658687570ECEFB9200EB9D99 /* Release */,
-				A751413E0EE899880059A754 /* Beta */,
+				656A60950EF19BCC004CE686 /* Distribution */,
+				656A60780EF197EC004CE686 /* Beta */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -582,7 +637,8 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
-				A751413C0EE899880059A754 /* Beta */,
+				656A60930EF19BCC004CE686 /* Distribution */,
+				656A60760EF197EC004CE686 /* Beta */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
