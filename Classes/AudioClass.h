@@ -37,10 +37,13 @@
   pthread_cond_t cond;
   
   NSThread *controlThread;
+  
+  NSError *error;
 }
 
 @property(nonatomic, assign, readonly) BOOL isPlaying;
 @property(nonatomic, assign, readonly) BOOL failed;
+@property(nonatomic, retain, readonly) NSError *error;
 
 // designated constructor
 - (id)initWithURL:(NSURL *)newUrl;

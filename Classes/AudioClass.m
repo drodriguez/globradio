@@ -5,6 +5,7 @@
 
 @property(nonatomic, assign, readwrite) BOOL isPlaying;
 @property(nonatomic, assign, readwrite) BOOL failed;
+@property(nonatomic, retain, readwrite) NSError *error;
 
 - (void)startPrivate;
 
@@ -67,7 +68,7 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
 
 @implementation Player
 
-@synthesize isPlaying, failed;
+@synthesize isPlaying, failed, error;
 
 - (id)initWithString:(NSString *)urlString {
   return [self initWithURL:[NSURL URLWithString:urlString]];
@@ -137,11 +138,16 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
   
   if (err) {
     NSLog(@"AudioFileStreamOpen err %d", err);
-    // FIX: self.failed = true ?
+    self.error = [NSError errorWithDomain:NSOSStatusErrorDomain
+                                     code:err
+                                 userInfo:nil];
+    self.failed = YES;
     return;
   }
   
-  NSURLRequest *request = [NSURLRequest requestWithURL:url];
+  NSURLRequest *request = [NSURLRequest requestWithURL:url
+                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                          timeoutInterval:10];
   connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
   
   do {
@@ -159,6 +165,9 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
   err = AudioFileStreamClose(audioFileStream);
   if (err) {
     NSLog(@"AudioFileStreamClose err %d", err);
+    self.error = [NSError errorWithDomain:NSOSStatusErrorDomain
+                                     code:err
+                                 userInfo:nil];
     // FIX: self.failed = true ?
     return;
   }
@@ -167,6 +176,9 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
     err = AudioQueueDispose(audioQueue, true);
     if (err) {
       NSLog(@"AudioQueueDispose err %d", err);
+      self.error = [NSError errorWithDomain:NSOSStatusErrorDomain
+                                       code:err
+                                   userInfo:nil];
       // FIX: self.failed = true ?
       return;
     }
@@ -188,6 +200,9 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
 		OSStatus err = AudioQueueStop(audioQueue, true);
 		if (err) {
       NSLog(@"AudioQueueStop failed");
+      self.error = [NSError errorWithDomain:NSOSStatusErrorDomain
+                                       code:err
+                                   userInfo:nil];
       // FIX: self.failed = true ?
       return;
     }
@@ -235,6 +250,9 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
                                                kAudioFileStreamParseFlag_Discontinuity);
       if (err) {
         NSLog(@"AudioFileStreamParseBytes err %d", err);
+        self.error = [NSError errorWithDomain:NSOSStatusErrorDomain
+                                         code:err
+                                     userInfo:nil];
         self.failed = YES;
       }
     } else {
@@ -244,6 +262,9 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
                                                0);
       if (err) {
         NSLog(@"AudioFileStreamParseBytes err %d", err);
+        self.error = [NSError errorWithDomain:NSOSStatusErrorDomain
+                                         code:err
+                                     userInfo:nil];
         self.failed = YES;
       }
     }
@@ -264,6 +285,9 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
     OSStatus err = AudioQueueFlush(audioQueue);
     if (err) {
       NSLog(@"AudioQueueFlush err %d", err);
+      self.error = [NSError errorWithDomain:NSOSStatusErrorDomain
+                                       code:err
+                                   userInfo:nil];
       // FIX: self.failed = true ?
       return;
     }
@@ -271,6 +295,9 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
     err = AudioQueueStop(audioQueue, false);
     if (err) {
       NSLog(@"AudioQueueStop err %d", err);
+      self.error = [NSError errorWithDomain:NSOSStatusErrorDomain
+                                       code:err
+                                   userInfo:nil];
       // FIX: self.failed = true ?
       return;
     }
@@ -286,7 +313,9 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
 
 // NSConnection delegate method
 - (void)connection:(NSURLConnection *)inConnection
-  didFailWithError:(NSError *)error {
+  didFailWithError:(NSError *)inError {
+  NSLog(@"Connection did fail error %@", inError.localizedDescription);
+  self.error = inError;
   self.failed = YES;
   [self stop];
 }
@@ -311,6 +340,9 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
                                        &asbd);
 			if (err) {
         NSLog(@"get kAudioFileStreamProperty_DataFormat failed");
+        self.error = [NSError errorWithDomain:NSOSStatusErrorDomain
+                                         code:err
+                                     userInfo:nil];
         self.failed = YES;
         break;
       }
@@ -324,6 +356,9 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
                                 &audioQueue);
 			if (err) {
         NSLog(@"AudioQueueNewOutput err %d", err);
+        self.error = [NSError errorWithDomain:NSOSStatusErrorDomain
+                                         code:err
+                                     userInfo:nil];
         self.failed = YES;
         break;
       }
@@ -334,6 +369,9 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
                                           self);
       if (err) {
         NSLog(@"AudioQueueAddPropertyListener err %d", err);
+        self.error = [NSError errorWithDomain:NSOSStatusErrorDomain
+                                         code:err
+                                     userInfo:nil];
         self.failed = YES;
         break;
       }
@@ -345,6 +383,9 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
         
         if (err) {
           NSLog(@"AudioQueueAllocateBuffer err %d", err);
+          self.error = [NSError errorWithDomain:NSOSStatusErrorDomain
+                                           code:err
+                                       userInfo:nil];
           self.failed = YES;
           break; // FIX: break for or break case?
         }
@@ -481,6 +522,9 @@ packetDescriptions:(AudioStreamPacketDescription*)packetDescriptions {
   
 	if (err) {
     NSLog(@"AudioQueueEnqueueBuffer failed %d", err);
+    self.error = [NSError errorWithDomain:NSOSStatusErrorDomain
+                                     code:err
+                                 userInfo:nil];
     self.failed = YES;
     return;
   }
@@ -492,6 +536,9 @@ packetDescriptions:(AudioStreamPacketDescription*)packetDescriptions {
 		
     if (err) {
       NSLog(@"AudioQueueStart failed");
+      self.error = [NSError errorWithDomain:NSOSStatusErrorDomain
+                                       code:err
+                                   userInfo:nil];
       self.failed = YES;
       return;
     }
