@@ -147,7 +147,7 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
   
   NSURLRequest *request = [NSURLRequest requestWithURL:url
                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                          timeoutInterval:10];
+                                          timeoutInterval:30];
   connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
   
   do {
@@ -583,6 +583,7 @@ packetDescriptions:(AudioStreamPacketDescription*)packetDescriptions {
 }
 
 - (void)isRunning {
+  NSLog(@"isRunning callback invoked");
   self.isPlaying = !self.isPlaying;
   
   if (!isPlaying) {
