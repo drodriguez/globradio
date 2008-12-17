@@ -67,6 +67,7 @@
 		6534D1700EDCA968008B1124 /* volume-track.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "volume-track.png"; sourceTree = "<group>"; };
 		654B1E540ECDFDD500E28E7E /* RNM3UParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNM3UParser.h; sourceTree = "<group>"; };
 		654B1E550ECDFDD500E28E7E /* RNM3UParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNM3UParser.m; sourceTree = "<group>"; };
+		6560FA1B0EF7B3EF007809DB /* update_build_number.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = update_build_number.rb; path = Scripts/update_build_number.rb; sourceTree = "<group>"; };
 		656A605C0EF196DF004CE686 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		6576DD320EEF2992004370D6 /* altavoz-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "altavoz-on.png"; sourceTree = "<group>"; };
 		6581FAD00EE6CD9100441607 /* pause-hl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause-hl.png"; sourceTree = "<group>"; };
@@ -158,6 +159,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				6560FA1A0EF7B3BF007809DB /* Scripts */,
 				6586879F0ECF033900EB9D99 /* Test */,
 				658687710ECEFCC300EB9D99 /* GTM */,
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -223,6 +225,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6560FA1A0EF7B3BF007809DB /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				6560FA1B0EF7B3EF007809DB /* update_build_number.rb */,
+			);
+			name = Scripts;
+			sourceTree = "<group>";
+		};
 		658687710ECEFCC300EB9D99 /* GTM */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +262,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "RNERadio.app" */;
 			buildPhases = (
+				656354910EF9472C00AD52AE /* Update build number */,
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
@@ -342,6 +353,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		656354910EF9472C00AD52AE /* Update build number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Update build number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "PATH=$PATH:/opt/local/bin\n\n/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/${INFOPLIST_FILE}\n";
+			showEnvVarsInLog = 0;
+		};
 		658687630ECEFC0700EB9D99 /* Run Unit Tests */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
