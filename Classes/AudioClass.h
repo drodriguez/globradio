@@ -62,12 +62,4 @@
 
 @end
 
-@protocol PlayerDelegate<NSObject>
-
- @optional
-
-- (void)playerDidEstablishConnection:(Player *)player;
-
-@end
-
 

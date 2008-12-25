@@ -249,7 +249,7 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
                                                [data bytes],
                                                kAudioFileStreamParseFlag_Discontinuity);
       if (err) {
-        RNLog(@"AudioFileStreamParseBytes err %d", err);
+        RNLog(@"AudioFileStreamParseBytes 1 err %d", err);
         self.error = [NSError errorWithDomain:NSOSStatusErrorDomain
                                          code:err
                                      userInfo:nil];
@@ -261,7 +261,7 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
                                                [data bytes],
                                                0);
       if (err) {
-        RNLog(@"AudioFileStreamParseBytes err %d", err);
+        RNLog(@"AudioFileStreamParseBytes 2 err %d", err);
         self.error = [NSError errorWithDomain:NSOSStatusErrorDomain
                                          code:err
                                      userInfo:nil];
