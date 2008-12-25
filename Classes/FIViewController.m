@@ -205,7 +205,7 @@ NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
 
 - (void)viewDidLoad {
   MPVolumeView *volumeView =
-    [[MPVolumeView alloc] initWithFrame:volumeViewHolder.bounds];
+    [[[MPVolumeView alloc] initWithFrame:volumeViewHolder.bounds] autorelease];
   [volumeView sizeToFit];
   [volumeViewHolder addSubview:volumeView];
   
