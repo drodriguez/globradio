@@ -17,6 +17,7 @@
 @interface Player : NSObject
 {
  @private
+  AudioFileTypeID audioHint;
 	AudioFileStreamID audioFileStream;
 	AudioQueueRef audioQueue;
 	AudioQueueBufferRef audioQueueBuffer[kNumAQBufs];
@@ -54,9 +55,13 @@
 @property(nonatomic, retain, readonly) NSError *error;
 
 // designated constructor
+- (id)initWithURL:(NSURL *)newUrl audioTypeHint:(AudioFileTypeID)newAudioHint;
+
 - (id)initWithURL:(NSURL *)newUrl;
 
 - (id)initWithString:(NSString *)urlString;
+
+- (id)initWithString:(NSString *)urlString audioTypeHint:(AudioFileTypeID)newAudioHint;
 
 - (void)start;
 

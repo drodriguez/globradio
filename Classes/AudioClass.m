@@ -79,13 +79,22 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
 @synthesize isPlaying, failed, error;
 
 - (id)initWithString:(NSString *)urlString {
-  return [self initWithURL:[NSURL URLWithString:urlString]];
+  return [self initWithURL:[NSURL URLWithString:urlString] audioTypeHint:0];
+}
+
+- (id)initWithString:(NSString *)urlString audioTypeHint:(AudioFileTypeID)newAudioHint {
+  return [self initWithURL:[NSURL URLWithString:urlString] audioTypeHint:newAudioHint];
 }
 
 - (id)initWithURL:(NSURL *)newUrl {
+  return [self initWithURL:newUrl audioTypeHint:0];
+}
+
+- (id)initWithURL:(NSURL *)newUrl audioTypeHint:(AudioFileTypeID)newAudioHint {
 	self = [super init];
   if (self != nil) {
     url = [newUrl retain];
+    audioHint = newAudioHint;
   }
   
   return self;
@@ -97,6 +106,39 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
 	[super dealloc];
 }
 
+- (void)guessAudioFormat {
+  // If user have set an audio hint, do not guess
+  if (audioHint != 0) return;
+  
+  NSString *fileExtension = [[url path] pathExtension];
+  
+  if ([fileExtension compare:@"mp3"
+                     options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+    audioHint = kAudioFileMP3Type;
+  } else if ([fileExtension compare:@"wav"
+                            options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+    audioHint = kAudioFileWAVEType;
+  } else if ([fileExtension compare:@"aifc"
+                            options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+    audioHint = kAudioFileAIFCType;
+  } else if ([fileExtension compare:@"aiff"
+                            options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+    audioHint = kAudioFileAIFFType;
+  } else if ([fileExtension compare:@"m4a"
+                            options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+    audioHint = kAudioFileM4AType;
+  } else if ([fileExtension compare:@"mp4"
+                            options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+    audioHint = kAudioFileMPEG4Type;
+  } else if ([fileExtension compare:@"caf"
+                            options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+    audioHint = kAudioFileCAFType;
+  } else if ([fileExtension compare:@"aac"
+                            options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+    audioHint = kAudioFileAAC_ADTSType;
+  }
+}
+
 - (void)start {
   [NSThread detachNewThreadSelector:@selector(startPrivate)
                            toTarget:self
@@ -106,34 +148,7 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
 - (void)startPrivate {
   NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
   
-  AudioFileTypeID fileTypeHint = 0;
-  NSString *fileExtension = [[url path] pathExtension];
-  
-  if ([fileExtension compare:@"mp3"
-                     options:NSCaseInsensitiveSearch] == NSOrderedSame) {
-    fileTypeHint = kAudioFileMP3Type;
-  } else if ([fileExtension compare:@"wav"
-                            options:NSCaseInsensitiveSearch] == NSOrderedSame) {
-    fileTypeHint = kAudioFileWAVEType;
-  } else if ([fileExtension compare:@"aifc"
-                            options:NSCaseInsensitiveSearch] == NSOrderedSame) {
-    fileTypeHint = kAudioFileAIFCType;
-  } else if ([fileExtension compare:@"aiff"
-                            options:NSCaseInsensitiveSearch] == NSOrderedSame) {
-    fileTypeHint = kAudioFileAIFFType;
-  } else if ([fileExtension compare:@"m4a"
-                            options:NSCaseInsensitiveSearch] == NSOrderedSame) {
-    fileTypeHint = kAudioFileM4AType;
-  } else if ([fileExtension compare:@"mp4"
-                            options:NSCaseInsensitiveSearch] == NSOrderedSame) {
-    fileTypeHint = kAudioFileMPEG4Type;
-  } else if ([fileExtension compare:@"caf"
-                            options:NSCaseInsensitiveSearch] == NSOrderedSame) {
-    fileTypeHint = kAudioFileCAFType;
-  } else if ([fileExtension compare:@"aac"
-                            options:NSCaseInsensitiveSearch] == NSOrderedSame) {
-    fileTypeHint = kAudioFileAAC_ADTSType;
-  }
+  [self guessAudioFormat];
   
   pthread_mutex_init(&mutex, NULL);
   pthread_cond_init(&cond, NULL);
@@ -141,7 +156,7 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
   OSStatus err = AudioFileStreamOpen(self,
                                      MyPropertyListenerProc,
                                      MyPacketsProc,
-                                     fileTypeHint,
+                                     audioHint,
                                      &audioFileStream);
   
   if (err) {
