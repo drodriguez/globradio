@@ -20,6 +20,23 @@
 		6534D1720EDCA968008B1124 /* volume-track.png in Resources */ = {isa = PBXBuildFile; fileRef = 6534D1700EDCA968008B1124 /* volume-track.png */; };
 		654B1E560ECDFDD500E28E7E /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
 		656A605E0EF196EF004CE686 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 656A605C0EF196DF004CE686 /* iTunesArtwork */; };
+		656BFC380F03A4FD006A3F15 /* FIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 656BFC370F03A4FD006A3F15 /* FIAppDelegate.m */; };
+		656BFC440F03A80E006A3F15 /* FIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656BFC430F03A80E006A3F15 /* FIViewController.m */; };
+		656BFC4B0F03B6E0006A3F15 /* AudioClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* AudioClass.m */; };
+		656BFC4C0F03B6E3006A3F15 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C452930EED3D77006AB1DD /* Reachability.m */; };
+		656BFC4D0F03B6E6006A3F15 /* RNFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */; };
+		656BFC4E0F03B6F5006A3F15 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761150EE9C4BF00E2F2BE /* AudioToolbox.framework */; };
+		656BFC4F0F03B6F6006A3F15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761160EE9C4BF00E2F2BE /* CoreGraphics.framework */; };
+		656BFC500F03B6F7006A3F15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761720EE9C5F100E2F2BE /* Foundation.framework */; };
+		656BFC520F03B701006A3F15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761190EE9C4BF00E2F2BE /* UIKit.framework */; };
+		656BFC540F03B724006A3F15 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		656BFC550F03B728006A3F15 /* entl.plist in Resources */ = {isa = PBXBuildFile; fileRef = A756BCB50EE9497200BECFFA /* entl.plist */; };
+		656BFC700F03B76F006A3F15 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 656BFC6E0F03B76F006A3F15 /* Icon.png */; };
+		656BFC710F03B76F006A3F15 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 656BFC6F0F03B76F006A3F15 /* iTunesArtwork */; };
+		656BFC740F03B7F7006A3F15 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 656BFC730F03B7F7006A3F15 /* MainWindow.xib */; };
+		656BFC780F03B897006A3F15 /* FIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 656BFC770F03B897006A3F15 /* FIViewController.xib */; };
+		656BFC840F03DEA4006A3F15 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 656BFC830F03DEA4006A3F15 /* MediaPlayer.framework */; };
+		656BFC900F03DFD6006A3F15 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C452B80EED473E006AB1DD /* SystemConfiguration.framework */; };
 		6576DD330EEF2992004370D6 /* altavoz-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 6576DD320EEF2992004370D6 /* altavoz-on.png */; };
 		6581FAD10EE6CD9100441607 /* pause-hl.png in Resources */ = {isa = PBXBuildFile; fileRef = 6581FAD00EE6CD9100441607 /* pause-hl.png */; };
 		6581FB3A0EE73DF700441607 /* loading_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 6581FB360EE73DF700441607 /* loading_0.png */; };
@@ -70,6 +87,15 @@
 		654B1E550ECDFDD500E28E7E /* RNM3UParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNM3UParser.m; sourceTree = "<group>"; };
 		6560FA1B0EF7B3EF007809DB /* update_build_number.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = update_build_number.rb; path = Scripts/update_build_number.rb; sourceTree = "<group>"; };
 		656A605C0EF196DF004CE686 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/RNERadio/iTunesArtwork; sourceTree = "<group>"; };
+		656BFC360F03A4FD006A3F15 /* FIAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIAppDelegate.h; sourceTree = "<group>"; };
+		656BFC370F03A4FD006A3F15 /* FIAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIAppDelegate.m; sourceTree = "<group>"; };
+		656BFC420F03A80E006A3F15 /* FIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIViewController.h; sourceTree = "<group>"; };
+		656BFC430F03A80E006A3F15 /* FIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIViewController.m; sourceTree = "<group>"; };
+		656BFC6E0F03B76F006A3F15 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/FIFMRadio/Icon.png; sourceTree = "<group>"; };
+		656BFC6F0F03B76F006A3F15 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/FIFMRadio/iTunesArtwork; sourceTree = "<group>"; };
+		656BFC730F03B7F7006A3F15 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = Resources/FIFMRadio/MainWindow.xib; sourceTree = "<group>"; };
+		656BFC770F03B897006A3F15 /* FIViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FIViewController.xib; path = Resources/FIFMRadio/FIViewController.xib; sourceTree = "<group>"; };
+		656BFC830F03DEA4006A3F15 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		6576DD320EEF2992004370D6 /* altavoz-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "altavoz-on.png"; path = "Resources/RNERadio/altavoz-on.png"; sourceTree = "<group>"; };
 		6581FAD00EE6CD9100441607 /* pause-hl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pause-hl.png"; path = "Resources/RNERadio/pause-hl.png"; sourceTree = "<group>"; };
 		6581FB360EE73DF700441607 /* loading_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_0.png; path = Resources/RNERadio/loading_0.png; sourceTree = "<group>"; };
@@ -129,6 +155,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				656BFC4E0F03B6F5006A3F15 /* AudioToolbox.framework in Frameworks */,
+				656BFC4F0F03B6F6006A3F15 /* CoreGraphics.framework in Frameworks */,
+				656BFC500F03B6F7006A3F15 /* Foundation.framework in Frameworks */,
+				656BFC520F03B701006A3F15 /* UIKit.framework in Frameworks */,
+				656BFC840F03DEA4006A3F15 /* MediaPlayer.framework in Frameworks */,
+				656BFC900F03DFD6006A3F15 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,14 +177,12 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				656BFC350F03A4C4006A3F15 /* FIFMRadio */,
 				65C452920EED3D77006AB1DD /* Reachability.h */,
 				65C452930EED3D77006AB1DD /* Reachability.m */,
 				654B1E540ECDFDD500E28E7E /* RNM3UParser.h */,
 				654B1E550ECDFDD500E28E7E /* RNM3UParser.m */,
-				1D3623240D0F684500981E51 /* radio3AppDelegate.h */,
-				1D3623250D0F684500981E51 /* radio3AppDelegate.m */,
-				28D7ACF60DDB3853001CB0EB /* radio3ViewController.h */,
-				28D7ACF70DDB3853001CB0EB /* radio3ViewController.m */,
+				656BFC340F03A4B8006A3F15 /* RNERadio */,
 				A7EF8EB50EC6E85A004FE559 /* AudioClass.h */,
 				A7EF8EB60EC6E85A004FE559 /* AudioClass.m */,
 				65FD71850EF9AC4600C6FBD6 /* RNFileLogger.h */,
@@ -209,6 +239,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				656BFC830F03DEA4006A3F15 /* MediaPlayer.framework */,
 				65C452B80EED473E006AB1DD /* SystemConfiguration.framework */,
 				A7E761720EE9C5F100E2F2BE /* Foundation.framework */,
 				A7E761150EE9C4BF00E2F2BE /* AudioToolbox.framework */,
@@ -225,6 +256,28 @@
 				6560FA1B0EF7B3EF007809DB /* update_build_number.rb */,
 			);
 			name = Scripts;
+			sourceTree = "<group>";
+		};
+		656BFC340F03A4B8006A3F15 /* RNERadio */ = {
+			isa = PBXGroup;
+			children = (
+				1D3623240D0F684500981E51 /* radio3AppDelegate.h */,
+				1D3623250D0F684500981E51 /* radio3AppDelegate.m */,
+				28D7ACF60DDB3853001CB0EB /* radio3ViewController.h */,
+				28D7ACF70DDB3853001CB0EB /* radio3ViewController.m */,
+			);
+			name = RNERadio;
+			sourceTree = "<group>";
+		};
+		656BFC350F03A4C4006A3F15 /* FIFMRadio */ = {
+			isa = PBXGroup;
+			children = (
+				656BFC360F03A4FD006A3F15 /* FIAppDelegate.h */,
+				656BFC370F03A4FD006A3F15 /* FIAppDelegate.m */,
+				656BFC420F03A80E006A3F15 /* FIViewController.h */,
+				656BFC430F03A80E006A3F15 /* FIViewController.m */,
+			);
+			name = FIFMRadio;
 			sourceTree = "<group>";
 		};
 		6582EC6E0F029E7500E7051A /* RNERadio */ = {
@@ -260,7 +313,11 @@
 		6582EC6F0F029E9C00E7051A /* FIFMRadio */ = {
 			isa = PBXGroup;
 			children = (
+				656BFC6E0F03B76F006A3F15 /* Icon.png */,
+				656BFC6F0F03B76F006A3F15 /* iTunesArtwork */,
 				6582EC640F029C9200E7051A /* RadioFIFM-Info.plist */,
+				656BFC730F03B7F7006A3F15 /* MainWindow.xib */,
+				656BFC770F03B897006A3F15 /* FIViewController.xib */,
 			);
 			name = FIFMRadio;
 			sourceTree = "<group>";
@@ -398,6 +455,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				656BFC550F03B728006A3F15 /* entl.plist in Resources */,
+				656BFC700F03B76F006A3F15 /* Icon.png in Resources */,
+				656BFC710F03B76F006A3F15 /* iTunesArtwork in Resources */,
+				656BFC740F03B7F7006A3F15 /* MainWindow.xib in Resources */,
+				656BFC780F03B897006A3F15 /* FIViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +500,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PATH=$PATH:/opt/local/bin\n\n/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/${INFOPLIST_FILE]\n";
+			shellScript = "PATH=$PATH:/opt/local/bin\n\n/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/${INFOPLIST_FILE}\n";
 			showEnvVarsInLog = 0;
 		};
 		658687630ECEFC0700EB9D99 /* Run Unit Tests */ = {
@@ -476,6 +538,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				656BFC380F03A4FD006A3F15 /* FIAppDelegate.m in Sources */,
+				656BFC440F03A80E006A3F15 /* FIViewController.m in Sources */,
+				656BFC4B0F03B6E0006A3F15 /* AudioClass.m in Sources */,
+				656BFC4C0F03B6E3006A3F15 /* Reachability.m in Sources */,
+				656BFC4D0F03B6E6006A3F15 /* RNFileLogger.m in Sources */,
+				656BFC540F03B724006A3F15 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,7 +609,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_ENTITLEMENTS = entl.plist;
+				CODE_SIGN_ENTITLEMENTS = Resources/entl.plist;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Rodríguez Troitiño";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -643,8 +711,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
-				INFOPLIST_FILE = "RadioFIFM-Info.plist";
+				GCC_PREFIX_HEADER = radio3_Prefix.pch;
+				INFOPLIST_FILE = "Resources/FIFMRadio/RadioFIFM-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -667,7 +735,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				GCC_PREFIX_HEADER = radio3_Prefix.pch;
 				INFOPLIST_FILE = "RadioFIFM-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
@@ -689,7 +757,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				GCC_PREFIX_HEADER = radio3_Prefix.pch;
 				INFOPLIST_FILE = "RadioFIFM-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
@@ -710,7 +778,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				GCC_PREFIX_HEADER = radio3_Prefix.pch;
 				INFOPLIST_FILE = "RadioFIFM-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
