@@ -1,3 +1,11 @@
+//
+//  AudioClass.m
+//  radio3
+//
+//  Created by Javier Quevedo on 11/9/08.
+//  Copyright Daniel Rodríguez and Javier Quevedo 2008. All rights reserved.
+//
+
 #import "AudioClass.h"
 
 // Private implementation

@@ -1,3 +1,11 @@
+//
+//  AudioClass.h
+//  radio3
+//
+//  Created by Javier Quevedo on 11/9/08.
+//  Copyright Daniel Rodríguez and Javier Quevedo 2008. All rights reserved.
+//
+
 #import <UIKit/UIKit.h>
 #include <pthread.h>
 #include <AudioToolbox/AudioToolbox.h>
