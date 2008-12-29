@@ -9,8 +9,10 @@
 #import "FIViewController.h"
 #import "AudioClass.h"
 #import "Reachability.h"
+#import "FIShoutcastMetadataFilter.h"
 
-NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
+// NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
+NSString *kFIFMRadioURL = @"http://scfire-ntc-aa10.stream.aol.com:80/stream/1040";
 
 @interface FIViewController ()
 
@@ -133,6 +135,7 @@ NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
           waitUntilDone:NO];
   
   player = [[Player alloc] initWithString:kFIFMRadioURL audioTypeHint:kAudioFileMP3Type];
+  player.connectionFilter = [[FIShoutcastMetadataFilter alloc] init];
   
   [player addObserver:self forKeyPath:@"isPlaying" options:0 context:nil];
   [player addObserver:self forKeyPath:@"failed" options:0 context:nil];

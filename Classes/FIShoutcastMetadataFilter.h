@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "AudioClass.h"
 
 @interface FIShoutcastMetadataFilter : NSObject <RNConnectionFilter> {
  @private
@@ -16,13 +16,13 @@
   void *metadata;
   int metadataLength;
   int metadataCounter;
+  BOOL headerParsed;
+  NSDictionary *headers;
 }
 
 - (id)init;
 
 - (NSURLRequest *)modifyRequest:(NSURLRequest *)request;
-- (void)connection:(NSURLConnection *)connection
-didReceiveResponse:(NSURLResponse *)response;
 - (NSData *)connection:(NSURLConnection *)connection
             filterData:(NSData *)data;
 
