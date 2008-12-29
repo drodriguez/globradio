@@ -14,6 +14,15 @@
 #define kAQMaxPacketDescs 128
 #define kAQBufSize 64 * 1024
 
+@protocol RNConnectionFilter
+@optional
+- (NSURLRequest *)modifyRequest:(NSURLRequest *)request;
+- (void)connection:(NSURLConnection *)connection
+didReceiveResponse:(NSURLResponse *)response;
+- (NSData *)connection:(NSURLConnection *)connection
+        filterData:(NSData *)data;
+@end
+
 @interface Player : NSObject
 {
  @private
@@ -48,11 +57,14 @@
   NSThread *controlThread;
   
   NSError *error;
+  
+  NSObject <RNConnectionFilter> *connectionFilter;
 }
 
 @property(nonatomic, assign, readonly) BOOL isPlaying;
 @property(nonatomic, assign, readonly) BOOL failed;
 @property(nonatomic, retain, readonly) NSError *error;
+@property(nonatomic, retain) NSObject <RNConnectionFilter> *connectionFilter;
 
 // designated constructor
 - (id)initWithURL:(NSURL *)newUrl audioTypeHint:(AudioFileTypeID)newAudioHint;
@@ -74,5 +86,6 @@
 - (void)dealloc;
 
 @end
+
 
 

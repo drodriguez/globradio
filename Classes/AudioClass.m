@@ -76,7 +76,7 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
 
 @implementation Player
 
-@synthesize isPlaying, failed, error;
+@synthesize isPlaying, failed, error, connectionFilter;
 
 - (id)initWithString:(NSString *)urlString {
   return [self initWithURL:[NSURL URLWithString:urlString] audioTypeHint:0];
@@ -168,9 +168,13 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
     return;
   }
   
-  NSURLRequest *request = [NSURLRequest requestWithURL:url
-                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                          timeoutInterval:30];
+  NSURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                              timeoutInterval:30];
+  if ([connectionFilter respondsToSelector:@selector(modifyRequest:)]) {
+    request = [connectionFilter modifyRequest:request];
+  }
+  
   connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
   
   do {
@@ -261,11 +265,24 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
 }
 
 // NSConnection delegate method
+- (void)connection:(NSURLConnection *)inConnection
+didReceiveResponse:(NSURLResponse *)response {
+  if ([connectionFilter respondsToSelector:@selector(connection:didReceiveResponse:)]) {
+    [connectionFilter connection:inConnection didReceiveResponse:response];
+  }
+}
+
+// NSConnection delegate method
 - (void)connection:(NSURLConnection*)inConnection didReceiveData:(NSData*)data {
   if (failed)
     return;
   
   if (!finished) {
+    
+    if ([connectionFilter respondsToSelector:@selector(connection:filterData:)]) {
+      data = [connectionFilter connection:inConnection filterData:data];
+    }
+    
     if (discontinuous) {
       OSStatus err = AudioFileStreamParseBytes(audioFileStream,
                                                [data length],
