@@ -119,7 +119,7 @@
 		6581FB370EE73DF700441607 /* loading_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_1.png; path = Resources/RNERadio/loading_1.png; sourceTree = "<group>"; };
 		6581FB380EE73DF700441607 /* loading_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_2.png; path = Resources/RNERadio/loading_2.png; sourceTree = "<group>"; };
 		6581FB390EE73DF700441607 /* loading_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_3.png; path = Resources/RNERadio/loading_3.png; sourceTree = "<group>"; };
-		6582EC620F029C9200E7051A /* FI-FM Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FI-FM Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6582EC620F029C9200E7051A /* RadioFIFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadioFIFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6582EC640F029C9200E7051A /* RadioFIFM-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "RadioFIFM-Info.plist"; path = "Resources/FIFMRadio/RadioFIFM-Info.plist"; sourceTree = "<group>"; };
 		658687530ECEFB9100EB9D99 /* Unit tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unit tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		658687550ECEFB9100EB9D99 /* Unit tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Unit tests-Info.plist"; path = "Resources/Unit tests-Info.plist"; sourceTree = "<group>"; };
@@ -236,7 +236,7 @@
 			children = (
 				1D6058910D05DD3D006BFB54 /* RNE Radio.app */,
 				658687530ECEFB9100EB9D99 /* Unit tests.app */,
-				6582EC620F029C9200E7051A /* FI-FM Radio.app */,
+				6582EC620F029C9200E7051A /* RadioFIFM.app */,
 				65BD5E060F09B08000D283D4 /* Kiss Radio.app */,
 			);
 			name = Products;
@@ -445,7 +445,7 @@
 			);
 			name = FIFMRadio.app;
 			productName = RadioFIFM;
-			productReference = 6582EC620F029C9200E7051A /* FI-FM Radio.app */;
+			productReference = 6582EC620F029C9200E7051A /* RadioFIFM.app */;
 			productType = "com.apple.product-type.application";
 		};
 		658687520ECEFB9100EB9D99 /* Unit tests */ = {
@@ -702,12 +702,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Rodríguez Troitiño";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radio3_Prefix.pch;
 				INFOPLIST_FILE = Resources/RNERadio/Info.plist;
 				PRODUCT_NAME = "RNE Radio";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A1A47762-F15A-41A9-9ED0-493F64EEFACA";
 			};
 			name = Release;
 		};
@@ -1077,14 +1078,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos2.1]" = "";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				PROVISIONING_PROFILE = DefaultProfileUuid;
 				SDKROOT = iphoneos2.2;
 			};
 			name = Release;

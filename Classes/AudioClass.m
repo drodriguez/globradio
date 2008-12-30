@@ -177,6 +177,9 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
   
   connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
   
+  OSStatus status = AudioSessionSetActive(true);
+  if (status != kAudioSessionNoError) { RNLog(@"AudioSessionSetActive err %d", status); }
+  
   do {
     CFRunLoopRunInMode(kCFRunLoopDefaultMode,
                        0.25,
