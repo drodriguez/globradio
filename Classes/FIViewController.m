@@ -47,10 +47,10 @@ NSString *kFIFMRadioURL = @"http://scfire-ntc-aa10.stream.aol.com:80/stream/1040
     [self stopRadio];
     AudioSessionSetActive(NO);
     interruptedDuringPlayback = playing;
-  } else if (interruptionState == kAudioSessionEndInterruption &&
-             interruptedDuringPlayback) {
+  } else if (interruptionState == kAudioSessionEndInterruption) {
     AudioSessionSetActive(YES);
-    [self playRadio];
+    if (interruptedDuringPlayback)
+      [self playRadio];
     interruptedDuringPlayback = NO;
   }
 }
