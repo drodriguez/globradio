@@ -11,8 +11,8 @@
 #import "Reachability.h"
 #import "FIShoutcastMetadataFilter.h"
 
-// NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
-NSString *kFIFMRadioURL = @"http://scfire-ntc-aa10.stream.aol.com:80/stream/1040";
+NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
+// NSString *kFIFMRadioURL = @"http://scfire-ntc-aa10.stream.aol.com:80/stream/1040";
 
 @interface FIViewController ()
 

@@ -109,6 +109,7 @@ BOOL readHeader(NSData *data, int *index,
   // Then it starts counting from the end of the headers until a block has
   // ended, read the metadata block length, and then the metadata. And again
   // starts counting for the block end.
+  RNLog(@"data length %d counter %d", [data length], counter);
   int start = 0;
   if (!headerParsed) start = [self parseHeader:data];
   
@@ -135,7 +136,8 @@ BOOL readHeader(NSData *data, int *index,
       left -= metaint - counter;
       int metadataStart = length - left;
       metadataLength = ((unsigned char *) bytes)[metadataStart] * 16;
-      left -= metadataLength+1;
+      int copyLength = MIN(metadataLength, left);
+      left -= copyLength+1;
       counter = 0;
       
       metadata = malloc(sizeof(unsigned char) * metadataLength);
@@ -143,7 +145,6 @@ BOOL readHeader(NSData *data, int *index,
         return d;
       }
       
-      int copyLength = MIN(metadataLength, left);
       memcpy(metadata, bytes+metadataStart+1, copyLength);
       metadataCounter += copyLength;
       [self parseMetadata];
@@ -196,6 +197,7 @@ BOOL readHeader(NSData *data, int *index,
   
   headers = [[NSDictionary alloc] initWithDictionary:parsedHeaders];
   headerParsed = YES;
+  RNLog(@"index = %d", index);
   return index;
 }
 
