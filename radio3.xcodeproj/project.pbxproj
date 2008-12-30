@@ -51,6 +51,19 @@
 		658687A00ECF03A000EB9D99 /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
 		658687A30ECF040200EB9D99 /* RNM3UParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 658687A20ECF040200EB9D99 /* RNM3UParserTest.m */; };
 		65AC95670ED4AEEF00ADD701 /* radios.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65AC95660ED4AEEF00ADD701 /* radios.plist */; };
+		65BD5E130F09B18300D283D4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761150EE9C4BF00E2F2BE /* AudioToolbox.framework */; };
+		65BD5E140F09B18400D283D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761160EE9C4BF00E2F2BE /* CoreGraphics.framework */; };
+		65BD5E150F09B18600D283D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761720EE9C5F100E2F2BE /* Foundation.framework */; };
+		65BD5E160F09B18700D283D4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 656BFC830F03DEA4006A3F15 /* MediaPlayer.framework */; };
+		65BD5E170F09B18900D283D4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C452B80EED473E006AB1DD /* SystemConfiguration.framework */; };
+		65BD5E180F09B18A00D283D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761190EE9C4BF00E2F2BE /* UIKit.framework */; };
+		65BD5E190F09B1A100D283D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		65BD5E1A0F09B1AD00D283D4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C452930EED3D77006AB1DD /* Reachability.m */; };
+		65BD5E1B0F09B1AF00D283D4 /* RNFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */; };
+		65BD5E210F09B2CF00D283D4 /* KSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BD5E200F09B2CF00D283D4 /* KSViewController.m */; };
+		65BD5E220F09B2D300D283D4 /* KSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BD5E1D0F09B1E500D283D4 /* KSAppDelegate.m */; };
+		65BD5E250F09B9F000D283D4 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BD5E230F09B9F000D283D4 /* Icon.png */; };
+		65BD5E260F09B9F000D283D4 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 65BD5E240F09B9F000D283D4 /* iTunesArtwork */; };
 		65C452940EED3D77006AB1DD /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C452930EED3D77006AB1DD /* Reachability.m */; };
 		65C452B90EED473E006AB1DD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C452B80EED473E006AB1DD /* SystemConfiguration.framework */; };
 		65D36A010ED9FD36009A548C /* altavoz.png in Resources */ = {isa = PBXBuildFile; fileRef = 65D36A000ED9FD36009A548C /* altavoz.png */; };
@@ -119,6 +132,14 @@
 		658687A10ECF040200EB9D99 /* RNM3UParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNM3UParserTest.h; path = Test/RNM3UParserTest.h; sourceTree = "<group>"; };
 		658687A20ECF040200EB9D99 /* RNM3UParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNM3UParserTest.m; path = Test/RNM3UParserTest.m; sourceTree = "<group>"; };
 		65AC95660ED4AEEF00ADD701 /* radios.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = radios.plist; path = Resources/RNERadio/radios.plist; sourceTree = "<group>"; };
+		65BD5E060F09B08000D283D4 /* Kiss Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kiss Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65BD5E080F09B08100D283D4 /* KissRadio-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "KissRadio-Info.plist"; path = "Resources/KissRadio/KissRadio-Info.plist"; sourceTree = "<group>"; };
+		65BD5E1C0F09B1E500D283D4 /* KSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAppDelegate.h; sourceTree = "<group>"; };
+		65BD5E1D0F09B1E500D283D4 /* KSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSAppDelegate.m; sourceTree = "<group>"; };
+		65BD5E1F0F09B2CF00D283D4 /* KSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSViewController.h; sourceTree = "<group>"; };
+		65BD5E200F09B2CF00D283D4 /* KSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSViewController.m; sourceTree = "<group>"; };
+		65BD5E230F09B9F000D283D4 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/KissRadio/Icon.png; sourceTree = "<group>"; };
+		65BD5E240F09B9F000D283D4 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/KissRadio/iTunesArtwork; sourceTree = "<group>"; };
 		65C452920EED3D77006AB1DD /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		65C452930EED3D77006AB1DD /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		65C452B80EED473E006AB1DD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -176,12 +197,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		65BD5E040F09B08000D283D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65BD5E130F09B18300D283D4 /* AudioToolbox.framework in Frameworks */,
+				65BD5E140F09B18400D283D4 /* CoreGraphics.framework in Frameworks */,
+				65BD5E150F09B18600D283D4 /* Foundation.framework in Frameworks */,
+				65BD5E160F09B18700D283D4 /* MediaPlayer.framework in Frameworks */,
+				65BD5E170F09B18900D283D4 /* SystemConfiguration.framework in Frameworks */,
+				65BD5E180F09B18A00D283D4 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				65BD5DF20F09B05800D283D4 /* KissRadio */,
 				656BFC350F03A4C4006A3F15 /* FIFMRadio */,
 				65C452920EED3D77006AB1DD /* Reachability.h */,
 				65C452930EED3D77006AB1DD /* Reachability.m */,
@@ -202,6 +237,7 @@
 				1D6058910D05DD3D006BFB54 /* RNE Radio.app */,
 				658687530ECEFB9100EB9D99 /* Unit tests.app */,
 				6582EC620F029C9200E7051A /* FI-FM Radio.app */,
+				65BD5E060F09B08000D283D4 /* Kiss Radio.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -233,6 +269,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				65BD5DF30F09B06500D283D4 /* KissRadio */,
 				6582EC6F0F029E9C00E7051A /* FIFMRadio */,
 				6582EC6E0F029E7500E7051A /* RNERadio */,
 				658687550ECEFB9100EB9D99 /* Unit tests-Info.plist */,
@@ -351,6 +388,27 @@
 			name = Test;
 			sourceTree = "<group>";
 		};
+		65BD5DF20F09B05800D283D4 /* KissRadio */ = {
+			isa = PBXGroup;
+			children = (
+				65BD5E1C0F09B1E500D283D4 /* KSAppDelegate.h */,
+				65BD5E1D0F09B1E500D283D4 /* KSAppDelegate.m */,
+				65BD5E1F0F09B2CF00D283D4 /* KSViewController.h */,
+				65BD5E200F09B2CF00D283D4 /* KSViewController.m */,
+			);
+			name = KissRadio;
+			sourceTree = "<group>";
+		};
+		65BD5DF30F09B06500D283D4 /* KissRadio */ = {
+			isa = PBXGroup;
+			children = (
+				65BD5E230F09B9F000D283D4 /* Icon.png */,
+				65BD5E240F09B9F000D283D4 /* iTunesArtwork */,
+				65BD5E080F09B08100D283D4 /* KissRadio-Info.plist */,
+			);
+			name = KissRadio;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -408,6 +466,24 @@
 			productReference = 658687530ECEFB9100EB9D99 /* Unit tests.app */;
 			productType = "com.apple.product-type.application";
 		};
+		65BD5E050F09B08000D283D4 /* KissRadio.app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65BD5E0D0F09B08200D283D4 /* Build configuration list for PBXNativeTarget "KissRadio.app" */;
+			buildPhases = (
+				65BD5E120F09B11700D283D4 /* Update build number */,
+				65BD5E020F09B08000D283D4 /* Resources */,
+				65BD5E030F09B08000D283D4 /* Sources */,
+				65BD5E040F09B08000D283D4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KissRadio.app;
+			productName = KissRadio;
+			productReference = 65BD5E060F09B08000D283D4 /* Kiss Radio.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -423,6 +499,7 @@
 				1D6058900D05DD3D006BFB54 /* RNERadio.app */,
 				658687520ECEFB9100EB9D99 /* Unit tests */,
 				6582EC610F029C9200E7051A /* FIFMRadio.app */,
+				65BD5E050F09B08000D283D4 /* KissRadio.app */,
 			);
 		};
 /* End PBXProject section */
@@ -477,6 +554,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		65BD5E020F09B08000D283D4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65BD5E250F09B9F000D283D4 /* Icon.png in Resources */,
+				65BD5E260F09B9F000D283D4 /* iTunesArtwork in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -524,6 +610,21 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/google-toolbox-for-mac-1-5-1/UnitTesting/RunIPhoneUnitTest.sh\n";
 		};
+		65BD5E120F09B11700D283D4 /* Update build number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Update build number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "PATH=$PATH:/opt/local/bin\n\n/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/${INFOPLIST_FILE}\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -564,6 +665,18 @@
 				658687920ECF023100EB9D99 /* GTMSenTestCase.m in Sources */,
 				658687A00ECF03A000EB9D99 /* RNM3UParser.m in Sources */,
 				658687A30ECF040200EB9D99 /* RNM3UParserTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65BD5E030F09B08000D283D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65BD5E190F09B1A100D283D4 /* main.m in Sources */,
+				65BD5E1A0F09B1AD00D283D4 /* Reachability.m in Sources */,
+				65BD5E1B0F09B1AF00D283D4 /* RNFileLogger.m in Sources */,
+				65BD5E210F09B2CF00D283D4 /* KSViewController.m in Sources */,
+				65BD5E220F09B2D300D283D4 /* KSAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -852,6 +965,97 @@
 			};
 			name = Release;
 		};
+		65BD5E090F09B08200D283D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "Resources/KissRadio/KissRadio-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Kiss Radio";
+				SDKROOT = iphoneos2.2;
+			};
+			name = Debug;
+		};
+		65BD5E0A0F09B08200D283D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "Resources/KissRadio/KissRadio-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Kiss Radio";
+				SDKROOT = iphoneos2.2;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		65BD5E0B0F09B08200D283D4 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "Resources/KissRadio/KissRadio-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Kiss Radio";
+				SDKROOT = iphoneos2.2;
+			};
+			name = Distribution;
+		};
+		65BD5E0C0F09B08200D283D4 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "Resources/KissRadio/KissRadio-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Kiss Radio";
+				SDKROOT = iphoneos2.2;
+			};
+			name = Beta;
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -917,6 +1121,17 @@
 				658687570ECEFB9200EB9D99 /* Release */,
 				656A60950EF19BCC004CE686 /* Distribution */,
 				656A60780EF197EC004CE686 /* Beta */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65BD5E0D0F09B08200D283D4 /* Build configuration list for PBXNativeTarget "KissRadio.app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65BD5E090F09B08200D283D4 /* Debug */,
+				65BD5E0A0F09B08200D283D4 /* Release */,
+				65BD5E0B0F09B08200D283D4 /* Distribution */,
+				65BD5E0C0F09B08200D283D4 /* Beta */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
