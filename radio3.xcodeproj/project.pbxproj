@@ -736,7 +736,7 @@
 				GCC_PREFIX_HEADER = radio3_Prefix.pch;
 				INFOPLIST_FILE = Resources/RNERadio/Info.plist;
 				PRODUCT_NAME = "RNE Radio";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A515ACC0-3059-4B6D-AEEC-47CA1197575A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "30DB0352-B806-4E33-A91F-3C72A3ADAF25";
 			};
 			name = Beta;
 		};
