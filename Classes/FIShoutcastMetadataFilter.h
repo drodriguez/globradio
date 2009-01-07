@@ -13,6 +13,7 @@
  @private
   int metaint;
   int counter;
+  int totalCounter;
   void *metadata;
   int metadataLength;
   int metadataCounter;

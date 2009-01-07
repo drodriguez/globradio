@@ -22,6 +22,14 @@ enum ReadHeaderState {
   RHStateDone         = (1 << 4)
 };
 
+enum ReadMetadataState {
+  RMStateReadingName              = (1 << 1),
+  RMStateReadingDelimitedValue    = (1 << 2),
+  RMStateReadingNonDelimitedValue = (1 << 3),
+  RMStateReadingApostrophe        = (1 << 4),
+  RMStateReadingSemicolon         = (1 << 5)
+};
+
 BOOL readHeader(NSData *data, int *index,
                 NSString **headerName, NSString **headerValue) {
   enum ReadHeaderState state = RHStateReadingName;
@@ -40,12 +48,14 @@ BOOL readHeader(NSData *data, int *index,
     if (state & RHStateReadingCRLF) {
       if (bytes[*index] == '\n') {
         if (state & RHStateReadingName) {
-          *headerName = [[[NSString alloc] initWithCString:start
-                                                   length:bytes+*index-start-1]
+          *headerName = [[[NSString alloc] initWithBytes:start
+                                                  length:bytes+*index-start-1
+                                                encoding:NSISOLatin1StringEncoding]
                         autorelease];
         } else if (state & RHStateReadingValue) {
-          *headerValue = [[[NSString alloc] initWithCString:start
-                                                   length:bytes+*index-start-1]
+          *headerValue = [[[NSString alloc] initWithBytes:start
+                                                   length:bytes+*index-start-1
+                                                 encoding:NSISOLatin1StringEncoding]
                         autorelease];
         } else {
           RNLog(@"This should not happen");
@@ -57,8 +67,9 @@ BOOL readHeader(NSData *data, int *index,
       }
     } else if (state & RHStateReadingName) {
       if (bytes[*index] == ':') {
-        *headerName = [[[NSString alloc] initWithCString:start
-                                                 length:bytes+*index-start]
+        *headerName = [[[NSString alloc] initWithBytes:start
+                                                 length:bytes+*index-start
+                                              encoding:NSISOLatin1StringEncoding]
                       autorelease];
         state = RHStateReadingValue;
         start = bytes+*index+1;
@@ -84,6 +95,7 @@ BOOL readHeader(NSData *data, int *index,
   if (self != nil) {
     metaint = -1;
     counter = 0;
+    totalCounter = 0;
     metadata = NULL;
     metadataLength = 0;
     metadataCounter = 0;
@@ -109,7 +121,6 @@ BOOL readHeader(NSData *data, int *index,
   // Then it starts counting from the end of the headers until a block has
   // ended, read the metadata block length, and then the metadata. And again
   // starts counting for the block end.
-  RNLog(@"data length %d counter %d", [data length], counter);
   int start = 0;
   if (!headerParsed) start = [self parseHeader:data];
   
@@ -138,6 +149,7 @@ BOOL readHeader(NSData *data, int *index,
       metadataLength = ((unsigned char *) bytes)[metadataStart] * 16;
       int copyLength = MIN(metadataLength, left);
       left -= copyLength+1;
+      totalCounter += metaint - counter;
       counter = 0;
       
       metadata = malloc(sizeof(unsigned char) * metadataLength);
@@ -152,6 +164,7 @@ BOOL readHeader(NSData *data, int *index,
       length -= copyLength+1;
     } else {
       counter += left;
+      totalCounter += left;
       left = 0;
     }
   }
@@ -162,9 +175,77 @@ BOOL readHeader(NSData *data, int *index,
 - (void)parseMetadata {
   if (metadataCounter < metadataLength) return;
   
-  // TODO
-  if (metadataLength > 0)
+  if (metadataLength > 0) {
     RNLog(@"metadata: %s", metadata);
+  }
+  
+  // Start parsing
+  enum ReadMetadataState state = RMStateReadingName;
+  
+  unsigned int index = 0;
+  const unsigned char *bytes = metadata;
+  const unsigned char *start = metadata;
+  NSString *tagName, *tagValue;
+  
+  while (index < metadataLength) {
+    if (bytes[index] == '\0') { // start of padding
+      break;
+    } else if (state & RHStateReadingName) {
+      if (bytes[index] == '=') {
+        tagName = [[NSString alloc] initWithBytes:start
+                                           length:bytes+index-start
+                                         encoding:NSISOLatin1StringEncoding];
+        state = RMStateReadingApostrophe;
+        start = metadata+index+1;
+      }
+    } else if (state & RMStateReadingApostrophe) {
+      // Tag values can be or not delimited by apostrophes
+      if (bytes[index] == '\'') {
+        start++;
+        state = RMStateReadingDelimitedValue;
+      } else {
+        state = RMStateReadingNonDelimitedValue;
+      }
+    } else if (state & RMStateReadingDelimitedValue) {      
+      // jump escaped apostrophes
+      if (bytes[index] == '\\' && bytes[index+1] == '\'') {
+        index++; // FIX: escaped apostrophes will show in the string
+      } else if (bytes[index] == '\'') {
+        tagValue = [[NSString alloc] initWithBytes:start
+                                            length:bytes+index-start
+                                          encoding:NSISOLatin1StringEncoding];
+        
+        state = RMStateReadingSemicolon;
+      }
+    } else if (state & RMStateReadingNonDelimitedValue) {
+      if (bytes[index] == ';') {
+        tagValue = [[NSString alloc] initWithBytes:start
+                                            length:bytes+index-start
+                                          encoding:NSISOLatin1StringEncoding];
+        // TODO
+        RNLog(@"Tag found: name '%@', value '%@', totalCounter %d", tagName, tagValue, totalCounter);
+        [tagName release];
+        [tagValue release];
+        
+        start = metadata+index+1;
+        state = RMStateReadingName;
+      }
+    } else if (state & RMStateReadingSemicolon) {
+      if (bytes[index] == ';') {
+        // We have already stored tagValue
+        
+        // TODO
+        RNLog(@"Tag found: name '%@', value '%@', totalCounter %d", tagName, tagValue, totalCounter);
+        [tagName release];
+        [tagValue release];
+        
+        start = metadata+index+1;
+        state = RMStateReadingName;
+      }
+    }
+    
+    index++;
+  }  
   
   metadataCounter = 0;
   metadataLength = 0;
