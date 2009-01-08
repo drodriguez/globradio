@@ -80,6 +80,10 @@
 		A7E7611E0EE9C4BF00E2F2BE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761190EE9C4BF00E2F2BE /* UIKit.framework */; };
 		A7E761730EE9C5F100E2F2BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761720EE9C5F100E2F2BE /* Foundation.framework */; };
 		A7EF8EB70EC6E85A004FE559 /* AudioClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* AudioClass.m */; };
+		A7FA12810F16A5B10067633A /* COPEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FA12800F16A5B10067633A /* COPEAppDelegate.m */; };
+		A7FA12840F16A5C70067633A /* COPEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FA12830F16A5C70067633A /* COPEViewController.m */; };
+		A7FA12E60F16B2F70067633A /* COPEViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7FA12E50F16B2F70067633A /* COPEViewController.xib */; };
+		A7FA12E70F16B3000067633A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7FA12E30F16B2C90067633A /* MainWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +164,14 @@
 		A7E761720EE9C5F100E2F2BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A7EF8EB50EC6E85A004FE559 /* AudioClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioClass.h; sourceTree = "<group>"; };
 		A7EF8EB60EC6E85A004FE559 /* AudioClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioClass.m; sourceTree = "<group>"; };
+		A7FA127F0F16A5B10067633A /* COPEAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COPEAppDelegate.h; sourceTree = "<group>"; };
+		A7FA12800F16A5B10067633A /* COPEAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COPEAppDelegate.m; sourceTree = "<group>"; };
+		A7FA12820F16A5C70067633A /* COPEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COPEViewController.h; sourceTree = "<group>"; };
+		A7FA12830F16A5C70067633A /* COPEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COPEViewController.m; sourceTree = "<group>"; };
+		A7FA12C10F16B2800067633A /* COPERadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = COPERadio.app; path = "build/Debug-iphonesimulator/COPERadio.app"; sourceTree = "<group>"; };
+		A7FA12C30F16B2800067633A /* COPERadio-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "COPERadio-Info.plist"; sourceTree = "<group>"; };
+		A7FA12E30F16B2C90067633A /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = Resources/COPERadio/MainWindow.xib; sourceTree = "<group>"; };
+		A7FA12E50F16B2F70067633A /* COPEViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = COPEViewController.xib; path = Resources/COPERadio/COPEViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,12 +222,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A7FA12BF0F16B2800067633A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A7FA127C0F16A5810067633A /* COPERadio */,
 				65BD5DF20F09B05800D283D4 /* KissRadio */,
 				656BFC350F03A4C4006A3F15 /* FIFMRadio */,
 				65C452920EED3D77006AB1DD /* Reachability.h */,
@@ -238,6 +258,7 @@
 				658687530ECEFB9100EB9D99 /* Unit tests.app */,
 				6582EC620F029C9200E7051A /* FI-FM Radio.app */,
 				65BD5E060F09B08000D283D4 /* Kiss Radio.app */,
+				A7FA12C10F16B2800067633A /* COPERadio.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -253,6 +274,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				A7FA12C30F16B2800067633A /* COPERadio-Info.plist */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -269,6 +291,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A7FA12C90F16B2950067633A /* COPERadio */,
 				65BD5DF30F09B06500D283D4 /* KissRadio */,
 				6582EC6F0F029E9C00E7051A /* FIFMRadio */,
 				6582EC6E0F029E7500E7051A /* RNERadio */,
@@ -409,6 +432,26 @@
 			name = KissRadio;
 			sourceTree = "<group>";
 		};
+		A7FA127C0F16A5810067633A /* COPERadio */ = {
+			isa = PBXGroup;
+			children = (
+				A7FA127F0F16A5B10067633A /* COPEAppDelegate.h */,
+				A7FA12800F16A5B10067633A /* COPEAppDelegate.m */,
+				A7FA12820F16A5C70067633A /* COPEViewController.h */,
+				A7FA12830F16A5C70067633A /* COPEViewController.m */,
+			);
+			name = COPERadio;
+			sourceTree = "<group>";
+		};
+		A7FA12C90F16B2950067633A /* COPERadio */ = {
+			isa = PBXGroup;
+			children = (
+				A7FA12E30F16B2C90067633A /* MainWindow.xib */,
+				A7FA12E50F16B2F70067633A /* COPEViewController.xib */,
+			);
+			name = COPERadio;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -484,6 +527,23 @@
 			productReference = 65BD5E060F09B08000D283D4 /* Kiss Radio.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A7FA12C00F16B2800067633A /* COPERadio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7FA12C80F16B2820067633A /* Build configuration list for PBXNativeTarget "COPERadio" */;
+			buildPhases = (
+				A7FA12BD0F16B2800067633A /* Resources */,
+				A7FA12BE0F16B2800067633A /* Sources */,
+				A7FA12BF0F16B2800067633A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = COPERadio;
+			productName = COPERadio;
+			productReference = A7FA12C10F16B2800067633A /* COPERadio.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -500,6 +560,7 @@
 				658687520ECEFB9100EB9D99 /* Unit tests */,
 				6582EC610F029C9200E7051A /* FIFMRadio.app */,
 				65BD5E050F09B08000D283D4 /* KissRadio.app */,
+				A7FA12C00F16B2800067633A /* COPERadio */,
 			);
 		};
 /* End PBXProject section */
@@ -560,6 +621,15 @@
 			files = (
 				65BD5E250F09B9F000D283D4 /* Icon.png in Resources */,
 				65BD5E260F09B9F000D283D4 /* iTunesArtwork in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7FA12BD0F16B2800067633A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7FA12E60F16B2F70067633A /* COPEViewController.xib in Resources */,
+				A7FA12E70F16B3000067633A /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,6 +709,8 @@
 				654B1E560ECDFDD500E28E7E /* RNM3UParser.m in Sources */,
 				65C452940EED3D77006AB1DD /* Reachability.m in Sources */,
 				65FD71870EF9AC4600C6FBD6 /* RNFileLogger.m in Sources */,
+				A7FA12810F16A5B10067633A /* COPEAppDelegate.m in Sources */,
+				A7FA12840F16A5C70067633A /* COPEViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,6 +749,13 @@
 				65BD5E1B0F09B1AF00D283D4 /* RNFileLogger.m in Sources */,
 				65BD5E210F09B2CF00D283D4 /* KSViewController.m in Sources */,
 				65BD5E220F09B2D300D283D4 /* KSAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7FA12BE0F16B2800067633A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1055,6 +1134,97 @@
 			};
 			name = Beta;
 		};
+		A7FA12C40F16B2810067633A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "COPERadio-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = COPERadio;
+				SDKROOT = iphoneos2.2;
+			};
+			name = Debug;
+		};
+		A7FA12C50F16B2810067633A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "COPERadio-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = COPERadio;
+				SDKROOT = iphoneos2.2;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		A7FA12C60F16B2810067633A /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "COPERadio-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = COPERadio;
+				SDKROOT = iphoneos2.2;
+			};
+			name = Distribution;
+		};
+		A7FA12C70F16B2810067633A /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "COPERadio-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = COPERadio;
+				SDKROOT = iphoneos2.2;
+			};
+			name = Beta;
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1128,6 +1298,17 @@
 				65BD5E0A0F09B08200D283D4 /* Release */,
 				65BD5E0B0F09B08200D283D4 /* Distribution */,
 				65BD5E0C0F09B08200D283D4 /* Beta */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7FA12C80F16B2820067633A /* Build configuration list for PBXNativeTarget "COPERadio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7FA12C40F16B2810067633A /* Debug */,
+				A7FA12C50F16B2810067633A /* Release */,
+				A7FA12C60F16B2810067633A /* Distribution */,
+				A7FA12C70F16B2810067633A /* Beta */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
