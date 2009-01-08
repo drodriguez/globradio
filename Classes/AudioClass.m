@@ -475,10 +475,11 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
       self.error = [NSError errorWithDomain:NSOSStatusErrorDomain
                                        code:err
                                    userInfo:nil];
-      // FIX: self.failed = true ?
+      // FIXME: self.failed = true ?
       return;
     }
   } else if (!started) {
+    // NOTE: This is the only? point where there is no error attached.
     self.failed = YES;
     [self stop];
     return;
