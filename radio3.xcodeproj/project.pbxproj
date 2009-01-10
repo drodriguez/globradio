@@ -81,6 +81,7 @@
 		65F6F0860F18F58300B0B070 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 656BFC830F03DEA4006A3F15 /* MediaPlayer.framework */; };
 		65F6F0870F18F58700B0B070 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761190EE9C4BF00E2F2BE /* UIKit.framework */; };
 		65F6F0A60F18F83E00B0B070 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C452B80EED473E006AB1DD /* SystemConfiguration.framework */; };
+		65F6F0D00F18FD6700B0B070 /* radios.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65F6F0CF0F18FD6700B0B070 /* radios.plist */; };
 		65FD71870EF9AC4600C6FBD6 /* RNFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */; };
 		A72D13BD0EC7A06800CBB890 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A72D13BC0EC7A06800CBB890 /* Default.png */; };
 		A73C066A0EC851E700A1B6F5 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A73C06690EC851E700A1B6F5 /* background.png */; };
@@ -160,6 +161,7 @@
 		65D36A000ED9FD36009A548C /* altavoz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = altavoz.png; path = Resources/RNERadio/altavoz.png; sourceTree = "<group>"; };
 		65E102F00EE06051009FA316 /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = InfoView.xib; path = Resources/RNERadio/InfoView.xib; sourceTree = "<group>"; };
 		65E103390EE069B3009FA316 /* RadiosView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RadiosView.xib; path = Resources/RNERadio/RadiosView.xib; sourceTree = "<group>"; };
+		65F6F0CF0F18FD6700B0B070 /* radios.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = radios.plist; path = Resources/COPERadio/radios.plist; sourceTree = "<group>"; };
 		65FD71850EF9AC4600C6FBD6 /* RNFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNFileLogger.h; sourceTree = "<group>"; };
 		65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNFileLogger.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/RNERadio/Info.plist; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 		A7FA12C90F16B2950067633A /* COPERadio */ = {
 			isa = PBXGroup;
 			children = (
+				65F6F0CF0F18FD6700B0B070 /* radios.plist */,
 				A7FA12C30F16B2800067633A /* COPERadio-Info.plist */,
 				A7FA12E30F16B2C90067633A /* MainWindow.xib */,
 				A7FA12E50F16B2F70067633A /* COPEViewController.xib */,
@@ -646,6 +649,7 @@
 			files = (
 				A7FA12E60F16B2F70067633A /* COPEViewController.xib in Resources */,
 				A7FA12E70F16B3000067633A /* MainWindow.xib in Resources */,
+				65F6F0D00F18FD6700B0B070 /* radios.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
