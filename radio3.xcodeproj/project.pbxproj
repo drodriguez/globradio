@@ -101,6 +101,8 @@
 		65F6F14E0F190DF400B0B070 /* needle.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F6F1490F190DF400B0B070 /* needle.png */; };
 		65F6F14F0F190DF400B0B070 /* rng-icon-hl.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F6F14A0F190DF400B0B070 /* rng-icon-hl.png */; };
 		65F6F1510F190E3600B0B070 /* rng-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F6F1500F190E3600B0B070 /* rng-icon.png */; };
+		65F6F1940F19170700B0B070 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F6F1930F19170700B0B070 /* InfoView.xib */; };
+		65F6F19A0F19198F00B0B070 /* RadiosView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F6F1990F19198F00B0B070 /* RadiosView.xib */; };
 		65FD71870EF9AC4600C6FBD6 /* RNFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */; };
 		A72D13BD0EC7A06800CBB890 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A72D13BC0EC7A06800CBB890 /* Default.png */; };
 		A73C066A0EC851E700A1B6F5 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A73C06690EC851E700A1B6F5 /* background.png */; };
@@ -200,6 +202,8 @@
 		65F6F1490F190DF400B0B070 /* needle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = needle.png; path = Resources/COPERadio/needle.png; sourceTree = "<group>"; };
 		65F6F14A0F190DF400B0B070 /* rng-icon-hl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rng-icon-hl.png"; path = "Resources/COPERadio/rng-icon-hl.png"; sourceTree = "<group>"; };
 		65F6F1500F190E3600B0B070 /* rng-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rng-icon.png"; path = "Resources/COPERadio/rng-icon.png"; sourceTree = "<group>"; };
+		65F6F1930F19170700B0B070 /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = InfoView.xib; path = Resources/COPERadio/InfoView.xib; sourceTree = "<group>"; };
+		65F6F1990F19198F00B0B070 /* RadiosView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RadiosView.xib; path = Resources/COPERadio/RadiosView.xib; sourceTree = "<group>"; };
 		65FD71850EF9AC4600C6FBD6 /* RNFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNFileLogger.h; sourceTree = "<group>"; };
 		65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNFileLogger.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/RNERadio/Info.plist; sourceTree = "<group>"; };
@@ -500,6 +504,7 @@
 		A7FA12C90F16B2950067633A /* COPERadio */ = {
 			isa = PBXGroup;
 			children = (
+				65F6F1930F19170700B0B070 /* InfoView.xib */,
 				65F6F1500F190E3600B0B070 /* rng-icon.png */,
 				65F6F1460F190DF400B0B070 /* background.png */,
 				65F6F1470F190DF400B0B070 /* cope-icon-hl.png */,
@@ -523,6 +528,7 @@
 				A7FA12C30F16B2800067633A /* COPERadio-Info.plist */,
 				A7FA12E30F16B2C90067633A /* MainWindow.xib */,
 				A7FA12E50F16B2F70067633A /* COPEViewController.xib */,
+				65F6F1990F19198F00B0B070 /* RadiosView.xib */,
 			);
 			name = COPERadio;
 			sourceTree = "<group>";
@@ -726,6 +732,8 @@
 				65F6F14E0F190DF400B0B070 /* needle.png in Resources */,
 				65F6F14F0F190DF400B0B070 /* rng-icon-hl.png in Resources */,
 				65F6F1510F190E3600B0B070 /* rng-icon.png in Resources */,
+				65F6F1940F19170700B0B070 /* InfoView.xib in Resources */,
+				65F6F19A0F19198F00B0B070 /* RadiosView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

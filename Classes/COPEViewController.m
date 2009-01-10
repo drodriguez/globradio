@@ -50,35 +50,35 @@ volumeMaximumTrackImage, volumeThumbImage;
 #define SUPPORT_WEB_BUTTON 1001
 #define SUPPORT_MAIL_BUTTON 1002
 - (IBAction)openInfoURL:(UIButton *)button {
-	NSURL *url = nil;
-	switch (button.tag) {
-		case SUPPORT_WEB_BUTTON: // Web url
-			url = [NSURL URLWithString:@"http://rneradio.yoteinvoco.com/"];
-			break;
-		case SUPPORT_MAIL_BUTTON: { // email url
-			/*#if defined(BETA) || defined(DEBUG)
-			 NSString *log = [NSString stringWithContentsOfFile:
-			 [[RNFileLogger sharedLogger] logFile]];
-			 NSString *encodedLog = (NSString *)
-			 CFURLCreateStringByAddingPercentEscapes(NULL,
-			 (CFStringRef)log,
-			 NULL,
-			 (CFStringRef)@";/?:@&=+$,",
-			 kCFStringEncodingUTF8);
-			 if (encodedLog)
-			 url = [NSURL URLWithString:[NSString stringWithFormat:
-			 @"mailto://support@yoteinvoco.com?body=%@",
-			 encodedLog]];
-			 else
-			 url = [NSURL URLWithString:@"mailto://support@yoteinvoco.com?body=No+es+posible+recuperar+el+log"];
-			 #else*/
-			url = [NSURL URLWithString:@"mailto://support@yoteinvoco.com"];
-			//#endif
-		break; }
-	}
-	
-	if (url != nil)
-		[[UIApplication sharedApplication] openURL:url];
+  NSURL *url = nil;
+  switch (button.tag) {
+    case SUPPORT_WEB_BUTTON: // Web url
+      url = [NSURL URLWithString:@"http://apps.yoteinvoco.com/cope"];
+      break;
+    case SUPPORT_MAIL_BUTTON: { // email url
+      /*#if defined(BETA) || defined(DEBUG)
+       NSString *log = [NSString stringWithContentsOfFile:
+       [[RNFileLogger sharedLogger] logFile]];
+       NSString *encodedLog = (NSString *)
+       CFURLCreateStringByAddingPercentEscapes(NULL,
+       (CFStringRef)log,
+       NULL,
+       (CFStringRef)@";/?:@&=+$,",
+       kCFStringEncodingUTF8);
+       if (encodedLog)
+       url = [NSURL URLWithString:[NSString stringWithFormat:
+       @"mailto://support@yoteinvoco.com?body=%@",
+       encodedLog]];
+       else
+       url = [NSURL URLWithString:@"mailto://support@yoteinvoco.com?body=No+es+posible+recuperar+el+log"];
+       #else*/
+      url = [NSURL URLWithString:@"mailto://support@yoteinvoco.com"];
+      //#endif
+    break; }
+  }
+  
+  if (url != nil)
+    [[UIApplication sharedApplication] openURL:url];
 }
 #undef SUPPORT_WEB_BUTTON
 #undef SUPPORT_MAIL_BUTTON
@@ -121,6 +121,27 @@ volumeMaximumTrackImage, volumeThumbImage;
 		[self audioSessionInterruption:kAudioSessionEndInterruption];
 #endif
 }
+
+#define RADIO_COPE 1001
+#define RADIO_RNG  1002
+- (IBAction)changeRadio:(UIButton *)button {
+  int selectedRadio = -1;
+  switch (button.tag) {
+    case RADIO_COPE:
+      selectedRadio = 0;
+      break;
+    case RADIO_RNG:
+      selectedRadio = 1;
+      break;
+  }
+  
+  if (activeRadio != selectedRadio || !isPlaying) {
+    activeRadio = selectedRadio;
+    [self playRadio];
+  }
+}
+#undef RADIO_COPE
+#undef RADIO_RNG
 
 #pragma mark Custom methods
 
