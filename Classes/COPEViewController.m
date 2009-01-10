@@ -15,7 +15,7 @@ NSString *kFIFMRadioURL = @"http://cope.stream.flumotion.com/cope/copefm.mp3.m3u
 
 // NSString *kFIFMRadioURL = @"http://scfire-ntc-aa10.stream.aol.com:80/stream/1040";
 
-@interface FIViewController ()
+@interface COPEViewController ()
 
 - (void)stopRadio;
 
@@ -28,7 +28,7 @@ NSString *kFIFMRadioURL = @"http://cope.stream.flumotion.com/cope/copefm.mp3.m3u
 
 @end
 
-@implementation FIViewController
+@implementation COPEViewController
 
 #pragma mark IBActions
 
@@ -136,7 +136,7 @@ NSString *kFIFMRadioURL = @"http://cope.stream.flumotion.com/cope/copefm.mp3.m3u
 			waitUntilDone:NO];
 	
 	player = [[Player alloc] initWithString:kFIFMRadioURL audioTypeHint:kAudioFileMP3Type];
-	player.connectionFilter = [[FIShoutcastMetadataFilter alloc] init];
+	//player.connectionFilter = [[FIShoutcastMetadataFilter alloc] init];
 	
 	[player addObserver:self forKeyPath:@"isPlaying" options:0 context:nil];
 	[player addObserver:self forKeyPath:@"failed" options:0 context:nil];
