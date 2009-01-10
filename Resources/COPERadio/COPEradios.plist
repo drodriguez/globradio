@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>radioURLs</key>
+	<array>
+		<string>http://cope.stream.flumotion.com/cope/copefm.mp3.m3u</string>
+		<string>http://cope.stream.flumotion.com/cope/rockandgol.mp3.m3u</string>
+	</array>
+	<key>radioNames</key>
+	<array>
+		<string>La COPE</string>
+		<string>Rock&amp;Goles</string>
+	</array>
+</dict>
+</plist>
