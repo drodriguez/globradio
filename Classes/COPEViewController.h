@@ -13,12 +13,14 @@
 @class Player;
 
 @interface COPEViewController : UIViewController {
-@private
+ @private
 	IBOutlet UIButton *controlButton;
 	IBOutlet UIView *volumeViewHolder;
 	IBOutlet UIImageView *loadingImage;
 	IBOutlet UIView *flippableView;
 	IBOutlet UILabel *stationLabel;
+  IBOutlet UIView *topBar;
+  IBOutlet UIView *bottomBar;
 	
 	Player *player;
 	

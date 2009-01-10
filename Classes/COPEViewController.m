@@ -10,11 +10,6 @@
 #import "AudioClass.h"
 #import "Reachability.h"
 
-
-NSString *kFIFMRadioURL = @"http://195.10.10.105:80/cope/copefm.mp3";
-
-// NSString *kFIFMRadioURL = @"http://scfire-ntc-aa10.stream.aol.com:80/stream/1040";
-
 @interface COPEViewController ()
 
 - (void)stopRadio;
