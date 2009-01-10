@@ -11,7 +11,7 @@
 @class COPEViewController;
 
 @interface COPEAppDelegate : NSObject <UIApplicationDelegate> {
-@private
+ @private
 	UIWindow *window;
 	COPEViewController *viewController;
 }
