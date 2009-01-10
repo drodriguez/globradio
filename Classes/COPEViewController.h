@@ -28,6 +28,7 @@
 
 - (IBAction)controlButtonClicked:(UIButton *)button;
 
+- (void)saveApplicationState;
 - (void)audioSessionInterruption:(UInt32)interruptionState;
 
 @end

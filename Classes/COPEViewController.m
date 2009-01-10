@@ -56,6 +56,13 @@ NSString *kFIFMRadioURL = @"http://cope.stream.flumotion.com/cope/copefm.mp3.m3u
 	}
 }
 
+- (void)saveApplicationState {
+  /* [[NSUserDefaults standardUserDefaults]
+   setObject:[NSNumber numberWithInt:activeRadio]
+   forKey:@"activeRadio"];
+  [[NSUserDefaults standardUserDefaults] synchronize]; */
+}
+
 - (void)reachabilityChanged:(NSNotification *)notification {
 	if ([[Reachability sharedReachability] remoteHostStatus] == NotReachable) {
 		[self showNetworkProblemsAlert];
