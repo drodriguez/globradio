@@ -9,8 +9,18 @@
 #import "COPEViewController.h"
 #import "AudioClass.h"
 #import "Reachability.h"
+#import "RNM3UParser.h"
 
 @interface COPEViewController ()
+
+@property (nonatomic, retain) UIImage *playImage;
+@property (nonatomic, retain) UIImage *playHighlightImage;
+@property (nonatomic, retain) UIImage *pauseImage;
+@property (nonatomic, retain) UIImage *pauseHighlightImage;
+@property (nonatomic, retain) UIImage *rowBackgroundImage;
+@property (nonatomic, retain) UIImage *volumeMinimumTrackImage;
+@property (nonatomic, retain) UIImage *volumeMaximumTrackImage;
+@property (nonatomic, retain) UIImage *volumeThumbImage;
 
 - (void)stopRadio;
 
@@ -24,7 +34,9 @@
 @end
 
 @implementation COPEViewController
-
+@synthesize playImage, playHighlightImage, pauseImage, pauseHighlightImage,
+rowBackgroundImage, volumeMinimumTrackImage,
+volumeMaximumTrackImage, volumeThumbImage;
 #pragma mark IBActions
 
 - (IBAction)controlButtonClicked:(UIButton *)button {
@@ -33,6 +45,81 @@
 	} else {
 		[self playRadio];
 	}
+}
+
+#define SUPPORT_WEB_BUTTON 1001
+#define SUPPORT_MAIL_BUTTON 1002
+- (IBAction)openInfoURL:(UIButton *)button {
+	NSURL *url = nil;
+	switch (button.tag) {
+		case SUPPORT_WEB_BUTTON: // Web url
+			url = [NSURL URLWithString:@"http://rneradio.yoteinvoco.com/"];
+			break;
+		case SUPPORT_MAIL_BUTTON: { // email url
+			/*#if defined(BETA) || defined(DEBUG)
+			 NSString *log = [NSString stringWithContentsOfFile:
+			 [[RNFileLogger sharedLogger] logFile]];
+			 NSString *encodedLog = (NSString *)
+			 CFURLCreateStringByAddingPercentEscapes(NULL,
+			 (CFStringRef)log,
+			 NULL,
+			 (CFStringRef)@";/?:@&=+$,",
+			 kCFStringEncodingUTF8);
+			 if (encodedLog)
+			 url = [NSURL URLWithString:[NSString stringWithFormat:
+			 @"mailto://support@yoteinvoco.com?body=%@",
+			 encodedLog]];
+			 else
+			 url = [NSURL URLWithString:@"mailto://support@yoteinvoco.com?body=No+es+posible+recuperar+el+log"];
+			 #else*/
+			url = [NSURL URLWithString:@"mailto://support@yoteinvoco.com"];
+			//#endif
+		break; }
+	}
+	
+	if (url != nil)
+		[[UIApplication sharedApplication] openURL:url];
+}
+#undef SUPPORT_WEB_BUTTON
+#undef SUPPORT_MAIL_BUTTON
+
+- (IBAction)infoButtonClicked:(UIButton *)button {
+	if (flipping) {
+		return;
+	}
+	
+	UIView *inView, *outView;
+	if (infoViewVisible) {
+		inView = radiosView;
+		outView = infoView;
+	} else {
+		inView = infoView;
+		outView = radiosView;
+	}
+	
+	CGContextRef context = UIGraphicsGetCurrentContext();
+	[UIView beginAnimations:nil context:context];
+	
+	[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft
+						   forView:flippableView
+							 cache:YES];
+	[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+	[UIView setAnimationDuration:1.0];
+	[UIView setAnimationDelegate:self];
+	[UIView setAnimationWillStartSelector:@selector(animationWillStart:context:)];
+	[UIView setAnimationDidStopSelector:@selector(animationDidStop:context:)];
+	
+	[outView removeFromSuperview];
+	[flippableView addSubview:inView];
+	
+	[UIView commitAnimations];
+	
+#if defined(DEBUG)
+	if (!interruptedDuringPlayback)
+		[self audioSessionInterruption:kAudioSessionBeginInterruption];
+	else
+		[self audioSessionInterruption:kAudioSessionEndInterruption];
+#endif
 }
 
 #pragma mark Custom methods
@@ -52,10 +139,10 @@
 }
 
 - (void)saveApplicationState {
-  /* [[NSUserDefaults standardUserDefaults]
-   setObject:[NSNumber numberWithInt:activeRadio]
-   forKey:@"activeRadio"];
-  [[NSUserDefaults standardUserDefaults] synchronize]; */
+	[[NSUserDefaults standardUserDefaults]
+	 setObject:[NSNumber numberWithInt:activeRadio]
+	 forKey:@"activeRadio"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)reachabilityChanged:(NSNotification *)notification {
@@ -63,6 +150,17 @@
 		[self showNetworkProblemsAlert];
 	}
 }
+
+- (void)animationWillStart:(NSString *)animation context:(void *)context {
+	flipping = YES;
+}
+
+- (void)animationDidStop:(NSString *)animation context:(void *)context {
+	infoViewVisible = !infoViewVisible;
+	flipping = NO;
+}
+
+
 
 - (void)showNetworkProblemsAlert {
 	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Problemas de conexión"
@@ -73,6 +171,25 @@
 	[alertView show];
 }
 
+
+- (NSString *)getRadioURL:(NSString *)radioAddress {
+	RNLog(@"getRadioURL radioAddress %@", radioAddress);
+	NSURL *m3UUrl = [[NSURL alloc] initWithString:radioAddress];
+	NSString *m3UContent = [NSString stringWithContentsOfURL:m3UUrl];
+	
+	NSArray *tracks = [RNM3UParser parse:m3UContent];
+	if ([tracks count] > 0) {
+		NSString *location = [[[tracks objectAtIndex:0] objectForKey:@"location"]
+							  retain];
+		RNLog(@"getRadioURL location %@", location);
+		return location;
+	} else {
+		// No error here, returning a invalid URL makes the streamer fail
+		RNLog(@"Can not extract information from M3U");
+		return @"";
+	}
+}
+
 - (void)stopRadio {
 	if (isPlaying) {
 		[player stop];
@@ -80,11 +197,22 @@
 }
 
 - (void)setPlayState {
-	
+	controlButton.hidden = NO;
+	loadingImage.hidden = YES;
+	if (loadingImage.isAnimating)
+		[loadingImage startAnimating];
+	[controlButton setImage:pauseImage forState:UIControlStateNormal];
+	[controlButton setImage:pauseHighlightImage
+				   forState:UIControlStateHighlighted];	
 }
 
 - (void)setStopState {
-	
+	controlButton.hidden = NO;
+	loadingImage.hidden = YES;
+	if (loadingImage.isAnimating)
+		[loadingImage stopAnimating];
+	[controlButton setImage:playImage forState:UIControlStateNormal];
+	[controlButton setImage:playHighlightImage forState:UIControlStateHighlighted];
 }
 
 - (void)setFailedState:(NSError *)error {
@@ -137,7 +265,7 @@
 			   withObject:nil
 			waitUntilDone:NO];
 	
-	player = [[Player alloc] initWithString:kFIFMRadioURL audioTypeHint:kAudioFileMP3Type];
+	player = [[Player alloc] initWithString:@"http://195.10.10.105:80/cope/copefm.mp3" audioTypeHint:kAudioFileMP3Type];
 	//player.connectionFilter = [[FIShoutcastMetadataFilter alloc] init];
 	
 	[player addObserver:self forKeyPath:@"isPlaying" options:0 context:nil];
@@ -210,6 +338,39 @@
 #pragma mark UIViewController methods
 
 - (void)viewDidLoad {
+	
+	// Load some images
+	self.view.backgroundColor =
+	[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+	self.playImage = [UIImage imageNamed:@"play.png"];
+	self.playHighlightImage = [UIImage imageNamed:@"play-hl.png"];
+	self.pauseImage = [UIImage imageNamed:@"pause.png"];
+	self.pauseHighlightImage = [UIImage imageNamed:@"pause-hl.png"];
+	self.rowBackgroundImage = [UIImage imageNamed:@"rowBackground.png"];
+	self.volumeMinimumTrackImage = [[UIImage imageNamed:@"volume-track.png"]
+									stretchableImageWithLeftCapWidth:38.0
+									topCapHeight:0.0];
+	self.volumeMaximumTrackImage = [[UIImage imageNamed:@"volume-track.png"]
+									stretchableImageWithLeftCapWidth:38.0
+									topCapHeight:0.0];
+	self.volumeThumbImage = [UIImage imageNamed:@"volume-thumb.png"];
+	
+	NSMutableArray *loadingFiles = [[NSMutableArray alloc] init];
+	for (int index = 0; index < 4; index++) {
+		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+		NSString *fileName = [NSString stringWithFormat:@"loading_%d.png", index];
+		UIImage *frame = [UIImage imageNamed:fileName];
+		[loadingFiles addObject:frame];
+		[pool release];
+	}
+	loadingImage.animationImages = loadingFiles;
+	loadingImage.animationDuration = 1.2f;
+	[loadingFiles release];
+	
+	// Build accessory views
+	soundOnView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"altavoz-on.png"]];
+	soundOffView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"altavoz.png"]];
+	
 	MPVolumeView *volumeView =
     [[[MPVolumeView alloc] initWithFrame:volumeViewHolder.bounds] autorelease];
 	[volumeView sizeToFit];
@@ -217,11 +378,69 @@
 	
 	// Find the slider
 	volumeSlider = [volumeView valueForKey:@"_volumeSlider"];
+	CGRect frame = volumeView.frame;
+	frame.size.height = 53;
+	volumeSlider.frame = frame;
 	
+	[volumeSlider setMinimumTrackImage:volumeMinimumTrackImage
+							  forState:UIControlStateNormal];
+	[volumeSlider setMaximumTrackImage:volumeMaximumTrackImage
+							  forState:UIControlStateNormal];
+	[volumeSlider setThumbImage:volumeThumbImage
+					   forState:UIControlStateNormal];
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(volumeChanged:)
 												 name:@"AVSystemController_SystemVolumeDidChangeNotification"
 											   object:nil];
+	
+	
+	// Loading subviews from the nib files
+	NSBundle *mainBundle = [NSBundle mainBundle];
+	[mainBundle loadNibNamed:@"InfoView"
+					   owner:self
+					 options:nil];
+	
+	[mainBundle loadNibNamed:@"RadiosView"
+					   owner:self
+					 options:nil];
+	[flippableView addSubview:radiosView];
+	
+	// Initialize mutexes
+	pthread_mutex_init(&stopMutex, NULL);
+	pthread_cond_init(&stopCondition, NULL);
+	
+	// Initialize radios list
+	NSString *radiosFilePath = [mainBundle pathForResource:@"radios"
+													ofType:@"plist"];
+	NSData *radiosData;
+	NSString *error;
+	NSPropertyListFormat format;
+	NSDictionary *radiosInfo;
+	
+	radiosData = [NSData dataWithContentsOfFile:radiosFilePath];
+	radiosInfo = (NSDictionary *) [NSPropertyListSerialization
+								   propertyListFromData:radiosData
+								   mutabilityOption:NSPropertyListImmutable
+								   format:&format
+								   errorDescription:&error];
+	
+	if (radiosInfo) {
+		radiosList = [[radiosInfo objectForKey:@"radioNames"] retain];
+		radiosURLS = [[radiosInfo objectForKey:@"radioURLs"] retain];
+	} else {
+		RNLog(@"Error loading radios information");
+		// TODO: show error to user... but it should not happen
+	}
+	
+	// Initialize saved values
+	NSNumber *result =
+	[[NSUserDefaults standardUserDefaults] objectForKey:@"activeRadio"];
+	if (result != nil) {
+		activeRadio = [result intValue];
+	} else
+		activeRadio = -1;
+	
+	
 	
 	[super viewDidLoad];
 }
@@ -240,6 +459,25 @@
 
 
 - (void)dealloc {
+	self.playImage = nil;
+	self.playHighlightImage = nil;
+	self.pauseImage = nil;
+	self.pauseHighlightImage = nil;
+	self.rowBackgroundImage = nil;
+	self.volumeMinimumTrackImage = nil;
+	self.volumeMaximumTrackImage = nil;
+	self.volumeThumbImage = nil;
+	
+	[soundOnView release];
+	[soundOffView release];
+	
+	[infoView release];
+	[radiosView release];
+	
+	[radiosList release];
+	[radiosURLS release];
+	
+	
 	[super dealloc];
 }
 
