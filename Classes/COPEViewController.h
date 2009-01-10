@@ -21,12 +21,12 @@
 	IBOutlet UILabel *stationLabel;
 	IBOutlet UIView *topBar;
 	IBOutlet UIView *bottomBar;
+  IBOutlet UIView *backgroundView;
 	
 	Player *player;
 	NSInteger activeRadio;
 	NSArray *radiosList;
-	NSArray *radiosURLS;
-	
+	NSArray *radiosURLS;	
 	
 	pthread_mutex_t stopMutex;
 	pthread_cond_t stopCondition;	
@@ -40,15 +40,11 @@
 	UIImage *playHighlightImage;
 	UIImage *pauseImage;
 	UIImage *pauseHighlightImage;
-	UIImage *rowBackgroundImage;
 	UIImage *volumeMinimumTrackImage;
 	UIImage *volumeMaximumTrackImage;
 	UIImage *volumeThumbImage;
-	
-	UIImageView *soundOnView;
-	UIImageView *soundOffView;
-	
-	UIView *volumeSlider;
+		
+	UISlider *volumeSlider;
 	UIView *infoView;
 	UIView *radiosView;
 }

@@ -17,7 +17,6 @@
 @property (nonatomic, retain) UIImage *playHighlightImage;
 @property (nonatomic, retain) UIImage *pauseImage;
 @property (nonatomic, retain) UIImage *pauseHighlightImage;
-@property (nonatomic, retain) UIImage *rowBackgroundImage;
 @property (nonatomic, retain) UIImage *volumeMinimumTrackImage;
 @property (nonatomic, retain) UIImage *volumeMaximumTrackImage;
 @property (nonatomic, retain) UIImage *volumeThumbImage;
@@ -34,9 +33,10 @@
 @end
 
 @implementation COPEViewController
+
 @synthesize playImage, playHighlightImage, pauseImage, pauseHighlightImage,
-rowBackgroundImage, volumeMinimumTrackImage,
-volumeMaximumTrackImage, volumeThumbImage;
+volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
+
 #pragma mark IBActions
 
 - (IBAction)controlButtonClicked:(UIButton *)button {
@@ -361,13 +361,17 @@ volumeMaximumTrackImage, volumeThumbImage;
 - (void)viewDidLoad {
 	
 	// Load some images
-	self.view.backgroundColor =
-	[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+	backgroundView.backgroundColor =
+    [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+  topBar.backgroundColor =
+    [UIColor colorWithPatternImage:[UIImage imageNamed:@"top-bar.png"]];
+  bottomBar.backgroundColor =
+    [UIColor colorWithPatternImage:[UIImage imageNamed:@"bottom-bar.png"]];
+  
 	self.playImage = [UIImage imageNamed:@"play.png"];
 	self.playHighlightImage = [UIImage imageNamed:@"play-hl.png"];
 	self.pauseImage = [UIImage imageNamed:@"pause.png"];
 	self.pauseHighlightImage = [UIImage imageNamed:@"pause-hl.png"];
-	self.rowBackgroundImage = [UIImage imageNamed:@"rowBackground.png"];
 	self.volumeMinimumTrackImage = [[UIImage imageNamed:@"volume-track.png"]
 									stretchableImageWithLeftCapWidth:38.0
 									topCapHeight:0.0];
@@ -388,13 +392,10 @@ volumeMaximumTrackImage, volumeThumbImage;
 	loadingImage.animationDuration = 1.2f;
 	[loadingFiles release];
 	
-	// Build accessory views
-	soundOnView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"altavoz-on.png"]];
-	soundOffView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"altavoz.png"]];
-	
+  // Set up slider
 	MPVolumeView *volumeView =
     [[[MPVolumeView alloc] initWithFrame:volumeViewHolder.bounds] autorelease];
-	[volumeView sizeToFit];
+	// [volumeView sizeToFit];
 	[volumeViewHolder addSubview:volumeView];
 	
 	// Find the slider
@@ -410,9 +411,9 @@ volumeMaximumTrackImage, volumeThumbImage;
 	[volumeSlider setThumbImage:volumeThumbImage
 					   forState:UIControlStateNormal];
 	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(volumeChanged:)
-												 name:@"AVSystemController_SystemVolumeDidChangeNotification"
-											   object:nil];
+                                           selector:@selector(volumeChanged:)
+                                               name:@"AVSystemController_SystemVolumeDidChangeNotification"
+                                             object:nil];
 	
 	
 	// Loading subviews from the nib files
@@ -432,7 +433,7 @@ volumeMaximumTrackImage, volumeThumbImage;
 	
 	// Initialize radios list
 	NSString *radiosFilePath = [mainBundle pathForResource:@"radios"
-													ofType:@"plist"];
+                                                  ofType:@"plist"];
 	NSData *radiosData;
 	NSString *error;
 	NSPropertyListFormat format;
@@ -484,14 +485,10 @@ volumeMaximumTrackImage, volumeThumbImage;
 	self.playHighlightImage = nil;
 	self.pauseImage = nil;
 	self.pauseHighlightImage = nil;
-	self.rowBackgroundImage = nil;
 	self.volumeMinimumTrackImage = nil;
 	self.volumeMaximumTrackImage = nil;
 	self.volumeThumbImage = nil;
-	
-	[soundOnView release];
-	[soundOffView release];
-	
+		
 	[infoView release];
 	[radiosView release];
 	
