@@ -11,7 +11,7 @@
 #import "Reachability.h"
 
 
-NSString *kFIFMRadioURL = @"http://cope.stream.flumotion.com/cope/copefm.mp3.m3u";
+NSString *kFIFMRadioURL = @"http://195.10.10.105:80/cope/copefm.mp3";
 
 // NSString *kFIFMRadioURL = @"http://scfire-ntc-aa10.stream.aol.com:80/stream/1040";
 
@@ -154,6 +154,58 @@ NSString *kFIFMRadioURL = @"http://cope.stream.flumotion.com/cope/copefm.mp3.m3u
 	[pool release];
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context {
+	if (object == player) {
+		if ([keyPath isEqual:@"isPlaying"]) {
+			NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+			
+			if ([player isPlaying]) { // Started playing
+				[self performSelector:@selector(setPlayState)
+							 onThread:[NSThread mainThread]
+						   withObject:nil
+						waitUntilDone:NO];
+			} else {
+				[player removeObserver:self forKeyPath:@"isPlaying"];
+				[player removeObserver:self forKeyPath:@"failed"];
+				[player release];
+				player = nil;
+				
+				isPlaying = NO;
+				
+				[self performSelector:@selector(setStopState)
+							 onThread:[NSThread mainThread]
+						   withObject:nil
+						waitUntilDone:NO];
+			}
+			
+			[pool release];
+			return;
+		} else if ([keyPath isEqual:@"failed"]) {
+			NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+			
+			if ([player failed]) { // Have failed
+				RNLog(@"failed!");
+				[self performSelector:@selector(setFailedState:)
+							 onThread:[NSThread mainThread]
+						   withObject:player.error
+						waitUntilDone:NO];
+			} else { // Have un-failed. Can't happen
+				RNLog(@"un-failed?");
+			}
+			
+			[pool release];
+			return;
+		}
+	}
+	
+	[super observeValueForKeyPath:keyPath
+						 ofObject:object
+						   change:change
+						  context:context];
+}
 
 - (void)volumeChanged:(NSNotification *)notify {
 	RNLog(@"volume changed");

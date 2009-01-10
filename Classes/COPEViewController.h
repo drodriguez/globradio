@@ -17,6 +17,8 @@
 	IBOutlet UIButton *controlButton;
 	IBOutlet UIView *volumeViewHolder;
 	IBOutlet UIImageView *loadingImage;
+	IBOutlet UIView *flippableView;
+	IBOutlet UILabel *stationLabel;
 	
 	Player *player;
 	
