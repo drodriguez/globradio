@@ -26,6 +26,8 @@
 - (void)playRadio;
 - (void)privatePlayRadio;
 
+- (void)setRadioNameInTitle;
+
 - (void)showNetworkProblemsAlert;
 
 - (void)reachabilityChanged:(NSNotification *)notification;
@@ -56,24 +58,25 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
       url = [NSURL URLWithString:@"http://apps.yoteinvoco.com/cope"];
       break;
     case SUPPORT_MAIL_BUTTON: { // email url
-      /*#if defined(BETA) || defined(DEBUG)
-       NSString *log = [NSString stringWithContentsOfFile:
-       [[RNFileLogger sharedLogger] logFile]];
-       NSString *encodedLog = (NSString *)
-       CFURLCreateStringByAddingPercentEscapes(NULL,
-       (CFStringRef)log,
-       NULL,
-       (CFStringRef)@";/?:@&=+$,",
-       kCFStringEncodingUTF8);
-       if (encodedLog)
-       url = [NSURL URLWithString:[NSString stringWithFormat:
-       @"mailto://support@yoteinvoco.com?body=%@",
-       encodedLog]];
-       else
-       url = [NSURL URLWithString:@"mailto://support@yoteinvoco.com?body=No+es+posible+recuperar+el+log"];
-       #else*/
+#if defined(BETA) || defined(DEBUG)
+      NSString *log = [NSString stringWithContentsOfFile:
+                       [[RNFileLogger sharedLogger] logFile]];
+      NSString *encodedLog = (NSString *)
+        CFURLCreateStringByAddingPercentEscapes(NULL,
+                                                (CFStringRef)log,
+                                                NULL,
+                                                (CFStringRef)@";/?:@&=+$,",
+                                                kCFStringEncodingUTF8);
+      if (encodedLog) {
+         url = [NSURL URLWithString:[NSString stringWithFormat:
+                                     @"mailto://support@yoteinvoco.com?body=%@",
+                                     encodedLog]];
+      } else {
+         url = [NSURL URLWithString:@"mailto://support@yoteinvoco.com?body=No+es+posible+recuperar+el+log"];
+      }
+#else
       url = [NSURL URLWithString:@"mailto://support@yoteinvoco.com"];
-      //#endif
+#endif
     break; }
   }
   
@@ -243,6 +246,13 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
 		// The reachability callback will show its own AlertView.
 		return;
 	}
+  
+  controlButton.hidden = NO;
+  loadingImage.hidden = YES;
+  if (loadingImage.isAnimating)
+    [loadingImage stopAnimating];
+  [controlButton setImage:playImage forState:UIControlStateNormal];
+  [controlButton setImage:playHighlightImage forState:UIControlStateHighlighted];  
 	
 	NSString *message;
 	if (error != nil) {
@@ -260,7 +270,10 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
 }
 
 - (void)setLoadingState {
-	
+  controlButton.hidden = YES;
+  loadingImage.hidden = NO;
+  if (!loadingImage.isAnimating)
+    [loadingImage startAnimating];
 }
 
 - (void)playRadio {
@@ -268,11 +281,7 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
 		[self showNetworkProblemsAlert];
 		return;
 	}
-	
-	if (isPlaying) {
-		return;
-	}
-	
+		
 	[NSThread detachNewThreadSelector:@selector(privatePlayRadio)
 							 toTarget:self
 						   withObject:nil];
@@ -281,13 +290,26 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
 - (void)privatePlayRadio {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
+  if (isPlaying) {
+    [self stopRadio];
+    
+    // Wait for stop
+    pthread_mutex_lock(&stopMutex);
+    while (isPlaying)
+      pthread_cond_wait(&stopCondition, &stopMutex);
+    pthread_mutex_unlock(&stopMutex);
+  }
+  
 	[self performSelector:@selector(setLoadingState)
 				 onThread:[NSThread mainThread]
 			   withObject:nil
 			waitUntilDone:NO];
 	
-	player = [[Player alloc] initWithString:@"http://195.10.10.105:80/cope/copefm.mp3" audioTypeHint:kAudioFileMP3Type];
-	//player.connectionFilter = [[FIShoutcastMetadataFilter alloc] init];
+  [self setRadioNameInTitle];
+  NSString *radioAddress = [radiosURLS objectAtIndex:activeRadio];
+  NSString *radioURL = [self getRadioURL:radioAddress];
+  
+	player = [[Player alloc] initWithString:radioURL];
 	
 	[player addObserver:self forKeyPath:@"isPlaying" options:0 context:nil];
 	[player addObserver:self forKeyPath:@"failed" options:0 context:nil];
@@ -296,6 +318,10 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
 	isPlaying = YES;
 	
 	[pool release];
+}
+
+- (void)setRadioNameInTitle {
+  stationLabel.text = [radiosList objectAtIndex:activeRadio];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -317,7 +343,10 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
 				[player release];
 				player = nil;
 				
+        pthread_mutex_lock(&stopMutex);
 				isPlaying = NO;
+        pthread_cond_signal(&stopCondition);
+        pthread_mutex_unlock(&stopMutex);
 				
 				[self performSelector:@selector(setStopState)
 							 onThread:[NSThread mainThread]
@@ -459,6 +488,8 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
 	[[NSUserDefaults standardUserDefaults] objectForKey:@"activeRadio"];
 	if (result != nil) {
 		activeRadio = [result intValue];
+    if (activeRadio != -1)
+      [self setRadioNameInTitle];
 	} else
 		activeRadio = -1;
 	
@@ -494,7 +525,6 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
 	
 	[radiosList release];
 	[radiosURLS release];
-	
 	
 	[super dealloc];
 }

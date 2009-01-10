@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1"/>
+			<integer value="24"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -71,12 +71,12 @@
 							<object class="IBUILabel" id="659645073">
 								<reference key="NSNextResponder" ref="1033030499"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{20, 1}, {280, 48}}</string>
+								<string key="NSFrame">{{20, 0}, {280, 49}}</string>
 								<reference key="NSSuperview" ref="1033030499"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
-								<string key="IBUIText">COPE Radio</string>
+								<string type="base64-UTF8" key="IBUIText">wr9DT1BFIG8gUm9jayAmIEdvbGVzPw</string>
 								<object class="NSFont" key="IBUIFont">
 									<string key="NSName">Helvetica-Bold</string>
 									<double key="NSSize">2.200000e+01</double>
@@ -88,6 +88,10 @@
 									<reference key="NSCustomColorSpace" ref="303707978"/>
 								</object>
 								<nil key="IBUIHighlightedColor"/>
+								<object class="NSColor" key="IBUIShadowColor">
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MCAwLjUAA</bytes>
+								</object>
 								<int key="IBUIBaselineAdjustment">1</int>
 								<float key="IBUIMinimumFontSize">1.000000e+01</float>
 								<int key="IBUITextAlignment">1</int>
@@ -120,7 +124,7 @@
 							<object class="IBUIView" id="586516801">
 								<reference key="NSNextResponder" ref="2504237"/>
 								<int key="NSvFlags">268</int>
-								<string key="NSFrame">{{149, 22}, {153, 53}}</string>
+								<string key="NSFrame">{{147, 22}, {153, 53}}</string>
 								<reference key="NSSuperview" ref="2504237"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
