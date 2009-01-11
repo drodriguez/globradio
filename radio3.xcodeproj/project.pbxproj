@@ -108,6 +108,16 @@
 		65F6F1940F19170700B0B070 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F6F1930F19170700B0B070 /* InfoView.xib */; };
 		65F6F19A0F19198F00B0B070 /* RadiosView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F6F1990F19198F00B0B070 /* RadiosView.xib */; };
 		65FD71870EF9AC4600C6FBD6 /* RNFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */; };
+		A72A702F0F1AA15800A2BFD9 /* FRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A72A702C0F1AA15800A2BFD9 /* FRAppDelegate.m */; };
+		A72A70300F1AA15800A2BFD9 /* FRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72A702E0F1AA15800A2BFD9 /* FRViewController.m */; };
+		A72A703E0F1AA1E500A2BFD9 /* AudioClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* AudioClass.m */; };
+		A72A703F0F1AA1F200A2BFD9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C452930EED3D77006AB1DD /* Reachability.m */; };
+		A72A70400F1AA1F900A2BFD9 /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
+		A72A70450F1AA2F400A2BFD9 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72A70440F1AA2F400A2BFD9 /* MainWindow.xib */; };
+		A72A70470F1AA31100A2BFD9 /* FRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72A70460F1AA31100A2BFD9 /* FRViewController.xib */; };
+		A72A704B0F1AA33F00A2BFD9 /* radios.plist in Resources */ = {isa = PBXBuildFile; fileRef = A72A704A0F1AA33F00A2BFD9 /* radios.plist */; };
+		A72A704D0F1AA36D00A2BFD9 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72A704C0F1AA36D00A2BFD9 /* InfoView.xib */; };
+		A72A704F0F1AA38900A2BFD9 /* RadiosView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72A704E0F1AA38900A2BFD9 /* RadiosView.xib */; };
 		A72D13BD0EC7A06800CBB890 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A72D13BC0EC7A06800CBB890 /* Default.png */; };
 		A73C066A0EC851E700A1B6F5 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A73C06690EC851E700A1B6F5 /* background.png */; };
 		A756BCB60EE9497200BECFFA /* entl.plist in Resources */ = {isa = PBXBuildFile; fileRef = A756BCB50EE9497200BECFFA /* entl.plist */; };
@@ -118,6 +128,16 @@
 		A7E7611E0EE9C4BF00E2F2BE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761190EE9C4BF00E2F2BE /* UIKit.framework */; };
 		A7E761730EE9C5F100E2F2BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761720EE9C5F100E2F2BE /* Foundation.framework */; };
 		A7EF8EB70EC6E85A004FE559 /* AudioClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* AudioClass.m */; };
+		A7F458000F1AA48D005BF6F5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761150EE9C4BF00E2F2BE /* AudioToolbox.framework */; };
+		A7F458010F1AA48D005BF6F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761160EE9C4BF00E2F2BE /* CoreGraphics.framework */; };
+		A7F458020F1AA48D005BF6F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761720EE9C5F100E2F2BE /* Foundation.framework */; };
+		A7F458030F1AA48D005BF6F5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 656BFC830F03DEA4006A3F15 /* MediaPlayer.framework */; };
+		A7F458040F1AA48D005BF6F5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761180EE9C4BF00E2F2BE /* Security.framework */; };
+		A7F458050F1AA48D005BF6F5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C452B80EED473E006AB1DD /* SystemConfiguration.framework */; };
+		A7F458060F1AA48D005BF6F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761190EE9C4BF00E2F2BE /* UIKit.framework */; };
+		A7F4580F0F1AA4B3005BF6F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		A7F4585C0F1AA61F005BF6F5 /* FranceRadio-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7F4585B0F1AA61F005BF6F5 /* FranceRadio-Info.plist */; };
+		A7F458750F1AA6B4005BF6F5 /* RNFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */; };
 		A7FA12E60F16B2F70067633A /* COPEViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7FA12E50F16B2F70067633A /* COPEViewController.xib */; };
 		A7FA12E70F16B3000067633A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7FA12E30F16B2C90067633A /* MainWindow.xib */; };
 /* End PBXBuildFile section */
@@ -215,6 +235,16 @@
 		65FD71850EF9AC4600C6FBD6 /* RNFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNFileLogger.h; sourceTree = "<group>"; };
 		65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNFileLogger.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/RNERadio/Info.plist; sourceTree = "<group>"; };
+		A72A70230F1AA12500A2BFD9 /* France Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "France Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A72A702B0F1AA15800A2BFD9 /* FRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRAppDelegate.h; sourceTree = "<group>"; };
+		A72A702C0F1AA15800A2BFD9 /* FRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRAppDelegate.m; sourceTree = "<group>"; };
+		A72A702D0F1AA15800A2BFD9 /* FRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRViewController.h; sourceTree = "<group>"; };
+		A72A702E0F1AA15800A2BFD9 /* FRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRViewController.m; sourceTree = "<group>"; };
+		A72A70440F1AA2F400A2BFD9 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = Resources/FranceRadio/MainWindow.xib; sourceTree = "<group>"; };
+		A72A70460F1AA31100A2BFD9 /* FRViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FRViewController.xib; path = Resources/FranceRadio/FRViewController.xib; sourceTree = "<group>"; };
+		A72A704A0F1AA33F00A2BFD9 /* radios.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = radios.plist; path = Resources/FranceRadio/radios.plist; sourceTree = "<group>"; };
+		A72A704C0F1AA36D00A2BFD9 /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = InfoView.xib; path = Resources/FranceRadio/InfoView.xib; sourceTree = "<group>"; };
+		A72A704E0F1AA38900A2BFD9 /* RadiosView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RadiosView.xib; path = Resources/FranceRadio/RadiosView.xib; sourceTree = "<group>"; };
 		A72D13BC0EC7A06800CBB890 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/RNERadio/Default.png; sourceTree = "<group>"; };
 		A73C06690EC851E700A1B6F5 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = Resources/RNERadio/background.png; sourceTree = "<group>"; };
 		A756BCB50EE9497200BECFFA /* entl.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = entl.plist; path = Resources/entl.plist; sourceTree = "<group>"; };
@@ -226,6 +256,7 @@
 		A7E761720EE9C5F100E2F2BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A7EF8EB50EC6E85A004FE559 /* AudioClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioClass.h; sourceTree = "<group>"; };
 		A7EF8EB60EC6E85A004FE559 /* AudioClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioClass.m; sourceTree = "<group>"; };
+		A7F4585B0F1AA61F005BF6F5 /* FranceRadio-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "FranceRadio-Info.plist"; path = "Resources/FranceRadio/FranceRadio-Info.plist"; sourceTree = "<group>"; };
 		A7FA127F0F16A5B10067633A /* COPEAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COPEAppDelegate.h; sourceTree = "<group>"; };
 		A7FA12800F16A5B10067633A /* COPEAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COPEAppDelegate.m; sourceTree = "<group>"; };
 		A7FA12820F16A5C70067633A /* COPEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COPEViewController.h; sourceTree = "<group>"; };
@@ -284,6 +315,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A72A70210F1AA12500A2BFD9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7F458000F1AA48D005BF6F5 /* AudioToolbox.framework in Frameworks */,
+				A7F458010F1AA48D005BF6F5 /* CoreGraphics.framework in Frameworks */,
+				A7F458020F1AA48D005BF6F5 /* Foundation.framework in Frameworks */,
+				A7F458030F1AA48D005BF6F5 /* MediaPlayer.framework in Frameworks */,
+				A7F458040F1AA48D005BF6F5 /* Security.framework in Frameworks */,
+				A7F458050F1AA48D005BF6F5 /* SystemConfiguration.framework in Frameworks */,
+				A7F458060F1AA48D005BF6F5 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A7FA12BF0F16B2800067633A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -303,6 +348,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A72A701C0F1AA0F800A2BFD9 /* FranceRadio */,
 				A7FA127C0F16A5810067633A /* COPERadio */,
 				65BD5DF20F09B05800D283D4 /* KissRadio */,
 				656BFC350F03A4C4006A3F15 /* FIFMRadio */,
@@ -327,6 +373,7 @@
 				6582EC620F029C9200E7051A /* FI-FM Radio.app */,
 				65BD5E060F09B08000D283D4 /* KissRadio.app */,
 				A7FA12C10F16B2800067633A /* COPERadio.app */,
+				A72A70230F1AA12500A2BFD9 /* France Radio.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -358,6 +405,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A72A70310F1AA18F00A2BFD9 /* FranceRadio */,
 				A7FA12C90F16B2950067633A /* COPERadio */,
 				65BD5DF30F09B06500D283D4 /* KissRadio */,
 				6582EC6F0F029E9C00E7051A /* FIFMRadio */,
@@ -499,6 +547,30 @@
 			name = KissRadio;
 			sourceTree = "<group>";
 		};
+		A72A701C0F1AA0F800A2BFD9 /* FranceRadio */ = {
+			isa = PBXGroup;
+			children = (
+				A72A702B0F1AA15800A2BFD9 /* FRAppDelegate.h */,
+				A72A702C0F1AA15800A2BFD9 /* FRAppDelegate.m */,
+				A72A702D0F1AA15800A2BFD9 /* FRViewController.h */,
+				A72A702E0F1AA15800A2BFD9 /* FRViewController.m */,
+			);
+			name = FranceRadio;
+			sourceTree = "<group>";
+		};
+		A72A70310F1AA18F00A2BFD9 /* FranceRadio */ = {
+			isa = PBXGroup;
+			children = (
+				A72A70440F1AA2F400A2BFD9 /* MainWindow.xib */,
+				A72A70460F1AA31100A2BFD9 /* FRViewController.xib */,
+				A72A704A0F1AA33F00A2BFD9 /* radios.plist */,
+				A72A704C0F1AA36D00A2BFD9 /* InfoView.xib */,
+				A72A704E0F1AA38900A2BFD9 /* RadiosView.xib */,
+				A7F4585B0F1AA61F005BF6F5 /* FranceRadio-Info.plist */,
+			);
+			name = FranceRadio;
+			sourceTree = "<group>";
+		};
 		A7FA127C0F16A5810067633A /* COPERadio */ = {
 			isa = PBXGroup;
 			children = (
@@ -621,6 +693,23 @@
 			productReference = 65BD5E060F09B08000D283D4 /* KissRadio.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A72A70220F1AA12500A2BFD9 /* FranceRadio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A72A702A0F1AA12700A2BFD9 /* Build configuration list for PBXNativeTarget "FranceRadio" */;
+			buildPhases = (
+				A72A701F0F1AA12500A2BFD9 /* Resources */,
+				A72A70200F1AA12500A2BFD9 /* Sources */,
+				A72A70210F1AA12500A2BFD9 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FranceRadio;
+			productName = FranceRadio;
+			productReference = A72A70230F1AA12500A2BFD9 /* France Radio.app */;
+			productType = "com.apple.product-type.application";
+		};
 		A7FA12C00F16B2800067633A /* COPERadio */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7FA12C80F16B2820067633A /* Build configuration list for PBXNativeTarget "COPERadio" */;
@@ -656,6 +745,7 @@
 				6582EC610F029C9200E7051A /* FIFMRadio.app */,
 				65BD5E050F09B08000D283D4 /* KissRadio.app */,
 				A7FA12C00F16B2800067633A /* COPERadio */,
+				A72A70220F1AA12500A2BFD9 /* FranceRadio */,
 			);
 		};
 /* End PBXProject section */
@@ -716,6 +806,19 @@
 			files = (
 				65BD5E250F09B9F000D283D4 /* Icon.png in Resources */,
 				65BD5E260F09B9F000D283D4 /* iTunesArtwork in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A72A701F0F1AA12500A2BFD9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A72A70450F1AA2F400A2BFD9 /* MainWindow.xib in Resources */,
+				A72A70470F1AA31100A2BFD9 /* FRViewController.xib in Resources */,
+				A72A704B0F1AA33F00A2BFD9 /* radios.plist in Resources */,
+				A72A704D0F1AA36D00A2BFD9 /* InfoView.xib in Resources */,
+				A72A704F0F1AA38900A2BFD9 /* RadiosView.xib in Resources */,
+				A7F4585C0F1AA61F005BF6F5 /* FranceRadio-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -881,6 +984,20 @@
 				65BD5E1B0F09B1AF00D283D4 /* RNFileLogger.m in Sources */,
 				65BD5E210F09B2CF00D283D4 /* KSViewController.m in Sources */,
 				65BD5E220F09B2D300D283D4 /* KSAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A72A70200F1AA12500A2BFD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A72A702F0F1AA15800A2BFD9 /* FRAppDelegate.m in Sources */,
+				A72A70300F1AA15800A2BFD9 /* FRViewController.m in Sources */,
+				A72A703E0F1AA1E500A2BFD9 /* AudioClass.m in Sources */,
+				A72A703F0F1AA1F200A2BFD9 /* Reachability.m in Sources */,
+				A72A70400F1AA1F900A2BFD9 /* RNM3UParser.m in Sources */,
+				A7F4580F0F1AA4B3005BF6F5 /* main.m in Sources */,
+				A7F458750F1AA6B4005BF6F5 /* RNFileLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1274,6 +1391,97 @@
 			};
 			name = Beta;
 		};
+		A72A70260F1AA12600A2BFD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "FranceRadio-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "France Radio";
+				SDKROOT = iphoneos2.2;
+			};
+			name = Debug;
+		};
+		A72A70270F1AA12600A2BFD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "FranceRadio-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = FranceRadio;
+				SDKROOT = iphoneos2.2;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		A72A70280F1AA12600A2BFD9 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "FranceRadio-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = FranceRadio;
+				SDKROOT = iphoneos2.2;
+			};
+			name = Distribution;
+		};
+		A72A70290F1AA12600A2BFD9 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "FranceRadio-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = FranceRadio;
+				SDKROOT = iphoneos2.2;
+			};
+			name = Beta;
+		};
 		A7FA12C40F16B2810067633A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1442,6 +1650,17 @@
 				65BD5E0A0F09B08200D283D4 /* Release */,
 				65BD5E0B0F09B08200D283D4 /* Distribution */,
 				65BD5E0C0F09B08200D283D4 /* Beta */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A72A702A0F1AA12700A2BFD9 /* Build configuration list for PBXNativeTarget "FranceRadio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A72A70260F1AA12600A2BFD9 /* Debug */,
+				A72A70270F1AA12600A2BFD9 /* Release */,
+				A72A70280F1AA12600A2BFD9 /* Distribution */,
+				A72A70290F1AA12600A2BFD9 /* Beta */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
