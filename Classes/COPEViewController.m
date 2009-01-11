@@ -10,6 +10,7 @@
 #import "AudioClass.h"
 #import "Reachability.h"
 #import "RNM3UParser.h"
+#import "COPENeedleView.h"
 
 @interface COPEViewController ()
 
@@ -32,6 +33,8 @@
 
 - (void)reachabilityChanged:(NSNotification *)notification;
 
+- (void)needleChangeRadioTo:(NSNumber *)index;
+
 @end
 
 @implementation COPEViewController
@@ -42,7 +45,7 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
 #pragma mark IBActions
 
 - (IBAction)controlButtonClicked:(UIButton *)button {
-	if (isPlaying) {
+  if (isPlaying) {
 		[self stopRadio];
 	} else {
 		[self playRadio];
@@ -139,6 +142,9 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
   }
   
   if (activeRadio != selectedRadio || !isPlaying) {
+    if (activeRadio != selectedRadio) {
+      [needleView switchToRadioIndex:selectedRadio];
+    }
     activeRadio = selectedRadio;
     [self playRadio];
   }
@@ -173,6 +179,13 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
 	if ([[Reachability sharedReachability] remoteHostStatus] == NotReachable) {
 		[self showNetworkProblemsAlert];
 	}
+}
+
+- (void)needleChangeRadioTo:(NSNumber *)index {
+  if (activeRadio != [index intValue] || !isPlaying) {
+    activeRadio = [index intValue];
+    [self playRadio];
+  }
 }
 
 - (void)animationWillStart:(NSString *)animation context:(void *)context {
@@ -444,7 +457,6 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
                                                name:@"AVSystemController_SystemVolumeDidChangeNotification"
                                              object:nil];
 	
-	
 	// Loading subviews from the nib files
 	NSBundle *mainBundle = [NSBundle mainBundle];
 	[mainBundle loadNibNamed:@"InfoView"
@@ -455,6 +467,8 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
 					   owner:self
 					 options:nil];
 	[flippableView addSubview:radiosView];
+  // Set needle target and action
+  [needleView setTarget:self action:@selector(needleChangeRadioTo:)];
 	
 	// Initialize mutexes
 	pthread_mutex_init(&stopMutex, NULL);
@@ -490,18 +504,19 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
 		activeRadio = [result intValue];
     if (activeRadio != -1)
       [self setRadioNameInTitle];
-	} else
+	} else {
 		activeRadio = -1;
-	
-	
-	
+  }
+  
 	[super viewDidLoad];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
 	// Needed to start receiving reachability status notifications
 	[[Reachability sharedReachability] remoteHostStatus];
-	
+  
+  [needleView showAtRadioIndex:activeRadio];
+  
 	[super viewDidAppear:animated];
 }
 

@@ -6,11 +6,11 @@
 //  Copyright 2009 Daniel Rodríguez and Javier Quevedo. All rights reserved.
 //
 
-
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 
 @class Player;
+@class COPENeedleView;
 
 @interface COPEViewController : UIViewController {
  @private
@@ -22,6 +22,7 @@
 	IBOutlet UIView *topBar;
 	IBOutlet UIView *bottomBar;
   IBOutlet UIView *backgroundView;
+  IBOutlet COPENeedleView *needleView;
 	
 	Player *player;
 	NSInteger activeRadio;
