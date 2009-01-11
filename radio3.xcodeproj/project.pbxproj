@@ -132,7 +132,6 @@
 		A7F458010F1AA48D005BF6F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761160EE9C4BF00E2F2BE /* CoreGraphics.framework */; };
 		A7F458020F1AA48D005BF6F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761720EE9C5F100E2F2BE /* Foundation.framework */; };
 		A7F458030F1AA48D005BF6F5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 656BFC830F03DEA4006A3F15 /* MediaPlayer.framework */; };
-		A7F458040F1AA48D005BF6F5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761180EE9C4BF00E2F2BE /* Security.framework */; };
 		A7F458050F1AA48D005BF6F5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C452B80EED473E006AB1DD /* SystemConfiguration.framework */; };
 		A7F458060F1AA48D005BF6F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761190EE9C4BF00E2F2BE /* UIKit.framework */; };
 		A7F4580F0F1AA4B3005BF6F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -323,7 +322,6 @@
 				A7F458010F1AA48D005BF6F5 /* CoreGraphics.framework in Frameworks */,
 				A7F458020F1AA48D005BF6F5 /* Foundation.framework in Frameworks */,
 				A7F458030F1AA48D005BF6F5 /* MediaPlayer.framework in Frameworks */,
-				A7F458040F1AA48D005BF6F5 /* Security.framework in Frameworks */,
 				A7F458050F1AA48D005BF6F5 /* SystemConfiguration.framework in Frameworks */,
 				A7F458060F1AA48D005BF6F5 /* UIKit.framework in Frameworks */,
 			);
