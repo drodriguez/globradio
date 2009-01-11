@@ -42,6 +42,8 @@
 		6576DD330EEF2992004370D6 /* altavoz-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 6576DD320EEF2992004370D6 /* altavoz-on.png */; };
 		6579C4660F19E90100C2CA3F /* COPENeedleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6579C4650F19E90100C2CA3F /* COPENeedleView.m */; };
 		6579C5330F1A37F900C2CA3F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761160EE9C4BF00E2F2BE /* CoreGraphics.framework */; };
+		6579C5EF0F1A787500C2CA3F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6579C5ED0F1A787500C2CA3F /* Icon.png */; };
+		6579C5F00F1A787500C2CA3F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 6579C5EE0F1A787500C2CA3F /* iTunesArtwork */; };
 		6581FAD10EE6CD9100441607 /* pause-hl.png in Resources */ = {isa = PBXBuildFile; fileRef = 6581FAD00EE6CD9100441607 /* pause-hl.png */; };
 		6581FB3A0EE73DF700441607 /* loading_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 6581FB360EE73DF700441607 /* loading_0.png */; };
 		6581FB3B0EE73DF700441607 /* loading_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6581FB370EE73DF700441607 /* loading_1.png */; };
@@ -154,6 +156,8 @@
 		6576DD320EEF2992004370D6 /* altavoz-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "altavoz-on.png"; path = "Resources/RNERadio/altavoz-on.png"; sourceTree = "<group>"; };
 		6579C4640F19E90100C2CA3F /* COPENeedleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COPENeedleView.h; sourceTree = "<group>"; };
 		6579C4650F19E90100C2CA3F /* COPENeedleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COPENeedleView.m; sourceTree = "<group>"; };
+		6579C5ED0F1A787500C2CA3F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/COPERadio/Icon.png; sourceTree = "<group>"; };
+		6579C5EE0F1A787500C2CA3F /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/COPERadio/iTunesArtwork; sourceTree = "<group>"; };
 		6581FAD00EE6CD9100441607 /* pause-hl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pause-hl.png"; path = "Resources/RNERadio/pause-hl.png"; sourceTree = "<group>"; };
 		6581FB360EE73DF700441607 /* loading_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_0.png; path = Resources/RNERadio/loading_0.png; sourceTree = "<group>"; };
 		6581FB370EE73DF700441607 /* loading_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_1.png; path = Resources/RNERadio/loading_1.png; sourceTree = "<group>"; };
@@ -511,6 +515,8 @@
 		A7FA12C90F16B2950067633A /* COPERadio */ = {
 			isa = PBXGroup;
 			children = (
+				6579C5ED0F1A787500C2CA3F /* Icon.png */,
+				6579C5EE0F1A787500C2CA3F /* iTunesArtwork */,
 				65F6F1930F19170700B0B070 /* InfoView.xib */,
 				65F6F1500F190E3600B0B070 /* rng-icon.png */,
 				65F6F1460F190DF400B0B070 /* background.png */,
@@ -741,6 +747,8 @@
 				65F6F1510F190E3600B0B070 /* rng-icon.png in Resources */,
 				65F6F1940F19170700B0B070 /* InfoView.xib in Resources */,
 				65F6F19A0F19198F00B0B070 /* RadiosView.xib in Resources */,
+				6579C5EF0F1A787500C2CA3F /* Icon.png in Resources */,
+				6579C5F00F1A787500C2CA3F /* iTunesArtwork in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
