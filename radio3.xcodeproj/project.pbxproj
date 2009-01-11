@@ -109,10 +109,7 @@
 		65F6F19A0F19198F00B0B070 /* RadiosView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F6F1990F19198F00B0B070 /* RadiosView.xib */; };
 		65FD71870EF9AC4600C6FBD6 /* RNFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */; };
 		A72A702F0F1AA15800A2BFD9 /* FRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A72A702C0F1AA15800A2BFD9 /* FRAppDelegate.m */; };
-		A72A70300F1AA15800A2BFD9 /* FRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72A702E0F1AA15800A2BFD9 /* FRViewController.m */; };
 		A72A703E0F1AA1E500A2BFD9 /* AudioClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* AudioClass.m */; };
-		A72A703F0F1AA1F200A2BFD9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C452930EED3D77006AB1DD /* Reachability.m */; };
-		A72A70400F1AA1F900A2BFD9 /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
 		A72A70450F1AA2F400A2BFD9 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72A70440F1AA2F400A2BFD9 /* MainWindow.xib */; };
 		A72A70470F1AA31100A2BFD9 /* FRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72A70460F1AA31100A2BFD9 /* FRViewController.xib */; };
 		A72A704B0F1AA33F00A2BFD9 /* radios.plist in Resources */ = {isa = PBXBuildFile; fileRef = A72A704A0F1AA33F00A2BFD9 /* radios.plist */; };
@@ -122,6 +119,10 @@
 		A73C066A0EC851E700A1B6F5 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A73C06690EC851E700A1B6F5 /* background.png */; };
 		A756BCB60EE9497200BECFFA /* entl.plist in Resources */ = {isa = PBXBuildFile; fileRef = A756BCB50EE9497200BECFFA /* entl.plist */; };
 		A7A28D8B0EC7781700963966 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A28D8A0EC7781700963966 /* Icon.png */; };
+		A7A738AB0F1AAE8900CBD73A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C452930EED3D77006AB1DD /* Reachability.m */; };
+		A7A738AC0F1AAE8C00CBD73A /* RNFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */; };
+		A7A738B10F1AAEB100CBD73A /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
+		A7A738B20F1AAEB900CBD73A /* FRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72A702E0F1AA15800A2BFD9 /* FRViewController.m */; };
 		A7E7611A0EE9C4BF00E2F2BE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761150EE9C4BF00E2F2BE /* AudioToolbox.framework */; };
 		A7E7611B0EE9C4BF00E2F2BE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761160EE9C4BF00E2F2BE /* CoreGraphics.framework */; };
 		A7E7611D0EE9C4BF00E2F2BE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761180EE9C4BF00E2F2BE /* Security.framework */; };
@@ -136,7 +137,6 @@
 		A7F458060F1AA48D005BF6F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761190EE9C4BF00E2F2BE /* UIKit.framework */; };
 		A7F4580F0F1AA4B3005BF6F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		A7F4585C0F1AA61F005BF6F5 /* FranceRadio-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7F4585B0F1AA61F005BF6F5 /* FranceRadio-Info.plist */; };
-		A7F458750F1AA6B4005BF6F5 /* RNFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */; };
 		A7FA12E60F16B2F70067633A /* COPEViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7FA12E50F16B2F70067633A /* COPEViewController.xib */; };
 		A7FA12E70F16B3000067633A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7FA12E30F16B2C90067633A /* MainWindow.xib */; };
 /* End PBXBuildFile section */
@@ -990,12 +990,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A72A702F0F1AA15800A2BFD9 /* FRAppDelegate.m in Sources */,
-				A72A70300F1AA15800A2BFD9 /* FRViewController.m in Sources */,
 				A72A703E0F1AA1E500A2BFD9 /* AudioClass.m in Sources */,
-				A72A703F0F1AA1F200A2BFD9 /* Reachability.m in Sources */,
-				A72A70400F1AA1F900A2BFD9 /* RNM3UParser.m in Sources */,
 				A7F4580F0F1AA4B3005BF6F5 /* main.m in Sources */,
-				A7F458750F1AA6B4005BF6F5 /* RNFileLogger.m in Sources */,
+				A7A738AB0F1AAE8900CBD73A /* Reachability.m in Sources */,
+				A7A738AC0F1AAE8C00CBD73A /* RNFileLogger.m in Sources */,
+				A7A738B10F1AAEB100CBD73A /* RNM3UParser.m in Sources */,
+				A7A738B20F1AAEB900CBD73A /* FRViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
