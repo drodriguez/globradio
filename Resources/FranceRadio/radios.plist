@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   radios.plist
-   radio3
-
-   Created by Javier Quevedo on 1/11/09.
-   Copyright 2009 __MyCompanyName__. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-    
-    </dict>
+<dict>
+	<key>radioNames</key>
+	<array>
+		<string>Radio Nacional</string>
+		<string>Radio Clásica</string>
+		<string>Radio 3</string>
+		<string>Ràdio 4</string>
+		<string>Radio 5</string>
+		<string>Radio Exterior</string>
+	</array>
+	<key>radioURLs</key>
+	<array>
+		<string>http://rtve.stream.flumotion.com/rtve/radio1.mp3.m3u</string>
+		<string>http://rtve.stream.flumotion.com/rtve/radioclasica.mp3.m3u</string>
+		<string>http://rtve.stream.flumotion.com/rtve/radio3.mp3.m3u</string>
+		<string>http://rtve.stream.flumotion.com/rtve/radio4.mp3.m3u</string>
+		<string>http://rtve.stream.flumotion.com/rtve/radio5.mp3.m3u</string>
+		<string>http://rtve.stream.flumotion.com/rtve/radioexterior.mp3.m3u</string>
+	</array>
+</dict>
 </plist>
