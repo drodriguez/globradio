@@ -58,7 +58,7 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
   NSURL *url = nil;
   switch (button.tag) {
     case SUPPORT_WEB_BUTTON: // Web url
-      url = [NSURL URLWithString:@"http://apps.yoteinvoco.com/cope"];
+      url = [NSURL URLWithString:@"http://apps.yoteinvoco.com/"];
       break;
     case SUPPORT_MAIL_BUTTON: { // email url
 #if defined(BETA) || defined(DEBUG)
@@ -162,8 +162,8 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
 		interruptedDuringPlayback = playing;
 	} else if (interruptionState == kAudioSessionEndInterruption) {
 		AudioSessionSetActive(YES);
-		if (interruptedDuringPlayback)
-			[self playRadio];
+		// if (interruptedDuringPlayback)
+		//	[self playRadio];
 		interruptedDuringPlayback = NO;
 	}
 }
