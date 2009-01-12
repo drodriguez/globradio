@@ -69,7 +69,7 @@
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
-						<string key="IBUIText">http://apps.yoteinvoco.com/cope</string>
+						<string key="IBUIText">http://apps.yoteinvoco.com/</string>
 						<object class="NSFont" key="IBUIFont" id="677359114">
 							<string key="NSName">Helvetica</string>
 							<double key="NSSize">1.600000e+01</double>
@@ -175,8 +175,8 @@
 						<bool key="IBUIBouncesZoom">NO</bool>
 						<bool key="IBUIEditable">NO</bool>
 						<string type="base64-UTF8" key="IBUIText">Q29weXJpZ2h0IMKpIDIwMDkgRGFuaWVsIFJvZHLDrWd1ZXogeSBKYXZpZXIgUXVldmVkby4KQ2FkZW5h
-IENPUEUgeSBSb2NrICYgR29sZXMgc29uIG1hcmNhcyByZWdpc3RyYWRhcyBkZSBSYWRpbyBQb3B1bGFy
-IFNBLg</string>
+IENPUEUgeSBSb2NrICYgR29sIHNvbiBtYXJjYXMgcmVnaXN0cmFkYXMgZGUgUmFkaW8gUG9wdWxhciBT
+QS4</string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC43NQA</bytes>
