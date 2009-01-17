@@ -4,21 +4,19 @@
 <dict>
 	<key>radioNames</key>
 	<array>
-		<string>Radio Nacional</string>
-		<string>Radio Clásica</string>
-		<string>Radio 3</string>
-		<string>Ràdio 4</string>
-		<string>Radio 5</string>
-		<string>Radio Exterior</string>
+		<string>rfi Monde</string>
+		<string>rfi Afrique</string>
+		<string>rfi Musique</string>
+		<string>rfi Multi1</string>
+		<string>rfi Multi2</string>
 	</array>
 	<key>radioURLs</key>
 	<array>
-		<string>http://rtve.stream.flumotion.com/rtve/radio1.mp3.m3u</string>
-		<string>http://rtve.stream.flumotion.com/rtve/radioclasica.mp3.m3u</string>
-		<string>http://rtve.stream.flumotion.com/rtve/radio3.mp3.m3u</string>
-		<string>http://rtve.stream.flumotion.com/rtve/radio4.mp3.m3u</string>
-		<string>http://rtve.stream.flumotion.com/rtve/radio5.mp3.m3u</string>
-		<string>http://rtve.stream.flumotion.com/rtve/radioexterior.mp3.m3u</string>
+		<string>http://www.tv-radio.com/station/rfimonde-mp3/rfimonde-mp3-64k.pls</string>
+		<string>http://www.tv-radio.com/station/rfiafrique-mp3/rfiafrique-mp3-64k.pls</string>
+		<string>http://www.tv-radio.com/station/rfimusiquemonde-mp3/rfimusiquemonde-mp3-64k.pls</string>
+		<string>http://91.121.62.121:8110/listen.pls</string>
+		<string>http://91.121.62.121:8130/listen.pls</string>
 	</array>
 </dict>
 </plist>

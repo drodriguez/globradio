@@ -8,7 +8,7 @@
 
 #import "FRViewController.h"
 #import "AudioClass.h"
-#import "RNM3UParser.h"
+#import "PLSParser.h"
 #import "Reachability.h"
 #import <MediaPlayer/MediaPlayer.h>
 
@@ -192,20 +192,28 @@ volumeMaximumTrackImage, volumeThumbImage;
 
 - (NSString *)getRadioURL:(NSString *)radioAddress {
 	RNLog(@"getRadioURL radioAddress %@", radioAddress);
-	NSURL *m3UUrl = [[NSURL alloc] initWithString:radioAddress];
-	NSString *m3UContent = [NSString stringWithContentsOfURL:m3UUrl];
+	NSURL *plsUrl = [[NSURL alloc] initWithString:radioAddress];
+	NSString *plsContent = [NSString stringWithContentsOfURL:plsUrl];
 	
-	NSArray *tracks = [RNM3UParser parse:m3UContent];
+	NSArray *tracks = [PLSParser parse:plsContent];
+	
 	if ([tracks count] > 0) {
-		NSString *location = [[[tracks objectAtIndex:0] objectForKey:@"location"]
+		
+		NSString *location = [[tracks objectAtIndex:0]
 							  retain];
 		RNLog(@"getRadioURL location %@", location);
 		return location;
-	} else {
+	}
+	else
+	{
 		// No error here, returning a invalid URL makes the streamer fail
 		RNLog(@"Can not extract information from M3U");
 		return @"";
 	}
+	
+	
+
+
 }
 
 - (void)stopRadio {
@@ -305,8 +313,8 @@ volumeMaximumTrackImage, volumeThumbImage;
 	NSString *radioAddress = [radiosURLS objectAtIndex:activeRadio];
 	NSString *radioURL = [self getRadioURL:radioAddress];
 	
-	myPlayer = [[Player alloc] initWithString:radioURL];
-	
+
+	myPlayer = [[Player alloc] initWithString:radioURL audioTypeHint:kAudioFileMP3Type];
 	[myPlayer addObserver:self forKeyPath:@"isPlaying" options:0 context:nil];
 	[myPlayer addObserver:self forKeyPath:@"failed" options:0 context:nil];
 	[myPlayer start];

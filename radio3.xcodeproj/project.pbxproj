@@ -129,6 +129,23 @@
 		A7E7611E0EE9C4BF00E2F2BE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761190EE9C4BF00E2F2BE /* UIKit.framework */; };
 		A7E761730EE9C5F100E2F2BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761720EE9C5F100E2F2BE /* Foundation.framework */; };
 		A7EF8EB70EC6E85A004FE559 /* AudioClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* AudioClass.m */; };
+		A7F1FDFF0F220F0A005F9CDC /* altavoz-on.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDEF0F220F0A005F9CDC /* altavoz-on.png */; };
+		A7F1FE000F220F0A005F9CDC /* altavoz.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDF00F220F0A005F9CDC /* altavoz.png */; };
+		A7F1FE010F220F0A005F9CDC /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDF10F220F0A005F9CDC /* background.png */; };
+		A7F1FE020F220F0A005F9CDC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDF20F220F0A005F9CDC /* Default.png */; };
+		A7F1FE030F220F0A005F9CDC /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDF30F220F0A005F9CDC /* Icon.png */; };
+		A7F1FE040F220F0A005F9CDC /* loading_0.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDF40F220F0A005F9CDC /* loading_0.png */; };
+		A7F1FE050F220F0A005F9CDC /* loading_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDF50F220F0A005F9CDC /* loading_1.png */; };
+		A7F1FE060F220F0A005F9CDC /* loading_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDF60F220F0A005F9CDC /* loading_2.png */; };
+		A7F1FE070F220F0A005F9CDC /* loading_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDF70F220F0A005F9CDC /* loading_3.png */; };
+		A7F1FE080F220F0A005F9CDC /* pause-hl.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDF80F220F0A005F9CDC /* pause-hl.png */; };
+		A7F1FE090F220F0A005F9CDC /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDF90F220F0A005F9CDC /* pause.png */; };
+		A7F1FE0A0F220F0A005F9CDC /* play-hl.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDFA0F220F0A005F9CDC /* play-hl.png */; };
+		A7F1FE0B0F220F0A005F9CDC /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDFB0F220F0A005F9CDC /* play.png */; };
+		A7F1FE0C0F220F0A005F9CDC /* rowBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDFC0F220F0A005F9CDC /* rowBackground.png */; };
+		A7F1FE0D0F220F0A005F9CDC /* volume-thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDFD0F220F0A005F9CDC /* volume-thumb.png */; };
+		A7F1FE0E0F220F0A005F9CDC /* volume-track.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDFE0F220F0A005F9CDC /* volume-track.png */; };
+		A7F1FE6D0F221E01005F9CDC /* PLSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F1FE6C0F221E01005F9CDC /* PLSParser.m */; };
 		A7F458000F1AA48D005BF6F5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761150EE9C4BF00E2F2BE /* AudioToolbox.framework */; };
 		A7F458010F1AA48D005BF6F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761160EE9C4BF00E2F2BE /* CoreGraphics.framework */; };
 		A7F458020F1AA48D005BF6F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761720EE9C5F100E2F2BE /* Foundation.framework */; };
@@ -255,6 +272,24 @@
 		A7E761720EE9C5F100E2F2BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A7EF8EB50EC6E85A004FE559 /* AudioClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioClass.h; sourceTree = "<group>"; };
 		A7EF8EB60EC6E85A004FE559 /* AudioClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioClass.m; sourceTree = "<group>"; };
+		A7F1FDEF0F220F0A005F9CDC /* altavoz-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "altavoz-on.png"; path = "Resources/FranceRadio/altavoz-on.png"; sourceTree = "<group>"; };
+		A7F1FDF00F220F0A005F9CDC /* altavoz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = altavoz.png; path = Resources/FranceRadio/altavoz.png; sourceTree = "<group>"; };
+		A7F1FDF10F220F0A005F9CDC /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = Resources/FranceRadio/background.png; sourceTree = "<group>"; };
+		A7F1FDF20F220F0A005F9CDC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/FranceRadio/Default.png; sourceTree = "<group>"; };
+		A7F1FDF30F220F0A005F9CDC /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/FranceRadio/Icon.png; sourceTree = "<group>"; };
+		A7F1FDF40F220F0A005F9CDC /* loading_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_0.png; path = Resources/FranceRadio/loading_0.png; sourceTree = "<group>"; };
+		A7F1FDF50F220F0A005F9CDC /* loading_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_1.png; path = Resources/FranceRadio/loading_1.png; sourceTree = "<group>"; };
+		A7F1FDF60F220F0A005F9CDC /* loading_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_2.png; path = Resources/FranceRadio/loading_2.png; sourceTree = "<group>"; };
+		A7F1FDF70F220F0A005F9CDC /* loading_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_3.png; path = Resources/FranceRadio/loading_3.png; sourceTree = "<group>"; };
+		A7F1FDF80F220F0A005F9CDC /* pause-hl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pause-hl.png"; path = "Resources/FranceRadio/pause-hl.png"; sourceTree = "<group>"; };
+		A7F1FDF90F220F0A005F9CDC /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = Resources/FranceRadio/pause.png; sourceTree = "<group>"; };
+		A7F1FDFA0F220F0A005F9CDC /* play-hl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play-hl.png"; path = "Resources/FranceRadio/play-hl.png"; sourceTree = "<group>"; };
+		A7F1FDFB0F220F0A005F9CDC /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.png; path = Resources/FranceRadio/play.png; sourceTree = "<group>"; };
+		A7F1FDFC0F220F0A005F9CDC /* rowBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rowBackground.png; path = Resources/FranceRadio/rowBackground.png; sourceTree = "<group>"; };
+		A7F1FDFD0F220F0A005F9CDC /* volume-thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "volume-thumb.png"; path = "Resources/FranceRadio/volume-thumb.png"; sourceTree = "<group>"; };
+		A7F1FDFE0F220F0A005F9CDC /* volume-track.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "volume-track.png"; path = "Resources/FranceRadio/volume-track.png"; sourceTree = "<group>"; };
+		A7F1FE6B0F221E01005F9CDC /* PLSParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLSParser.h; sourceTree = "<group>"; };
+		A7F1FE6C0F221E01005F9CDC /* PLSParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLSParser.m; sourceTree = "<group>"; };
 		A7F4585B0F1AA61F005BF6F5 /* FranceRadio-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "FranceRadio-Info.plist"; path = "Resources/FranceRadio/FranceRadio-Info.plist"; sourceTree = "<group>"; };
 		A7FA127F0F16A5B10067633A /* COPEAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COPEAppDelegate.h; sourceTree = "<group>"; };
 		A7FA12800F16A5B10067633A /* COPEAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COPEAppDelegate.m; sourceTree = "<group>"; };
@@ -359,6 +394,8 @@
 				A7EF8EB60EC6E85A004FE559 /* AudioClass.m */,
 				65FD71850EF9AC4600C6FBD6 /* RNFileLogger.h */,
 				65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */,
+				A7F1FE6B0F221E01005F9CDC /* PLSParser.h */,
+				A7F1FE6C0F221E01005F9CDC /* PLSParser.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -559,6 +596,22 @@
 		A72A70310F1AA18F00A2BFD9 /* FranceRadio */ = {
 			isa = PBXGroup;
 			children = (
+				A7F1FDEF0F220F0A005F9CDC /* altavoz-on.png */,
+				A7F1FDF00F220F0A005F9CDC /* altavoz.png */,
+				A7F1FDF10F220F0A005F9CDC /* background.png */,
+				A7F1FDF20F220F0A005F9CDC /* Default.png */,
+				A7F1FDF30F220F0A005F9CDC /* Icon.png */,
+				A7F1FDF40F220F0A005F9CDC /* loading_0.png */,
+				A7F1FDF50F220F0A005F9CDC /* loading_1.png */,
+				A7F1FDF60F220F0A005F9CDC /* loading_2.png */,
+				A7F1FDF70F220F0A005F9CDC /* loading_3.png */,
+				A7F1FDF80F220F0A005F9CDC /* pause-hl.png */,
+				A7F1FDF90F220F0A005F9CDC /* pause.png */,
+				A7F1FDFA0F220F0A005F9CDC /* play-hl.png */,
+				A7F1FDFB0F220F0A005F9CDC /* play.png */,
+				A7F1FDFC0F220F0A005F9CDC /* rowBackground.png */,
+				A7F1FDFD0F220F0A005F9CDC /* volume-thumb.png */,
+				A7F1FDFE0F220F0A005F9CDC /* volume-track.png */,
 				A72A70440F1AA2F400A2BFD9 /* MainWindow.xib */,
 				A72A70460F1AA31100A2BFD9 /* FRViewController.xib */,
 				A72A704A0F1AA33F00A2BFD9 /* radios.plist */,
@@ -817,6 +870,22 @@
 				A72A704D0F1AA36D00A2BFD9 /* InfoView.xib in Resources */,
 				A72A704F0F1AA38900A2BFD9 /* RadiosView.xib in Resources */,
 				A7F4585C0F1AA61F005BF6F5 /* FranceRadio-Info.plist in Resources */,
+				A7F1FDFF0F220F0A005F9CDC /* altavoz-on.png in Resources */,
+				A7F1FE000F220F0A005F9CDC /* altavoz.png in Resources */,
+				A7F1FE010F220F0A005F9CDC /* background.png in Resources */,
+				A7F1FE020F220F0A005F9CDC /* Default.png in Resources */,
+				A7F1FE030F220F0A005F9CDC /* Icon.png in Resources */,
+				A7F1FE040F220F0A005F9CDC /* loading_0.png in Resources */,
+				A7F1FE050F220F0A005F9CDC /* loading_1.png in Resources */,
+				A7F1FE060F220F0A005F9CDC /* loading_2.png in Resources */,
+				A7F1FE070F220F0A005F9CDC /* loading_3.png in Resources */,
+				A7F1FE080F220F0A005F9CDC /* pause-hl.png in Resources */,
+				A7F1FE090F220F0A005F9CDC /* pause.png in Resources */,
+				A7F1FE0A0F220F0A005F9CDC /* play-hl.png in Resources */,
+				A7F1FE0B0F220F0A005F9CDC /* play.png in Resources */,
+				A7F1FE0C0F220F0A005F9CDC /* rowBackground.png in Resources */,
+				A7F1FE0D0F220F0A005F9CDC /* volume-thumb.png in Resources */,
+				A7F1FE0E0F220F0A005F9CDC /* volume-track.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -996,6 +1065,7 @@
 				A7A738AC0F1AAE8C00CBD73A /* RNFileLogger.m in Sources */,
 				A7A738B10F1AAEB100CBD73A /* RNM3UParser.m in Sources */,
 				A7A738B20F1AAEB900CBD73A /* FRViewController.m in Sources */,
+				A7F1FE6D0F221E01005F9CDC /* PLSParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
