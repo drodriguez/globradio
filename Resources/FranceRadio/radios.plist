@@ -4,19 +4,23 @@
 <dict>
 	<key>radioNames</key>
 	<array>
-		<string>rfi Monde</string>
-		<string>rfi Afrique</string>
-		<string>rfi Musique</string>
-		<string>rfi Multi1</string>
-		<string>rfi Multi2</string>
+		<string>France Info</string>
+		<string>France Inter</string>
+		<string>France Musique</string>
+		<string>France Culture</string>
+		<string>France Vivace</string>
+		<string>FIP</string>
+		<string>Le Mouv&apos;</string>
 	</array>
 	<key>radioURLs</key>
 	<array>
-		<string>http://www.tv-radio.com/station/rfimonde-mp3/rfimonde-mp3-64k.pls</string>
-		<string>http://www.tv-radio.com/station/rfiafrique-mp3/rfiafrique-mp3-64k.pls</string>
-		<string>http://www.tv-radio.com/station/rfimusiquemonde-mp3/rfimusiquemonde-mp3-64k.pls</string>
-		<string>http://91.121.62.121:8110/listen.pls</string>
-		<string>http://91.121.62.121:8130/listen.pls</string>
+		<string>http://str2.creacast.com/france_info_64.m3u</string>
+		<string>http://www.tv-radio.com/station/france_inter_mp3/france_inter_mp3-128k.pls</string>
+		<string>http://www.tv-radio.com/station/france_musique_mp3/france_musique_mp3-128k.pls</string>
+		<string>http://www.tv-radio.com/station/france_culture_mp3/france_culture_mp3-128k.pls</string>
+		<string>http://www.tv-radio.com/station/france_vivace_mp3/france_vivace_mp3-128k.pls</string>
+		<string>http://www.tv-radio.com/station/fip_mp3/fip_mp3-128k.pls</string>
+		<string>http://www.tv-radio.com/station/le_mouv_mp3/le_mouv_mp3-128k.pls</string>
 	</array>
 </dict>
 </plist>

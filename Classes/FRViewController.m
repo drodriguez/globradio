@@ -9,6 +9,7 @@
 #import "FRViewController.h"
 #import "AudioClass.h"
 #import "PLSParser.h"
+#import "RNM3UParser.h"
 #import "Reachability.h"
 #import <MediaPlayer/MediaPlayer.h>
 
@@ -192,25 +193,53 @@ volumeMaximumTrackImage, volumeThumbImage;
 
 - (NSString *)getRadioURL:(NSString *)radioAddress {
 	RNLog(@"getRadioURL radioAddress %@", radioAddress);
-	NSURL *plsUrl = [[NSURL alloc] initWithString:radioAddress];
-	NSString *plsContent = [NSString stringWithContentsOfURL:plsUrl];
+
+	if ([radioAddress rangeOfString:@".pls"].length > 0)
+	{
 	
-	NSArray *tracks = [PLSParser parse:plsContent];
+		NSURL *plsUrl = [[NSURL alloc] initWithString:radioAddress];
+		NSString *plsContent = [NSString stringWithContentsOfURL:plsUrl];
 	
-	if ([tracks count] > 0) {
+		NSArray *tracks = [PLSParser parse:plsContent];
+	
+		if ([tracks count] > 0) {
 		
-		NSString *location = [[tracks objectAtIndex:0]
+			NSString *location = [[tracks objectAtIndex:0]
 							  retain];
-		RNLog(@"getRadioURL location %@", location);
-		return location;
+			RNLog(@"getRadioURL location %@", location);
+			return location;
+		}
+		else {
+		// No error here, returning a invalid URL makes the streamer fail
+		RNLog(@"Can not extract information from M3U");
+		return @"";
+		}
+	}
+	else if ([radioAddress rangeOfString:@".m3u"].length > 0)
+	{
+		RNLog(@"getRadioURL radioAddress %@", radioAddress);
+		NSURL *m3UUrl = [[NSURL alloc] initWithString:radioAddress];
+		NSString *m3UContent = [NSString stringWithContentsOfURL:m3UUrl];
+		
+		NSArray *tracks = [RNM3UParser parse:m3UContent];
+		if ([tracks count] > 0) {
+			NSString *location = [[[tracks objectAtIndex:0] objectForKey:@"location"]
+								  retain];
+			RNLog(@"getRadioURL location %@", location);
+			return location;
+		} 
+		else {
+			// No error here, returning a invalid URL makes the streamer fail
+			RNLog(@"Can not extract information from M3U");
+			return @"";
+		}
 	}
 	else
 	{
 		// No error here, returning a invalid URL makes the streamer fail
-		RNLog(@"Can not extract information from M3U");
+		RNLog(@"Radio is not m3u or pls");
 		return @"";
 	}
-	
 	
 
 
@@ -261,16 +290,16 @@ volumeMaximumTrackImage, volumeThumbImage;
 	
 	NSString *message;
 	if (error != nil) {
-		message = [NSString stringWithFormat:@"Ha sucedido un error \"%@\". Lo sentimos mucho.", error.localizedDescription];
+		message = [NSString stringWithFormat:@"Une erreur s'est produite \"%@\". Désolé.", error.localizedDescription];
 	} else {
-		message = @"Ha sucedido un error.\nLo sentimos mucho.";
+		message = @"Une erreur s'est produite. Désolé.";
 	}
 	
-	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Problemas"
+	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Problème"
 														message:message
 													   delegate:nil
 											  cancelButtonTitle:nil
-											  otherButtonTitles:@"Aceptar", nil];
+											  otherButtonTitles:@"OK", nil];
 	[alertView show];
 }
 
@@ -387,7 +416,7 @@ volumeMaximumTrackImage, volumeThumbImage;
 {
 	
 	
-	return 270/5;
+	return 270.0f/7.0f;
 	
 }
 
