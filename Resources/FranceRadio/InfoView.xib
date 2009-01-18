@@ -244,7 +244,7 @@ IGEgcmVnaXN0ZXJlZCB0cmFkZW1hcms</string>
 						</object>
 					</object>
 				</object>
-				<string key="NSFrameSize">{320, 225}</string>
+				<string key="NSFrameSize">{320, 270}</string>
 				<reference key="NSSuperview"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
@@ -388,7 +388,7 @@ IGEgcmVnaXN0ZXJlZCB0cmFkZW1hcms</string>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>UIResponder</string>
-					<string>{{317, 475}, {320, 225}}</string>
+					<string>{{317, 430}, {320, 270}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

@@ -382,6 +382,16 @@ volumeMaximumTrackImage, volumeThumbImage;
 						  context:context];
 }
 
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	
+	
+	return 270/5;
+	
+}
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 	return RN_NUM_SECTIONS;
 }

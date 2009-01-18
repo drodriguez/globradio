@@ -39,7 +39,7 @@
 					<object class="IBUITableView" id="682548738">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrameSize">{320, 225}</string>
+						<string key="NSFrameSize">{320, 270}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -59,7 +59,7 @@
 						<float key="IBUIRowHeight">4.500000e+01</float>
 					</object>
 				</object>
-				<string key="NSFrameSize">{320, 225}</string>
+				<string key="NSFrameSize">{320, 270}</string>
 				<reference key="NSSuperview"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -154,7 +154,7 @@
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>UIResponder</string>
-					<string>{{333, 298}, {320, 225}}</string>
+					<string>{{333, 253}, {320, 270}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
