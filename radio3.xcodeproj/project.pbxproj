@@ -748,6 +748,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A72A702A0F1AA12700A2BFD9 /* Build configuration list for PBXNativeTarget "FranceRadio" */;
 			buildPhases = (
+				650D80640F263453006A193E /* Update build number */,
 				A72A701F0F1AA12500A2BFD9 /* Resources */,
 				A72A70200F1AA12500A2BFD9 /* Sources */,
 				A72A70210F1AA12500A2BFD9 /* Frameworks */,
@@ -925,6 +926,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		650D80640F263453006A193E /* Update build number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Update build number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "update_build_number() {\n\tPATH=$PATH:/opt/local/bin\n\n\t/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/${INFOPLIST_FILE}\n}\n\ncase \"$CONFIGURATION\" in\n\tBeta|Distribution)\n\t\tupdate_build_number\n\t\t;;\n\t*)\nesac\n";
+		};
 		656354910EF9472C00AD52AE /* Update build number */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -936,8 +951,8 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "PATH=$PATH:/opt/local/bin\n\n/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/${INFOPLIST_FILE}\n";
+			shellPath = /bin/bash;
+			shellScript = "update_build_number() {\n\tPATH=$PATH:/opt/local/bin\n\n\t/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/${INFOPLIST_FILE}\n}\n\ncase \"$CONFIGURATION\" in\n\tBeta|Distribution)\n\t\tupdate_build_number\n\t\t;;\n\t*)\nesac";
 			showEnvVarsInLog = 0;
 		};
 		6582EC6B0F029CB100E7051A /* Update build number */ = {
@@ -951,8 +966,8 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "PATH=$PATH:/opt/local/bin\n\n/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/${INFOPLIST_FILE}\n";
+			shellPath = /bin/bash;
+			shellScript = "update_build_number() {\n\tPATH=$PATH:/opt/local/bin\n\n\t/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/${INFOPLIST_FILE}\n}\n\ncase \"$CONFIGURATION\" in\n\tBeta|Distribution)\n\t\tupdate_build_number\n\t\t;;\n\t*)\nesac";
 			showEnvVarsInLog = 0;
 		};
 		658687630ECEFC0700EB9D99 /* Run Unit Tests */ = {
@@ -980,8 +995,8 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "PATH=$PATH:/opt/local/bin\n\n/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/${INFOPLIST_FILE}\n";
+			shellPath = /bin/bash;
+			shellScript = "update_build_number() {\n\tPATH=$PATH:/opt/local/bin\n\n\t/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/${INFOPLIST_FILE}\n}\n\ncase \"$CONFIGURATION\" in\n\tBeta|Distribution)\n\t\tupdate_build_number\n\t\t;;\n\t*)\nesac";
 			showEnvVarsInLog = 0;
 		};
 		65F6F07A0F18F4FC00B0B070 /* Update build number */ = {
@@ -995,8 +1010,8 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "PATH=$PATH:/opt/local/bin\n\n/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/${INFOPLIST_FILE}\n";
+			shellPath = /bin/bash;
+			shellScript = "update_build_number() {\n\tPATH=$PATH:/opt/local/bin\n\n\t/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/${INFOPLIST_FILE}\n}\n\ncase \"$CONFIGURATION\" in\n\tBeta|Distribution)\n\t\tupdate_build_number\n\t\t;;\n\t*)\nesac";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1494,8 +1509,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
-				INFOPLIST_FILE = "FranceRadio-Info.plist";
+				GCC_PREFIX_HEADER = radio3_Prefix.pch;
+				INFOPLIST_FILE = "resources/FranceRadio/FranceRadio-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -1516,8 +1531,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
-				INFOPLIST_FILE = "FranceRadio-Info.plist";
+				GCC_PREFIX_HEADER = radio3_Prefix.pch;
+				INFOPLIST_FILE = "resources/FranceRadio/FranceRadio-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -1539,8 +1554,8 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "Don't Code Sign";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
-				INFOPLIST_FILE = "FranceRadio-Info.plist";
+				GCC_PREFIX_HEADER = radio3_Prefix.pch;
+				INFOPLIST_FILE = "resources/FranceRadio/FranceRadio-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
 					"-framework",
