@@ -18,7 +18,31 @@ enum RNSections {
 	RN_NUM_SECTIONS
 };
 
-
+/*
+ e-mail message string, in french (translated by Google) says:
+ 
+ Si vous le pouvez, s'il vous plaît, éscrivez votre message en anglais ou en espagnol.<br><br>
+ S'il vous plaît, inclure dans votre message les informations suivantes:<br>
+ 1. Qu'est-ce que vous faisiez lorsque le problème s'est produit.<br>
+ 2. Qu'est-ce que vous attendiez à arriver.<br>
+ 3. Qu'est-ce qui s'est réellement passé.<br><br>
+ 
+ which should mean in english:
+ 
+ If you can, please, write your message in english or spanish.<br><br>
+ Please, include in your message the following information:<br>
+ 1. What you were doing when the problem happened.<br>
+ 2. What you expected to happen.<br>
+ 3. What actually happened.<br><br>
+ */
+static NSString *kSupportMailURL =
+  @"mailto://support@yoteinvoco.com?"
+  "subject=France%20Radio%20Problem&"
+  "body=Si%20vous%20le%20pouvez%2C%20s'il%20vous%20pla%C3%AEt%2C%20%C3%A9crivez%20votre%20message%20en%20anglais%20ou%20en%20espagnol.%3Cbr%3E%3Cbr%3E"
+  "S'il%20vous%20pla%C3%AEt%2C%20inclure%20dans%20votre%20message%20les%20informations%20suivantes%3A%3Cbr%3E"
+  "1.%20Qu'est-ce%20que%20vous%20faisiez%20lorsque%20le%20probl%C3%A8me%20s'est%20produit.%3Cbr%3E"
+  "2.%20Qu'est-ce%20que%20vous%20attendiez%20%C3%A0%20arriver.%3Cbr%3E"
+  "3.%20Qu'est-ce%20qui%20s'est%20r%C3%A9ellement%20pass%C3%A9.%3Cbr%3E%3Cbr%3E";
 
 @interface FRViewController ()
 
@@ -90,7 +114,7 @@ volumeMaximumTrackImage, volumeThumbImage;
 			 else
 			 url = [NSURL URLWithString:@"mailto://support@yoteinvoco.com?body=No+es+posible+recuperar+el+log"];
 			 #else*/
-			url = [NSURL URLWithString:@"mailto://support@yoteinvoco.com"];
+			url = [NSURL URLWithString:kSupportMailURL];
 			//#endif
 		break; }
 	}
