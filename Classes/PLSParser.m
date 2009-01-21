@@ -43,17 +43,14 @@
      [NSCharacterSet newlineCharacterSet]];
 	
 	for (NSString *line in lines) {
-		
 		NSString *cleanLine =
 			[line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-			
-			if ([cleanLine length] > 0) {
-				if ([cleanLine rangeOfString:@"File"].location != NSNotFound)
-				{
-					NSRange fileRange = [cleanLine rangeOfString:@"File"];
-					NSString *fileURL = [[cleanLine substringFromIndex:fileRange.length+fileRange.location+2] retain];	
-					[results addObject:fileURL];
-
+    
+    if ([cleanLine length] > 0) {
+      NSRange fileRange = [cleanLine rangeOfString:@"File"];
+      if (fileRange.location != NSNotFound) {        
+        NSString *fileURL = [cleanLine substringFromIndex:fileRange.length+fileRange.location+2];	
+        [results addObject:fileURL];
 			}
 		}
 	}

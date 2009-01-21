@@ -13,9 +13,9 @@
 #import "Reachability.h"
 #import <MediaPlayer/MediaPlayer.h>
 
-enum RNSections {
-	RNRadioSection,
-	RN_NUM_SECTIONS
+enum FRSections {
+	FRRadioSection,
+	FR_NUM_SECTIONS
 };
 
 /*
@@ -73,8 +73,8 @@ static NSString *kSupportMailURL =
 @implementation FRViewController
 
 @synthesize playImage, playHighlightImage, pauseImage, pauseHighlightImage,
-rowBackgroundImage, volumeMinimumTrackImage,
-volumeMaximumTrackImage, volumeThumbImage;
+  rowBackgroundImage, volumeMinimumTrackImage,
+  volumeMaximumTrackImage, volumeThumbImage;
 
 
 - (void)volumeChanged:(NSNotification *)notify {
@@ -95,27 +95,27 @@ volumeMaximumTrackImage, volumeThumbImage;
 	NSURL *url = nil;
 	switch (button.tag) {
 		case SUPPORT_WEB_BUTTON: // Web url
-			url = [NSURL URLWithString:@"http://rneradio.yoteinvoco.com/"];
+			url = [NSURL URLWithString:@"http://apps.yoteinvoco.com/franceradio"];
 			break;
 		case SUPPORT_MAIL_BUTTON: { // email url
-			/*#if defined(BETA) || defined(DEBUG)
-			 NSString *log = [NSString stringWithContentsOfFile:
-			 [[RNFileLogger sharedLogger] logFile]];
-			 NSString *encodedLog = (NSString *)
-			 CFURLCreateStringByAddingPercentEscapes(NULL,
-			 (CFStringRef)log,
-			 NULL,
-			 (CFStringRef)@";/?:@&=+$,",
-			 kCFStringEncodingUTF8);
+#if defined(BETA) || defined(DEBUG)
+      NSString *log = [NSString stringWithContentsOfFile:
+                       [[RNFileLogger sharedLogger] logFile]];
+      NSString *encodedLog = (NSString *)
+        CFURLCreateStringByAddingPercentEscapes(NULL,
+                                                (CFStringRef)log,
+                                                NULL,
+                                                (CFStringRef)@";/?:@&=+$,",
+                                                kCFStringEncodingUTF8);
 			 if (encodedLog)
-			 url = [NSURL URLWithString:[NSString stringWithFormat:
-			 @"mailto://support@yoteinvoco.com?body=%@",
-			 encodedLog]];
+         url = [NSURL URLWithString:[NSString stringWithFormat:
+                                     @"mailto://support@yoteinvoco.com?body=%@",
+                                     encodedLog]];
 			 else
-			 url = [NSURL URLWithString:@"mailto://support@yoteinvoco.com?body=No+es+posible+recuperar+el+log"];
-			 #else*/
+         url = [NSURL URLWithString:@"mailto://support@yoteinvoco.com?body=No+es+posible+recuperar+el+log"];
+#else
 			url = [NSURL URLWithString:kSupportMailURL];
-			//#endif
+#endif
 		break; }
 	}
 	
@@ -218,31 +218,23 @@ volumeMaximumTrackImage, volumeThumbImage;
 - (NSString *)getRadioURL:(NSString *)radioAddress {
 	RNLog(@"getRadioURL radioAddress %@", radioAddress);
 
-	if ([radioAddress rangeOfString:@".pls"].length > 0)
-	{
-	
-		NSURL *plsUrl = [[NSURL alloc] initWithString:radioAddress];
+	if ([radioAddress rangeOfString:@".pls"].length > 0) {
+		NSURL *plsUrl = [NSURL URLWithString:radioAddress];
 		NSString *plsContent = [NSString stringWithContentsOfURL:plsUrl];
 	
 		NSArray *tracks = [PLSParser parse:plsContent];
-	
 		if ([tracks count] > 0) {
-		
-			NSString *location = [[tracks objectAtIndex:0]
-							  retain];
+			NSString *location = [[tracks objectAtIndex:0] retain];
 			RNLog(@"getRadioURL location %@", location);
 			return location;
+		} else {
+      // No error here, returning a invalid URL makes the streamer fail
+      RNLog(@"Can not extract information from M3U");
+      return @"";
 		}
-		else {
-		// No error here, returning a invalid URL makes the streamer fail
-		RNLog(@"Can not extract information from M3U");
-		return @"";
-		}
-	}
-	else if ([radioAddress rangeOfString:@".m3u"].length > 0)
-	{
+	} else if ([radioAddress rangeOfString:@".m3u"].length > 0) {
 		RNLog(@"getRadioURL radioAddress %@", radioAddress);
-		NSURL *m3UUrl = [[NSURL alloc] initWithString:radioAddress];
+		NSURL *m3UUrl = [NSURL URLWithString:radioAddress];
 		NSString *m3UContent = [NSString stringWithContentsOfURL:m3UUrl];
 		
 		NSArray *tracks = [RNM3UParser parse:m3UContent];
@@ -251,15 +243,12 @@ volumeMaximumTrackImage, volumeThumbImage;
 								  retain];
 			RNLog(@"getRadioURL location %@", location);
 			return location;
-		} 
-		else {
+		} else {
 			// No error here, returning a invalid URL makes the streamer fail
 			RNLog(@"Can not extract information from M3U");
 			return @"";
 		}
-	}
-	else
-	{
+	} else {
 		// No error here, returning a invalid URL makes the streamer fail
 		RNLog(@"Radio is not m3u or pls");
 		return @"";
@@ -341,8 +330,8 @@ volumeMaximumTrackImage, volumeThumbImage;
 	}
 	
 	[NSThread detachNewThreadSelector:@selector(privatePlayRadio)
-							 toTarget:self
-						   withObject:nil];
+                           toTarget:self
+                         withObject:nil];
 }
 
 - (void)privatePlayRadio {
@@ -359,13 +348,12 @@ volumeMaximumTrackImage, volumeThumbImage;
 	}
 	
 	[self performSelector:@selector(setLoadingState)
-				 onThread:[NSThread mainThread]
-			   withObject:nil
-			waitUntilDone:NO];
+               onThread:[NSThread mainThread]
+             withObject:nil
+          waitUntilDone:NO];
 	
 	NSString *radioAddress = [radiosURLS objectAtIndex:activeRadio];
 	NSString *radioURL = [self getRadioURL:radioAddress];
-	
 
 	myPlayer = [[Player alloc] initWithString:radioURL audioTypeHint:kAudioFileMP3Type];
 	[myPlayer addObserver:self forKeyPath:@"isPlaying" options:0 context:nil];
@@ -389,9 +377,9 @@ volumeMaximumTrackImage, volumeThumbImage;
 				// [myPlayer setGain:[volumeSlider value]];
 				
 				[self performSelector:@selector(setPlayState)
-							 onThread:[NSThread mainThread]
-						   withObject:nil
-						waitUntilDone:NO];
+                     onThread:[NSThread mainThread]
+                   withObject:nil
+                waitUntilDone:NO];
 			} else { // Stopped playing
 				[myPlayer removeObserver:self forKeyPath:@"isPlaying"];
 				[myPlayer removeObserver:self forKeyPath:@"failed"];
@@ -404,9 +392,9 @@ volumeMaximumTrackImage, volumeThumbImage;
 				pthread_mutex_unlock(&stopMutex);
 				
 				[self performSelector:@selector(setStopState)
-							 onThread:[NSThread mainThread]
-						   withObject:nil
-						waitUntilDone:NO];
+                     onThread:[NSThread mainThread]
+                   withObject:nil
+                waitUntilDone:NO];
 			}
 			
 			[pool release];
@@ -417,9 +405,9 @@ volumeMaximumTrackImage, volumeThumbImage;
 			if ([myPlayer failed]) { // Have failed
 				RNLog(@"failed!");
 				[self performSelector:@selector(setFailedState:)
-							 onThread:[NSThread mainThread]
-						   withObject:myPlayer.error
-						waitUntilDone:NO];
+                     onThread:[NSThread mainThread]
+                   withObject:myPlayer.error
+                waitUntilDone:NO];
 			} else { // Have un-failed. Can't happen
 				RNLog(@"un-failed?");
 			}
@@ -436,23 +424,19 @@ volumeMaximumTrackImage, volumeThumbImage;
 }
 
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	
-	
-	return 270.0f/7.0f;
-	
+- (CGFloat)tableView:(UITableView *)tableView
+  heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return 270.0f/7.0f;	
 }
 
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	return RN_NUM_SECTIONS;
+	return FR_NUM_SECTIONS;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
 	switch (section) {
-		case RNRadioSection:
+		case FRRadioSection:
 			return [radiosList count];
 		default:
 			return 1;
@@ -475,9 +459,9 @@ volumeMaximumTrackImage, volumeThumbImage;
 		cell.indentationLevel = 1;    
 		
 		UIView *backgroundView =
-		[[UIView alloc] initWithFrame:cell.bounds];
+      [[UIView alloc] initWithFrame:cell.bounds];
 		backgroundView.backgroundColor =
-		[UIColor colorWithPatternImage:rowBackgroundImage];
+      [UIColor colorWithPatternImage:rowBackgroundImage];
 		backgroundView.opaque = NO;
 		cell.backgroundView = backgroundView;
 		[backgroundView release];
@@ -501,7 +485,7 @@ volumeMaximumTrackImage, volumeThumbImage;
 
 
 - (void)tableView:(UITableView *)tableView
-didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (activeRadio != indexPath.row || !isPlaying) {
 		if (activeRadio != -1) {
 			[[tableView cellForRowAtIndexPath:
