@@ -107,6 +107,8 @@
 		65F6F1510F190E3600B0B070 /* rng-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F6F1500F190E3600B0B070 /* rng-icon.png */; };
 		65F6F1940F19170700B0B070 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F6F1930F19170700B0B070 /* InfoView.xib */; };
 		65F6F19A0F19198F00B0B070 /* RadiosView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F6F1990F19198F00B0B070 /* RadiosView.xib */; };
+		65FBA6B90F2B68920049574C /* mail-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 65FBA6B70F2B68920049574C /* mail-button.png */; };
+		65FBA6BA0F2B68920049574C /* www-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 65FBA6B80F2B68920049574C /* www-button.png */; };
 		65FD71870EF9AC4600C6FBD6 /* RNFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */; };
 		A72A702F0F1AA15800A2BFD9 /* FRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A72A702C0F1AA15800A2BFD9 /* FRAppDelegate.m */; };
 		A72A703E0F1AA1E500A2BFD9 /* AudioClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* AudioClass.m */; };
@@ -250,6 +252,8 @@
 		65F6F1500F190E3600B0B070 /* rng-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rng-icon.png"; path = "Resources/COPERadio/rng-icon.png"; sourceTree = "<group>"; };
 		65F6F1930F19170700B0B070 /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = InfoView.xib; path = Resources/COPERadio/InfoView.xib; sourceTree = "<group>"; };
 		65F6F1990F19198F00B0B070 /* RadiosView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RadiosView.xib; path = Resources/COPERadio/RadiosView.xib; sourceTree = "<group>"; };
+		65FBA6B70F2B68920049574C /* mail-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail-button.png"; path = "Resources/FranceRadio/mail-button.png"; sourceTree = "<group>"; };
+		65FBA6B80F2B68920049574C /* www-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "www-button.png"; path = "Resources/FranceRadio/www-button.png"; sourceTree = "<group>"; };
 		65FD71850EF9AC4600C6FBD6 /* RNFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNFileLogger.h; sourceTree = "<group>"; };
 		65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNFileLogger.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/RNERadio/Info.plist; sourceTree = "<group>"; };
@@ -600,6 +604,8 @@
 		A72A70310F1AA18F00A2BFD9 /* FranceRadio */ = {
 			isa = PBXGroup;
 			children = (
+				65FBA6B70F2B68920049574C /* mail-button.png */,
+				65FBA6B80F2B68920049574C /* www-button.png */,
 				A7F1FDEF0F220F0A005F9CDC /* altavoz-on.png */,
 				A7F1FDF00F220F0A005F9CDC /* altavoz.png */,
 				A7F1FDF10F220F0A005F9CDC /* background.png */,
@@ -891,6 +897,8 @@
 				A7F1FE0C0F220F0A005F9CDC /* rowBackground.png in Resources */,
 				A7F1FE0D0F220F0A005F9CDC /* volume-thumb.png in Resources */,
 				A7F1FE0E0F220F0A005F9CDC /* volume-track.png in Resources */,
+				65FBA6B90F2B68920049574C /* mail-button.png in Resources */,
+				65FBA6BA0F2B68920049574C /* www-button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

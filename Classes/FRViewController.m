@@ -24,7 +24,7 @@ enum FRSections {
  Si vous le pouvez, s'il vous plaît, éscrivez votre message en anglais ou en espagnol.<br><br>
  S'il vous plaît, inclure dans votre message les informations suivantes:<br>
  1. Qu'est-ce que vous faisiez lorsque le problème s'est produit.<br>
- 2. Qu'est-ce que vous attendiez à arriver.<br>
+ 2. Qu'avez-vous compté se produire.<br>
  3. Qu'est-ce qui s'est réellement passé.<br><br>
  
  which should mean in english:
@@ -41,7 +41,7 @@ static NSString *kSupportMailURL =
   "body=Si%20vous%20le%20pouvez%2C%20s'il%20vous%20pla%C3%AEt%2C%20%C3%A9crivez%20votre%20message%20en%20anglais%20ou%20en%20espagnol.%3Cbr%3E%3Cbr%3E"
   "S'il%20vous%20pla%C3%AEt%2C%20inclure%20dans%20votre%20message%20les%20informations%20suivantes%3A%3Cbr%3E"
   "1.%20Qu'est-ce%20que%20vous%20faisiez%20lorsque%20le%20probl%C3%A8me%20s'est%20produit.%3Cbr%3E"
-  "2.%20Qu'est-ce%20que%20vous%20attendiez%20%C3%A0%20arriver.%3Cbr%3E"
+  "2.%20Qu'avez-vous%20compt%C3%A9%20se%20produire.%3Cbr%3E"
   "3.%20Qu'est-ce%20qui%20s'est%20r%C3%A9ellement%20pass%C3%A9.%3Cbr%3E%3Cbr%3E";
 
 @interface FRViewController ()
