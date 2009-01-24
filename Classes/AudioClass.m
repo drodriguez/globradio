@@ -15,6 +15,8 @@
 @property(nonatomic, assign, readwrite) BOOL failed;
 @property(nonatomic, retain, readwrite) NSError *error;
 
+- (NSConnection *)connectionForURL:(NSURL *)connectionUrl;
+
 - (void)startPrivate;
 
 - (void)propertyChanged:(AudioFileStreamPropertyID)propertyID
@@ -96,7 +98,7 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
 
 @implementation Player
 
-@synthesize isPlaying, failed, error, connectionFilter;
+@synthesize isPlaying, failed, error;
 
 /**
  * initWithString:
@@ -196,6 +198,18 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
 }
 
 /**
+ * connectionForURL
+ *
+ * Creates a new NSConnection for the given URL.
+ */
+- (NSConnection *)connectionForURL:(NSURL *)connectionUrl {
+  NSURLRequest *request = [NSURLRequest requestWithURL:connectionUrl
+                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                       timeoutInterval:30];
+  return [[[NSURLConnection alloc] initWithRequest:request delegate:self] autorelease];
+}  
+
+/**
  * start
  *
  * Start the audio playing in another thread. See startPrivate.
@@ -258,16 +272,8 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
     return;
   }
   
-  // Create the request.
-  NSURLRequest *request = [NSMutableURLRequest requestWithURL:url
-                                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                              timeoutInterval:30];
-  // Invoke the connection filter, so it can add headers or whatever.
-  if ([connectionFilter respondsToSelector:@selector(modifyRequest:)]) {
-    request = [connectionFilter modifyRequest:request];
-  }
-  
-  connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+  // Create the connection.
+  connection = [[self connectionForURL:url] retain];
     
   // Process the run loop until playback is finished or failed.
   do {
@@ -405,36 +411,16 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
     return;
   
   if (!finished) {
-    
-    // Filter the data in the connection filter.
-    if ([connectionFilter respondsToSelector:@selector(connection:filterData:)]) {
-      data = [connectionFilter connection:inConnection filterData:data];
-    }
-    
-    if (discontinuous) {
-      OSStatus err = AudioFileStreamParseBytes(audioFileStream,
-                                               [data length],
-                                               [data bytes],
-                                               kAudioFileStreamParseFlag_Discontinuity);
-      if (err) {
-        RNLog(@"AudioFileStreamParseBytes 1 err %d", err);
-        self.error = [NSError errorWithDomain:NSOSStatusErrorDomain
-                                         code:err
-                                     userInfo:nil];
-        self.failed = YES;
-      }
-    } else {
-      OSStatus err = AudioFileStreamParseBytes(audioFileStream,
-                                               [data length],
-                                               [data bytes],
-                                               0);
-      if (err) {
-        RNLog(@"AudioFileStreamParseBytes 2 err %d", err);
-        self.error = [NSError errorWithDomain:NSOSStatusErrorDomain
-                                         code:err
-                                     userInfo:nil];
-        self.failed = YES;
-      }
+    OSStatus err = AudioFileStreamParseBytes(audioFileStream,
+                                             [data length],
+                                             [data bytes],
+                                             discontinuous ? kAudioFileStreamParseFlag_Discontinuity : 0);
+    if (err) {
+      RNLog(@"AudioFileStreamParseBytes err %d (%d)", err, discontinuous);
+      self.error = [NSError errorWithDomain:NSOSStatusErrorDomain
+                                       code:err
+                                   userInfo:nil];
+      self.failed = YES;
     }
   }
 }
