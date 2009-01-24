@@ -204,7 +204,7 @@
 		6581FB370EE73DF700441607 /* loading_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_1.png; path = Resources/RNERadio/loading_1.png; sourceTree = "<group>"; };
 		6581FB380EE73DF700441607 /* loading_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_2.png; path = Resources/RNERadio/loading_2.png; sourceTree = "<group>"; };
 		6581FB390EE73DF700441607 /* loading_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_3.png; path = Resources/RNERadio/loading_3.png; sourceTree = "<group>"; };
-		6582EC620F029C9200E7051A /* FI-FM Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FI-FM Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6582EC620F029C9200E7051A /* RadioFIFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadioFIFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6582EC640F029C9200E7051A /* RadioFIFM-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "RadioFIFM-Info.plist"; path = "Resources/FIFMRadio/RadioFIFM-Info.plist"; sourceTree = "<group>"; };
 		658687530ECEFB9100EB9D99 /* Unit tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unit tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		658687550ECEFB9100EB9D99 /* Unit tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Unit tests-Info.plist"; path = "Resources/Unit tests-Info.plist"; sourceTree = "<group>"; };
@@ -259,7 +259,7 @@
 		65FD71850EF9AC4600C6FBD6 /* RNFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNFileLogger.h; sourceTree = "<group>"; };
 		65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNFileLogger.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/RNERadio/Info.plist; sourceTree = "<group>"; };
-		A72A70230F1AA12500A2BFD9 /* France Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "France Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A72A70230F1AA12500A2BFD9 /* FranceRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FranceRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A72A702B0F1AA15800A2BFD9 /* FRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRAppDelegate.h; sourceTree = "<group>"; };
 		A72A702C0F1AA15800A2BFD9 /* FRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRAppDelegate.m; sourceTree = "<group>"; };
 		A72A702D0F1AA15800A2BFD9 /* FRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRViewController.h; sourceTree = "<group>"; };
@@ -415,10 +415,10 @@
 			children = (
 				1D6058910D05DD3D006BFB54 /* RNERadio.app */,
 				658687530ECEFB9100EB9D99 /* Unit tests.app */,
-				6582EC620F029C9200E7051A /* FI-FM Radio.app */,
+				6582EC620F029C9200E7051A /* RadioFIFM.app */,
 				65BD5E060F09B08000D283D4 /* KissRadio.app */,
 				A7FA12C10F16B2800067633A /* COPERadio.app */,
-				A72A70230F1AA12500A2BFD9 /* France Radio.app */,
+				A72A70230F1AA12500A2BFD9 /* FranceRadio.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -718,7 +718,7 @@
 			);
 			name = FIFMRadio.app;
 			productName = RadioFIFM;
-			productReference = 6582EC620F029C9200E7051A /* FI-FM Radio.app */;
+			productReference = 6582EC620F029C9200E7051A /* RadioFIFM.app */;
 			productType = "com.apple.product-type.application";
 		};
 		658687520ECEFB9100EB9D99 /* Unit tests */ = {
@@ -772,7 +772,7 @@
 			);
 			name = FranceRadio;
 			productName = FranceRadio;
-			productReference = A72A70230F1AA12500A2BFD9 /* France Radio.app */;
+			productReference = A72A70230F1AA12500A2BFD9 /* FranceRadio.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A7FA12C00F16B2800067633A /* COPERadio */ = {
@@ -1545,7 +1545,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Daniel Rodríguez Troitiño";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Rodríguez Troitiño";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radio3_Prefix.pch;
 				INFOPLIST_FILE = "resources/FranceRadio/FranceRadio-Info.plist";
@@ -1558,6 +1559,8 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = FranceRadio;
+				PROVISIONING_PROFILE = "A1A47762-F15A-41A9-9ED0-493F64EEFACA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A1A47762-F15A-41A9-9ED0-493F64EEFACA";
 				SDKROOT = iphoneos2.2;
 			};
 			name = Distribution;
