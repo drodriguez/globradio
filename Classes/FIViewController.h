@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 
-@class Player;
+@class ShoutcastPlayer;
 
 @interface FIViewController : UIViewController {
  @private
@@ -17,7 +17,7 @@
   IBOutlet UIView *volumeViewHolder;
   IBOutlet UIImageView *loadingImage;
   
-  Player *player;
+  ShoutcastPlayer *player;
   
   BOOL isPlaying;
   BOOL interruptedDuringPlayback;
