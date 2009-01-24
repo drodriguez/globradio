@@ -98,7 +98,7 @@ static NSString *kSupportMailURL =
 			url = [NSURL URLWithString:@"http://apps.yoteinvoco.com/franceradio"];
 			break;
 		case SUPPORT_MAIL_BUTTON: { // email url
-#if defined(BETA) || defined(DEBUG)
+#if defined(DEBUG)
       NSString *log = [NSString stringWithContentsOfFile:
                        [[RNFileLogger sharedLogger] logFile]];
       NSString *encodedLog = (NSString *)
