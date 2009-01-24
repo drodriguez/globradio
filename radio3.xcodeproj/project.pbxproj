@@ -16,9 +16,9 @@
 		651606CA0ED8A2C00031CDBE /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 651606C90ED8A2C00031CDBE /* play.png */; };
 		651606CD0ED8A5D70031CDBE /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 651606CC0ED8A5D70031CDBE /* pause.png */; };
 		65255AD90EE574C100F4142C /* play-hl.png in Resources */ = {isa = PBXBuildFile; fileRef = 65255AD80EE574C100F4142C /* play-hl.png */; };
-		652834A40F085C6D001CEA65 /* FIShoutcastMetadataFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 652834A30F085C6D001CEA65 /* FIShoutcastMetadataFilter.m */; };
 		6534D1710EDCA968008B1124 /* volume-thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 6534D16F0EDCA968008B1124 /* volume-thumb.png */; };
 		6534D1720EDCA968008B1124 /* volume-track.png in Resources */ = {isa = PBXBuildFile; fileRef = 6534D1700EDCA968008B1124 /* volume-track.png */; };
+		653F4BD20F2A7D21005067F5 /* ShoutcastAudioClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 653F4BD10F2A7D21005067F5 /* ShoutcastAudioClass.m */; };
 		654B1E560ECDFDD500E28E7E /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
 		656A605E0EF196EF004CE686 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 656A605C0EF196DF004CE686 /* iTunesArtwork */; };
 		656BFC380F03A4FD006A3F15 /* FIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 656BFC370F03A4FD006A3F15 /* FIAppDelegate.m */; };
@@ -176,6 +176,8 @@
 		652834A30F085C6D001CEA65 /* FIShoutcastMetadataFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIShoutcastMetadataFilter.m; sourceTree = "<group>"; };
 		6534D16F0EDCA968008B1124 /* volume-thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "volume-thumb.png"; path = "Resources/RNERadio/volume-thumb.png"; sourceTree = "<group>"; };
 		6534D1700EDCA968008B1124 /* volume-track.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "volume-track.png"; path = "Resources/RNERadio/volume-track.png"; sourceTree = "<group>"; };
+		653F4BD00F2A7D21005067F5 /* ShoutcastAudioClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoutcastAudioClass.h; sourceTree = "<group>"; };
+		653F4BD10F2A7D21005067F5 /* ShoutcastAudioClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoutcastAudioClass.m; sourceTree = "<group>"; };
 		654B1E540ECDFDD500E28E7E /* RNM3UParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNM3UParser.h; sourceTree = "<group>"; };
 		654B1E550ECDFDD500E28E7E /* RNM3UParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNM3UParser.m; sourceTree = "<group>"; };
 		6560FA1B0EF7B3EF007809DB /* update_build_number.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = update_build_number.rb; path = Scripts/update_build_number.rb; sourceTree = "<group>"; };
@@ -396,6 +398,8 @@
 				65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */,
 				A7F1FE6B0F221E01005F9CDC /* PLSParser.h */,
 				A7F1FE6C0F221E01005F9CDC /* PLSParser.m */,
+				653F4BD00F2A7D21005067F5 /* ShoutcastAudioClass.h */,
+				653F4BD10F2A7D21005067F5 /* ShoutcastAudioClass.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1041,7 +1045,7 @@
 				656BFC4C0F03B6E3006A3F15 /* Reachability.m in Sources */,
 				656BFC4D0F03B6E6006A3F15 /* RNFileLogger.m in Sources */,
 				656BFC540F03B724006A3F15 /* main.m in Sources */,
-				652834A40F085C6D001CEA65 /* FIShoutcastMetadataFilter.m in Sources */,
+				653F4BD20F2A7D21005067F5 /* ShoutcastAudioClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
