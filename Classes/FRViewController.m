@@ -238,6 +238,7 @@ static NSString *kSupportMailURL =
 		NSString *m3UContent = [NSString stringWithContentsOfURL:m3UUrl];
 		
 		NSArray *tracks = [RNM3UParser parse:m3UContent];
+		//NSArray *tracks = [[NSArray alloc] initWithArray:[RNM3UParser parse:m3UContent]];
 		if ([tracks count] > 0) {
 			NSString *location = [[[tracks objectAtIndex:0] objectForKey:@"location"]
 								  retain];
@@ -251,6 +252,7 @@ static NSString *kSupportMailURL =
 	} else {
 		// No error here, returning a invalid URL makes the streamer fail
 		RNLog(@"Radio is not m3u or pls");
+
 		return @"";
 	}
 	

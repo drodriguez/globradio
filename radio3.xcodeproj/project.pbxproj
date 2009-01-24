@@ -1566,9 +1566,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "Don't Code Sign";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
+				CODE_SIGN_ENTITLEMENTS = resources/entl.plist;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Daniel Rodríguez Troitiño";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Daniel Rodríguez Troitiño";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Rodríguez Troitiño";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radio3_Prefix.pch;
 				INFOPLIST_FILE = "resources/FranceRadio/FranceRadio-Info.plist";
@@ -1580,7 +1581,10 @@
 					UIKit,
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = FranceRadio;
+				PRODUCT_NAME = "France Radio";
+				PROVISIONING_PROFILE = "30DB0352-B806-4E33-A91F-3C72A3ADAF25";
+				"PROVISIONING_PROFILE[sdk=*]" = "30DB0352-B806-4E33-A91F-3C72A3ADAF25";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "30DB0352-B806-4E33-A91F-3C72A3ADAF25";
 				SDKROOT = iphoneos2.2;
 			};
 			name = Beta;

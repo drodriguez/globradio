@@ -15,12 +15,12 @@
 	<key>radioURLs</key>
 	<array>
 		<string>http://str2.creacast.com/france_info_64.m3u</string>
-		<string>http://www.tv-radio.com/station/france_inter_mp3/france_inter_mp3-128k.pls</string>
-		<string>http://www.tv-radio.com/station/france_musique_mp3/france_musique_mp3-128k.pls</string>
-		<string>http://www.tv-radio.com/station/france_culture_mp3/france_culture_mp3-128k.pls</string>
-		<string>http://www.tv-radio.com/station/france_vivace_mp3/france_vivace_mp3-128k.pls</string>
-		<string>http://www.tv-radio.com/station/fip_mp3/fip_mp3-128k.pls</string>
-		<string>http://www.tv-radio.com/station/le_mouv_mp3/le_mouv_mp3-128k.pls</string>
+		<string>http://www.tv-radio.com/station/france_inter_mp3/france_inter_mp3-128k.m3u</string>
+		<string>http://www.tv-radio.com/station/france_musique_mp3/france_musique_mp3-128k.m3u</string>
+		<string>http://www.tv-radio.com/station/france_culture_mp3/france_culture_mp3-128k.m3u</string>
+		<string>http://www.tv-radio.com/station/france_vivace_mp3/france_vivace_mp3-128k.m3u</string>
+		<string>http://www.tv-radio.com/station/fip_mp3/fip_mp3-128k.m3u</string>
+		<string>http://www.tv-radio.com/station/le_mouv_mp3/le_mouv_mp3-128k.m3u</string>
 	</array>
 </dict>
 </plist>

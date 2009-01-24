@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="7.03">
 	<data>
 		<int key="IBDocument.SystemTarget">528</int>
-		<string key="IBDocument.SystemVersion">9F33</string>
+		<string key="IBDocument.SystemVersion">9G55</string>
 		<string key="IBDocument.InterfaceBuilderVersion">677</string>
-		<string key="IBDocument.AppKitVersion">949.34</string>
-		<string key="IBDocument.HIToolboxVersion">352.00</string>
+		<string key="IBDocument.AppKitVersion">949.43</string>
+		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="1"/>
@@ -171,7 +171,7 @@
 					<object class="IBUITextView" id="472217786">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 219}, {320, 51}}</string>
+						<string key="NSFrame">{{0, 239}, {320, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -182,8 +182,7 @@
 						<bool key="IBUICanCancelContentTouches">NO</bool>
 						<bool key="IBUIBouncesZoom">NO</bool>
 						<bool key="IBUIEditable">NO</bool>
-						<string type="base64-UTF8" key="IBUIText">Q29weXJpZ2h0IMKpIDIwMDggRGFuaWVsIFJvZHLDrWd1ZXogeSBKYXZpZXIgUXVldmVkby4KcmZJIGlz
-IGEgcmVnaXN0ZXJlZCB0cmFkZW1hcms</string>
+						<string type="base64-UTF8" key="IBUIText">Q29weXJpZ2h0IMKpIDIwMDkgRGFuaWVsIFJvZHLDrWd1ZXogeSBKYXZpZXIgUXVldmVkby4</string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC43NQA</bytes>
@@ -316,13 +315,13 @@ IGEgcmVnaXN0ZXJlZCB0cmFkZW1hcms</string>
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="451419933"/>
 							<reference ref="841582399"/>
-							<reference ref="411655781"/>
-							<reference ref="472217786"/>
 							<reference ref="424329328"/>
 							<reference ref="207579380"/>
 							<reference ref="148238232"/>
 							<reference ref="705809715"/>
 							<reference ref="388393051"/>
+							<reference ref="411655781"/>
+							<reference ref="472217786"/>
 						</object>
 						<reference key="parent" ref="360949347"/>
 					</object>
