@@ -104,8 +104,8 @@ BOOL readHeader(NSData *data, int *index,
 
 @synthesize headers = headers_;
 
-@synthesize failed;
-@synthesize error;
+@dynamic failed;
+@dynamic error;
 
 /**
  * connectionForURL
@@ -223,7 +223,7 @@ BOOL readHeader(NSData *data, int *index,
   unsigned int index = 0;
   const unsigned char *bytes = metadata;
   const unsigned char *start = metadata;
-  NSString *tagName, *tagValue;
+  NSString *tagName = nil, *tagValue = nil;
   
   while (index < metadataLength) {
     if (bytes[index] == '\0') { // start of padding
@@ -264,6 +264,7 @@ BOOL readHeader(NSData *data, int *index,
         RNLog(@"Tag found: name '%@', value '%@'", tagName, tagValue);
         [tagName release];
         [tagValue release];
+        tagName = tagValue = nil;
         
         start = metadata+index+1;
         state = RMStateReadingName;
@@ -276,6 +277,7 @@ BOOL readHeader(NSData *data, int *index,
         RNLog(@"Tag found: name '%@', value '%@'", tagName, tagValue);
         [tagName release];
         [tagValue release];
+        tagName = tagValue = nil;
         
         start = metadata+index+1;
         state = RMStateReadingName;
@@ -283,7 +285,10 @@ BOOL readHeader(NSData *data, int *index,
     }
     
     index++;
-  }  
+  }
+  
+  if (tagName) [tagName release];
+  if (tagValue) [tagValue release];
   
   metadataCounter = 0;
   metadataLength = 0;
@@ -315,6 +320,7 @@ BOOL readHeader(NSData *data, int *index,
   }
   
   self.headers = [NSDictionary dictionaryWithDictionary:parsedHeaders];
+  [parsedHeaders release];
   headerParsed = YES;
   RNLog(@"index = %d", index);
   return index;

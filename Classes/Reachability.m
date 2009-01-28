@@ -94,10 +94,13 @@ static Reachability *_sharedReachability;
 
 - (void) dealloc
 {	
-    [self stopListeningForReachabilityChanges];
-    
+  [self stopListeningForReachabilityChanges];
+  
+  self.hostName = nil;
+  self.address = nil;  
+  
 	[_sharedReachability.reachabilityQueries release];
-	[_sharedReachability release];
+	[_sharedReachability release];  
 	[super dealloc];
 }
 
@@ -515,6 +518,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 
 - (void)dealloc
 {
+  self.hostNameOrAddress = nil;
 	CFRelease(self.runLoops);
 	[super dealloc];
 }

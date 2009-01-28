@@ -84,4 +84,14 @@
   self.fileHandle = nil;
 }
 
+- (void)dealloc {
+  self.logFile = nil;
+  if (self.fileHandle) {
+    [self closeFile];
+  }
+  self.fileHandle = nil; // Just to be sure.
+  
+  [super dealloc];
+}
+
 @end

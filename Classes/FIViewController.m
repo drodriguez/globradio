@@ -68,6 +68,7 @@ NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
                                             cancelButtonTitle:nil
                                             otherButtonTitles:@"Aceptar", nil];
   [alertView show];
+  [alertView release];
 }
 
 - (void)stopRadio {
@@ -105,6 +106,7 @@ NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
                                             cancelButtonTitle:nil
                                             otherButtonTitles:@"Aceptar", nil];
   [alertView show];
+  [alertView release];
 }
 
 - (void)setLoadingState {

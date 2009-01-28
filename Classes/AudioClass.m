@@ -150,6 +150,7 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
 - (void)dealloc {
   [url release];
   [connection release];
+  self.error = nil;
 	[super dealloc];
 }
 
@@ -269,6 +270,7 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
                                      code:err
                                  userInfo:nil];
     self.failed = YES;
+    [pool release];
     return;
   }
   
@@ -296,6 +298,7 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
                                      code:err
                                  userInfo:nil];
     // FIX: self.failed = true ?
+    [pool release];
     return;
   }
   
@@ -308,6 +311,7 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
                                        code:err
                                    userInfo:nil];
       // FIX: self.failed = true ?
+      [pool release];
       return;
     }
   }

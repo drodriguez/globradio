@@ -107,12 +107,14 @@ static NSString *kSupportMailURL =
                                                 NULL,
                                                 (CFStringRef)@";/?:@&=+$,",
                                                 kCFStringEncodingUTF8);
-			 if (encodedLog)
+      if (encodedLog) {
          url = [NSURL URLWithString:[NSString stringWithFormat:
                                      @"mailto://support@yoteinvoco.com?body=%@",
                                      encodedLog]];
-			 else
+      } else {
          url = [NSURL URLWithString:@"mailto://support@yoteinvoco.com?body=No+es+posible+recuperar+el+log"];
+      }
+      [encodedLog release];
 #else
 			url = [NSURL URLWithString:kSupportMailURL];
 #endif
@@ -212,6 +214,7 @@ static NSString *kSupportMailURL =
 											  cancelButtonTitle:nil
 											  otherButtonTitles:@"Aceptar", nil];
 	[alertView show];
+  [alertView release];
 }
 
 
@@ -316,6 +319,7 @@ static NSString *kSupportMailURL =
 											  cancelButtonTitle:nil
 											  otherButtonTitles:@"OK", nil];
 	[alertView show];
+  [alertView release];
 }
 
 - (void)setLoadingState {
