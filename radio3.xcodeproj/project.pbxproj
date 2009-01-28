@@ -68,6 +68,8 @@
 		65BD5E220F09B2D300D283D4 /* KSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BD5E1D0F09B1E500D283D4 /* KSAppDelegate.m */; };
 		65BD5E250F09B9F000D283D4 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BD5E230F09B9F000D283D4 /* Icon.png */; };
 		65BD5E260F09B9F000D283D4 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 65BD5E240F09B9F000D283D4 /* iTunesArtwork */; };
+		65BDFF190F30F78900FAD5FD /* mail-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BDFF170F30F78900FAD5FD /* mail-button.png */; };
+		65BDFF1A0F30F78A00FAD5FD /* www-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BDFF180F30F78900FAD5FD /* www-button.png */; };
 		65C452940EED3D77006AB1DD /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C452930EED3D77006AB1DD /* Reachability.m */; };
 		65C452B90EED473E006AB1DD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C452B80EED473E006AB1DD /* SystemConfiguration.framework */; };
 		65D36A010ED9FD36009A548C /* altavoz.png in Resources */ = {isa = PBXBuildFile; fileRef = 65D36A000ED9FD36009A548C /* altavoz.png */; };
@@ -225,6 +227,8 @@
 		65BD5E200F09B2CF00D283D4 /* KSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSViewController.m; sourceTree = "<group>"; };
 		65BD5E230F09B9F000D283D4 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/KissRadio/Icon.png; sourceTree = "<group>"; };
 		65BD5E240F09B9F000D283D4 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/KissRadio/iTunesArtwork; sourceTree = "<group>"; };
+		65BDFF170F30F78900FAD5FD /* mail-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail-button.png"; path = "Resources/RNERadio/mail-button.png"; sourceTree = "<group>"; };
+		65BDFF180F30F78900FAD5FD /* www-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "www-button.png"; path = "Resources/RNERadio/www-button.png"; sourceTree = "<group>"; };
 		65C452920EED3D77006AB1DD /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		65C452930EED3D77006AB1DD /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		65C452B80EED473E006AB1DD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -510,6 +514,8 @@
 		6582EC6E0F029E7500E7051A /* RNERadio */ = {
 			isa = PBXGroup;
 			children = (
+				65BDFF170F30F78900FAD5FD /* mail-button.png */,
+				65BDFF180F30F78900FAD5FD /* www-button.png */,
 				A72D13BC0EC7A06800CBB890 /* Default.png */,
 				651606CC0ED8A5D70031CDBE /* pause.png */,
 				651606C90ED8A2C00031CDBE /* play.png */,
@@ -843,6 +849,8 @@
 				A756BCB60EE9497200BECFFA /* entl.plist in Resources */,
 				6576DD330EEF2992004370D6 /* altavoz-on.png in Resources */,
 				656A605E0EF196EF004CE686 /* iTunesArtwork in Resources */,
+				65BDFF190F30F78900FAD5FD /* mail-button.png in Resources */,
+				65BDFF1A0F30F78A00FAD5FD /* www-button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
