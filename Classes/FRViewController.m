@@ -460,9 +460,7 @@ static NSString *kSupportMailURL =
 		cell = [[[UITableViewCell alloc]
 				 initWithFrame:CGRectZero
 				 reuseIdentifier:CellIdentifier] autorelease];
-		cell.textAlignment = UITextAlignmentCenter;
 		cell.textColor = [UIColor whiteColor];
-		cell.indentationLevel = 1;    
 		
 		UIView *backgroundView =
       [[UIView alloc] initWithFrame:cell.bounds];
