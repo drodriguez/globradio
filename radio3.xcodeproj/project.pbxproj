@@ -72,6 +72,8 @@
 		65BDFF1A0F30F78A00FAD5FD /* www-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BDFF180F30F78900FAD5FD /* www-button.png */; };
 		65C452940EED3D77006AB1DD /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C452930EED3D77006AB1DD /* Reachability.m */; };
 		65C452B90EED473E006AB1DD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C452B80EED473E006AB1DD /* SystemConfiguration.framework */; };
+		65C5E09E0F374F3A002E6571 /* mail-button-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C5E09C0F374F3A002E6571 /* mail-button-pressed.png */; };
+		65C5E09F0F374F3A002E6571 /* www-button-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C5E09D0F374F3A002E6571 /* www-button-pressed.png */; };
 		65D36A010ED9FD36009A548C /* altavoz.png in Resources */ = {isa = PBXBuildFile; fileRef = 65D36A000ED9FD36009A548C /* altavoz.png */; };
 		65E102F10EE06051009FA316 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E102F00EE06051009FA316 /* InfoView.xib */; };
 		65E1033A0EE069B3009FA316 /* RadiosView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E103390EE069B3009FA316 /* RadiosView.xib */; };
@@ -206,7 +208,7 @@
 		6581FB370EE73DF700441607 /* loading_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_1.png; path = Resources/RNERadio/loading_1.png; sourceTree = "<group>"; };
 		6581FB380EE73DF700441607 /* loading_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_2.png; path = Resources/RNERadio/loading_2.png; sourceTree = "<group>"; };
 		6581FB390EE73DF700441607 /* loading_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_3.png; path = Resources/RNERadio/loading_3.png; sourceTree = "<group>"; };
-		6582EC620F029C9200E7051A /* RadioFIFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadioFIFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6582EC620F029C9200E7051A /* FI-FM Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FI-FM Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6582EC640F029C9200E7051A /* RadioFIFM-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "RadioFIFM-Info.plist"; path = "Resources/FIFMRadio/RadioFIFM-Info.plist"; sourceTree = "<group>"; };
 		658687530ECEFB9100EB9D99 /* Unit tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unit tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		658687550ECEFB9100EB9D99 /* Unit tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Unit tests-Info.plist"; path = "Resources/Unit tests-Info.plist"; sourceTree = "<group>"; };
@@ -232,6 +234,8 @@
 		65C452920EED3D77006AB1DD /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		65C452930EED3D77006AB1DD /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		65C452B80EED473E006AB1DD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		65C5E09C0F374F3A002E6571 /* mail-button-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail-button-pressed.png"; path = "Resources/RNERadio/mail-button-pressed.png"; sourceTree = "<group>"; };
+		65C5E09D0F374F3A002E6571 /* www-button-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "www-button-pressed.png"; path = "Resources/RNERadio/www-button-pressed.png"; sourceTree = "<group>"; };
 		65D36A000ED9FD36009A548C /* altavoz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = altavoz.png; path = Resources/RNERadio/altavoz.png; sourceTree = "<group>"; };
 		65E102F00EE06051009FA316 /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = InfoView.xib; path = Resources/RNERadio/InfoView.xib; sourceTree = "<group>"; };
 		65E103390EE069B3009FA316 /* RadiosView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RadiosView.xib; path = Resources/RNERadio/RadiosView.xib; sourceTree = "<group>"; };
@@ -263,7 +267,7 @@
 		65FD71850EF9AC4600C6FBD6 /* RNFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNFileLogger.h; sourceTree = "<group>"; };
 		65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNFileLogger.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/RNERadio/Info.plist; sourceTree = "<group>"; };
-		A72A70230F1AA12500A2BFD9 /* FranceRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FranceRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A72A70230F1AA12500A2BFD9 /* France Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "France Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A72A702B0F1AA15800A2BFD9 /* FRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRAppDelegate.h; sourceTree = "<group>"; };
 		A72A702C0F1AA15800A2BFD9 /* FRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRAppDelegate.m; sourceTree = "<group>"; };
 		A72A702D0F1AA15800A2BFD9 /* FRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRViewController.h; sourceTree = "<group>"; };
@@ -419,10 +423,10 @@
 			children = (
 				1D6058910D05DD3D006BFB54 /* RNERadio.app */,
 				658687530ECEFB9100EB9D99 /* Unit tests.app */,
-				6582EC620F029C9200E7051A /* RadioFIFM.app */,
+				6582EC620F029C9200E7051A /* FI-FM Radio.app */,
 				65BD5E060F09B08000D283D4 /* KissRadio.app */,
 				A7FA12C10F16B2800067633A /* COPERadio.app */,
-				A72A70230F1AA12500A2BFD9 /* FranceRadio.app */,
+				A72A70230F1AA12500A2BFD9 /* France Radio.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -514,6 +518,8 @@
 		6582EC6E0F029E7500E7051A /* RNERadio */ = {
 			isa = PBXGroup;
 			children = (
+				65C5E09C0F374F3A002E6571 /* mail-button-pressed.png */,
+				65C5E09D0F374F3A002E6571 /* www-button-pressed.png */,
 				65BDFF170F30F78900FAD5FD /* mail-button.png */,
 				65BDFF180F30F78900FAD5FD /* www-button.png */,
 				A72D13BC0EC7A06800CBB890 /* Default.png */,
@@ -724,7 +730,7 @@
 			);
 			name = FIFMRadio.app;
 			productName = RadioFIFM;
-			productReference = 6582EC620F029C9200E7051A /* RadioFIFM.app */;
+			productReference = 6582EC620F029C9200E7051A /* FI-FM Radio.app */;
 			productType = "com.apple.product-type.application";
 		};
 		658687520ECEFB9100EB9D99 /* Unit tests */ = {
@@ -778,7 +784,7 @@
 			);
 			name = FranceRadio;
 			productName = FranceRadio;
-			productReference = A72A70230F1AA12500A2BFD9 /* FranceRadio.app */;
+			productReference = A72A70230F1AA12500A2BFD9 /* France Radio.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A7FA12C00F16B2800067633A /* COPERadio */ = {
@@ -851,6 +857,8 @@
 				656A605E0EF196EF004CE686 /* iTunesArtwork in Resources */,
 				65BDFF190F30F78900FAD5FD /* mail-button.png in Resources */,
 				65BDFF1A0F30F78A00FAD5FD /* www-button.png in Resources */,
+				65C5E09E0F374F3A002E6571 /* mail-button-pressed.png in Resources */,
+				65C5E09F0F374F3A002E6571 /* www-button-pressed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
