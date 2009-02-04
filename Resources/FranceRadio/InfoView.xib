@@ -39,7 +39,7 @@
 					<object class="IBUILabel" id="451419933">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 10}, {127, 29}}</string>
+						<string key="NSFrame">{{20, 0}, {127, 29}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -64,7 +64,7 @@
 					<object class="IBUILabel" id="841582399">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 42}, {219, 20}}</string>
+						<string key="NSFrame">{{20, 37}, {219, 20}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -87,7 +87,7 @@
 					<object class="IBUILabel" id="388393051">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 86}, {219, 20}}</string>
+						<string key="NSFrame">{{20, 93}, {219, 20}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -198,7 +198,7 @@
 					<object class="IBUIButton" id="424329328">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{240, 28}, {80, 48}}</string>
+						<string key="NSFrame">{{240, 23}, {80, 48}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -222,18 +222,21 @@
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4xOTYwNzg0MyAwLjMwOTgwMzkzIDAuNTIxNTY4NjYAA</bytes>
 						</object>
-						<object class="NSCustomResource" key="IBUIHighlightedImage" id="854103920">
+						<object class="NSCustomResource" key="IBUIHighlightedImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">www-button-pressed.png</string>
+						</object>
+						<object class="NSCustomResource" key="IBUIDisabledImage" id="123167233">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">www-button.png</string>
 						</object>
-						<reference key="IBUIDisabledImage" ref="854103920"/>
-						<reference key="IBUISelectedImage" ref="854103920"/>
-						<reference key="IBUINormalImage" ref="854103920"/>
+						<reference key="IBUISelectedImage" ref="123167233"/>
+						<reference key="IBUINormalImage" ref="123167233"/>
 					</object>
 					<object class="IBUIButton" id="705809715">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{240, 72}, {80, 48}}</string>
+						<string key="NSFrame">{{240, 79}, {80, 48}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -250,13 +253,16 @@
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4xOTYwNzg0MyAwLjMwOTgwMzkzIDAuNTIxNTY4NjYAA</bytes>
 						</object>
-						<object class="NSCustomResource" key="IBUIHighlightedImage" id="591877683">
+						<object class="NSCustomResource" key="IBUIHighlightedImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">mail-button-pressed.png</string>
+						</object>
+						<object class="NSCustomResource" key="IBUIDisabledImage" id="757229353">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">mail-button.png</string>
 						</object>
-						<reference key="IBUIDisabledImage" ref="591877683"/>
-						<reference key="IBUISelectedImage" ref="591877683"/>
-						<reference key="IBUINormalImage" ref="591877683"/>
+						<reference key="IBUISelectedImage" ref="757229353"/>
+						<reference key="IBUINormalImage" ref="757229353"/>
 					</object>
 				</object>
 				<string key="NSFrameSize">{320, 270}</string>
@@ -313,15 +319,15 @@
 						<reference key="object" ref="191373211"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="207579380"/>
+							<reference ref="148238232"/>
+							<reference ref="411655781"/>
+							<reference ref="472217786"/>
 							<reference ref="451419933"/>
 							<reference ref="841582399"/>
 							<reference ref="424329328"/>
-							<reference ref="207579380"/>
-							<reference ref="148238232"/>
 							<reference ref="705809715"/>
 							<reference ref="388393051"/>
-							<reference ref="411655781"/>
-							<reference ref="472217786"/>
 						</object>
 						<reference key="parent" ref="360949347"/>
 					</object>
