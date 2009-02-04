@@ -21,13 +21,15 @@
 	
 	NSInteger activeRadio;
 	NSArray *radiosList;
-	NSArray *radiosURLS;
+	NSArray *highRadiosURLS;
+  NSArray *lowRadiosURLS;
 	
 	Player *myPlayer;
 	
 	BOOL isPlaying;
 	BOOL infoViewVisible;
 	BOOL flipping;
+  BOOL tryingToPlay;
 	BOOL interruptedDuringPlayback;
 	
 	pthread_mutex_t stopMutex;

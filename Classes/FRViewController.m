@@ -219,9 +219,9 @@ static NSString *kSupportMailURL =
 
 
 - (NSString *)getRadioURL:(NSString *)radioAddress {
-	RNLog(@"getRadioURL radioAddress %@", radioAddress);
 
 	if ([radioAddress rangeOfString:@".pls"].length > 0) {
+    RNLog(@"getRadioURL pls radioAddress %@", radioAddress);
 		NSURL *plsUrl = [NSURL URLWithString:radioAddress];
 		NSString *plsContent = [NSString stringWithContentsOfURL:plsUrl];
 	
@@ -236,15 +236,13 @@ static NSString *kSupportMailURL =
       return @"";
 		}
 	} else if ([radioAddress rangeOfString:@".m3u"].length > 0) {
-		RNLog(@"getRadioURL radioAddress %@", radioAddress);
+		RNLog(@"getRadioURL m3u radioAddress %@", radioAddress);
 		NSURL *m3UUrl = [NSURL URLWithString:radioAddress];
 		NSString *m3UContent = [NSString stringWithContentsOfURL:m3UUrl];
 		
 		NSArray *tracks = [RNM3UParser parse:m3UContent];
-		//NSArray *tracks = [[NSArray alloc] initWithArray:[RNM3UParser parse:m3UContent]];
 		if ([tracks count] > 0) {
-			NSString *location = [[[tracks objectAtIndex:0] objectForKey:@"location"]
-								  retain];
+			NSString *location = [[tracks objectAtIndex:0] objectForKey:@"location"];
 			RNLog(@"getRadioURL location %@", location);
 			return location;
 		} else {
@@ -335,9 +333,12 @@ static NSString *kSupportMailURL =
 		return;
 	}
 	
-	[NSThread detachNewThreadSelector:@selector(privatePlayRadio)
-                           toTarget:self
-                         withObject:nil];
+  if (!tryingToPlay) {
+    tryingToPlay = YES;
+    [NSThread detachNewThreadSelector:@selector(privatePlayRadio)
+                             toTarget:self
+                           withObject:nil];
+  }
 }
 
 - (void)privatePlayRadio {
@@ -358,7 +359,12 @@ static NSString *kSupportMailURL =
              withObject:nil
           waitUntilDone:NO];
 	
-	NSString *radioAddress = [radiosURLS objectAtIndex:activeRadio];
+  NSString *radioAddress = nil;
+  if ([[Reachability sharedReachability] remoteHostStatus] != ReachableViaWiFiNetwork) {
+    radioAddress = [highRadiosURLS objectAtIndex:activeRadio];
+  } else {
+    radioAddress = [lowRadiosURLS objectAtIndex:activeRadio];
+  }
 	NSString *radioURL = [self getRadioURL:radioAddress];
 
 	myPlayer = [[Player alloc] initWithString:radioURL audioTypeHint:kAudioFileMP3Type];
@@ -367,6 +373,7 @@ static NSString *kSupportMailURL =
 	[myPlayer start];
     
 	isPlaying = YES;
+  tryingToPlay = FALSE;
 	
 	[pool release];
 }
@@ -597,7 +604,8 @@ static NSString *kSupportMailURL =
 	
 	if (radiosInfo) {
 		radiosList = [[radiosInfo objectForKey:@"radioNames"] retain];
-		radiosURLS = [[radiosInfo objectForKey:@"radioURLs"] retain];
+		highRadiosURLS = [[radiosInfo objectForKey:@"highRadioURLs"] retain];
+    lowRadiosURLS = [[radiosInfo objectForKey:@"lowRadioURLs"] retain];
 	} else {
 		RNLog(@"Error loading radios information");
 		// TODO: show error to user... but it should not happen
@@ -650,8 +658,9 @@ static NSString *kSupportMailURL =
 	[radiosView release];
 	
 	[radiosList release];
-	[radiosURLS release];
-  	
+	[highRadiosURLS release];
+  [lowRadiosURLS release];
+  
 	[super dealloc];
 }
 
