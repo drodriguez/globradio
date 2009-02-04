@@ -138,8 +138,8 @@ void parseEXTINF
     } else {
       // Normal line
       NSString *cleanLine =
-        [[line stringByTrimmingCharactersInSet:
-          [NSCharacterSet whitespaceAndNewlineCharacterSet]] autorelease];
+        [line stringByTrimmingCharactersInSet:
+          [NSCharacterSet whitespaceAndNewlineCharacterSet]];
       
       if ([cleanLine length] > 0) {
         if (name == nil) { // use filename as name
