@@ -16,6 +16,11 @@ NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
 
 @interface FIViewController ()
 
+@property (nonatomic, retain) UIImage *playImage;
+@property (nonatomic, retain) UIImage *playHighlightImage;
+@property (nonatomic, retain) UIImage *pauseImage;
+@property (nonatomic, retain) UIImage *pauseHighlightImage;
+
 - (void)stopRadio;
 
 - (void)playRadio;
@@ -28,6 +33,11 @@ NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
 @end
 
 @implementation FIViewController
+
+@synthesize playImage;
+@synthesize playHighlightImage;
+@synthesize pauseImage;
+@synthesize pauseHighlightImage;
 
 #pragma mark IBActions
 
@@ -42,15 +52,18 @@ NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
 #pragma mark Custom methods
 
 - (void)audioSessionInterruption:(UInt32)interruptionState {
+  RNLog(@"audioSessionInterruption %d", interruptionState);
   if (interruptionState == kAudioSessionBeginInterruption) {
+    RNLog(@"AudioSessionBeginInterruption");
     BOOL playing = isPlaying;
     [self stopRadio];
-    AudioSessionSetActive(NO);
+    OSStatus status = AudioSessionSetActive(false);
+    if (status) { RNLog(@"AudioSessionSetActive err %d", status); }
     interruptedDuringPlayback = playing;
   } else if (interruptionState == kAudioSessionEndInterruption) {
-    AudioSessionSetActive(YES);
-    if (interruptedDuringPlayback)
-      [self playRadio];
+    RNLog(@"AudioSessionEndInterruption && interruptedDuringPlayback");
+    OSStatus status = AudioSessionSetActive(true);
+    if (status != kAudioSessionNoError) { RNLog(@"AudioSessionSetActive err %d", status); }
     interruptedDuringPlayback = NO;
   }
 }
@@ -78,11 +91,23 @@ NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
 }
 
 - (void)setPlayState {
-  
+  controlButton.hidden = NO;
+  loadingImage.hidden = YES;
+  if (loadingImage.isAnimating)
+    [loadingImage startAnimating];
+  [controlButton setImage:pauseImage forState:UIControlStateNormal];
+  [controlButton setImage:pauseHighlightImage
+                 forState:UIControlStateHighlighted];
 }
 
 - (void)setStopState {
-  
+  controlButton.hidden = NO;
+	loadingImage.hidden = YES;
+	if (loadingImage.isAnimating)
+		[loadingImage stopAnimating];
+	[controlButton setImage:playImage forState:UIControlStateNormal];
+	[controlButton setImage:playHighlightImage
+                 forState:UIControlStateHighlighted];  
 }
 
 - (void)setFailedState:(NSError *)error {
@@ -92,6 +117,13 @@ NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
     // The reachability callback will show its own AlertView.
     return;
   }
+  
+  controlButton.hidden = NO;
+  loadingImage.hidden = YES;
+  if (loadingImage.isAnimating)
+    [loadingImage stopAnimating];
+  [controlButton setImage:playImage forState:UIControlStateNormal];
+  [controlButton setImage:playHighlightImage forState:UIControlStateHighlighted];
   
   NSString *message;
   if (error != nil) {
@@ -110,7 +142,10 @@ NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
 }
 
 - (void)setLoadingState {
-  
+  controlButton.hidden = YES;
+  loadingImage.hidden = NO;
+  if (!loadingImage.isAnimating)
+    [loadingImage startAnimating];
 }
 
 - (void)playRadio {
@@ -123,6 +158,7 @@ NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
     return;
   }
   
+  // FIX: trying to play?
   [NSThread detachNewThreadSelector:@selector(privatePlayRadio)
                            toTarget:self
                          withObject:nil];
@@ -209,13 +245,53 @@ NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
 #pragma mark UIViewController methods
 
 - (void)viewDidLoad {
+  // Load some interface images
+  bottomBar.backgroundColor =
+    [UIColor colorWithPatternImage:[UIImage imageNamed:@"bottom-bar.png"]];
+  
+  self.playImage = [UIImage imageNamed:@"play.png"];
+  self.playHighlightImage = [UIImage imageNamed:@"play-hl.png"];
+  self.pauseImage = [UIImage imageNamed:@"pause.png"];
+  self.pauseHighlightImage = [UIImage imageNamed:@"pause-hl.png"];
+  
+  // Load the loading animation files
+  NSMutableArray *loadingFiles = [[NSMutableArray alloc] init];
+  for (int index = 0; index < 4; index++) {
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    NSString *fileName = [NSString stringWithFormat:@"loading_%d.png", index];
+    UIImage *frame = [UIImage imageNamed:fileName];
+    [loadingFiles addObject:frame];
+    [pool release];
+  }
+  loadingImage.animationImages = loadingFiles;
+  loadingImage.animationDuration = 1.2f;
+  [loadingFiles release];
+  
+  // Set up the volume slider
   MPVolumeView *volumeView =
     [[[MPVolumeView alloc] initWithFrame:volumeViewHolder.bounds] autorelease];
-  [volumeView sizeToFit];
   [volumeViewHolder addSubview:volumeView];
   
   // Find the slider
   volumeSlider = [volumeView valueForKey:@"_volumeSlider"];
+  CGRect frame = volumeView.frame;
+  frame.size.height = 53;
+  volumeSlider.frame = frame;
+  
+  UIImage *volumeMinimumTrackImage = [[UIImage imageNamed:@"volume-track.png"]
+                                      stretchableImageWithLeftCapWidth:38.0
+                                                          topCapHeight:0.0];
+  UIImage *volumeMaximumTrackImage = [[UIImage imageNamed:@"volume-track.png"]
+                                      stretchableImageWithLeftCapWidth:38.0
+                                                          topCapHeight:0.0];
+  UIImage *volumeThumbImage = [UIImage imageNamed:@"volume-thumb.png"];
+  
+  [volumeSlider setMinimumTrackImage:volumeMinimumTrackImage
+                            forState:UIControlStateNormal];
+  [volumeSlider setMaximumTrackImage:volumeMaximumTrackImage
+                            forState:UIControlStateNormal];
+  [volumeSlider setThumbImage:volumeThumbImage
+                     forState:UIControlStateNormal];
   
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(volumeChanged:)
@@ -239,6 +315,11 @@ NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
 
 
 - (void)dealloc {
+  self.playImage = nil;
+  self.playHighlightImage = nil;
+  self.pauseImage = nil;
+  self.pauseHighlightImage = nil;
+  
   [super dealloc];
 }
 

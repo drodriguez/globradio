@@ -55,6 +55,18 @@
 		658687A00ECF03A000EB9D99 /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
 		658687A30ECF040200EB9D99 /* RNM3UParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 658687A20ECF040200EB9D99 /* RNM3UParserTest.m */; };
 		65AC95670ED4AEEF00ADD701 /* radios.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65AC95660ED4AEEF00ADD701 /* radios.plist */; };
+		65B6E6BA0F545F99006E28B2 /* bottom-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B6E6AF0F545F99006E28B2 /* bottom-bar.png */; };
+		65B6E6BB0F545F99006E28B2 /* loading_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B6E6B00F545F99006E28B2 /* loading_0.png */; };
+		65B6E6BC0F545F9A006E28B2 /* loading_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B6E6B10F545F99006E28B2 /* loading_1.png */; };
+		65B6E6BD0F545F9A006E28B2 /* loading_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B6E6B20F545F99006E28B2 /* loading_2.png */; };
+		65B6E6BE0F545F9A006E28B2 /* loading_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B6E6B30F545F99006E28B2 /* loading_3.png */; };
+		65B6E6BF0F545F9A006E28B2 /* pause-hl.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B6E6B40F545F99006E28B2 /* pause-hl.png */; };
+		65B6E6C00F545F9A006E28B2 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B6E6B50F545F99006E28B2 /* pause.png */; };
+		65B6E6C10F545F9A006E28B2 /* play-hl.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B6E6B60F545F99006E28B2 /* play-hl.png */; };
+		65B6E6C20F545F9A006E28B2 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B6E6B70F545F99006E28B2 /* play.png */; };
+		65B6E6C30F545F9A006E28B2 /* volume-thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B6E6B80F545F99006E28B2 /* volume-thumb.png */; };
+		65B6E6C40F545F9A006E28B2 /* volume-track.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B6E6B90F545F99006E28B2 /* volume-track.png */; };
+		65B6E6DE0F5479C6006E28B2 /* FIAlbumView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B6E6DD0F5479C6006E28B2 /* FIAlbumView.m */; };
 		65BD5E130F09B18300D283D4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761150EE9C4BF00E2F2BE /* AudioToolbox.framework */; };
 		65BD5E140F09B18400D283D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761160EE9C4BF00E2F2BE /* CoreGraphics.framework */; };
 		65BD5E150F09B18600D283D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761720EE9C5F100E2F2BE /* Foundation.framework */; };
@@ -222,6 +234,19 @@
 		658687A10ECF040200EB9D99 /* RNM3UParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNM3UParserTest.h; path = Test/RNM3UParserTest.h; sourceTree = "<group>"; };
 		658687A20ECF040200EB9D99 /* RNM3UParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNM3UParserTest.m; path = Test/RNM3UParserTest.m; sourceTree = "<group>"; };
 		65AC95660ED4AEEF00ADD701 /* radios.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = radios.plist; path = Resources/RNERadio/radios.plist; sourceTree = "<group>"; };
+		65B6E6AF0F545F99006E28B2 /* bottom-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bottom-bar.png"; path = "Resources/FIFMRadio/bottom-bar.png"; sourceTree = "<group>"; };
+		65B6E6B00F545F99006E28B2 /* loading_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_0.png; path = Resources/FIFMRadio/loading_0.png; sourceTree = "<group>"; };
+		65B6E6B10F545F99006E28B2 /* loading_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_1.png; path = Resources/FIFMRadio/loading_1.png; sourceTree = "<group>"; };
+		65B6E6B20F545F99006E28B2 /* loading_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_2.png; path = Resources/FIFMRadio/loading_2.png; sourceTree = "<group>"; };
+		65B6E6B30F545F99006E28B2 /* loading_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_3.png; path = Resources/FIFMRadio/loading_3.png; sourceTree = "<group>"; };
+		65B6E6B40F545F99006E28B2 /* pause-hl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pause-hl.png"; path = "Resources/FIFMRadio/pause-hl.png"; sourceTree = "<group>"; };
+		65B6E6B50F545F99006E28B2 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = Resources/FIFMRadio/pause.png; sourceTree = "<group>"; };
+		65B6E6B60F545F99006E28B2 /* play-hl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play-hl.png"; path = "Resources/FIFMRadio/play-hl.png"; sourceTree = "<group>"; };
+		65B6E6B70F545F99006E28B2 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.png; path = Resources/FIFMRadio/play.png; sourceTree = "<group>"; };
+		65B6E6B80F545F99006E28B2 /* volume-thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "volume-thumb.png"; path = "Resources/FIFMRadio/volume-thumb.png"; sourceTree = "<group>"; };
+		65B6E6B90F545F99006E28B2 /* volume-track.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "volume-track.png"; path = "Resources/FIFMRadio/volume-track.png"; sourceTree = "<group>"; };
+		65B6E6DC0F5479C6006E28B2 /* FIAlbumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIAlbumView.h; sourceTree = "<group>"; };
+		65B6E6DD0F5479C6006E28B2 /* FIAlbumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIAlbumView.m; sourceTree = "<group>"; };
 		65BD5E060F09B08000D283D4 /* KissRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KissRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65BD5E080F09B08100D283D4 /* KissRadio-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "KissRadio-Info.plist"; path = "Resources/KissRadio/KissRadio-Info.plist"; sourceTree = "<group>"; };
 		65BD5E1C0F09B1E500D283D4 /* KSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSAppDelegate.h; sourceTree = "<group>"; };
@@ -514,6 +539,8 @@
 				656BFC430F03A80E006A3F15 /* FIViewController.m */,
 				652834A20F085C6D001CEA65 /* FIShoutcastMetadataFilter.h */,
 				652834A30F085C6D001CEA65 /* FIShoutcastMetadataFilter.m */,
+				65B6E6DC0F5479C6006E28B2 /* FIAlbumView.h */,
+				65B6E6DD0F5479C6006E28B2 /* FIAlbumView.m */,
 			);
 			name = FIFMRadio;
 			sourceTree = "<group>";
@@ -555,6 +582,17 @@
 		6582EC6F0F029E9C00E7051A /* FIFMRadio */ = {
 			isa = PBXGroup;
 			children = (
+				65B6E6AF0F545F99006E28B2 /* bottom-bar.png */,
+				65B6E6B00F545F99006E28B2 /* loading_0.png */,
+				65B6E6B10F545F99006E28B2 /* loading_1.png */,
+				65B6E6B20F545F99006E28B2 /* loading_2.png */,
+				65B6E6B30F545F99006E28B2 /* loading_3.png */,
+				65B6E6B40F545F99006E28B2 /* pause-hl.png */,
+				65B6E6B50F545F99006E28B2 /* pause.png */,
+				65B6E6B60F545F99006E28B2 /* play-hl.png */,
+				65B6E6B70F545F99006E28B2 /* play.png */,
+				65B6E6B80F545F99006E28B2 /* volume-thumb.png */,
+				65B6E6B90F545F99006E28B2 /* volume-track.png */,
 				656BFC6E0F03B76F006A3F15 /* Icon.png */,
 				656BFC6F0F03B76F006A3F15 /* iTunesArtwork */,
 				6582EC640F029C9200E7051A /* RadioFIFM-Info.plist */,
@@ -876,6 +914,17 @@
 				656BFC710F03B76F006A3F15 /* iTunesArtwork in Resources */,
 				656BFC740F03B7F7006A3F15 /* MainWindow.xib in Resources */,
 				656BFC780F03B897006A3F15 /* FIViewController.xib in Resources */,
+				65B6E6BA0F545F99006E28B2 /* bottom-bar.png in Resources */,
+				65B6E6BB0F545F99006E28B2 /* loading_0.png in Resources */,
+				65B6E6BC0F545F9A006E28B2 /* loading_1.png in Resources */,
+				65B6E6BD0F545F9A006E28B2 /* loading_2.png in Resources */,
+				65B6E6BE0F545F9A006E28B2 /* loading_3.png in Resources */,
+				65B6E6BF0F545F9A006E28B2 /* pause-hl.png in Resources */,
+				65B6E6C00F545F9A006E28B2 /* pause.png in Resources */,
+				65B6E6C10F545F9A006E28B2 /* play-hl.png in Resources */,
+				65B6E6C20F545F9A006E28B2 /* play.png in Resources */,
+				65B6E6C30F545F9A006E28B2 /* volume-thumb.png in Resources */,
+				65B6E6C40F545F9A006E28B2 /* volume-track.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1080,6 +1129,7 @@
 				656BFC4D0F03B6E6006A3F15 /* RNFileLogger.m in Sources */,
 				656BFC540F03B724006A3F15 /* main.m in Sources */,
 				653F4BD20F2A7D21005067F5 /* ShoutcastAudioClass.m in Sources */,
+				65B6E6DE0F5479C6006E28B2 /* FIAlbumView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

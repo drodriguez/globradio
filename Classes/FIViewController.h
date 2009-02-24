@@ -16,13 +16,21 @@
   IBOutlet UIButton *controlButton;
   IBOutlet UIView *volumeViewHolder;
   IBOutlet UIImageView *loadingImage;
+  IBOutlet UIView *bottomBar;
+  IBOutlet UILabel *titleLabel;
+  IBOutlet UILabel *artistLabel;
+  
+  UIImage *playImage;
+  UIImage *playHighlightImage;
+  UIImage *pauseImage;
+  UIImage *pauseHighlightImage;
   
   ShoutcastPlayer *player;
   
   BOOL isPlaying;
   BOOL interruptedDuringPlayback;
   
-  UIView *volumeSlider;
+  UISlider *volumeSlider;
 }
 
 - (IBAction)controlButtonClicked:(UIButton *)button;
