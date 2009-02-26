@@ -19,6 +19,7 @@
   IBOutlet UIView *bottomBar;
   IBOutlet UILabel *titleLabel;
   IBOutlet UILabel *artistLabel;
+  IBOutlet UIView *albumArtContainer;
   
   UIImage *playImage;
   UIImage *playHighlightImage;

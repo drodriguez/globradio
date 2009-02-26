@@ -9,10 +9,14 @@
 #import "FIViewController.h"
 #import "ShoutcastAudioClass.h"
 #import "Reachability.h"
+#import "FIAlbumView.h"
 // #import "FIShoutcastMetadataFilter.h"
 
 NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
 // NSString *kFIFMRadioURL = @"http://scfire-ntc-aa10.stream.aol.com:80/stream/1040";
+
+NSString *kDefaultTitle = @"Radio FI-FM";
+NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
 
 @interface FIViewController ()
 
@@ -107,7 +111,9 @@ NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
 		[loadingImage stopAnimating];
 	[controlButton setImage:playImage forState:UIControlStateNormal];
 	[controlButton setImage:playHighlightImage
-                 forState:UIControlStateHighlighted];  
+                 forState:UIControlStateHighlighted];
+  titleLabel.text = kDefaultTitle;
+  artistLabel.text = kDefaultArtist;
 }
 
 - (void)setFailedState:(NSError *)error {
@@ -124,6 +130,8 @@ NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
     [loadingImage stopAnimating];
   [controlButton setImage:playImage forState:UIControlStateNormal];
   [controlButton setImage:playHighlightImage forState:UIControlStateHighlighted];
+  titleLabel.text = kDefaultTitle;
+  artistLabel.text = kDefaultArtist;
   
   NSString *message;
   if (error != nil) {
@@ -304,6 +312,14 @@ NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
 - (void)viewDidAppear:(BOOL)animated {
   // Needed to start receiving reachability status notifications
   [[Reachability sharedReachability] remoteHostStatus];
+  
+  FIAlbumView *albumView =
+    [[FIAlbumView alloc] initWithFrame:
+     CGRectMake(0, 0, albumArtContainer.frame.size.width,
+                albumArtContainer.frame.size.height)];
+  [albumView loadImageFromURL:[NSURL URLWithString:@"http://ecx.images-amazon.com/images/I/51hYI3S-tlL._SS500_.jpg"]];
+  [albumArtContainer addSubview:albumView];
+  [albumView release];
   
   [super viewDidAppear:animated];
 }

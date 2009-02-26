@@ -34,7 +34,9 @@
 			<object class="IBUICustomObject" id="987256611"/>
 			<object class="IBUIViewController" id="955324776">
 				<string key="IBUINibName">FIViewController</string>
-				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
+				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
+					<int key="IBUIStatusBarStyle">2</int>
+				</object>
 			</object>
 			<object class="IBUIWindow" id="380026005">
 				<nil key="NSNextResponder"/>
@@ -47,7 +49,9 @@
 				</object>
 				<bool key="IBUIOpaque">NO</bool>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
-				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
+				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
+					<int key="IBUIStatusBarStyle">2</int>
+				</object>
 			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -153,7 +157,7 @@
 					<string>FIAppDelegate</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>FIViewController</string>
-					<string>{{347, 215}, {320, 480}}</string>
+					<string>{{315, 215}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
@@ -214,15 +218,21 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>artistLabel</string>
+							<string>bottomBar</string>
 							<string>controlButton</string>
 							<string>loadingImage</string>
-							<string>volumeSlider</string>
+							<string>titleLabel</string>
+							<string>volumeViewHolder</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UILabel</string>
+							<string>UIView</string>
 							<string>UIButton</string>
 							<string>UIImageView</string>
-							<string>MPVolumeView</string>
+							<string>UILabel</string>
+							<string>UIView</string>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

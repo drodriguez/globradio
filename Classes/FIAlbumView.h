@@ -12,6 +12,10 @@
 @interface FIAlbumView : UIView {
   NSURLConnection *connection_;
   NSMutableData *data_;
+  UIImage *image_;
 }
+
+- (void)loadImageFromURL:(NSURL *)url;
+- (UIImage *)image;
 
 @end

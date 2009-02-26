@@ -9,20 +9,44 @@
 #import "FIAlbumView.h"
 
 #define DATA_INITIAL_CAPACITY 2048
+#define DEFAULT_IMAGE_SIZE 300
+#define SHADOW_RADIUS 20
+#define MARGIN 30
 
 @implementation FIAlbumView
 
 // TODO: Create the internal UIImageView?
-- (id)initWithFrame:(CGRect)frame {
+/*- (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        // Initialization code
+      // Initialization code
     }
     return self;
-}
+}*/
 
-// TODO: Draw the shadow and border?
 - (void)drawRect:(CGRect)rect {
   CGRect bounds = self.bounds;
+  
+  CGSize imageSize;
+  if (image_) {
+    imageSize = image_.size;
+  } else {
+    imageSize = CGSizeMake(DEFAULT_IMAGE_SIZE, DEFAULT_IMAGE_SIZE);
+  }
+  
+  // resize image if larger
+  if (imageSize.width + MARGIN > bounds.size.width) {
+    imageSize.height /= imageSize.width / (bounds.size.width - MARGIN);
+    imageSize.width = bounds.size.width - MARGIN;
+  }
+  if (imageSize.height + MARGIN > bounds.size.height) {
+    imageSize.width /= imageSize.height / (bounds.size.height - MARGIN);
+    imageSize.height = bounds.size.height - MARGIN;
+  }
+  
+  CGPoint imagePosition =
+    CGPointMake(self.bounds.size.width/2 - imageSize.width/2,
+                self.bounds.size.height/2 - imageSize.width/2);
+  
   CGSize shadowOffset = CGSizeMake(0.0, 0.0);
   const CGFloat shadowValues[] = {0.0f, 0.0f, 0.0f, 1.0f};
   CGColorRef shadowColor;
@@ -34,22 +58,30 @@
   CGContextFillRect(ctx, bounds);
   
   CGMutablePathRef path = CGPathCreateMutable();
-  CGPathAddRect(path, NULL, CGRectMake(15.0, 15.0, bounds.size.width-30, bounds.size.height-30));
+  CGPathAddRect(path, NULL,
+                CGRectMake(imagePosition.x - 1, imagePosition.y - 1,
+                           imageSize.width + 1, imageSize.height + 1));
 
   CGContextSaveGState(ctx);
   
   deviceColorSpace = CGColorSpaceCreateDeviceRGB();
   shadowColor = CGColorCreate(deviceColorSpace, shadowValues);
-  CGContextSetShadowWithColor(ctx, shadowOffset, 20.0, shadowColor);
+  CGContextSetShadowWithColor(ctx, shadowOffset, SHADOW_RADIUS, shadowColor);
   CGColorRelease(shadowColor);
   CGColorSpaceRelease(deviceColorSpace);
   
-  CGContextSetRGBFillColor(ctx, 1, 1, 1, 1);
   CGContextBeginPath(ctx);
   CGContextAddPath(ctx, path);
   CGContextFillPath(ctx);
   
   CGContextRestoreGState(ctx);
+  
+  if (image_) {
+    [image_ drawInRect:CGRectMake(imagePosition.x,
+                                  imagePosition.y,
+                                  imageSize.width,
+                                  imageSize.height)];
+  }
   
   CGContextSetRGBStrokeColor(ctx, 0, 0, 0, 1);
   CGContextBeginPath(ctx);
@@ -93,21 +125,14 @@
   [connection_ release];
   connection = nil;
   
-  if ([[self subviews] count] > 0) {
-    [[[self subviews] objectAtIndex:0] removeFromSuperview];
+  if (image_) {
+    [image_ release];
   }
   
-  UIImageView *imageView = [[[UIImageView alloc]
-                             initWithImage:[UIImage imageWithData:data_]] autorelease];
+  image_ = [[UIImage alloc] initWithData:data_];
   
-  imageView.contentMode = UIViewContentModeScaleAspectFit;
-  imageView.autoresizingMask =
-    (UIViewAutoresizingFlexibleWidth || UIViewAutoresizingFlexibleHeight);
+  [self setNeedsDisplay];
   
-  [self addSubview:imageView];
-  imageView.frame = self.bounds;
-  [imageView setNeedsLayout];
-  [self setNeedsLayout];
   [data_ release];
   data_ = nil;
 }
@@ -115,13 +140,14 @@
 #pragma mark Accesor
 
 - (UIImage *)image {
-  UIImageView *iv = [[self subviews] objectAtIndex:0];
-  return [iv image];
+  return image_;
 }
 
 #pragma mark dealloc
 
 - (void)dealloc {
+  if (image_) [image_ release];
+  
   [super dealloc];
 }
 
