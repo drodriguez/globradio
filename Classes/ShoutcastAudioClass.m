@@ -15,7 +15,7 @@
 @property(nonatomic, retain, readwrite) NSDictionary *headers;
 
 - (void)filterMetadataFrom:(NSData *)data;
-- (void)parseMetadata;
+- (void)parseMetadataAt:(unsigned int)offset;
 - (int)parseHeader:(NSData *)data;
 
 @end
@@ -108,6 +108,19 @@ BOOL readHeader(NSData *data, int *index,
 @dynamic error;
 
 /**
+ * initWithURL:audioTypeHint:
+ *
+ * Overriden. Uses the URL, and also audio type hint.
+ */
+- (id)initWithURL:(NSURL *)newUrl audioTypeHint:(AudioFileTypeID)newAudioHint {
+  if (self = [super initWithURL:newUrl audioTypeHint:newAudioHint]) {
+    metadataInterval = -1;
+  }
+  
+  return self;
+}
+
+/**
  * connectionForURL
  *
  * Creates a new NSConnection for the given URL.
@@ -123,6 +136,7 @@ BOOL readHeader(NSData *data, int *index,
 - (void)audioFileStream:(AudioFileStreamID)afs
              parseBytes:(const void *)bytes
                  length:(UInt32)length {
+  if (length <= 0) return;
   
   OSStatus err = AudioFileStreamParseBytes(afs, length, bytes,
                                            (discontinuous ? kAudioFileStreamParseFlag_Discontinuity : 0));
@@ -146,6 +160,7 @@ BOOL readHeader(NSData *data, int *index,
   
   if (!finished) {
     [self filterMetadataFrom:data];
+    // [self audioFileStream:audioFileStream parseBytes:[data bytes] length:[data length]];
   }
 }
 
@@ -174,15 +189,19 @@ BOOL readHeader(NSData *data, int *index,
   const void *bytes = [data bytes];
   
   if (metadata != NULL) { // Metadata wasn't fully read
+    RNLog(@"metadata wasn't fully read");
     int copyLength = MIN(metadataLength - metadataCounter, left);
     memcpy(metadata+metadataCounter, bytes, copyLength);
     left -= copyLength;
     metadataCounter += copyLength;
-    [self parseMetadata];
+    [self parseMetadataAt:0];
   }
   
+  RNLog(@"length %d", length);
   while (left > 0) {
+    RNLog(@"left %d", left);
     if (byteCounter + left > metadataInterval) {
+      RNLog(@"metadatos!");
       left -= metadataInterval - byteCounter;
       int metadataStart = length - left;
       metadataLength = ((unsigned char *) bytes)[metadataStart] * 16;
@@ -194,13 +213,19 @@ BOOL readHeader(NSData *data, int *index,
       if (metadata) {
         memcpy(metadata, bytes+metadataStart+1, copyLength);
         metadataCounter += copyLength;
-        [self parseMetadata];        
+        [self parseMetadataAt:metadataStart];
       }
       
+      RNLog(@"-left %d", left);
+      int audioLength = left > metadataInterval ? metadataInterval : left;
+      RNLog(@"audioLength %d", audioLength);
       [self audioFileStream:audioFileStream
                  parseBytes:bytes+metadataStart+1+copyLength
-                     length:left];
+                     length:audioLength];
+      byteCounter += audioLength;
+      left -= audioLength;
     } else {
+      RNLog(@"resto sin metadatos");
       [self audioFileStream:audioFileStream
                  parseBytes:bytes+(length-left)
                      length:left];
@@ -208,13 +233,16 @@ BOOL readHeader(NSData *data, int *index,
       break;
     }
   }
+  RNLog(@"no more left");
 }
 
-- (void)parseMetadata {
+- (void)parseMetadataAt:(unsigned int)offset {
   if (metadataCounter < metadataLength) return;
   
   if (metadataLength > 0) {
     RNLog(@"metadata: %s", metadata);
+  } else {
+    goto cleanup;
   }
   
   // Start parsing
@@ -287,9 +315,12 @@ BOOL readHeader(NSData *data, int *index,
     index++;
   }
   
+  RNLog(@"Metadata at: %d %d", bufferCounter, kAQBufSize*bufferCounter + offset);
+  
   if (tagName) [tagName release];
   if (tagValue) [tagValue release];
-  
+
+cleanup:
   metadataCounter = 0;
   metadataLength = 0;
   free(metadata);
@@ -325,6 +356,12 @@ BOOL readHeader(NSData *data, int *index,
   RNLog(@"index = %d", index);
   return index;
 }
+
+/* - (void)enqueueBuffer {
+  RNLog(@"enqueueBuffer");
+  bufferCounter++;
+  [super enqueueBuffer];
+} */
 
 - (void)dealloc {
   self.headers = nil;

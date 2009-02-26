@@ -12,8 +12,8 @@
 @interface ShoutcastPlayer : Player {
  @private
   unsigned int metadataInterval;
+  unsigned long bufferCounter;
   unsigned int byteCounter;
-  unsigned int bufferCounter;
   unsigned int metadataLength;
   unsigned int metadataCounter;
   
