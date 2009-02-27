@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import "ShoutcastAudioClass.h"
 
-@class ShoutcastPlayer;
 
-@interface FIViewController : UIViewController {
+
+@interface FIViewController : UIViewController <ShoutcastPlayerDelegate> {
  @private
   IBOutlet UIButton *controlButton;
   IBOutlet UIView *volumeViewHolder;

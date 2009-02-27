@@ -183,6 +183,7 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
   player = [[ShoutcastPlayer alloc] initWithString:kFIFMRadioURL audioTypeHint:kAudioFileMP3Type];
   // player.connectionFilter = [[FIShoutcastMetadataFilter alloc] init];
   
+  player.delegate = self;
   [player addObserver:self forKeyPath:@"isPlaying" options:0 context:nil];
   [player addObserver:self forKeyPath:@"failed" options:0 context:nil];
   [player start];
@@ -329,6 +330,20 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
     // Release anything that's not essential, such as cached data
 }
 
+
+
+#pragma mark ShoutcastPlayerDelegate methods
+
+- (void)player:(ShoutcastPlayer *)player
+  updatedMetadata:(NSDictionary *)metadataDictionary {
+  NSString *value;
+  if (value = [metadataDictionary objectForKey:@"StreamTitle"]) {
+    RNLog(@"StreamTitle found! %@", value);
+  }
+}
+
+
+#pragma mark Dealloc
 
 - (void)dealloc {
   self.playImage = nil;
