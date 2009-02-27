@@ -103,6 +103,7 @@ BOOL readHeader(NSData *data, int *index,
 @implementation ShoutcastPlayer
 
 @synthesize headers = headers_;
+@synthesize delegate;
 
 @dynamic failed;
 @dynamic error;
@@ -160,7 +161,6 @@ BOOL readHeader(NSData *data, int *index,
   
   if (!finished) {
     [self filterMetadataFrom:data];
-    // [self audioFileStream:audioFileStream parseBytes:[data bytes] length:[data length]];
   }
 }
 
@@ -189,7 +189,6 @@ BOOL readHeader(NSData *data, int *index,
   const void *bytes = [data bytes];
   
   if (metadata != NULL) { // Metadata wasn't fully read
-    RNLog(@"metadata wasn't fully read");
     int copyLength = MIN(metadataLength - metadataCounter, left);
     memcpy(metadata+metadataCounter, bytes, copyLength);
     left -= copyLength;
@@ -197,11 +196,11 @@ BOOL readHeader(NSData *data, int *index,
     [self parseMetadataAt:0];
   }
   
-  RNLog(@"length %d", length);
+  // RNLog(@"length %d", length);
   while (left > 0) {
-    RNLog(@"left %d", left);
+    // RNLog(@"left %d", left);
     if (byteCounter + left > metadataInterval) {
-      RNLog(@"metadatos!");
+      // RNLog(@"metadatos!");
       left -= metadataInterval - byteCounter;
       int metadataStart = length - left;
       metadataLength = ((unsigned char *) bytes)[metadataStart] * 16;
@@ -216,16 +215,16 @@ BOOL readHeader(NSData *data, int *index,
         [self parseMetadataAt:metadataStart];
       }
       
-      RNLog(@"-left %d", left);
+      // RNLog(@"-left %d", left);
       int audioLength = left > metadataInterval ? metadataInterval : left;
-      RNLog(@"audioLength %d", audioLength);
+      // RNLog(@"audioLength %d", audioLength);
       [self audioFileStream:audioFileStream
                  parseBytes:bytes+metadataStart+1+copyLength
                      length:audioLength];
       byteCounter += audioLength;
       left -= audioLength;
     } else {
-      RNLog(@"resto sin metadatos");
+      // RNLog(@"resto sin metadatos");
       [self audioFileStream:audioFileStream
                  parseBytes:bytes+(length-left)
                      length:left];
@@ -233,12 +232,12 @@ BOOL readHeader(NSData *data, int *index,
       break;
     }
   }
-  RNLog(@"no more left");
+  // RNLog(@"no more left");
 }
 
 - (void)parseMetadataAt:(unsigned int)offset {
   if (metadataCounter < metadataLength) return;
-  
+    
   if (metadataLength > 0) {
     RNLog(@"metadata: %s", metadata);
   } else {
@@ -288,8 +287,14 @@ BOOL readHeader(NSData *data, int *index,
         tagValue = [[NSString alloc] initWithBytes:start
                                             length:bytes+index-start
                                           encoding:NSISOLatin1StringEncoding];
-        // TODO
-        RNLog(@"Tag found: name '%@', value '%@'", tagName, tagValue);
+        // Send the metadata to the delegate in a new thread
+        RNLog(@"Tag found 1: name '%@', value '%@'", tagName, tagValue);
+        NSDictionary *dictionary = [[NSDictionary alloc]
+                                    initWithObjectsAndKeys:tagValue, tagName, nil];
+        [NSThread detachNewThreadSelector:@selector(updateMetadata:)
+                                 toTarget:self
+                               withObject:dictionary];
+        [dictionary release];
         [tagName release];
         [tagValue release];
         tagName = tagValue = nil;
@@ -301,8 +306,14 @@ BOOL readHeader(NSData *data, int *index,
       if (bytes[index] == ';') {
         // We have already stored tagValue
         
-        // TODO
-        RNLog(@"Tag found: name '%@', value '%@'", tagName, tagValue);
+        // Send the metadata to the delegate in a new thread
+        RNLog(@"Tag found 2: name '%@', value '%@'", tagName, tagValue);
+        NSDictionary *dictionary = [[NSDictionary alloc]
+                                    initWithObjectsAndKeys:tagValue, tagName, nil];
+        [NSThread detachNewThreadSelector:@selector(updateMetadata:)
+                                 toTarget:self
+                               withObject:dictionary];
+        [dictionary release];
         [tagName release];
         [tagValue release];
         tagName = tagValue = nil;
@@ -314,9 +325,7 @@ BOOL readHeader(NSData *data, int *index,
     
     index++;
   }
-  
-  RNLog(@"Metadata at: %d %d", bufferCounter, kAQBufSize*bufferCounter + offset);
-  
+    
   if (tagName) [tagName release];
   if (tagValue) [tagValue release];
 
@@ -352,15 +361,70 @@ cleanup:
   
   self.headers = [NSDictionary dictionaryWithDictionary:parsedHeaders];
   [parsedHeaders release];
+  
+  [NSThread detachNewThreadSelector:@selector(updateMetadata:)
+                           toTarget:self
+                         withObject:self.headers];
+  
   headerParsed = YES;
   RNLog(@"index = %d", index);
   return index;
 }
 
+- (void)updateMetadata:(NSDictionary *)metadataDictionary {
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+  
+  RNLog(@"updatedMetadata");
+  // TODO: store the metadata locally?
+  if ([delegate respondsToSelector:@selector(player:updatedMetadata:)]) {
+    [delegate player:self updatedMetadata:metadataDictionary];
+  }
+  
+  [pool release];
+}
+
+/* Override */
+/* - (void)propertyChanged:(AudioFileStreamPropertyID)propertyID
+                  flags:(UInt32*)flags {
+  [super propertyChanged:propertyID flags:flags];
+  
+  switch (propertyID) {
+    case kAudioFileStreamProperty_DataOffset:
+      RNLog(@"hallo");
+      SInt64 dataOffset;
+      UInt32 dataOffsetSize = sizeof(SInt64);
+      OSStatus err = AudioFileStreamGetProperty(audioFileStream,
+      kAudioFileStreamProperty_DataOffset,
+      &dataOffsetSize,
+                                                &dataOffset);
+      if (err) RNLog(@"error");
+      else RNLog(@"dataOffset %d", dataOffset);
+      break;
+    default:
+      break;
+  }
+} */
+
+/* Override */
 /* - (void)enqueueBuffer {
-  RNLog(@"enqueueBuffer");
   bufferCounter++;
   [super enqueueBuffer];
+}*/
+
+/* Override */
+/*- (void)outputCallbackWithBufferReference:(AudioQueueBufferRef)buffer {
+  RNLog(@"Processed %d bytes", processedBuffersCounter*kAQBufSize);
+  [super outputCallbackWithBufferReference:buffer];
+}*/
+
+/* Overriden */
+/* - (void)packetData:(const void*)data
+   numberOfPackets:(UInt32)numPackets
+     numberOfBytes:(UInt32)numBytes
+packetDescriptions:(AudioStreamPacketDescription*)packetDescriptions {
+  RNLog(@"unparsing %d, %d bytes", unparsedBytesCounter, numBytes);
+  unparsedBytesCounter++;
+  [super packetData:data numberOfPackets:numPackets numberOfBytes:numBytes packetDescriptions:packetDescriptions];
 } */
 
 - (void)dealloc {

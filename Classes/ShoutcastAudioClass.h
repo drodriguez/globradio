@@ -9,10 +9,12 @@
 #import "AudioClass.h"
 
 
+@protocol ShoutcastPlayerDelegate;
+
+
 @interface ShoutcastPlayer : Player {
  @private
   unsigned int metadataInterval;
-  unsigned long bufferCounter;
   unsigned int byteCounter;
   unsigned int metadataLength;
   unsigned int metadataCounter;
@@ -22,8 +24,22 @@
   NSDictionary *headers_;
   
   void *metadata;
+  
+  NSObject<ShoutcastPlayerDelegate> *delegate;
 }
 
 @property(nonatomic, readonly, retain) NSDictionary *headers;
+@property(nonatomic, assign) NSObject<ShoutcastPlayerDelegate> *delegate;
 
 @end
+
+
+
+@protocol ShoutcastPlayerDelegate
+
+@optional
+- (void)player:(ShoutcastPlayer *)player
+updatedMetadata:(NSDictionary *)metadataDictionary;
+
+@end
+
