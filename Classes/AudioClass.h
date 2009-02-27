@@ -22,7 +22,6 @@
 {
  @private
   AudioFileTypeID audioHint; // Audio type hint provided by the user.
-  AudioQueueRef audioQueue; // Audio queue.
   AudioQueueBufferRef audioQueueBuffer[kNumAQBufs]; // Audio queue buffers.
   // Packets description for enqueuing audio.
 	AudioStreamPacketDescription packetDescs[kAQMaxPacketDescs];
@@ -43,6 +42,7 @@
   pthread_mutex_t audioQueueBufferMutex; // A mutex to protect audioQueueBuffer.
   
  @protected
+  AudioQueueRef audioQueue; // Audio queue.
   AudioFileStreamID audioFileStream; // Audio file stream parser.
 
   NSURL *url;

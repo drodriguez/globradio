@@ -687,7 +687,7 @@ packetDescriptions:(AudioStreamPacketDescription*)packetDescriptions {
       // Fill packet description.
       packetDescs[packetsFilled] = packetDescriptions[i];
       packetDescs[packetsFilled].mStartOffset = bytesFilled;
-      // Keep track of buyes filled and packets filled.
+      // Keep track of bytes filled and packets filled.
       bytesFilled += packetSize;
       packetsFilled += 1;
       
