@@ -34,6 +34,9 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
 
 - (void)reachabilityChanged:(NSNotification *)notification;
 
+- (void)changeTrackTitle:(NSString *)newTitle;
+- (void)changeTrackArtist:(NSString *)newArtist;
+
 @end
 
 @implementation FIViewController
@@ -112,8 +115,8 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
 	[controlButton setImage:playImage forState:UIControlStateNormal];
 	[controlButton setImage:playHighlightImage
                  forState:UIControlStateHighlighted];
-  titleLabel.text = kDefaultTitle;
-  artistLabel.text = kDefaultArtist;
+  [self changeTrackTitle:kDefaultTitle];
+  [self changeTrackArtist:kDefaultArtist];
 }
 
 - (void)setFailedState:(NSError *)error {
@@ -130,8 +133,8 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
     [loadingImage stopAnimating];
   [controlButton setImage:playImage forState:UIControlStateNormal];
   [controlButton setImage:playHighlightImage forState:UIControlStateHighlighted];
-  titleLabel.text = kDefaultTitle;
-  artistLabel.text = kDefaultArtist;
+  [self changeTrackTitle:kDefaultTitle];
+  [self changeTrackArtist:kDefaultArtist];
   
   NSString *message;
   if (error != nil) {
@@ -251,6 +254,49 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
   [volumeSlider _updateVolumeFromAVSystemController];
 }
 
+- (UILabel *)changeLabel:(UILabel *)label withString:(NSString *)newString orElse:(NSString *)defaultString {
+  UILabel *newLabel = [[[UILabel alloc] initWithFrame:label.frame] autorelease];
+  newLabel.font = label.font;
+  newLabel.textColor = label.textColor;
+  newLabel.textAlignment = label.textAlignment;
+  newLabel.backgroundColor = label.backgroundColor;
+  newLabel.opaque = label.opaque;
+  
+  NSString *cleanString = [newString stringByTrimmingCharactersInSet:
+                           [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+  if (newString && [cleanString length] > 0) {
+    newLabel.text = cleanString;
+  } else {
+    newLabel.text = defaultString;
+  }
+  
+  newLabel.alpha = 0.0;
+  UIView *container = label.superview;
+  [container addSubview:newLabel];
+
+  CGContextRef context = UIGraphicsGetCurrentContext();
+	[UIView beginAnimations:nil context:context];
+  [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+	[UIView setAnimationDuration:1.0];
+  
+  newLabel.alpha = 1.0;
+  label.alpha = 0.0;
+	
+	[UIView commitAnimations];
+
+  [label removeFromSuperview];
+  
+  return newLabel;
+}
+
+- (void)changeTrackTitle:(NSString  *)newTitle {
+  titleLabel = [self changeLabel:titleLabel withString:newTitle orElse:kDefaultTitle];
+}
+
+- (void)changeTrackArtist:(NSString  *)newArtist {
+  artistLabel = [self changeLabel:artistLabel withString:newArtist orElse:kDefaultArtist];
+}
+
 #pragma mark UIViewController methods
 
 - (void)viewDidLoad {
@@ -337,8 +383,17 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
 - (void)player:(ShoutcastPlayer *)player
   updatedMetadata:(NSDictionary *)metadataDictionary {
   NSString *value;
-  if (value = [metadataDictionary objectForKey:@"StreamTitle"]) {
+  if (isPlaying && (value = [metadataDictionary objectForKey:@"StreamTitle"])) {
     RNLog(@"StreamTitle found! %@", value);
+    NSArray *titleParts = [value componentsSeparatedByString:@"-"];
+    [self performSelector:@selector(changeTrackTitle:)
+                 onThread:[NSThread mainThread]
+               withObject:[titleParts objectAtIndex:[titleParts count]-1]
+            waitUntilDone:NO];
+    [self performSelector:@selector(changeTrackArtist:)
+                 onThread:[NSThread mainThread]
+               withObject:[titleParts objectAtIndex:0]
+            waitUntilDone:NO];
   }
 }
 
