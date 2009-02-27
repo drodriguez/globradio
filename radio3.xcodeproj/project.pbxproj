@@ -125,6 +125,19 @@
 		65F6F1510F190E3600B0B070 /* rng-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F6F1500F190E3600B0B070 /* rng-icon.png */; };
 		65F6F1940F19170700B0B070 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F6F1930F19170700B0B070 /* InfoView.xib */; };
 		65F6F19A0F19198F00B0B070 /* RadiosView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F6F1990F19198F00B0B070 /* RadiosView.xib */; };
+		65F8171D0F5833D100B7990A /* FILastFMDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F8171C0F5833D100B7990A /* FILastFMDataProvider.m */; };
+		65F817220F584D9700B7990A /* FINSString+URLQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F817210F584D9700B7990A /* FINSString+URLQuery.m */; };
+		65F817890F58546E00B7990A /* CXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F817750F58546E00B7990A /* CXMLDocument.m */; };
+		65F8178A0F58546E00B7990A /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F817770F58546E00B7990A /* CXMLDocument_CreationExtensions.m */; };
+		65F8178B0F58546E00B7990A /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F817790F58546E00B7990A /* CXMLDocument_PrivateExtensions.m */; };
+		65F8178C0F58546E00B7990A /* CXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F8177B0F58546E00B7990A /* CXMLElement.m */; };
+		65F8178D0F58546E00B7990A /* CXMLElement_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F8177D0F58546E00B7990A /* CXMLElement_CreationExtensions.m */; };
+		65F8178E0F58546E00B7990A /* CXMLElement_ElementTreeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F8177F0F58546E00B7990A /* CXMLElement_ElementTreeExtensions.m */; };
+		65F8178F0F58546E00B7990A /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F817810F58546E00B7990A /* CXMLNode.m */; };
+		65F817900F58546E00B7990A /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F817830F58546E00B7990A /* CXMLNode_CreationExtensions.m */; };
+		65F817910F58546E00B7990A /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F817850F58546E00B7990A /* CXMLNode_PrivateExtensions.m */; };
+		65F817920F58546E00B7990A /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F817870F58546E00B7990A /* CXMLNode_XPathExtensions.m */; };
+		65F817950F58551500B7990A /* FITrackInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F817940F58551500B7990A /* FITrackInfo.m */; };
 		65FBA6B90F2B68920049574C /* mail-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 65FBA6B70F2B68920049574C /* mail-button.png */; };
 		65FBA6BA0F2B68920049574C /* www-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 65FBA6B80F2B68920049574C /* www-button.png */; };
 		65FBA6EF0F2B6F340049574C /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 65FBA6EE0F2B6F340049574C /* iTunesArtwork */; };
@@ -289,6 +302,33 @@
 		65F6F1500F190E3600B0B070 /* rng-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rng-icon.png"; path = "Resources/COPERadio/rng-icon.png"; sourceTree = "<group>"; };
 		65F6F1930F19170700B0B070 /* InfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = InfoView.xib; path = Resources/COPERadio/InfoView.xib; sourceTree = "<group>"; };
 		65F6F1990F19198F00B0B070 /* RadiosView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RadiosView.xib; path = Resources/COPERadio/RadiosView.xib; sourceTree = "<group>"; };
+		65F8171B0F5833D100B7990A /* FILastFMDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FILastFMDataProvider.h; sourceTree = "<group>"; };
+		65F8171C0F5833D100B7990A /* FILastFMDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FILastFMDataProvider.m; sourceTree = "<group>"; };
+		65F817200F584D9700B7990A /* FINSString+URLQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FINSString+URLQuery.h"; sourceTree = "<group>"; };
+		65F817210F584D9700B7990A /* FINSString+URLQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FINSString+URLQuery.m"; sourceTree = "<group>"; };
+		65F817740F58546E00B7990A /* CXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXMLDocument.h; path = TouchXML/CXMLDocument.h; sourceTree = "<group>"; };
+		65F817750F58546E00B7990A /* CXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXMLDocument.m; path = TouchXML/CXMLDocument.m; sourceTree = "<group>"; };
+		65F817760F58546E00B7990A /* CXMLDocument_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXMLDocument_CreationExtensions.h; path = TouchXML/CXMLDocument_CreationExtensions.h; sourceTree = "<group>"; };
+		65F817770F58546E00B7990A /* CXMLDocument_CreationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXMLDocument_CreationExtensions.m; path = TouchXML/CXMLDocument_CreationExtensions.m; sourceTree = "<group>"; };
+		65F817780F58546E00B7990A /* CXMLDocument_PrivateExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXMLDocument_PrivateExtensions.h; path = TouchXML/CXMLDocument_PrivateExtensions.h; sourceTree = "<group>"; };
+		65F817790F58546E00B7990A /* CXMLDocument_PrivateExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXMLDocument_PrivateExtensions.m; path = TouchXML/CXMLDocument_PrivateExtensions.m; sourceTree = "<group>"; };
+		65F8177A0F58546E00B7990A /* CXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXMLElement.h; path = TouchXML/CXMLElement.h; sourceTree = "<group>"; };
+		65F8177B0F58546E00B7990A /* CXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXMLElement.m; path = TouchXML/CXMLElement.m; sourceTree = "<group>"; };
+		65F8177C0F58546E00B7990A /* CXMLElement_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXMLElement_CreationExtensions.h; path = TouchXML/CXMLElement_CreationExtensions.h; sourceTree = "<group>"; };
+		65F8177D0F58546E00B7990A /* CXMLElement_CreationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXMLElement_CreationExtensions.m; path = TouchXML/CXMLElement_CreationExtensions.m; sourceTree = "<group>"; };
+		65F8177E0F58546E00B7990A /* CXMLElement_ElementTreeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXMLElement_ElementTreeExtensions.h; path = TouchXML/CXMLElement_ElementTreeExtensions.h; sourceTree = "<group>"; };
+		65F8177F0F58546E00B7990A /* CXMLElement_ElementTreeExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXMLElement_ElementTreeExtensions.m; path = TouchXML/CXMLElement_ElementTreeExtensions.m; sourceTree = "<group>"; };
+		65F817800F58546E00B7990A /* CXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXMLNode.h; path = TouchXML/CXMLNode.h; sourceTree = "<group>"; };
+		65F817810F58546E00B7990A /* CXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXMLNode.m; path = TouchXML/CXMLNode.m; sourceTree = "<group>"; };
+		65F817820F58546E00B7990A /* CXMLNode_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXMLNode_CreationExtensions.h; path = TouchXML/CXMLNode_CreationExtensions.h; sourceTree = "<group>"; };
+		65F817830F58546E00B7990A /* CXMLNode_CreationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXMLNode_CreationExtensions.m; path = TouchXML/CXMLNode_CreationExtensions.m; sourceTree = "<group>"; };
+		65F817840F58546E00B7990A /* CXMLNode_PrivateExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXMLNode_PrivateExtensions.h; path = TouchXML/CXMLNode_PrivateExtensions.h; sourceTree = "<group>"; };
+		65F817850F58546E00B7990A /* CXMLNode_PrivateExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXMLNode_PrivateExtensions.m; path = TouchXML/CXMLNode_PrivateExtensions.m; sourceTree = "<group>"; };
+		65F817860F58546E00B7990A /* CXMLNode_XPathExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXMLNode_XPathExtensions.h; path = TouchXML/CXMLNode_XPathExtensions.h; sourceTree = "<group>"; };
+		65F817870F58546E00B7990A /* CXMLNode_XPathExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXMLNode_XPathExtensions.m; path = TouchXML/CXMLNode_XPathExtensions.m; sourceTree = "<group>"; };
+		65F817880F58546E00B7990A /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchXML.h; path = TouchXML/TouchXML.h; sourceTree = "<group>"; };
+		65F817930F58551500B7990A /* FITrackInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FITrackInfo.h; sourceTree = "<group>"; };
+		65F817940F58551500B7990A /* FITrackInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FITrackInfo.m; sourceTree = "<group>"; };
 		65FBA6B70F2B68920049574C /* mail-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail-button.png"; path = "Resources/FranceRadio/mail-button.png"; sourceTree = "<group>"; };
 		65FBA6B80F2B68920049574C /* www-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "www-button.png"; path = "Resources/FranceRadio/www-button.png"; sourceTree = "<group>"; };
 		65FBA6EE0F2B6F340049574C /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/FranceRadio/iTunesArtwork; sourceTree = "<group>"; };
@@ -462,6 +502,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				65F8174E0F58542700B7990A /* TouchXML */,
 				6560FA1A0EF7B3BF007809DB /* Scripts */,
 				6586879F0ECF033900EB9D99 /* Test */,
 				658687710ECEFCC300EB9D99 /* GTM */,
@@ -541,6 +582,12 @@
 				652834A30F085C6D001CEA65 /* FIShoutcastMetadataFilter.m */,
 				65B6E6DC0F5479C6006E28B2 /* FIAlbumView.h */,
 				65B6E6DD0F5479C6006E28B2 /* FIAlbumView.m */,
+				65F8171B0F5833D100B7990A /* FILastFMDataProvider.h */,
+				65F8171C0F5833D100B7990A /* FILastFMDataProvider.m */,
+				65F817200F584D9700B7990A /* FINSString+URLQuery.h */,
+				65F817210F584D9700B7990A /* FINSString+URLQuery.m */,
+				65F817930F58551500B7990A /* FITrackInfo.h */,
+				65F817940F58551500B7990A /* FITrackInfo.m */,
 			);
 			name = FIFMRadio;
 			sourceTree = "<group>";
@@ -643,6 +690,34 @@
 				65BD5E080F09B08100D283D4 /* KissRadio-Info.plist */,
 			);
 			name = KissRadio;
+			sourceTree = "<group>";
+		};
+		65F8174E0F58542700B7990A /* TouchXML */ = {
+			isa = PBXGroup;
+			children = (
+				65F817740F58546E00B7990A /* CXMLDocument.h */,
+				65F817750F58546E00B7990A /* CXMLDocument.m */,
+				65F817760F58546E00B7990A /* CXMLDocument_CreationExtensions.h */,
+				65F817770F58546E00B7990A /* CXMLDocument_CreationExtensions.m */,
+				65F817780F58546E00B7990A /* CXMLDocument_PrivateExtensions.h */,
+				65F817790F58546E00B7990A /* CXMLDocument_PrivateExtensions.m */,
+				65F8177A0F58546E00B7990A /* CXMLElement.h */,
+				65F8177B0F58546E00B7990A /* CXMLElement.m */,
+				65F8177C0F58546E00B7990A /* CXMLElement_CreationExtensions.h */,
+				65F8177D0F58546E00B7990A /* CXMLElement_CreationExtensions.m */,
+				65F8177E0F58546E00B7990A /* CXMLElement_ElementTreeExtensions.h */,
+				65F8177F0F58546E00B7990A /* CXMLElement_ElementTreeExtensions.m */,
+				65F817800F58546E00B7990A /* CXMLNode.h */,
+				65F817810F58546E00B7990A /* CXMLNode.m */,
+				65F817820F58546E00B7990A /* CXMLNode_CreationExtensions.h */,
+				65F817830F58546E00B7990A /* CXMLNode_CreationExtensions.m */,
+				65F817840F58546E00B7990A /* CXMLNode_PrivateExtensions.h */,
+				65F817850F58546E00B7990A /* CXMLNode_PrivateExtensions.m */,
+				65F817860F58546E00B7990A /* CXMLNode_XPathExtensions.h */,
+				65F817870F58546E00B7990A /* CXMLNode_XPathExtensions.m */,
+				65F817880F58546E00B7990A /* TouchXML.h */,
+			);
+			name = TouchXML;
 			sourceTree = "<group>";
 		};
 		A72A701C0F1AA0F800A2BFD9 /* FranceRadio */ = {
@@ -1130,6 +1205,19 @@
 				656BFC540F03B724006A3F15 /* main.m in Sources */,
 				653F4BD20F2A7D21005067F5 /* ShoutcastAudioClass.m in Sources */,
 				65B6E6DE0F5479C6006E28B2 /* FIAlbumView.m in Sources */,
+				65F8171D0F5833D100B7990A /* FILastFMDataProvider.m in Sources */,
+				65F817220F584D9700B7990A /* FINSString+URLQuery.m in Sources */,
+				65F817890F58546E00B7990A /* CXMLDocument.m in Sources */,
+				65F8178A0F58546E00B7990A /* CXMLDocument_CreationExtensions.m in Sources */,
+				65F8178B0F58546E00B7990A /* CXMLDocument_PrivateExtensions.m in Sources */,
+				65F8178C0F58546E00B7990A /* CXMLElement.m in Sources */,
+				65F8178D0F58546E00B7990A /* CXMLElement_CreationExtensions.m in Sources */,
+				65F8178E0F58546E00B7990A /* CXMLElement_ElementTreeExtensions.m in Sources */,
+				65F8178F0F58546E00B7990A /* CXMLNode.m in Sources */,
+				65F817900F58546E00B7990A /* CXMLNode_CreationExtensions.m in Sources */,
+				65F817910F58546E00B7990A /* CXMLNode_PrivateExtensions.m in Sources */,
+				65F817920F58546E00B7990A /* CXMLNode_XPathExtensions.m in Sources */,
+				65F817950F58551500B7990A /* FITrackInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1339,6 +1427,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radio3_Prefix.pch;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "Resources/FIFMRadio/RadioFIFM-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
@@ -1346,6 +1435,7 @@
 					Foundation,
 					"-framework",
 					UIKit,
+					"-lxml2",
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "FI-FM Radio";
@@ -1363,6 +1453,7 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radio3_Prefix.pch;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "RadioFIFM-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
@@ -1370,6 +1461,7 @@
 					Foundation,
 					"-framework",
 					UIKit,
+					"-lxml2",
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = RadioFIFM;
@@ -1385,6 +1477,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radio3_Prefix.pch;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "RadioFIFM-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
@@ -1392,6 +1485,7 @@
 					Foundation,
 					"-framework",
 					UIKit,
+					"-lxml2",
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = RadioFIFM;
@@ -1406,6 +1500,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radio3_Prefix.pch;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "RadioFIFM-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
@@ -1413,6 +1508,7 @@
 					Foundation,
 					"-framework",
 					UIKit,
+					"-lxml2",
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = RadioFIFM;
