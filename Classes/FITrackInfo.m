@@ -85,4 +85,13 @@ static NSString *kAlbumNodeXPath = @"album";
   return [album_ image];
 }
 
+- (void)dealloc {
+  self.name = nil;
+  self.mbid = nil;
+  self.artist = nil;
+  self.album = nil;
+  
+  [super dealloc];
+}
+
 @end

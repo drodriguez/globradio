@@ -68,10 +68,13 @@ static NSArray *imageSizePreference;
     self.mbid = [mbidNode stringValue];
     
     NSArray *images = [rootElement nodesForXPath:kImageNodeXPath error:nil];
-    for (CXMLElement *image in images) {
-      NSString *size = [[image attributeForName:kSizeAttribute] stringValue];
-      NSURL *url = [NSURL URLWithString:[image stringValue]];
-      [images_ setValue:url forKey:size];
+    if ([images count] > 0) {
+      images_ = [[NSMutableDictionary alloc] initWithCapacity:[images count]];
+      for (CXMLElement *image in images) {
+        NSString *size = [[image attributeForName:kSizeAttribute] stringValue];
+        NSURL *url = [NSURL URLWithString:[image stringValue]];
+        [images_ setValue:url forKey:size];
+      }
     }
     
     [doc release];
@@ -89,6 +92,16 @@ static NSArray *imageSizePreference;
   }
   
   return nil;
+}
+
+- (void)dealloc {
+  self.name = nil;
+  self.artist = nil;
+  self.mbid = nil;
+  if (images_)
+    [images_ release];
+  
+  [super dealloc];
 }
 
 @end
