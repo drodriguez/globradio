@@ -12,9 +12,12 @@
 #import "FIArtistInfo.h"
 
 static NSString *kLastFMApiURL = @"http://ws.audioscrobbler.com/2.0/";
+static NSString *kMethodParameter = @"method";
 static NSString *kApiKeyParameter = @"api_key";
 static NSString *kTrackParameter = @"track";
 static NSString *kArtistParameter = @"artist";
+static NSString *kTrackGetInfoMethod = @"track.getinfo";
+static NSString *kArtistGetInfoMethod = @"artist.getinfo";
 
 @implementation FILastFMDataProvider
 
@@ -34,7 +37,8 @@ static NSString *kArtistParameter = @"artist";
 - (FITrackInfo *)trackInfoForTitle:(NSString *)title
                          andArtist:(NSString *)artist {
   NSDictionary *queryParameters = [[NSDictionary alloc]
-    initWithObjectsAndKeys:apiKey_, kApiKeyParameter,
+    initWithObjectsAndKeys:kTrackGetInfoMethod, kMethodParameter,
+                                   apiKey_, kApiKeyParameter,
                                    title, kTrackParameter,
                                    artist, kArtistParameter, nil];
   NSString *queryParametersStr =
@@ -45,6 +49,7 @@ static NSString *kArtistParameter = @"artist";
     [[NSString alloc] initWithFormat:@"%@?%@",
      kLastFMApiURL,
      queryParametersStr];
+  RNLog(@"URL %@", urlStr);
   NSURL *queryUrl = [[NSURL alloc] initWithString:urlStr];
   [urlStr release];
   
@@ -54,7 +59,8 @@ static NSString *kArtistParameter = @"artist";
 
 - (FIArtistInfo *)artistInfoForArtist:(NSString *)artist {
   NSDictionary *queryParameters = [[NSDictionary alloc]
-    initWithObjectsAndKeys:apiKey_, kApiKeyParameter,
+    initWithObjectsAndKeys:kArtistGetInfoMethod, kMethodParameter,
+                                   apiKey_, kApiKeyParameter,
                                    artist, kArtistParameter, nil];
   
   NSString *queryParametersStr =
@@ -65,6 +71,7 @@ static NSString *kArtistParameter = @"artist";
     [[NSString alloc] initWithFormat:@"%@?%@",
      kLastFMApiURL,
      queryParametersStr];
+  RNLog(@"URL %@", urlStr);
   NSURL *queryUrl = [[NSURL alloc] initWithString:urlStr];
   [urlStr release];
   
