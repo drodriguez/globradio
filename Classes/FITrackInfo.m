@@ -11,17 +11,17 @@
 #import "FIAlbumInfo.h"
 #import "TouchXML.h"
 
-NSString *kStatus = @"status";
-NSString *kStatusOk = @"ok";
+static NSString *kStatus = @"status";
+static NSString *kStatusOk = @"ok";
 
-NSString *kLfmNodeName = @"lfm";
-NSString *kTrackNodeName = @"track";
+static NSString *kLfmNodeName = @"lfm";
+static NSString *kTrackNodeName = @"track";
 
-NSString *kIdNodeXPath = @"id";
-NSString *kNameNodeXPath = @"name";
-NSString *kMbidNodeXPath = @"mbid";
-NSString *kArtistNodeXPath = @"artist";
-NSString *kAlbumNodeXPath = @"album";
+static NSString *kIdNodeXPath = @"id";
+static NSString *kNameNodeXPath = @"name";
+static NSString *kMbidNodeXPath = @"mbid";
+static NSString *kArtistNodeXPath = @"artist";
+static NSString *kAlbumNodeXPath = @"album";
 
 @implementation FITrackInfo
 
@@ -48,6 +48,7 @@ NSString *kAlbumNodeXPath = @"album";
       CXMLNode *statusAttribute = [rootElement attributeForName:kStatus];
       if (![[statusAttribute stringValue] isEqualToString:kStatusOk]) {
         RNLog(@"Track info not found?");
+        [doc release];
         self = nil;
         return self;
       }
@@ -73,9 +74,15 @@ NSString *kAlbumNodeXPath = @"album";
     CXMLNode *albumNode = [[rootElement nodesForXPath:kAlbumNodeXPath error:nil] objectAtIndex:0];
     NSAssert(albumNode, @"Track info album node not found!");
     self.album = [[[FIAlbumInfo alloc] initWithString:[albumNode XMLString]] autorelease];
+    
+    [doc release];
   }
   
   return self;
+}
+
+- (NSURL *)image {
+  return [album_ image];
 }
 
 @end

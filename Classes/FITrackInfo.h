@@ -28,4 +28,6 @@
 
 - (id)initWithData:(NSData *)xmlData;
 
+- (NSURL *)image;
+
 @end
