@@ -41,7 +41,7 @@ static NSArray *imageSizePreference;
 + (void)initialize {
   imageSizePreference = [[NSArray alloc] initWithObjects:@"large",
                          @"medium",
-                         @"small"];
+                         @"small", nil];
 }
 
 - (id)initWithString:(NSString *)xmlString {
@@ -86,8 +86,9 @@ static NSArray *imageSizePreference;
       rootElement = [[rootElement elementsForName:kArtistNodeName] objectAtIndex:0];
     }
     
-    CXMLNode *idNode = [[rootElement nodesForXPath:kIdNodeXPath error:nil] objectAtIndex:0];
-    if (idNode) {
+    NSArray *idNodes = [rootElement nodesForXPath:kIdNodeXPath error:nil];
+    if ([idNodes count] > 0) {
+      CXMLNode *idNode = [idNodes objectAtIndex:0];
       lastFMId_ = [[idNode stringValue] intValue];
     } else {
       RNLog(@"Artist info id node not found!");
@@ -106,8 +107,11 @@ static NSArray *imageSizePreference;
       images_ = [[NSMutableDictionary alloc] initWithCapacity:[images count]];
       for (CXMLElement *image in images) {
         NSString *size = [[image attributeForName:kSizeAttribute] stringValue];
-        NSURL *url = [NSURL URLWithString:[image stringValue]];
-        [images_ setValue:url forKey:size];
+        NSString *urlStr = [image stringValue];
+        if (urlStr) {
+          NSURL *url = [NSURL URLWithString:[image stringValue]];
+          [images_ setValue:url forKey:size];
+        }
       }
     }    
   }

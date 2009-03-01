@@ -13,6 +13,7 @@ static NSString *kAlbumNodeName = @"album";
 
 static NSString *kIdNodeXPath = @"id";
 static NSString *kNameNodeXPath = @"name";
+static NSString *kTitleNodeXPath = @"title";
 static NSString *kArtistNodeXPath = @"artist";
 static NSString *kMbidNodeXPath = @"mbid";
 static NSString *kImageNodeXPath = @"image";
@@ -32,7 +33,7 @@ static NSArray *imageSizePreference;
 + (void)initialize {
   imageSizePreference = [[NSArray alloc] initWithObjects:@"large",
                          @"medium",
-                         @"small"];
+                         @"small", nil];
 }
 
 - (id)initWithString:(NSString *)xmlString {
@@ -48,19 +49,30 @@ static NSArray *imageSizePreference;
     
     CXMLElement *rootElement = [doc rootElement];
     
-    CXMLNode *idNode = [[rootElement nodesForXPath:kIdNodeXPath error:nil] objectAtIndex:0];
-    if (idNode) {
+    NSArray *idNodes = [rootElement nodesForXPath:kIdNodeXPath error:nil];
+    if ([idNodes count] > 0) {
+      CXMLNode *idNode = [idNodes objectAtIndex:0];
       lastFMId_ = [[idNode stringValue] intValue];
     } else {
       RNLog(@"Album info id node not found!");
     }
     
-    CXMLNode *nameNode = [[rootElement nodesForXPath:kNameNodeXPath error:nil] objectAtIndex:0];
-    NSAssert(nameNode, @"Album info name node not found!");
-    self.name = [nameNode stringValue];
+    // In album.getInfo there is name, in track.getInfo there is title.
+    NSArray *nameNodes = [rootElement nodesForXPath:kNameNodeXPath error:nil];
+    if ([nameNodes count] > 0) {
+      CXMLNode *nameNode = [nameNodes objectAtIndex:0];
+      NSAssert(nameNode, @"Album info name node not found!");
+      self.name = [nameNode stringValue];
+    } else {
+      NSArray *titleNodes = [rootElement nodesForXPath:kTitleNodeXPath error:nil];
+      if ([nameNodes count] > 0) {
+        CXMLNode *titleNode = [titleNodes objectAtIndex:0];
+        self.name = [titleNode stringValue];
+      }
+    }
     
     CXMLNode *artistNode = [[rootElement nodesForXPath:kArtistNodeXPath error:nil] objectAtIndex:0];
-    NSAssert(nameNode, @"Album info artist node not found!");
+    NSAssert(artistNode, @"Album info artist node not found!");
     self.artist = [artistNode stringValue];
     
     CXMLNode *mbidNode = [[rootElement nodesForXPath:kMbidNodeXPath error:nil] objectAtIndex:0];
@@ -72,8 +84,11 @@ static NSArray *imageSizePreference;
       images_ = [[NSMutableDictionary alloc] initWithCapacity:[images count]];
       for (CXMLElement *image in images) {
         NSString *size = [[image attributeForName:kSizeAttribute] stringValue];
-        NSURL *url = [NSURL URLWithString:[image stringValue]];
-        [images_ setValue:url forKey:size];
+        NSString *urlStr = [image stringValue];
+        if (urlStr) {
+          NSURL *url = [NSURL URLWithString:[image stringValue]];
+          [images_ setValue:url forKey:size];
+        }
       }
     }
     

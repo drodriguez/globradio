@@ -71,9 +71,13 @@ static NSString *kAlbumNodeXPath = @"album";
     NSAssert(artistNode, @"Track info artist node not found!");
     self.artist = [[[FIArtistInfo alloc] initWithString:[artistNode XMLString]] autorelease];
     
-    CXMLNode *albumNode = [[rootElement nodesForXPath:kAlbumNodeXPath error:nil] objectAtIndex:0];
-    NSAssert(albumNode, @"Track info album node not found!");
-    self.album = [[[FIAlbumInfo alloc] initWithString:[albumNode XMLString]] autorelease];
+    NSArray *albumNodes = [rootElement nodesForXPath:kAlbumNodeXPath error:nil];
+    if ([albumNodes count] > 0) {
+      CXMLNode *albumNode = [albumNodes objectAtIndex:0];
+      self.album = [[[FIAlbumInfo alloc] initWithString:[albumNode XMLString]] autorelease];
+    } else {
+      RNLog(@"Track info album node not found!");
+    }
     
     [doc release];
   }
