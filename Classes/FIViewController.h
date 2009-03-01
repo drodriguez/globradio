@@ -10,7 +10,8 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "ShoutcastAudioClass.h"
 
-
+@class FILastFMDataProvider;
+@class FIAlbumView;
 
 @interface FIViewController : UIViewController <ShoutcastPlayerDelegate> {
  @private
@@ -20,7 +21,7 @@
   IBOutlet UIView *bottomBar;
   IBOutlet UILabel *titleLabel;
   IBOutlet UILabel *artistLabel;
-  IBOutlet UIView *albumArtContainer;
+  IBOutlet FIAlbumView *albumArt;
   
   UIImage *playImage;
   UIImage *playHighlightImage;
@@ -33,6 +34,8 @@
   BOOL interruptedDuringPlayback;
   
   UISlider *volumeSlider;
+  
+  FILastFMDataProvider *dataProvider;
 }
 
 - (IBAction)controlButtonClicked:(UIButton *)button;

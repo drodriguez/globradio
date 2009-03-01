@@ -10,7 +10,7 @@
 #import "ShoutcastAudioClass.h"
 #import "Reachability.h"
 #import "FIAlbumView.h"
-// #import "FIShoutcastMetadataFilter.h"
+#import "FILastFMDataProvider.h"
 
 NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
 // NSString *kFIFMRadioURL = @"http://scfire-ntc-aa10.stream.aol.com:80/stream/1040";
@@ -297,6 +297,24 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
   artistLabel = [self changeLabel:artistLabel withString:newArtist orElse:kDefaultArtist];
 }
 
+- (void)changeAlbumArt:(NSArray *)titleParts {
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+  
+  NSString *title = [titleParts objectAtIndex:[titleParts count]-1];
+  NSString *artist = [titleParts objectAtIndex:0];
+  NSURL *imageURL = [dataProvider imageForTitle:title andArtist:artist];
+  
+  if (!imageURL) {
+    RNLog(@"image not found, using default image");
+    // ...
+  } else {
+    RNLog(@"loading image %@", imageURL);
+    [albumArt loadImageFromURL:imageURL];
+  }
+  
+  [pool release];
+}
+
 #pragma mark UIViewController methods
 
 - (void)viewDidLoad {
@@ -353,21 +371,35 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
                                                name:@"AVSystemController_SystemVolumeDidChangeNotification"
                                              object:nil];
   
+  // Setup the data provider
+  NSString *lastFMConfigPath = [[NSBundle mainBundle] pathForResource:@"lastfm"
+                                                               ofType:@"plist"];
+  NSData *lastFMConfigData;
+  NSString *error;
+  NSPropertyListFormat format;
+  NSDictionary *lastFMConfig;
+  
+  lastFMConfigData = [NSData dataWithContentsOfFile:lastFMConfigPath];
+  lastFMConfig = (NSDictionary *) [NSPropertyListSerialization
+                                   propertyListFromData:lastFMConfigData
+                                       mutabilityOption:NSPropertyListImmutable
+                                                 format:&format
+                                       errorDescription:&error];
+  if (lastFMConfig) {
+    NSString *lastFMApiKey = [lastFMConfig objectForKey:@"api_key"];
+    dataProvider = [[FILastFMDataProvider alloc] initWithApiKey:lastFMApiKey];
+  } else {
+    RNLog(@"Error loading last.fm configuration");
+    // TODO: dataprovider is nil all the time?
+  }
+  
   [super viewDidLoad];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
   // Needed to start receiving reachability status notifications
   [[Reachability sharedReachability] remoteHostStatus];
-  
-  FIAlbumView *albumView =
-    [[FIAlbumView alloc] initWithFrame:
-     CGRectMake(0, 0, albumArtContainer.frame.size.width,
-                albumArtContainer.frame.size.height)];
-  [albumView loadImageFromURL:[NSURL URLWithString:@"http://ecx.images-amazon.com/images/I/51hYI3S-tlL._SS500_.jpg"]];
-  [albumArtContainer addSubview:albumView];
-  [albumView release];
-  
+    
   [super viewDidAppear:animated];
 }
 
@@ -394,6 +426,8 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
                  onThread:[NSThread mainThread]
                withObject:[titleParts objectAtIndex:0]
             waitUntilDone:NO];
+    [NSThread detachNewThreadSelector:@selector(changeAlbumArt:)
+                             toTarget:self withObject:titleParts];
   }
 }
 
@@ -405,6 +439,8 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
   self.playHighlightImage = nil;
   self.pauseImage = nil;
   self.pauseHighlightImage = nil;
+  
+  if (dataProvider) [dataProvider release];
   
   [super dealloc];
 }
