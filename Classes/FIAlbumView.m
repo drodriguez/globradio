@@ -94,47 +94,15 @@
 #pragma mark Custom methods
 
 - (void)loadImageFromURL:(NSURL *)url {
-  if (connection_) {
-    [connection_ release];
-    connection_ = nil;
-  }
-  if (data_) {
-    [data_ release];
-    data_ = nil;
-  }
-  
-  NSURLRequest* request = [NSURLRequest requestWithURL:url
-                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                       timeoutInterval:60.0];
-  connection_ = [[NSURLConnection alloc]
-                 initWithRequest:request delegate:self];
-  // TODO: error handling?
-}
-
-#pragma mark Connection delegate methods
-
-- (void)connection:(NSURLConnection *)connection
-    didReceiveData:(NSData *)data {
-  if (!data_) {
-    data_ = [[NSMutableData alloc] initWithCapacity:DATA_INITIAL_CAPACITY];
-  }
-  [data_ appendData:data];
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-  [connection_ release];
-  connection = nil;
+  NSData *data = [NSData dataWithContentsOfURL:url];
   
   if (image_) {
     [image_ release];
   }
   
-  image_ = [[UIImage alloc] initWithData:data_];
+  image_ = [[UIImage alloc] initWithData:data];
   
   [self setNeedsDisplay];
-  
-  [data_ release];
-  data_ = nil;
 }
 
 #pragma mark Accesor

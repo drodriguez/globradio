@@ -10,8 +10,8 @@
 
 
 @interface FIAlbumView : UIView {
-  NSURLConnection *connection_;
-  NSMutableData *data_;
+//   NSURLConnection *connection_;
+//  NSMutableData *data_;
   UIImage *image_;
 }
 
