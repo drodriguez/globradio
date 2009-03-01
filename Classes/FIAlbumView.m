@@ -45,7 +45,7 @@
   
   CGPoint imagePosition =
     CGPointMake(self.bounds.size.width/2 - imageSize.width/2,
-                self.bounds.size.height/2 - imageSize.width/2);
+                self.bounds.size.height/2 - imageSize.height/2);
   
   CGSize shadowOffset = CGSizeMake(0.0, 0.0);
   const CGFloat shadowValues[] = {0.0f, 0.0f, 0.0f, 1.0f};
