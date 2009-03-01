@@ -23,7 +23,7 @@
 - (FITrackInfo *)trackInfoForTitle:(NSString *)title
                          andArtist:(NSString *)artist;
 
-- (FIArtistInfo *)artistInfoForArtist:(NSString *);
+- (FIArtistInfo *)artistInfoForArtist:(NSString *)artist;
 
 - (NSURL *)imageForTitle:(NSString *)title andArtist:(NSString *)artist;
 @end
