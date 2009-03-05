@@ -24,6 +24,7 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
 @property (nonatomic, retain) UIImage *playHighlightImage;
 @property (nonatomic, retain) UIImage *pauseImage;
 @property (nonatomic, retain) UIImage *pauseHighlightImage;
+@property (nonatomic, retain) UIImage *albumArtDefaultImage;
 
 - (void)stopRadio;
 
@@ -45,6 +46,7 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
 @synthesize playHighlightImage;
 @synthesize pauseImage;
 @synthesize pauseHighlightImage;
+@synthesize albumArtDefaultImage;
 
 #pragma mark IBActions
 
@@ -117,6 +119,7 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
                  forState:UIControlStateHighlighted];
   [self changeTrackTitle:kDefaultTitle];
   [self changeTrackArtist:kDefaultArtist];
+  albumArt.image = self.albumArtDefaultImage;
 }
 
 - (void)setFailedState:(NSError *)error {
@@ -135,6 +138,7 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
   [controlButton setImage:playHighlightImage forState:UIControlStateHighlighted];
   [self changeTrackTitle:kDefaultTitle];
   [self changeTrackArtist:kDefaultArtist];
+  albumArt.image = self.albumArtDefaultImage;
   
   NSString *message;
   if (error != nil) {
@@ -327,6 +331,9 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
   self.pauseImage = [UIImage imageNamed:@"pause.png"];
   self.pauseHighlightImage = [UIImage imageNamed:@"pause-hl.png"];
   
+  self.albumArtDefaultImage = [UIImage imageNamed:@"iTunesArtwork"]; // TODO: other image?
+  albumArt.image = self.albumArtDefaultImage;
+  
   // Load the loading animation files
   NSMutableArray *loadingFiles = [[NSMutableArray alloc] init];
   for (int index = 0; index < 4; index++) {
@@ -439,6 +446,7 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
   self.playHighlightImage = nil;
   self.pauseImage = nil;
   self.pauseHighlightImage = nil;
+  self.albumArtDefaultImage = nil;
   
   if (dataProvider) [dataProvider release];
   

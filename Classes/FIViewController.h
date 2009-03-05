@@ -27,6 +27,7 @@
   UIImage *playHighlightImage;
   UIImage *pauseImage;
   UIImage *pauseHighlightImage;
+  UIImage *albumArtDefaultImage;
   
   ShoutcastPlayer *player;
   

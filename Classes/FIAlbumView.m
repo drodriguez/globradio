@@ -15,13 +15,19 @@
 
 @implementation FIAlbumView
 
-// TODO: Create the internal UIImageView?
-/*- (id)initWithFrame:(CGRect)frame {
+@synthesize drawShadow = drawShadow_;
+@synthesize image = image_;
+
+- (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-      // Initialization code
+      drawShadow_ = YES;
     }
     return self;
-}*/
+}
+
+- (void)awakeFromNib {
+  drawShadow_ = YES; // TODO: re-factorize this with the initializer?
+}
 
 - (void)drawRect:(CGRect)rect {
   CGRect bounds = self.bounds;
@@ -53,28 +59,31 @@
   CGColorSpaceRef deviceColorSpace;
   
   CGContextRef ctx = UIGraphicsGetCurrentContext();
-  float grayLevel = 38.0/255.0;
-  CGContextSetRGBFillColor(ctx, grayLevel, grayLevel, grayLevel, 1.0);
-  CGContextFillRect(ctx, bounds);
   
   CGMutablePathRef path = CGPathCreateMutable();
   CGPathAddRect(path, NULL,
                 CGRectMake(imagePosition.x - 1, imagePosition.y - 1,
-                           imageSize.width + 1, imageSize.height + 1));
-
-  CGContextSaveGState(ctx);
+                           imageSize.width + 1, imageSize.height + 1));  
   
-  deviceColorSpace = CGColorSpaceCreateDeviceRGB();
-  shadowColor = CGColorCreate(deviceColorSpace, shadowValues);
-  CGContextSetShadowWithColor(ctx, shadowOffset, SHADOW_RADIUS, shadowColor);
-  CGColorRelease(shadowColor);
-  CGColorSpaceRelease(deviceColorSpace);
-  
-  CGContextBeginPath(ctx);
-  CGContextAddPath(ctx, path);
-  CGContextFillPath(ctx);
-  
-  CGContextRestoreGState(ctx);
+  if (drawShadow_) {
+    float grayLevel = 38.0/255.0;
+    CGContextSetRGBFillColor(ctx, grayLevel, grayLevel, grayLevel, 1.0);
+    CGContextFillRect(ctx, bounds);
+    
+    CGContextSaveGState(ctx);
+    
+    deviceColorSpace = CGColorSpaceCreateDeviceRGB();
+    shadowColor = CGColorCreate(deviceColorSpace, shadowValues);
+    CGContextSetShadowWithColor(ctx, shadowOffset, SHADOW_RADIUS, shadowColor);
+    CGColorRelease(shadowColor);
+    CGColorSpaceRelease(deviceColorSpace);
+    
+    CGContextBeginPath(ctx);
+    CGContextAddPath(ctx, path);
+    CGContextFillPath(ctx);
+    
+    CGContextRestoreGState(ctx);
+  }
   
   if (image_) {
     [image_ drawInRect:CGRectMake(imagePosition.x,
@@ -105,10 +114,15 @@
   [self setNeedsDisplay];
 }
 
-#pragma mark Accesor
+#pragma mark Accesors
 
-- (UIImage *)image {
-  return image_;
+- (void)setImage:(UIImage *)newImage {
+  if (newImage != image_) { // FIXME: is this leak free?
+    [newImage retain];
+    [image_ release];
+    image_ = newImage;
+    [self setNeedsDisplay];
+  }
 }
 
 #pragma mark dealloc
