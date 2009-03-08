@@ -223,6 +223,8 @@
 		654B1E540ECDFDD500E28E7E /* RNM3UParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNM3UParser.h; sourceTree = "<group>"; };
 		654B1E550ECDFDD500E28E7E /* RNM3UParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNM3UParser.m; sourceTree = "<group>"; };
 		6560FA1B0EF7B3EF007809DB /* update_build_number.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = update_build_number.rb; path = Scripts/update_build_number.rb; sourceTree = "<group>"; };
+		65652ECE0F64465B0000EB29 /* FIArtistInfo+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FIArtistInfo+Private.h"; sourceTree = "<group>"; };
+		65652ECF0F6446990000EB29 /* FIAlbumInfo+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FIAlbumInfo+Private.h"; sourceTree = "<group>"; };
 		656A605C0EF196DF004CE686 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/RNERadio/iTunesArtwork; sourceTree = "<group>"; };
 		656BFC360F03A4FD006A3F15 /* FIAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIAppDelegate.h; sourceTree = "<group>"; };
 		656BFC370F03A4FD006A3F15 /* FIAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIAppDelegate.m; sourceTree = "<group>"; };
@@ -604,6 +606,8 @@
 				653CE36F0F5AE15C00445A02 /* FIAlbumInfo.m */,
 				653CE3770F5AE69B00445A02 /* FIArtistInfo.h */,
 				653CE3780F5AE69B00445A02 /* FIArtistInfo.m */,
+				65652ECE0F64465B0000EB29 /* FIArtistInfo+Private.h */,
+				65652ECF0F6446990000EB29 /* FIAlbumInfo+Private.h */,
 			);
 			name = FIFMRadio;
 			sourceTree = "<group>";

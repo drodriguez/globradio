@@ -7,8 +7,13 @@
 //
 
 #import "FIAlbumInfo.h"
+#import "FIAlbumInfo+Private.h"
 #import "TouchXML.h"
 
+static NSString *kStatus = @"status";
+static NSString *kStatusOk = @"ok";
+
+static NSString *kLfmNodeName = @"lfm";
 static NSString *kAlbumNodeName = @"album";
 
 static NSString *kIdNodeXPath = @"id";
@@ -37,17 +42,38 @@ static NSArray *imageSizePreference;
 }
 
 - (id)initWithString:(NSString *)xmlString {
+  CXMLDocument *doc = [[[CXMLDocument alloc] initWithXMLString:xmlString
+                                                       options:0
+                                                         error:nil] autorelease];
+  if (!doc) {
+    RNLog(@"Artist info element can't not be parsed");
+    self = nil;
+    return self;
+  }
+  
+  CXMLElement *rootElement = [doc rootElement];
+  
+  return [self initWithXMLElement:rootElement];
+}
+
+- (id)initWithXMLElement:(CXMLElement *)rootElement {
   if (self = [super init]) {
-    CXMLDocument *doc = [[CXMLDocument alloc] initWithXMLString:xmlString
-                                                        options:0
-                                                          error:nil];
-    if (!doc) {
-      RNLog(@"Album info element can't not be parsed");
-      self = nil;
-      return self;
+    if ([[rootElement name] isEqualToString:kLfmNodeName]) {
+      CXMLNode *statusAttribute = [rootElement attributeForName:kStatus];
+      if (![[statusAttribute stringValue] isEqualToString:kStatusOk]) {
+        RNLog(@"Album info not found?");
+        self = nil;
+        return self;
+      }
+      NSArray *albumNodes = [rootElement elementsForName:kAlbumNodeName];
+      if ([albumNodes count] > 0) {
+        rootElement = [albumNodes objectAtIndex:0];
+      } else {
+        RNLog(@"Album info node not found!");
+        self = nil;
+        return self;
+      }
     }
-    
-    CXMLElement *rootElement = [doc rootElement];
     
     NSArray *idNodes = [rootElement nodesForXPath:kIdNodeXPath error:nil];
     if ([idNodes count] > 0) {
@@ -61,23 +87,33 @@ static NSArray *imageSizePreference;
     NSArray *nameNodes = [rootElement nodesForXPath:kNameNodeXPath error:nil];
     if ([nameNodes count] > 0) {
       CXMLNode *nameNode = [nameNodes objectAtIndex:0];
-      NSAssert(nameNode, @"Album info name node not found!");
       self.name = [nameNode stringValue];
     } else {
+      RNLog(@"Album info name node not found! Searching for title node.");
       NSArray *titleNodes = [rootElement nodesForXPath:kTitleNodeXPath error:nil];
       if ([nameNodes count] > 0) {
         CXMLNode *titleNode = [titleNodes objectAtIndex:0];
         self.name = [titleNode stringValue];
+      } else {
+        RNLog(@"Album info title node not found!");
       }
     }
     
-    CXMLNode *artistNode = [[rootElement nodesForXPath:kArtistNodeXPath error:nil] objectAtIndex:0];
-    NSAssert(artistNode, @"Album info artist node not found!");
-    self.artist = [artistNode stringValue];
+    NSArray *artistNodes = [rootElement nodesForXPath:kArtistNodeXPath error:nil];
+    if ([artistNodes count] > 0) {
+      CXMLNode *artistNode = [artistNodes objectAtIndex:0];
+      self.artist = [artistNode stringValue];
+    } else {
+      RNLog(@"Album info artist node not found!");
+    }
     
-    CXMLNode *mbidNode = [[rootElement nodesForXPath:kMbidNodeXPath error:nil] objectAtIndex:0];
-    NSAssert(mbidNode, @"Album info mbid node not found!");
-    self.mbid = [mbidNode stringValue];
+    NSArray *mbidNodes = [rootElement nodesForXPath:kMbidNodeXPath error:nil];
+    if ([mbidNodes count] > 0) {
+      CXMLNode *mbidNode = [mbidNodes objectAtIndex:0];
+      self.mbid = [mbidNode stringValue];
+    } else {
+      RNLog(@"Album info mbid node not found!");
+    }
     
     NSArray *images = [rootElement nodesForXPath:kImageNodeXPath error:nil];
     if ([images count] > 0) {
@@ -91,8 +127,6 @@ static NSArray *imageSizePreference;
         }
       }
     }
-    
-    [doc release];
   }
   
   return self;

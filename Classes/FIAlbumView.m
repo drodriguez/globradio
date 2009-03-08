@@ -79,7 +79,6 @@
 }
 
 - (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx {
-  RNLog(@"FIShadowLayerDelegate drawLayer:inContext");
   CGRect bounds = layer.bounds;
   bounds.size.width -= 2*blur_;
   bounds.size.height -= 2*blur_;
@@ -144,7 +143,6 @@
 }
 
 - (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx {
-  RNLog(@"FIBorderLayerDelegate drawLayer:inContext:");
   CGRect bounds = layer.bounds;
   
   CGContextSaveGState(ctx);
@@ -176,79 +174,6 @@
 - (void)awakeFromNib {
   [self setupLayerTree];
 }
-
-/*
-- (void)drawRect:(CGRect)rect {
-  CGRect bounds = self.bounds;
-  
-  CGSize imageSize;
-  if (image_) {
-    imageSize = image_.size;
-  } else {
-    imageSize = CGSizeMake(DEFAULT_IMAGE_SIZE, DEFAULT_IMAGE_SIZE);
-  }
-  
-  // resize image if larger
-  if (imageSize.width + MARGIN > bounds.size.width) {
-    imageSize.height /= imageSize.width / (bounds.size.width - MARGIN);
-    imageSize.width = bounds.size.width - MARGIN;
-  }
-  if (imageSize.height + MARGIN > bounds.size.height) {
-    imageSize.width /= imageSize.height / (bounds.size.height - MARGIN);
-    imageSize.height = bounds.size.height - MARGIN;
-  }
-  
-  CGPoint imagePosition =
-    CGPointMake(self.bounds.size.width/2 - imageSize.width/2,
-                self.bounds.size.height/2 - imageSize.height/2);
-  
-  CGSize shadowOffset = CGSizeMake(0.0, 0.0);
-  const CGFloat shadowValues[] = {0.0f, 0.0f, 0.0f, 1.0f};
-  CGColorRef shadowColor;
-  CGColorSpaceRef deviceColorSpace;
-  
-  CGContextRef ctx = UIGraphicsGetCurrentContext();
-  
-  CGMutablePathRef path = CGPathCreateMutable();
-  CGPathAddRect(path, NULL,
-                CGRectMake(imagePosition.x - 1, imagePosition.y - 1,
-                           imageSize.width + 1, imageSize.height + 1));  
-  
-  if (drawShadow_) {
-    float grayLevel = 38.0/255.0;
-    CGContextSetRGBFillColor(ctx, grayLevel, grayLevel, grayLevel, 1.0);
-    CGContextFillRect(ctx, bounds);
-    
-    CGContextSaveGState(ctx);
-    
-    deviceColorSpace = CGColorSpaceCreateDeviceRGB();
-    shadowColor = CGColorCreate(deviceColorSpace, shadowValues);
-    CGContextSetShadowWithColor(ctx, shadowOffset, SHADOW_RADIUS, shadowColor);
-    CGColorRelease(shadowColor);
-    CGColorSpaceRelease(deviceColorSpace);
-    
-    CGContextBeginPath(ctx);
-    CGContextAddPath(ctx, path);
-    CGContextFillPath(ctx);
-    
-    CGContextRestoreGState(ctx);
-  }
-  
-  if (image_) {
-    [image_ drawInRect:CGRectMake(imagePosition.x,
-                                  imagePosition.y,
-                                  imageSize.width,
-                                  imageSize.height)];
-  }
-  
-  CGContextSetRGBStrokeColor(ctx, 0, 0, 0, 1);
-  CGContextBeginPath(ctx);
-  CGContextAddPath(ctx, path);
-  CGContextStrokePath(ctx);
-  
-  CGPathRelease(path);
-}
-*/
 
 #pragma mark Custom methods
 
@@ -310,7 +235,7 @@
   shadowLayer_.bounds = CGRectZero;
   
   borderLayer_ = [CALayer layer];
-  shadowLayer_.needsDisplayOnBoundsChange = YES;
+  borderLayer_.needsDisplayOnBoundsChange = YES;
   borderLayer_.delegate = [[FIBorderLayerDelegate alloc] init];
   borderLayer_.position = CGPointMake(bounds.size.width/2.0, bounds.size.height/2.0);
   borderLayer_.bounds = CGRectZero;
