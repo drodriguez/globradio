@@ -10,14 +10,16 @@
 
 
 @interface FIAlbumView : UIView {
+ @private
   UIImage *image_;
-  BOOL drawShadow_;
+  
+  CALayer *coverLayer_;
+  CALayer *shadowLayer_;
+  CALayer *borderLayer_;
 }
 
-@property (nonatomic, assign) BOOL drawShadow;
 @property (nonatomic, retain) UIImage *image;
 
 - (void)loadImageFromURL:(NSURL *)url;
-- (UIImage *)image;
 
 @end
