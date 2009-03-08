@@ -8,7 +8,9 @@
 
 #import "FITrackInfo.h"
 #import "FIArtistInfo.h"
+#import "FIArtistInfo+Private.h"
 #import "FIAlbumInfo.h"
+#import "FIArtistInfo+Private.h"
 #import "TouchXML.h"
 
 static NSString *kStatus = @"status";
@@ -62,19 +64,27 @@ static NSString *kAlbumNodeXPath = @"album";
     CXMLNode *nameNode = [[rootElement nodesForXPath:kNameNodeXPath error:nil] objectAtIndex:0];
     NSAssert(nameNode, @"Track info name node not found!");
     self.name = [nameNode stringValue];
+        
+    NSArray *mbidNodes = [rootElement nodesForXPath:kMbidNodeXPath error:nil];
+    if ([mbidNodes count] > 0) {
+      CXMLNode *mbidNode = [mbidNodes objectAtIndex:0];
+      self.mbid = [mbidNode stringValue];
+    } else {
+      RNLog(@"Track info mbid node not found!");
+    }
     
-    CXMLNode *mbidNode = [[rootElement nodesForXPath:kMbidNodeXPath error:nil] objectAtIndex:0];
-    NSAssert(mbidNode, @"Track info mbid node not found!");
-    self.mbid = [mbidNode stringValue];
-    
-    CXMLNode *artistNode = [[rootElement nodesForXPath:kArtistNodeXPath error:nil] objectAtIndex:0];
-    NSAssert(artistNode, @"Track info artist node not found!");
-    self.artist = [[[FIArtistInfo alloc] initWithString:[artistNode XMLString]] autorelease];
+    NSArray *artistNodes = [rootElement nodesForXPath:kArtistNodeXPath error:nil];
+    if ([artistNodes count] > 0) {
+      CXMLNode *artistNode = [artistNodes objectAtIndex:0];
+      self.artist = [[[FIArtistInfo alloc] initWithXMLElement:(CXMLElement *)artistNode] autorelease];
+    } else {
+      RNLog(@"Track info artist node not found!");
+    }
     
     NSArray *albumNodes = [rootElement nodesForXPath:kAlbumNodeXPath error:nil];
     if ([albumNodes count] > 0) {
       CXMLNode *albumNode = [albumNodes objectAtIndex:0];
-      self.album = [[[FIAlbumInfo alloc] initWithString:[albumNode XMLString]] autorelease];
+      self.album = [[[FIAlbumInfo alloc] initWithXMLElement:(CXMLElement *)albumNode] autorelease];
     } else {
       RNLog(@"Track info album node not found!");
     }

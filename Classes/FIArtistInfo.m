@@ -7,6 +7,7 @@
 //
 
 #import "FIArtistInfo.h"
+#import "FIArtistInfo+Private.h"
 #import "TouchXML.h"
 
 static NSString *kStatus = @"status";
@@ -23,13 +24,6 @@ static NSString *kImageNodeXPath = @"image";
 static NSString *kSizeAttribute = @"size";
 
 static NSArray *imageSizePreference;
-
-@interface FIArtistInfo ()
-
-- (id)initWithXMLElement:(CXMLElement *)rootElement;
-
-@end
-
 
 @implementation FIArtistInfo
 
@@ -83,7 +77,14 @@ static NSArray *imageSizePreference;
         self = nil;
         return self;
       }
-      rootElement = [[rootElement elementsForName:kArtistNodeName] objectAtIndex:0];
+      NSArray *artistNodes = [rootElement elementsForName:kArtistNodeName];
+      if ([artistNodes count] > 0) {
+        rootElement = [artistNodes objectAtIndex:0];
+      } else {
+        RNLog(@"Artist info node not found!");
+        self = nil;
+        return self;
+      }
     }
     
     NSArray *idNodes = [rootElement nodesForXPath:kIdNodeXPath error:nil];
@@ -94,13 +95,21 @@ static NSArray *imageSizePreference;
       RNLog(@"Artist info id node not found!");
     }
     
-    CXMLNode *nameNode = [[rootElement nodesForXPath:kNameNodeXPath error:nil] objectAtIndex:0];
-    NSAssert(nameNode, @"Artist info name node not found!");
-    self.name = [nameNode stringValue];
+    NSArray *nameNodes = [rootElement nodesForXPath:kNameNodeXPath error:nil];
+    if ([nameNodes count] > 0) {
+      CXMLNode *nameNode = [nameNodes objectAtIndex:0];
+      self.name = [nameNode stringValue];
+    } else {
+      RNLog(@"Artist info name node not found!");
+    }
     
-    CXMLNode *mbidNode = [[rootElement nodesForXPath:kMbidNodeXPath error:nil] objectAtIndex:0];
-    NSAssert(mbidNode, @"Artist info mbid node not found!");
-    self.mbid = [mbidNode stringValue];
+    NSArray *mbidNodes = [rootElement nodesForXPath:kMbidNodeXPath error:nil];
+    if ([mbidNodes count] > 0) {
+      CXMLNode *mbidNode = [mbidNodes objectAtIndex:0];
+      self.mbid = [mbidNode stringValue];
+    } else {
+      RNLog(@"Artist info mbid node not found!");
+    }
     
     NSArray *images = [rootElement nodesForXPath:kImageNodeXPath error:nil];
     if ([images count] > 0) {
