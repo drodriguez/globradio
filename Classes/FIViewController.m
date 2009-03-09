@@ -331,7 +331,7 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
   self.pauseImage = [UIImage imageNamed:@"pause.png"];
   self.pauseHighlightImage = [UIImage imageNamed:@"pause-hl.png"];
   
-  self.albumArtDefaultImage = [UIImage imageNamed:@"iTunesArtwork"]; // TODO: other image?
+  self.albumArtDefaultImage = [UIImage imageNamed:@"default-album-cover.png"];
   albumArt.image = self.albumArtDefaultImage;
   
   // Load the loading animation files
