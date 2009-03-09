@@ -53,7 +53,8 @@ static NSString *kArtistGetInfoMethod = @"artist.getinfo";
   NSURL *queryUrl = [[NSURL alloc] initWithString:urlStr];
   [urlStr release];
   
-  NSData *xmlData = [[[NSData alloc] initWithContentsOfURL:queryUrl] autorelease];  
+  NSData *xmlData = [[[NSData alloc] initWithContentsOfURL:queryUrl] autorelease];
+  [queryUrl release];
   return [[[FITrackInfo alloc] initWithData:xmlData] autorelease];
 }
 
@@ -76,6 +77,7 @@ static NSString *kArtistGetInfoMethod = @"artist.getinfo";
   [urlStr release];
   
   NSData *xmlData = [[[NSData alloc] initWithContentsOfURL:queryUrl] autorelease];
+  [queryUrl release];
   return [[[FIArtistInfo alloc] initWithData:xmlData] autorelease];
 }
 
@@ -101,6 +103,13 @@ static NSString *kArtistGetInfoMethod = @"artist.getinfo";
   
   // Then nothing
   return nil;
+}
+
+- (void)dealloc {
+  if (apiSecret_) [apiSecret_ release];
+  if (apiKey_) [apiKey_ release];
+  
+  [super dealloc];
 }
 
 @end

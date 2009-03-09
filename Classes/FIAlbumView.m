@@ -62,7 +62,7 @@
   CGFloat components[] = {0.0, 0.0, 0.0, 1.0/3.0};
   CGColorRef color = CGColorCreate(colorSpace, components);
   self = [self initWithOffset:offset blur:blur andColor:color];
-  // CFRelease(color);
+  CFRelease(color);
   CFRelease(colorSpace);
   
   return self;
@@ -72,6 +72,7 @@
   if (self = [super init]) {
     self.offset = offset;
     self.blur = blur;
+    CFRetain(color);
     self.color = color;
   }
   
@@ -91,6 +92,10 @@
   CGContextFillRect(ctx, bounds);
   
   CGContextRestoreGState(ctx);
+}
+
+- (void)dealloc {
+  if (color_) CFRelease(color_);
 }
 
 @end
@@ -127,7 +132,7 @@
   CGFloat components[] = {0.0, 0.0, 0.0, 1.0};
   CGColorRef color = CGColorCreate(colorSpace, components);
   self = [self initWithWidth:1.0 andColor:color];
-  // CFRelease(color);
+  CFRelease(color);
   CFRelease(colorSpace);
   
   return self;
@@ -136,6 +141,7 @@
 - (id)initWithWidth:(CGFloat)width andColor:(CGColorRef)color {
   if (self = [super init]) {
     self.width = width;
+    CFRetain(color);
     self.color = color;
   }
   
@@ -152,6 +158,10 @@
   CGContextStrokeRect(ctx, bounds);
   
   CGContextRestoreGState(ctx);
+}
+
+- (void)dealloc {
+  if (color_) CFRelease(color_);
 }
 
 @end
