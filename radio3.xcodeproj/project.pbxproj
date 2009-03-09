@@ -36,7 +36,6 @@
 		656BFC540F03B724006A3F15 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		656BFC550F03B728006A3F15 /* entl.plist in Resources */ = {isa = PBXBuildFile; fileRef = A756BCB50EE9497200BECFFA /* entl.plist */; };
 		656BFC700F03B76F006A3F15 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 656BFC6E0F03B76F006A3F15 /* Icon.png */; };
-		656BFC710F03B76F006A3F15 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 656BFC6F0F03B76F006A3F15 /* iTunesArtwork */; };
 		656BFC740F03B7F7006A3F15 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 656BFC730F03B7F7006A3F15 /* MainWindow.xib */; };
 		656BFC780F03B897006A3F15 /* FIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 656BFC770F03B897006A3F15 /* FIViewController.xib */; };
 		656BFC840F03DEA4006A3F15 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 656BFC830F03DEA4006A3F15 /* MediaPlayer.framework */; };
@@ -96,6 +95,7 @@
 		65E1033A0EE069B3009FA316 /* RadiosView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E103390EE069B3009FA316 /* RadiosView.xib */; };
 		65E762B10F3A52E3005E3E64 /* mail-button-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 65E762AF0F3A52E3005E3E64 /* mail-button-pressed.png */; };
 		65E762B20F3A52E4005E3E64 /* www-button-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 65E762B00F3A52E3005E3E64 /* www-button-pressed.png */; };
+		65F439630F659C9400BDA5B6 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 656BFC6F0F03B76F006A3F15 /* iTunesArtwork */; };
 		65F6F07D0F18F55400B0B070 /* AudioClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* AudioClass.m */; };
 		65F6F07E0F18F55600B0B070 /* COPEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FA12800F16A5B10067633A /* COPEAppDelegate.m */; };
 		65F6F07F0F18F55700B0B070 /* COPEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FA12830F16A5C70067633A /* COPEViewController.m */; };
@@ -247,7 +247,7 @@
 		6581FB370EE73DF700441607 /* loading_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_1.png; path = Resources/RNERadio/loading_1.png; sourceTree = "<group>"; };
 		6581FB380EE73DF700441607 /* loading_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_2.png; path = Resources/RNERadio/loading_2.png; sourceTree = "<group>"; };
 		6581FB390EE73DF700441607 /* loading_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_3.png; path = Resources/RNERadio/loading_3.png; sourceTree = "<group>"; };
-		6582EC620F029C9200E7051A /* FI-FM Radio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FI-FM Radio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6582EC620F029C9200E7051A /* RadioFIFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadioFIFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6582EC640F029C9200E7051A /* RadioFIFM-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "RadioFIFM-Info.plist"; path = "Resources/FIFMRadio/RadioFIFM-Info.plist"; sourceTree = "<group>"; };
 		658687530ECEFB9100EB9D99 /* Unit tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unit tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		658687550ECEFB9100EB9D99 /* Unit tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Unit tests-Info.plist"; path = "Resources/Unit tests-Info.plist"; sourceTree = "<group>"; };
@@ -506,7 +506,7 @@
 			children = (
 				1D6058910D05DD3D006BFB54 /* RNERadio.app */,
 				658687530ECEFB9100EB9D99 /* Unit tests.app */,
-				6582EC620F029C9200E7051A /* FI-FM Radio.app */,
+				6582EC620F029C9200E7051A /* RadioFIFM.app */,
 				65BD5E060F09B08000D283D4 /* KissRadio.app */,
 				A7FA12C10F16B2800067633A /* COPERadio.app */,
 				A72A70230F1AA12500A2BFD9 /* France Radio.app */,
@@ -872,7 +872,7 @@
 			);
 			name = FIFMRadio.app;
 			productName = RadioFIFM;
-			productReference = 6582EC620F029C9200E7051A /* FI-FM Radio.app */;
+			productReference = 6582EC620F029C9200E7051A /* RadioFIFM.app */;
 			productType = "com.apple.product-type.application";
 		};
 		658687520ECEFB9100EB9D99 /* Unit tests */ = {
@@ -1010,7 +1010,6 @@
 			files = (
 				656BFC550F03B728006A3F15 /* entl.plist in Resources */,
 				656BFC700F03B76F006A3F15 /* Icon.png in Resources */,
-				656BFC710F03B76F006A3F15 /* iTunesArtwork in Resources */,
 				656BFC740F03B7F7006A3F15 /* MainWindow.xib in Resources */,
 				656BFC780F03B897006A3F15 /* FIViewController.xib in Resources */,
 				65B6E6BA0F545F99006E28B2 /* bottom-bar.png in Resources */,
@@ -1026,6 +1025,7 @@
 				65B6E6C40F545F9A006E28B2 /* volume-track.png in Resources */,
 				653CE4310F5AFFB000445A02 /* lastfm.plist in Resources */,
 				658CC7AB0F65368800DC6372 /* default-album-cover.png in Resources */,
+				65F439630F659C9400BDA5B6 /* iTunesArtwork in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1482,7 +1482,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radio3_Prefix.pch;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
-				INFOPLIST_FILE = "RadioFIFM-Info.plist";
+				INFOPLIST_FILE = "Resources/FIFMRadio/RadioFIFM-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -1506,7 +1506,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radio3_Prefix.pch;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
-				INFOPLIST_FILE = "RadioFIFM-Info.plist";
+				INFOPLIST_FILE = "Resources/FIFMRadio/RadioFIFM-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -1525,11 +1525,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = Resources/entl.plist;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Daniel Rodríguez Troitiño";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Rodríguez Troitiño";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radio3_Prefix.pch;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
-				INFOPLIST_FILE = "RadioFIFM-Info.plist";
+				INFOPLIST_FILE = "Resources/FIFMRadio/RadioFIFM-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -1540,6 +1542,8 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = RadioFIFM;
+				PROVISIONING_PROFILE = "858315C2-469F-4821-9631-9B2A9602069A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "858315C2-469F-4821-9631-9B2A9602069A";
 				SDKROOT = iphoneos2.2;
 			};
 			name = Beta;
