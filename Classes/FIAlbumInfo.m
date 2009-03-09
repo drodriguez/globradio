@@ -126,6 +126,20 @@ static NSArray *imageSizePreference;
           [images_ setValue:url forKey:size];
         }
       }
+      // HACK: Let's try to obtain also the original image
+      // Can't not work, because the images are not always from last.fm.
+      /* NSURL *image = self.image;
+      NSString *path = image.path;
+      NSMutableArray *pathComponents =
+        [NSMutableArray arrayWithArray:path.pathComponents];
+      [pathComponents replaceObjectAtIndex:[pathComponents count] - 2
+                                withObject:@"_"];
+      path = [NSString pathWithComponents:pathComponents];
+      image = [[NSURL alloc] initWithScheme:image.scheme
+                                       host:image.host
+                                       path:path];
+      [images_ setValue:image forKey:@"original"];
+      [image release]; */
     }
   }
   
