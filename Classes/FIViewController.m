@@ -310,7 +310,7 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
   
   if (!imageURL) {
     RNLog(@"image not found, using default image");
-    // ...
+    albumArt.image = albumArtDefaultImage;
   } else {
     RNLog(@"loading image %@", imageURL);
     [albumArt loadImageFromURL:imageURL];
