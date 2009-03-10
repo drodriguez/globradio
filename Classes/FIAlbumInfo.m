@@ -91,7 +91,7 @@ static NSArray *imageSizePreference;
     } else {
       RNLog(@"Album info name node not found! Searching for title node.");
       NSArray *titleNodes = [rootElement nodesForXPath:kTitleNodeXPath error:nil];
-      if ([nameNodes count] > 0) {
+      if ([titleNodes count] > 0) {
         CXMLNode *titleNode = [titleNodes objectAtIndex:0];
         self.name = [titleNode stringValue];
       } else {
