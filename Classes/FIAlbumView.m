@@ -10,8 +10,8 @@
 #import <QuartzCore/QuartzCore.h>
 
 #define DEFAULT_IMAGE_SIZE 300
-#define SHADOW_RADIUS 20.0
-#define MARGIN 30
+#define SHADOW_RADIUS 10.0
+#define MARGIN 10
 
 #pragma mark FIAlbumView private interface
 
