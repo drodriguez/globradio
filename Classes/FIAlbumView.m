@@ -96,6 +96,8 @@
 
 - (void)dealloc {
   if (color_) CFRelease(color_);
+  
+  [super dealloc];
 }
 
 @end
@@ -162,6 +164,8 @@
 
 - (void)dealloc {
   if (color_) CFRelease(color_);
+  
+  [super dealloc];
 }
 
 @end
