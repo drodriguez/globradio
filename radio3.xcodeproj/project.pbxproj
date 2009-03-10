@@ -6,6 +6,20 @@
 	objectVersion = 45;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		65BF60060F671FC30019FE2D /* Update FI-FM Radio Build Number */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 65BF600D0F67200C0019FE2D /* Build configuration list for PBXAggregateTarget "Update FI-FM Radio Build Number" */;
+			buildPhases = (
+				65BF60050F671FC30019FE2D /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "Update FI-FM Radio Build Number";
+			productName = "Update FI-FM Radio Build Number";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* radio3AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* radio3AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -196,6 +210,16 @@
 		A7FA12E70F16B3000067633A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7FA12E30F16B2C90067633A /* MainWindow.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		65BF600B0F671FD80019FE2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65BF60060F671FC30019FE2D /* Update FI-FM Radio Build Number */;
+			remoteInfo = "Update FI-FM Radio Build Number";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1D3623240D0F684500981E51 /* radio3AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = radio3AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* radio3AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = radio3AppDelegate.m; sourceTree = "<group>"; };
@@ -284,6 +308,7 @@
 		65BD5E240F09B9F000D283D4 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/KissRadio/iTunesArtwork; sourceTree = "<group>"; };
 		65BDFF170F30F78900FAD5FD /* mail-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail-button.png"; path = "Resources/RNERadio/mail-button.png"; sourceTree = "<group>"; };
 		65BDFF180F30F78900FAD5FD /* www-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "www-button.png"; path = "Resources/RNERadio/www-button.png"; sourceTree = "<group>"; };
+		65BF601C0F6721920019FE2D /* UISlider+Volume.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISlider+Volume.h"; sourceTree = "<group>"; };
 		65C452920EED3D77006AB1DD /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		65C452930EED3D77006AB1DD /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		65C452B80EED473E006AB1DD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -497,6 +522,7 @@
 				A7F1FE6C0F221E01005F9CDC /* PLSParser.m */,
 				653F4BD00F2A7D21005067F5 /* ShoutcastAudioClass.h */,
 				653F4BD10F2A7D21005067F5 /* ShoutcastAudioClass.m */,
+				65BF601C0F6721920019FE2D /* UISlider+Volume.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -861,7 +887,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6582EC690F029C9300E7051A /* Build configuration list for PBXNativeTarget "FIFMRadio.app" */;
 			buildPhases = (
-				6582EC6B0F029CB100E7051A /* Update build number */,
 				6582EC5E0F029C9200E7051A /* Resources */,
 				6582EC5F0F029C9200E7051A /* Sources */,
 				6582EC600F029C9200E7051A /* Frameworks */,
@@ -869,6 +894,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				65BF600C0F671FD80019FE2D /* PBXTargetDependency */,
 			);
 			name = FIFMRadio.app;
 			productName = RadioFIFM;
@@ -965,6 +991,7 @@
 				65BD5E050F09B08000D283D4 /* KissRadio.app */,
 				A7FA12C00F16B2800067633A /* COPERadio */,
 				A72A70220F1AA12500A2BFD9 /* FranceRadio */,
+				65BF60060F671FC30019FE2D /* Update FI-FM Radio Build Number */,
 			);
 		};
 /* End PBXProject section */
@@ -1143,21 +1170,6 @@
 			shellScript = "update_build_number() {\n\tPATH=$PATH:/opt/local/bin\n\n\t/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/${INFOPLIST_FILE}\n}\n\ncase \"$CONFIGURATION\" in\n\tBeta|Distribution)\n\t\tupdate_build_number\n\t\t;;\n\t*)\nesac";
 			showEnvVarsInLog = 0;
 		};
-		6582EC6B0F029CB100E7051A /* Update build number */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Update build number";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "update_build_number() {\n\tPATH=$PATH:/opt/local/bin\n\n\t/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/${INFOPLIST_FILE}\n}\n\ncase \"$CONFIGURATION\" in\n\tBeta|Distribution)\n\t\tupdate_build_number\n\t\t;;\n\t*)\nesac";
-			showEnvVarsInLog = 0;
-		};
 		658687630ECEFC0700EB9D99 /* Run Unit Tests */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1185,6 +1197,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
 			shellScript = "update_build_number() {\n\tPATH=$PATH:/opt/local/bin\n\n\t/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/${INFOPLIST_FILE}\n}\n\ncase \"$CONFIGURATION\" in\n\tBeta|Distribution)\n\t\tupdate_build_number\n\t\t;;\n\t*)\nesac";
+			showEnvVarsInLog = 0;
+		};
+		65BF60050F671FC30019FE2D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "update_build_number() {\n\tPATH=$PATH:/opt/local/bin\n\n\t/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/Resources/FIFMRadio/RadioFIFM-Info.plist\n}\n\ncase \"$CONFIGURATION\" in\n\tBeta|Distribution)\n\t\tupdate_build_number\n\t\t;;\n\t*)\nesac";
 			showEnvVarsInLog = 0;
 		};
 		65F6F07A0F18F4FC00B0B070 /* Update build number */ = {
@@ -1304,6 +1330,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		65BF600C0F671FD80019FE2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65BF60060F671FC30019FE2D /* Update FI-FM Radio Build Number */;
+			targetProxy = 65BF600B0F671FD80019FE2D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
@@ -1690,6 +1724,41 @@
 			};
 			name = Beta;
 		};
+		65BF60070F671FC40019FE2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Update FI-FM Radio Build Number";
+			};
+			name = Debug;
+		};
+		65BF60080F671FC40019FE2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Update FI-FM Radio Build Number";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		65BF60090F671FC40019FE2D /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "Update FI-FM Radio Build Number";
+			};
+			name = Distribution;
+		};
+		65BF600A0F671FC40019FE2D /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "Update FI-FM Radio Build Number";
+			};
+			name = Beta;
+		};
 		A72A70260F1AA12600A2BFD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1963,6 +2032,17 @@
 				65BD5E0A0F09B08200D283D4 /* Release */,
 				65BD5E0B0F09B08200D283D4 /* Distribution */,
 				65BD5E0C0F09B08200D283D4 /* Beta */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65BF600D0F67200C0019FE2D /* Build configuration list for PBXAggregateTarget "Update FI-FM Radio Build Number" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65BF60070F671FC40019FE2D /* Debug */,
+				65BF60080F671FC40019FE2D /* Release */,
+				65BF60090F671FC40019FE2D /* Distribution */,
+				65BF600A0F671FC40019FE2D /* Beta */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
