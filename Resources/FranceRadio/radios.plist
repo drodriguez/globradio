@@ -4,33 +4,36 @@
 <dict>
 	<key>radioNames</key>
 	<array>
-		<string>France Info</string>
 		<string>France Inter</string>
-		<string>France Musique</string>
+		<string>France Info</string>
+		<string>France Bleu Provence</string>
 		<string>France Culture</string>
-		<string>France Vivace</string>
+		<string>France Musique</string>
 		<string>FIP</string>
 		<string>Le Mouv&apos;</string>
+		<string>France Vivace</string>
 	</array>
 	<key>highRadioURLs</key>
 	<array>
-		<string>http://str2.creacast.com/france_info_64.m3u</string>
 		<string>http://www.tv-radio.com/station/france_inter_mp3/france_inter_mp3-128k.m3u</string>
-		<string>http://www.tv-radio.com/station/france_musique_mp3/france_musique_mp3-128k.m3u</string>
+		<string>http://str2.creacast.com/france_info_64.m3u</string>
+		<string>http://gisv3.tv-radio.com/station/france_bleu_provence_mp3/france_bleu_provence_mp3-32k.m3u</string>
 		<string>http://www.tv-radio.com/station/france_culture_mp3/france_culture_mp3-128k.m3u</string>
-		<string>http://www.tv-radio.com/station/france_vivace_mp3/france_vivace_mp3-128k.m3u</string>
+		<string>http://www.tv-radio.com/station/france_musique_mp3/france_musique_mp3-128k.m3u</string>
 		<string>http://www.tv-radio.com/station/fip_mp3/fip_mp3-128k.m3u</string>
 		<string>http://www.tv-radio.com/station/le_mouv_mp3/le_mouv_mp3-128k.m3u</string>
+		<string>http://www.tv-radio.com/station/france_vivace_mp3/france_vivace_mp3-128k.m3u</string>
 	</array>
 	<key>lowRadioURLs</key>
 	<array>
-		<string>http://str2.creacast.com/france_info_64.m3u</string>
 		<string>http://www.tv-radio.com/station/france_inter_mp3/france_inter_mp3-32k.m3u</string>
-		<string>http://www.tv-radio.com/station/france_musique_mp3/france_musique_mp3-32k.m3u</string>
+		<string>http://str2.creacast.com/france_info_64.m3u</string>
+		<string>http://gisv3.tv-radio.com/station/france_bleu_provence_mp3/france_bleu_provence_mp3-32k.m3u</string>
 		<string>http://www.tv-radio.com/station/france_culture_mp3/france_culture_mp3-32k.m3u</string>
-		<string>http://www.tv-radio.com/station/france_vivace_mp3/france_vivace_mp3-32k.m3u</string>
+		<string>http://www.tv-radio.com/station/france_musique_mp3/france_musique_mp3-32k.m3u</string>
 		<string>http://www.tv-radio.com/station/fip_mp3/fip_mp3-32k.m3u</string>
 		<string>http://www.tv-radio.com/station/le_mouv_mp3/le_mouv_mp3-32k.m3u</string>
+		<string>http://www.tv-radio.com/station/france_vivace_mp3/france_vivace_mp3-32k.m3u</string>
 	</array>
 </dict>
 </plist>
