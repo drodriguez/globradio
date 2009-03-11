@@ -37,7 +37,6 @@
 		653CE4310F5AFFB000445A02 /* lastfm.plist in Resources */ = {isa = PBXBuildFile; fileRef = 653CE4300F5AFFB000445A02 /* lastfm.plist */; };
 		653F4BD20F2A7D21005067F5 /* ShoutcastAudioClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 653F4BD10F2A7D21005067F5 /* ShoutcastAudioClass.m */; };
 		654B1E560ECDFDD500E28E7E /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
-		656A605E0EF196EF004CE686 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 656A605C0EF196DF004CE686 /* iTunesArtwork */; };
 		656BFC380F03A4FD006A3F15 /* FIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 656BFC370F03A4FD006A3F15 /* FIAppDelegate.m */; };
 		656BFC440F03A80E006A3F15 /* FIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656BFC430F03A80E006A3F15 /* FIViewController.m */; };
 		656BFC4B0F03B6E0006A3F15 /* AudioClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* AudioClass.m */; };
@@ -60,7 +59,6 @@
 		6579C4660F19E90100C2CA3F /* COPENeedleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6579C4650F19E90100C2CA3F /* COPENeedleView.m */; };
 		6579C5330F1A37F900C2CA3F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761160EE9C4BF00E2F2BE /* CoreGraphics.framework */; };
 		6579C5EF0F1A787500C2CA3F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6579C5ED0F1A787500C2CA3F /* Icon.png */; };
-		6579C5F00F1A787500C2CA3F /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 6579C5EE0F1A787500C2CA3F /* iTunesArtwork */; };
 		6581FAD10EE6CD9100441607 /* pause-hl.png in Resources */ = {isa = PBXBuildFile; fileRef = 6581FAD00EE6CD9100441607 /* pause-hl.png */; };
 		6581FB3A0EE73DF700441607 /* loading_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 6581FB360EE73DF700441607 /* loading_0.png */; };
 		6581FB3B0EE73DF700441607 /* loading_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6581FB370EE73DF700441607 /* loading_1.png */; };
@@ -110,7 +108,6 @@
 		65E1033A0EE069B3009FA316 /* RadiosView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E103390EE069B3009FA316 /* RadiosView.xib */; };
 		65E762B10F3A52E3005E3E64 /* mail-button-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 65E762AF0F3A52E3005E3E64 /* mail-button-pressed.png */; };
 		65E762B20F3A52E4005E3E64 /* www-button-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 65E762B00F3A52E3005E3E64 /* www-button-pressed.png */; };
-		65F439630F659C9400BDA5B6 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 656BFC6F0F03B76F006A3F15 /* iTunesArtwork */; };
 		65F6F07D0F18F55400B0B070 /* AudioClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* AudioClass.m */; };
 		65F6F07E0F18F55600B0B070 /* COPEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FA12800F16A5B10067633A /* COPEAppDelegate.m */; };
 		65F6F07F0F18F55700B0B070 /* COPEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FA12830F16A5C70067633A /* COPEViewController.m */; };
@@ -160,7 +157,6 @@
 		65F817950F58551500B7990A /* FITrackInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F817940F58551500B7990A /* FITrackInfo.m */; };
 		65FBA6B90F2B68920049574C /* mail-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 65FBA6B70F2B68920049574C /* mail-button.png */; };
 		65FBA6BA0F2B68920049574C /* www-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 65FBA6B80F2B68920049574C /* www-button.png */; };
-		65FBA6EF0F2B6F340049574C /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 65FBA6EE0F2B6F340049574C /* iTunesArtwork */; };
 		65FD71870EF9AC4600C6FBD6 /* RNFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */; };
 		A72A702F0F1AA15800A2BFD9 /* FRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A72A702C0F1AA15800A2BFD9 /* FRAppDelegate.m */; };
 		A72A703E0F1AA1E500A2BFD9 /* AudioClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* AudioClass.m */; };
@@ -216,7 +212,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 65BF60060F671FC30019FE2D /* Update FI-FM Radio Build Number */;
+			remoteGlobalIDString = 65BF60060F671FC30019FE2D;
 			remoteInfo = "Update FI-FM Radio Build Number";
 		};
 /* End PBXContainerItemProxy section */
@@ -1026,7 +1022,6 @@
 				6581FB3D0EE73DF700441607 /* loading_3.png in Resources */,
 				A756BCB60EE9497200BECFFA /* entl.plist in Resources */,
 				6576DD330EEF2992004370D6 /* altavoz-on.png in Resources */,
-				656A605E0EF196EF004CE686 /* iTunesArtwork in Resources */,
 				65BDFF190F30F78900FAD5FD /* mail-button.png in Resources */,
 				65BDFF1A0F30F78A00FAD5FD /* www-button.png in Resources */,
 				65C5E09E0F374F3A002E6571 /* mail-button-pressed.png in Resources */,
@@ -1055,7 +1050,6 @@
 				65B6E6C40F545F9A006E28B2 /* volume-track.png in Resources */,
 				653CE4310F5AFFB000445A02 /* lastfm.plist in Resources */,
 				658CC7AB0F65368800DC6372 /* default-album-cover.png in Resources */,
-				65F439630F659C9400BDA5B6 /* iTunesArtwork in Resources */,
 				65BF602C0F6729700019FE2D /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1103,7 +1097,6 @@
 				A7F1FE0E0F220F0A005F9CDC /* volume-track.png in Resources */,
 				65FBA6B90F2B68920049574C /* mail-button.png in Resources */,
 				65FBA6BA0F2B68920049574C /* www-button.png in Resources */,
-				65FBA6EF0F2B6F340049574C /* iTunesArtwork in Resources */,
 				65E762B10F3A52E3005E3E64 /* mail-button-pressed.png in Resources */,
 				65E762B20F3A52E4005E3E64 /* www-button-pressed.png in Resources */,
 			);
@@ -1138,7 +1131,6 @@
 				65F6F1940F19170700B0B070 /* InfoView.xib in Resources */,
 				65F6F19A0F19198F00B0B070 /* RadiosView.xib in Resources */,
 				6579C5EF0F1A787500C2CA3F /* Icon.png in Resources */,
-				6579C5F00F1A787500C2CA3F /* iTunesArtwork in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
