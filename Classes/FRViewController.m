@@ -11,6 +11,7 @@
 #import "PLSParser.h"
 #import "RNM3UParser.h"
 #import "Reachability.h"
+#import "UISlider+Volume.h"
 #import <MediaPlayer/MediaPlayer.h>
 
 enum FRSections {
@@ -436,12 +437,6 @@ static NSString *kSupportMailURL =
 						  context:context];
 }
 
-
-- (CGFloat)tableView:(UITableView *)tableView
-  heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return 270.0f/7.0f;	
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 	return FR_NUM_SECTIONS;
 }
@@ -513,8 +508,10 @@ static NSString *kSupportMailURL =
 
 - (void)viewDidLoad {
 	// Load some images
-	self.view.backgroundColor =
+	bgView.backgroundColor =
     [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+  bottomBarView.backgroundColor =
+    [UIColor colorWithPatternImage:[UIImage imageNamed:@"bottom-bar.png"]];
 	self.playImage = [UIImage imageNamed:@"play.png"];
 	self.playHighlightImage = [UIImage imageNamed:@"play-hl.png"];
 	self.pauseImage = [UIImage imageNamed:@"pause.png"];

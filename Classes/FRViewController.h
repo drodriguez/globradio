@@ -18,6 +18,8 @@
 	IBOutlet UIView *volumeViewHolder;
 	IBOutlet UIView *flippableView;
 	IBOutlet UIImageView *loadingImage;
+  IBOutlet UIView *bottomBarView;
+  IBOutlet UIView *bgView;
 	
 	NSInteger activeRadio;
 	NSArray *radiosList;
