@@ -166,6 +166,7 @@
 		65F817910F58546E00B7990A /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F817850F58546E00B7990A /* CXMLNode_PrivateExtensions.m */; };
 		65F817920F58546E00B7990A /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F817870F58546E00B7990A /* CXMLNode_XPathExtensions.m */; };
 		65F817950F58551500B7990A /* FITrackInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F817940F58551500B7990A /* FITrackInfo.m */; };
+		65F8AB0E0F6877CA003CF9F0 /* bottom-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F8AB0D0F6877CA003CF9F0 /* bottom-bar.png */; };
 		65FBA6B90F2B68920049574C /* mail-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 65FBA6B70F2B68920049574C /* mail-button.png */; };
 		65FBA6BA0F2B68920049574C /* www-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 65FBA6B80F2B68920049574C /* www-button.png */; };
 		65FD71870EF9AC4600C6FBD6 /* RNFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */; };
@@ -384,6 +385,7 @@
 		65F817880F58546E00B7990A /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchXML.h; path = TouchXML/TouchXML.h; sourceTree = "<group>"; };
 		65F817930F58551500B7990A /* FITrackInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FITrackInfo.h; sourceTree = "<group>"; };
 		65F817940F58551500B7990A /* FITrackInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FITrackInfo.m; sourceTree = "<group>"; };
+		65F8AB0D0F6877CA003CF9F0 /* bottom-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bottom-bar.png"; path = "Resources/FranceRadio/bottom-bar.png"; sourceTree = "<group>"; };
 		65FBA6B70F2B68920049574C /* mail-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail-button.png"; path = "Resources/FranceRadio/mail-button.png"; sourceTree = "<group>"; };
 		65FBA6B80F2B68920049574C /* www-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "www-button.png"; path = "Resources/FranceRadio/www-button.png"; sourceTree = "<group>"; };
 		65FBA6EE0F2B6F340049574C /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/FranceRadio/iTunesArtwork; sourceTree = "<group>"; };
@@ -801,6 +803,7 @@
 		A72A70310F1AA18F00A2BFD9 /* FranceRadio */ = {
 			isa = PBXGroup;
 			children = (
+				65F8AB0D0F6877CA003CF9F0 /* bottom-bar.png */,
 				65E762AF0F3A52E3005E3E64 /* mail-button-pressed.png */,
 				65E762B00F3A52E3005E3E64 /* www-button-pressed.png */,
 				65FBA6EE0F2B6F340049574C /* iTunesArtwork */,
@@ -1118,6 +1121,7 @@
 				65FBA6BA0F2B68920049574C /* www-button.png in Resources */,
 				65E762B10F3A52E3005E3E64 /* mail-button-pressed.png in Resources */,
 				65E762B20F3A52E4005E3E64 /* www-button-pressed.png in Resources */,
+				65F8AB0E0F6877CA003CF9F0 /* bottom-bar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
