@@ -18,6 +18,17 @@
 			name = "Update FI-FM Radio Build Number";
 			productName = "Update FI-FM Radio Build Number";
 		};
+		65F8AAFF0F6838C5003CF9F0 /* Update France Radio Build Number */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 65F8AB040F6838E3003CF9F0 /* Build configuration list for PBXAggregateTarget "Update France Radio Build Number" */;
+			buildPhases = (
+				65F8AAFE0F6838C5003CF9F0 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "Update France Radio Build Number";
+			productName = "Update France Radio Build Number";
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
@@ -214,6 +225,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 65BF60060F671FC30019FE2D;
 			remoteInfo = "Update FI-FM Radio Build Number";
+		};
+		65F8AB090F683908003CF9F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65F8AAFF0F6838C5003CF9F0 /* Update France Radio Build Number */;
+			remoteInfo = "Update France Radio Build Number";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -940,7 +958,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A72A702A0F1AA12700A2BFD9 /* Build configuration list for PBXNativeTarget "FranceRadio" */;
 			buildPhases = (
-				650D80640F263453006A193E /* Update build number */,
 				A72A701F0F1AA12500A2BFD9 /* Resources */,
 				A72A70200F1AA12500A2BFD9 /* Sources */,
 				A72A70210F1AA12500A2BFD9 /* Frameworks */,
@@ -948,6 +965,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				65F8AB0A0F683908003CF9F0 /* PBXTargetDependency */,
 			);
 			name = FranceRadio;
 			productName = FranceRadio;
@@ -991,6 +1009,7 @@
 				A7FA12C00F16B2800067633A /* COPERadio */,
 				A72A70220F1AA12500A2BFD9 /* FranceRadio */,
 				65BF60060F671FC30019FE2D /* Update FI-FM Radio Build Number */,
+				65F8AAFF0F6838C5003CF9F0 /* Update France Radio Build Number */,
 			);
 		};
 /* End PBXProject section */
@@ -1137,20 +1156,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		650D80640F263453006A193E /* Update build number */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Update build number";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "update_build_number() {\n\tPATH=$PATH:/opt/local/bin\n\n\t/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/${INFOPLIST_FILE}\n}\n\ncase \"$CONFIGURATION\" in\n\tBeta|Distribution)\n\t\tupdate_build_number\n\t\t;;\n\t*)\nesac\n";
-		};
 		656354910EF9472C00AD52AE /* Update build number */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1222,6 +1227,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
 			shellScript = "update_build_number() {\n\tPATH=$PATH:/opt/local/bin\n\n\t/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/${INFOPLIST_FILE}\n}\n\ncase \"$CONFIGURATION\" in\n\tBeta|Distribution)\n\t\tupdate_build_number\n\t\t;;\n\t*)\nesac";
+			showEnvVarsInLog = 0;
+		};
+		65F8AAFE0F6838C5003CF9F0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "update_build_number() {\n\tPATH=$PATH:/opt/local/bin\n\n\t/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/Resources/FranceRadio/FranceRadio-Info.plist\n}\n\ncase \"$CONFIGURATION\" in\n\tBeta|Distribution)\n\t\tupdate_build_number\n\t\t;;\n\t*)\nesac";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1332,6 +1351,11 @@
 			isa = PBXTargetDependency;
 			target = 65BF60060F671FC30019FE2D /* Update FI-FM Radio Build Number */;
 			targetProxy = 65BF600B0F671FD80019FE2D /* PBXContainerItemProxy */;
+		};
+		65F8AB0A0F683908003CF9F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65F8AAFF0F6838C5003CF9F0 /* Update France Radio Build Number */;
+			targetProxy = 65F8AB090F683908003CF9F0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1755,6 +1779,41 @@
 			};
 			name = Beta;
 		};
+		65F8AB000F6838C5003CF9F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Update France Radio Build Number";
+			};
+			name = Debug;
+		};
+		65F8AB010F6838C5003CF9F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Update France Radio Build Number";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		65F8AB020F6838C5003CF9F0 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "Update France Radio Build Number";
+			};
+			name = Distribution;
+		};
+		65F8AB030F6838C5003CF9F0 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "Update France Radio Build Number";
+			};
+			name = Beta;
+		};
 		A72A70260F1AA12600A2BFD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2039,6 +2098,17 @@
 				65BF60080F671FC40019FE2D /* Release */,
 				65BF60090F671FC40019FE2D /* Distribution */,
 				65BF600A0F671FC40019FE2D /* Beta */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65F8AB040F6838E3003CF9F0 /* Build configuration list for PBXAggregateTarget "Update France Radio Build Number" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65F8AB000F6838C5003CF9F0 /* Debug */,
+				65F8AB010F6838C5003CF9F0 /* Release */,
+				65F8AB020F6838C5003CF9F0 /* Distribution */,
+				65F8AB030F6838C5003CF9F0 /* Beta */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
