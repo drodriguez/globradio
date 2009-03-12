@@ -231,7 +231,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 65F8AAFF0F6838C5003CF9F0 /* Update France Radio Build Number */;
+			remoteGlobalIDString = 65F8AAFF0F6838C5003CF9F0;
 			remoteInfo = "Update France Radio Build Number";
 		};
 /* End PBXContainerItemProxy section */

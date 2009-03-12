@@ -361,7 +361,7 @@ static NSString *kSupportMailURL =
           waitUntilDone:NO];
 	
   NSString *radioAddress = nil;
-  if ([[Reachability sharedReachability] remoteHostStatus] != ReachableViaWiFiNetwork) {
+  if ([[Reachability sharedReachability] remoteHostStatus] == ReachableViaWiFiNetwork) {
     radioAddress = [highRadiosURLS objectAtIndex:activeRadio];
   } else {
     radioAddress = [lowRadiosURLS objectAtIndex:activeRadio];
