@@ -209,11 +209,11 @@ static NSString *kSupportMailURL =
 }
 
 - (void)showNetworkProblemsAlert {
-	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Problemas de conexión"
-														message:@"No es posible conectar a Internet.\nAsegurese de disponer de conexión a Internet."
+	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Problèmes de connexion"
+														message:@"Impossible de se connecter à l'Internet..\nAssurez-vous que vous êtes connecté à Internet."
 													   delegate:nil
 											  cancelButtonTitle:nil
-											  otherButtonTitles:@"Aceptar", nil];
+											  otherButtonTitles:@"OK", nil];
 	[alertView show];
   [alertView release];
 }
