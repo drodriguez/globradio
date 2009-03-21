@@ -1560,7 +1560,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Daniel Rodríguez Troitiño";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Rodríguez Troitiño";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = radio3_Prefix.pch;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
@@ -1575,6 +1576,8 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = FIFMRadio;
+				PROVISIONING_PROFILE = "A1A47762-F15A-41A9-9ED0-493F64EEFACA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A1A47762-F15A-41A9-9ED0-493F64EEFACA";
 				SDKROOT = iphoneos2.2;
 			};
 			name = Distribution;
