@@ -354,10 +354,12 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
   [volumeViewHolder addSubview:volumeView];
   
   // Find the slider
-  volumeSlider = [volumeView valueForKey:@"_volumeSlider"];
+  id temp = [volumeView valueForKey:@"_internal"];
+  volumeSlider = [temp valueForKey:@"_volumeSlider"];
   CGRect frame = volumeView.frame;
   frame.size.height = 53;
   volumeSlider.frame = frame;
+  NSLog(@"volumeSlider.frame.size.height %d", volumeSlider.frame.size.height);
   
   UIImage *volumeMinimumTrackImage = [[UIImage imageNamed:@"volume-track.png"]
                                       stretchableImageWithLeftCapWidth:38.0

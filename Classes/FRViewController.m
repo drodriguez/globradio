@@ -468,7 +468,7 @@ static NSString *kSupportMailURL =
       [[UIView alloc] initWithFrame:cell.bounds];
 		backgroundView.backgroundColor =
       [UIColor colorWithPatternImage:rowBackgroundImage];
-		backgroundView.opaque = NO;
+		// backgroundView.opaque = NO;
 		cell.backgroundView = backgroundView;
 		[backgroundView release];
 		
@@ -552,7 +552,8 @@ static NSString *kSupportMailURL =
 	[volumeViewHolder addSubview:volumeView];
 	
 	// Find the slider
-	volumeSlider = [volumeView valueForKey:@"_volumeSlider"];
+  id temp = [volumeView valueForKey:@"_internal"];
+  volumeSlider = [temp valueForKey:@"_volumeSlider"];
 	CGRect frame = volumeView.frame;
 	frame.size.height = 53;
 	volumeSlider.frame = frame;
