@@ -464,10 +464,8 @@ static NSString *kSupportMailURL =
 				 reuseIdentifier:CellIdentifier] autorelease];
 		cell.textColor = [UIColor whiteColor];
 		
-		UIView *backgroundView =
-      [[UIView alloc] initWithFrame:cell.bounds];
-		backgroundView.backgroundColor =
-      [UIColor colorWithPatternImage:rowBackgroundImage];
+		UIImageView *backgroundView =
+      [[UIImageView alloc] initWithImage:rowBackgroundImage];
 		// backgroundView.opaque = NO;
 		cell.backgroundView = backgroundView;
 		[backgroundView release];
