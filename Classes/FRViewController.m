@@ -550,15 +550,14 @@ static NSString *kSupportMailURL =
 	
 	// Find the slider
   id temp;
-  @try {
+  RNLog(@"System version: %@", [[UIDevice currentDevice] systemVersion]);
+  if ([[[UIDevice currentDevice] systemVersion] isEqualToString:@"3.0"]) {
     temp = [volumeView valueForKey:@"_internal"];
-  }
-  @catch (NSException * e) {
+  } else {
     temp = volumeView;
   }
-  @finally {
-    volumeSlider = [temp valueForKey:@"_volumeSlider"];
-  }
+  volumeSlider = [temp valueForKey:@"_volumeSlider"];
+
 	CGRect frame = volumeView.frame;
 	frame.size.height = 53;
 	volumeSlider.frame = frame;
