@@ -12,6 +12,7 @@
 #import "RNM3UParser.h"
 #import "Reachability.h"
 #import "UISlider+Volume.h"
+#import "TransparentGradientCell.h"
 #import <MediaPlayer/MediaPlayer.h>
 
 enum FRSections {
@@ -460,17 +461,15 @@ static NSString *kSupportMailURL =
     [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil) {
 		cell = [[[UITableViewCell alloc]
-				 initWithFrame:CGRectZero
-				 reuseIdentifier:CellIdentifier] autorelease];
-		cell.textColor = [UIColor whiteColor];
-		
-		UIImageView *backgroundView =
-      [[UIImageView alloc] initWithImage:rowBackgroundImage];
-		// backgroundView.opaque = NO;
-		cell.backgroundView = backgroundView;
-		[backgroundView release];
-		
-		cell.selectionStyle = UITableViewCellSelectionStyleNone;
+             initWithFrame:CGRectZero
+             reuseIdentifier:CellIdentifier] autorelease];
+    cell.textColor = [UIColor whiteColor];
+    
+    UIImageView *backgroundView =
+      [[UIImageView alloc] initWithImage:self.rowBackgroundImage];
+    backgroundView.opaque = NO;
+    cell.backgroundView = backgroundView;
+    [backgroundView release];
 	}
 	
 	cell.text = [radiosList objectAtIndex:indexPath.row];
@@ -550,8 +549,16 @@ static NSString *kSupportMailURL =
 	[volumeViewHolder addSubview:volumeView];
 	
 	// Find the slider
-  id temp = [volumeView valueForKey:@"_internal"];
-  volumeSlider = [temp valueForKey:@"_volumeSlider"];
+  id temp;
+  @try {
+    temp = [volumeView valueForKey:@"_internal"];
+  }
+  @catch (NSException * e) {
+    temp = volumeView;
+  }
+  @finally {
+    volumeSlider = [temp valueForKey:@"_volumeSlider"];
+  }
 	CGRect frame = volumeView.frame;
 	frame.size.height = 53;
 	volumeSlider.frame = frame;
