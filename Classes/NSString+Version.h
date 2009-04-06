@@ -11,6 +11,6 @@
 
 @interface NSString (Version)
 
-- (BOOL)compatibleWith:(NSString *)version;
+- (BOOL)checkVersion:(NSString *)version;
 
 @end

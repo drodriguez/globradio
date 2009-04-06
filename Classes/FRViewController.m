@@ -551,7 +551,7 @@ static NSString *kSupportMailURL =
 	
 	// Find the slider
   id temp;
-  if ([[[UIDevice currentDevice] systemVersion] compatibleWith:@">=3.0"]) {
+  if ([[[UIDevice currentDevice] systemVersion] checkVersion:@">=3.0"]) {
     temp = [volumeView valueForKey:@"_internal"];
   } else {
     temp = volumeView;

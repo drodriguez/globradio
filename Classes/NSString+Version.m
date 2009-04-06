@@ -92,7 +92,7 @@ STATIC_MODIFIER BOOL versionCompatible(NSMutableArray *a1, NSMutableArray *a2) {
 
 @implementation NSString (Version)
 
-- (BOOL)compatibleWith:(NSString *)version {
+- (BOOL)checkVersion:(NSString *)version {
   int startIndex;
   comparation_func *op;
   if ([version hasPrefix:@"="]) {

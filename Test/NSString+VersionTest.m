@@ -281,57 +281,57 @@
 
 
 - (void)testCompatibleWithWithoutSymbolsAndEqualVersions {
-  STAssertTrue([@"1.1" compatibleWith:@"1.1"],
+  STAssertTrue([@"1.1" checkVersion:@"1.1"],
                @"'1.1' should be compatible with '1.1'");
 }
 
 - (void)testCompatibleWithWithoutSymbolsAndDifferentVersions {
-  STAssertFalse([@"1.1" compatibleWith:@"1.2"],
+  STAssertFalse([@"1.1" checkVersion:@"1.2"],
                 @"'1.1' should not be compatible with '1.2'");
 }
 
 - (void)testCompatibleWithWithEqualAndEqualVersions {
-  STAssertTrue([@"1.1" compatibleWith:@"=1.1"],
+  STAssertTrue([@"1.1" checkVersion:@"=1.1"],
                @"'1.1' should be compatible with '1.1'");
 }
 
 - (void)testCompatibleWithWithEqualAndDifferentVersions {
-  STAssertFalse([@"1.1" compatibleWith:@"=1.2"],
+  STAssertFalse([@"1.1" checkVersion:@"=1.2"],
                 @"'1.1' should not be compatible with '=1.2'");
 }
 
 - (void)testCompatibleWithWithEqualAndSpaceAndEqualVersions {
-  STAssertTrue([@"1.1" compatibleWith:@"= 1.1"],
+  STAssertTrue([@"1.1" checkVersion:@"= 1.1"],
                @"'1.1' should be compatible with '= 1.1'");
 }
 
 - (void)testCompatibleWithWithDifferent {
-  STAssertTrue([@"1.1" compatibleWith:@"!=1.0"],
+  STAssertTrue([@"1.1" checkVersion:@"!=1.0"],
                @"'1.1' should be compatible with '!=1.0'");
 }
 
 - (void)testCompatibleWithWithGoE {
-  STAssertTrue([@"1.1" compatibleWith:@">=1.0"],
+  STAssertTrue([@"1.1" checkVersion:@">=1.0"],
                @"'1.1' should be compatible with '>=1.0'");
 }
 
 - (void)testCompatibleWithWithLoE {
-  STAssertTrue([@"1.1" compatibleWith:@"<=2.0"],
+  STAssertTrue([@"1.1" checkVersion:@"<=2.0"],
                @"'1.1' should be compatible with '<=2.0'");
 }
 
 - (void)testCompatibleWithWithGreater {
-  STAssertTrue([@"1.1" compatibleWith:@">1.0.1"],
+  STAssertTrue([@"1.1" checkVersion:@">1.0.1"],
                @"'1.1' should be compatible with '>1.0.1'");
 }
 
 - (void)testCompatibleWithWithLower {
-  STAssertTrue([@"1.1" compatibleWith:@"<1.9"],
+  STAssertTrue([@"1.1" checkVersion:@"<1.9"],
                @"'1.1' should be compatible with '<1.9'");
 }
 
 - (void)testCompatibleWithWithSimilar {
-  STAssertTrue([@"1.1" compatibleWith:@"~>1.0"],
+  STAssertTrue([@"1.1" checkVersion:@"~>1.0"],
                @"'1.1' should be compatible with '~>1.0'");
 }
 
