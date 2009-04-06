@@ -54,9 +54,6 @@ static NSString *kSupportMailURL =
 @property (nonatomic, retain) UIImage *pauseImage;
 @property (nonatomic, retain) UIImage *pauseHighlightImage;
 @property (nonatomic, retain) UIImage *rowBackgroundImage;
-@property (nonatomic, retain) UIImage *volumeMinimumTrackImage;
-@property (nonatomic, retain) UIImage *volumeMaximumTrackImage;
-@property (nonatomic, retain) UIImage *volumeThumbImage;
 
 - (void)stopRadio;
 
@@ -76,8 +73,7 @@ static NSString *kSupportMailURL =
 @implementation FRViewController
 
 @synthesize playImage, playHighlightImage, pauseImage, pauseHighlightImage,
-  rowBackgroundImage, volumeMinimumTrackImage,
-  volumeMaximumTrackImage, volumeThumbImage;
+  rowBackgroundImage;
 
 
 - (void)volumeChanged:(NSNotification *)notify {
@@ -515,13 +511,6 @@ static NSString *kSupportMailURL =
 	self.pauseImage = [UIImage imageNamed:@"pause.png"];
 	self.pauseHighlightImage = [UIImage imageNamed:@"pause-hl.png"];
 	self.rowBackgroundImage = [UIImage imageNamed:@"rowBackground.png"];
-	self.volumeMinimumTrackImage = [[UIImage imageNamed:@"volume-track.png"]
-									stretchableImageWithLeftCapWidth:38.0
-									topCapHeight:0.0];
-	self.volumeMaximumTrackImage = [[UIImage imageNamed:@"volume-track.png"]
-									stretchableImageWithLeftCapWidth:38.0
-									topCapHeight:0.0];
-	self.volumeThumbImage = [UIImage imageNamed:@"volume-thumb.png"];
     
 	NSMutableArray *loadingFiles = [[NSMutableArray alloc] init];
 	for (int index = 0; index < 4; index++) {
@@ -562,11 +551,15 @@ static NSString *kSupportMailURL =
 	frame.size.height = 53;
 	volumeSlider.frame = frame;
 	
-	[volumeSlider setMinimumTrackImage:volumeMinimumTrackImage
+	[volumeSlider setMinimumTrackImage:[[UIImage imageNamed:@"volume-track-l.png"]
+                                      stretchableImageWithLeftCapWidth:38.0
+                                      topCapHeight:0.0]
 							  forState:UIControlStateNormal];
-	[volumeSlider setMaximumTrackImage:volumeMaximumTrackImage
+	[volumeSlider setMaximumTrackImage:[[UIImage imageNamed:@"volume-track-r.png"]
+                                      stretchableImageWithLeftCapWidth:2.0
+                                      topCapHeight:0.0]
 							  forState:UIControlStateNormal];
-	[volumeSlider setThumbImage:volumeThumbImage
+	[volumeSlider setThumbImage:[UIImage imageNamed:@"volume-thumb.png"]
 					   forState:UIControlStateNormal];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self 
@@ -649,9 +642,6 @@ static NSString *kSupportMailURL =
 	self.pauseImage = nil;
 	self.pauseHighlightImage = nil;
 	self.rowBackgroundImage = nil;
-	self.volumeMinimumTrackImage = nil;
-	self.volumeMaximumTrackImage = nil;
-	self.volumeThumbImage = nil;
 	
 	[soundOnView release];
 	[soundOffView release];

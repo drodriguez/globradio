@@ -42,9 +42,6 @@
 	UIImage *pauseImage;
 	UIImage *pauseHighlightImage;
 	UIImage *rowBackgroundImage;
-	UIImage *volumeMinimumTrackImage;
-	UIImage *volumeMaximumTrackImage;
-	UIImage *volumeThumbImage;
 	
 	UIImageView *soundOnView;
 	UIImageView *soundOffView;

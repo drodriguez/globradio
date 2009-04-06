@@ -85,6 +85,8 @@
 		659F95210F8A3A270034B823 /* NSString+Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95200F8A3A270034B823 /* NSString+Version.m */; };
 		659F95260F8A6F6F0034B823 /* NSString+VersionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95250F8A6F6F0034B823 /* NSString+VersionTest.m */; };
 		659F95300F8A78E00034B823 /* NSString+Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95200F8A3A270034B823 /* NSString+Version.m */; };
+		659F95C00F8AAB930034B823 /* volume-track-l.png in Resources */ = {isa = PBXBuildFile; fileRef = 659F95BE0F8AAB930034B823 /* volume-track-l.png */; };
+		659F95C10F8AAB930034B823 /* volume-track-r.png in Resources */ = {isa = PBXBuildFile; fileRef = 659F95BF0F8AAB930034B823 /* volume-track-r.png */; };
 		65AC95670ED4AEEF00ADD701 /* radios.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65AC95660ED4AEEF00ADD701 /* radios.plist */; };
 		65B6E6BA0F545F99006E28B2 /* bottom-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B6E6AF0F545F99006E28B2 /* bottom-bar.png */; };
 		65B6E6BB0F545F99006E28B2 /* loading_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B6E6B00F545F99006E28B2 /* loading_0.png */; };
@@ -210,7 +212,6 @@
 		A7F1FE0B0F220F0A005F9CDC /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDFB0F220F0A005F9CDC /* play.png */; };
 		A7F1FE0C0F220F0A005F9CDC /* rowBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDFC0F220F0A005F9CDC /* rowBackground.png */; };
 		A7F1FE0D0F220F0A005F9CDC /* volume-thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDFD0F220F0A005F9CDC /* volume-thumb.png */; };
-		A7F1FE0E0F220F0A005F9CDC /* volume-track.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDFE0F220F0A005F9CDC /* volume-track.png */; };
 		A7F1FE6D0F221E01005F9CDC /* PLSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F1FE6C0F221E01005F9CDC /* PLSParser.m */; };
 		A7F458000F1AA48D005BF6F5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761150EE9C4BF00E2F2BE /* AudioToolbox.framework */; };
 		A7F458010F1AA48D005BF6F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761160EE9C4BF00E2F2BE /* CoreGraphics.framework */; };
@@ -310,6 +311,8 @@
 		659F95200F8A3A270034B823 /* NSString+Version.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Version.m"; sourceTree = "<group>"; };
 		659F95240F8A6F6F0034B823 /* NSString+VersionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+VersionTest.h"; path = "Test/NSString+VersionTest.h"; sourceTree = "<group>"; };
 		659F95250F8A6F6F0034B823 /* NSString+VersionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+VersionTest.m"; path = "Test/NSString+VersionTest.m"; sourceTree = "<group>"; };
+		659F95BE0F8AAB930034B823 /* volume-track-l.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "volume-track-l.png"; path = "Resources/FranceRadio/volume-track-l.png"; sourceTree = "<group>"; };
+		659F95BF0F8AAB930034B823 /* volume-track-r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "volume-track-r.png"; path = "Resources/FranceRadio/volume-track-r.png"; sourceTree = "<group>"; };
 		65AC95660ED4AEEF00ADD701 /* radios.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = radios.plist; path = Resources/RNERadio/radios.plist; sourceTree = "<group>"; };
 		65B6E6AF0F545F99006E28B2 /* bottom-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bottom-bar.png"; path = "Resources/FIFMRadio/bottom-bar.png"; sourceTree = "<group>"; };
 		65B6E6B00F545F99006E28B2 /* loading_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_0.png; path = Resources/FIFMRadio/loading_0.png; sourceTree = "<group>"; };
@@ -438,7 +441,6 @@
 		A7F1FDFB0F220F0A005F9CDC /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.png; path = Resources/FranceRadio/play.png; sourceTree = "<group>"; };
 		A7F1FDFC0F220F0A005F9CDC /* rowBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rowBackground.png; path = Resources/FranceRadio/rowBackground.png; sourceTree = "<group>"; };
 		A7F1FDFD0F220F0A005F9CDC /* volume-thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "volume-thumb.png"; path = "Resources/FranceRadio/volume-thumb.png"; sourceTree = "<group>"; };
-		A7F1FDFE0F220F0A005F9CDC /* volume-track.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "volume-track.png"; path = "Resources/FranceRadio/volume-track.png"; sourceTree = "<group>"; };
 		A7F1FE6B0F221E01005F9CDC /* PLSParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLSParser.h; sourceTree = "<group>"; };
 		A7F1FE6C0F221E01005F9CDC /* PLSParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLSParser.m; sourceTree = "<group>"; };
 		A7F4585B0F1AA61F005BF6F5 /* FranceRadio-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "FranceRadio-Info.plist"; path = "Resources/FranceRadio/FranceRadio-Info.plist"; sourceTree = "<group>"; };
@@ -819,6 +821,8 @@
 		A72A70310F1AA18F00A2BFD9 /* FranceRadio */ = {
 			isa = PBXGroup;
 			children = (
+				659F95BE0F8AAB930034B823 /* volume-track-l.png */,
+				659F95BF0F8AAB930034B823 /* volume-track-r.png */,
 				65F8AB0D0F6877CA003CF9F0 /* bottom-bar.png */,
 				65E762AF0F3A52E3005E3E64 /* mail-button-pressed.png */,
 				65E762B00F3A52E3005E3E64 /* www-button-pressed.png */,
@@ -840,7 +844,6 @@
 				A7F1FDFB0F220F0A005F9CDC /* play.png */,
 				A7F1FDFC0F220F0A005F9CDC /* rowBackground.png */,
 				A7F1FDFD0F220F0A005F9CDC /* volume-thumb.png */,
-				A7F1FDFE0F220F0A005F9CDC /* volume-track.png */,
 				A72A70440F1AA2F400A2BFD9 /* MainWindow.xib */,
 				A72A70460F1AA31100A2BFD9 /* FRViewController.xib */,
 				A72A704A0F1AA33F00A2BFD9 /* radios.plist */,
@@ -1132,12 +1135,13 @@
 				A7F1FE0B0F220F0A005F9CDC /* play.png in Resources */,
 				A7F1FE0C0F220F0A005F9CDC /* rowBackground.png in Resources */,
 				A7F1FE0D0F220F0A005F9CDC /* volume-thumb.png in Resources */,
-				A7F1FE0E0F220F0A005F9CDC /* volume-track.png in Resources */,
 				65FBA6B90F2B68920049574C /* mail-button.png in Resources */,
 				65FBA6BA0F2B68920049574C /* www-button.png in Resources */,
 				65E762B10F3A52E3005E3E64 /* mail-button-pressed.png in Resources */,
 				65E762B20F3A52E4005E3E64 /* www-button-pressed.png in Resources */,
 				65F8AB0E0F6877CA003CF9F0 /* bottom-bar.png in Resources */,
+				659F95C00F8AAB930034B823 /* volume-track-l.png in Resources */,
+				659F95C10F8AAB930034B823 /* volume-track-r.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
