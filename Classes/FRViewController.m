@@ -12,6 +12,7 @@
 #import "RNM3UParser.h"
 #import "Reachability.h"
 #import "UISlider+Volume.h"
+#import "NSString+Version.h"
 #import "TransparentGradientCell.h"
 #import <MediaPlayer/MediaPlayer.h>
 
@@ -550,8 +551,7 @@ static NSString *kSupportMailURL =
 	
 	// Find the slider
   id temp;
-  RNLog(@"System version: %@", [[UIDevice currentDevice] systemVersion]);
-  if ([[[UIDevice currentDevice] systemVersion] isEqualToString:@"3.0"]) {
+  if ([[[UIDevice currentDevice] systemVersion] compatibleWith:@">=3.0"]) {
     temp = [volumeView valueForKey:@"_internal"];
   } else {
     temp = volumeView;

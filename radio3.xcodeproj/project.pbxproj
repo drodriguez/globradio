@@ -82,6 +82,9 @@
 		658687A00ECF03A000EB9D99 /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
 		658687A30ECF040200EB9D99 /* RNM3UParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 658687A20ECF040200EB9D99 /* RNM3UParserTest.m */; };
 		658CC7AB0F65368800DC6372 /* default-album-cover.png in Resources */ = {isa = PBXBuildFile; fileRef = 658CC7AA0F65368800DC6372 /* default-album-cover.png */; };
+		659F95210F8A3A270034B823 /* NSString+Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95200F8A3A270034B823 /* NSString+Version.m */; };
+		659F95260F8A6F6F0034B823 /* NSString+VersionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95250F8A6F6F0034B823 /* NSString+VersionTest.m */; };
+		659F95300F8A78E00034B823 /* NSString+Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95200F8A3A270034B823 /* NSString+Version.m */; };
 		65AC95670ED4AEEF00ADD701 /* radios.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65AC95660ED4AEEF00ADD701 /* radios.plist */; };
 		65B6E6BA0F545F99006E28B2 /* bottom-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B6E6AF0F545F99006E28B2 /* bottom-bar.png */; };
 		65B6E6BB0F545F99006E28B2 /* loading_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B6E6B00F545F99006E28B2 /* loading_0.png */; };
@@ -303,6 +306,10 @@
 		658687A10ECF040200EB9D99 /* RNM3UParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNM3UParserTest.h; path = Test/RNM3UParserTest.h; sourceTree = "<group>"; };
 		658687A20ECF040200EB9D99 /* RNM3UParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNM3UParserTest.m; path = Test/RNM3UParserTest.m; sourceTree = "<group>"; };
 		658CC7AA0F65368800DC6372 /* default-album-cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default-album-cover.png"; path = "Resources/FIFMRadio/default-album-cover.png"; sourceTree = "<group>"; };
+		659F951F0F8A3A270034B823 /* NSString+Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Version.h"; sourceTree = "<group>"; };
+		659F95200F8A3A270034B823 /* NSString+Version.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Version.m"; sourceTree = "<group>"; };
+		659F95240F8A6F6F0034B823 /* NSString+VersionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+VersionTest.h"; path = "Test/NSString+VersionTest.h"; sourceTree = "<group>"; };
+		659F95250F8A6F6F0034B823 /* NSString+VersionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+VersionTest.m"; path = "Test/NSString+VersionTest.m"; sourceTree = "<group>"; };
 		65AC95660ED4AEEF00ADD701 /* radios.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = radios.plist; path = Resources/RNERadio/radios.plist; sourceTree = "<group>"; };
 		65B6E6AF0F545F99006E28B2 /* bottom-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bottom-bar.png"; path = "Resources/FIFMRadio/bottom-bar.png"; sourceTree = "<group>"; };
 		65B6E6B00F545F99006E28B2 /* loading_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_0.png; path = Resources/FIFMRadio/loading_0.png; sourceTree = "<group>"; };
@@ -546,6 +553,8 @@
 				65BF601C0F6721920019FE2D /* UISlider+Volume.h */,
 				653A643E0F87D2BA00EDB548 /* TransparentGradientCell.h */,
 				653A643F0F87D2BA00EDB548 /* TransparentGradientCell.m */,
+				659F951F0F8A3A270034B823 /* NSString+Version.h */,
+				659F95200F8A3A270034B823 /* NSString+Version.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -741,6 +750,8 @@
 			children = (
 				658687A10ECF040200EB9D99 /* RNM3UParserTest.h */,
 				658687A20ECF040200EB9D99 /* RNM3UParserTest.m */,
+				659F95240F8A6F6F0034B823 /* NSString+VersionTest.h */,
+				659F95250F8A6F6F0034B823 /* NSString+VersionTest.m */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -1308,6 +1319,8 @@
 				658687920ECF023100EB9D99 /* GTMSenTestCase.m in Sources */,
 				658687A00ECF03A000EB9D99 /* RNM3UParser.m in Sources */,
 				658687A30ECF040200EB9D99 /* RNM3UParserTest.m in Sources */,
+				659F95260F8A6F6F0034B823 /* NSString+VersionTest.m in Sources */,
+				659F95300F8A78E00034B823 /* NSString+Version.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1336,6 +1349,7 @@
 				A7A738B20F1AAEB900CBD73A /* FRViewController.m in Sources */,
 				A7F1FE6D0F221E01005F9CDC /* PLSParser.m in Sources */,
 				653A64400F87D2BA00EDB548 /* TransparentGradientCell.m in Sources */,
+				659F95210F8A3A270034B823 /* NSString+Version.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1437,7 +1451,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
 				GCC_PREPROCESSOR_DEFINITIONS = TESTING;
-				INFOPLIST_FILE = "Unit tests-Info.plist";
+				INFOPLIST_FILE = "Resources/Unit tests-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -1493,7 +1507,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
 				GCC_PREPROCESSOR_DEFINITIONS = TESTING;
-				INFOPLIST_FILE = "Unit tests-Info.plist";
+				INFOPLIST_FILE = "Resources/Unit tests-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -1625,7 +1639,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
 				GCC_PREPROCESSOR_DEFINITIONS = TESTING;
-				INFOPLIST_FILE = "Unit tests-Info.plist";
+				INFOPLIST_FILE = "Resources/Unit tests-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -1650,7 +1664,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
 				GCC_PREPROCESSOR_DEFINITIONS = TESTING;
-				INFOPLIST_FILE = "Unit tests-Info.plist";
+				INFOPLIST_FILE = "Resources/Unit tests-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
 					"-framework",
