@@ -48,8 +48,6 @@
 	
 	UIView *infoView;
 	UIView *radiosView;
-	
-	UISlider *volumeSlider;
 }
 
 - (IBAction)controlButtonClicked:(UIButton *)button;

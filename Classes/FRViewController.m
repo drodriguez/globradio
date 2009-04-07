@@ -11,10 +11,11 @@
 #import "PLSParser.h"
 #import "RNM3UParser.h"
 #import "Reachability.h"
-#import "UISlider+Volume.h"
-#import "NSString+Version.h"
+#import "RRQNSString+Version.h"
+#import "RRQVolumeView.h"
 #import "TransparentGradientCell.h"
-#import <MediaPlayer/MediaPlayer.h>
+
+
 
 enum FRSections {
 	FRRadioSection,
@@ -74,11 +75,6 @@ static NSString *kSupportMailURL =
 
 @synthesize playImage, playHighlightImage, pauseImage, pauseHighlightImage,
   rowBackgroundImage;
-
-
-- (void)volumeChanged:(NSNotification *)notify {
-	[volumeSlider _updateVolumeFromAVSystemController];
-}
 
 - (IBAction)controlButtonClicked:(UIButton *)button {
 	if (isPlaying) {
@@ -218,7 +214,7 @@ static NSString *kSupportMailURL =
 
 
 - (NSString *)getRadioURL:(NSString *)radioAddress {
-
+  
 	if ([radioAddress rangeOfString:@".pls"].length > 0) {
     RNLog(@"getRadioURL pls radioAddress %@", radioAddress);
 		NSURL *plsUrl = [NSURL URLWithString:radioAddress];
@@ -527,46 +523,13 @@ static NSString *kSupportMailURL =
 	// Build accessory views
 	soundOnView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"altavoz-on.png"]];
 	soundOffView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"altavoz.png"]];
-	/*
-	 accessoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 37, 33)];
-	 accessoryView.backgroundColor = self.soundOffColor;
-	 accessoryView.opaque = NO;
-	 */
 	
 	// Set up slider
-	MPVolumeView *volumeView =
-    [[[MPVolumeView alloc] initWithFrame:volumeViewHolder.bounds] autorelease];
+	RRQVolumeView *volumeView =
+    [[[RRQVolumeView alloc] initWithFrame:volumeViewHolder.bounds] autorelease];
 	[volumeViewHolder addSubview:volumeView];
-	
-	// Find the slider
-  id temp;
-  if ([[[UIDevice currentDevice] systemVersion] checkVersion:@">=3.0"]) {
-    temp = [volumeView valueForKey:@"_internal"];
-  } else {
-    temp = volumeView;
-  }
-  volumeSlider = [temp valueForKey:@"_volumeSlider"];
-
-	CGRect frame = volumeView.frame;
-	frame.size.height = 53;
-	volumeSlider.frame = frame;
-	
-	[volumeSlider setMinimumTrackImage:[[UIImage imageNamed:@"volume-track-l.png"]
-                                      stretchableImageWithLeftCapWidth:38.0
-                                      topCapHeight:0.0]
-							  forState:UIControlStateNormal];
-	[volumeSlider setMaximumTrackImage:[[UIImage imageNamed:@"volume-track-r.png"]
-                                      stretchableImageWithLeftCapWidth:2.0
-                                      topCapHeight:0.0]
-							  forState:UIControlStateNormal];
-	[volumeSlider setThumbImage:[UIImage imageNamed:@"volume-thumb.png"]
-					   forState:UIControlStateNormal];
-	
-	[[NSNotificationCenter defaultCenter] addObserver:self 
-											 selector:@selector(volumeChanged:) 
-												 name:@"AVSystemController_SystemVolumeDidChangeNotification" 
-											   object:nil];
-	
+  [volumeView finalSetup];
+  	
 	// Loading subviews from the nib files
 	NSBundle *mainBundle = [NSBundle mainBundle];
 	[mainBundle loadNibNamed:@"InfoView"
@@ -620,7 +583,7 @@ static NSString *kSupportMailURL =
 - (void)viewDidAppear:(BOOL)animated {
 	// Needed to start receiving reachibility status notifications
 	[[Reachability sharedReachability] remoteHostStatus];
-	
+    
 	[super viewDidAppear:animated];
 }
 
