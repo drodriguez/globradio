@@ -48,7 +48,11 @@
 		653CE3790F5AE69B00445A02 /* FIArtistInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 653CE3780F5AE69B00445A02 /* FIArtistInfo.m */; };
 		653CE4310F5AFFB000445A02 /* lastfm.plist in Resources */ = {isa = PBXBuildFile; fileRef = 653CE4300F5AFFB000445A02 /* lastfm.plist */; };
 		653F4BD20F2A7D21005067F5 /* ShoutcastAudioClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 653F4BD10F2A7D21005067F5 /* ShoutcastAudioClass.m */; };
+		654504440F8BF7650001D90B /* RRQVolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 654504430F8BF7650001D90B /* RRQVolumeView.m */; };
+		654504450F8BF7650001D90B /* RRQVolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 654504430F8BF7650001D90B /* RRQVolumeView.m */; };
+		654504460F8BF7650001D90B /* RRQVolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 654504430F8BF7650001D90B /* RRQVolumeView.m */; };
 		654B1E560ECDFDD500E28E7E /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
+		6558DA440F8B96FF00A80AC7 /* RRQUIView+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 6558DA430F8B96FF00A80AC7 /* RRQUIView+Description.m */; };
 		656BFC380F03A4FD006A3F15 /* FIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 656BFC370F03A4FD006A3F15 /* FIAppDelegate.m */; };
 		656BFC440F03A80E006A3F15 /* FIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656BFC430F03A80E006A3F15 /* FIViewController.m */; };
 		656BFC4B0F03B6E0006A3F15 /* AudioClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* AudioClass.m */; };
@@ -82,9 +86,9 @@
 		658687A00ECF03A000EB9D99 /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
 		658687A30ECF040200EB9D99 /* RNM3UParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 658687A20ECF040200EB9D99 /* RNM3UParserTest.m */; };
 		658CC7AB0F65368800DC6372 /* default-album-cover.png in Resources */ = {isa = PBXBuildFile; fileRef = 658CC7AA0F65368800DC6372 /* default-album-cover.png */; };
-		659F95210F8A3A270034B823 /* NSString+Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95200F8A3A270034B823 /* NSString+Version.m */; };
+		659F95210F8A3A270034B823 /* RRQNSString+Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95200F8A3A270034B823 /* RRQNSString+Version.m */; };
 		659F95260F8A6F6F0034B823 /* NSString+VersionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95250F8A6F6F0034B823 /* NSString+VersionTest.m */; };
-		659F95300F8A78E00034B823 /* NSString+Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95200F8A3A270034B823 /* NSString+Version.m */; };
+		659F95300F8A78E00034B823 /* RRQNSString+Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95200F8A3A270034B823 /* RRQNSString+Version.m */; };
 		659F95C00F8AAB930034B823 /* volume-track-l.png in Resources */ = {isa = PBXBuildFile; fileRef = 659F95BE0F8AAB930034B823 /* volume-track-l.png */; };
 		659F95C10F8AAB930034B823 /* volume-track-r.png in Resources */ = {isa = PBXBuildFile; fileRef = 659F95BF0F8AAB930034B823 /* volume-track-r.png */; };
 		65AC95670ED4AEEF00ADD701 /* radios.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65AC95660ED4AEEF00ADD701 /* radios.plist */; };
@@ -255,8 +259,6 @@
 		651606C90ED8A2C00031CDBE /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.png; path = Resources/RNERadio/play.png; sourceTree = "<group>"; };
 		651606CC0ED8A5D70031CDBE /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = Resources/RNERadio/pause.png; sourceTree = "<group>"; };
 		65255AD80EE574C100F4142C /* play-hl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play-hl.png"; path = "Resources/RNERadio/play-hl.png"; sourceTree = "<group>"; };
-		652834A20F085C6D001CEA65 /* FIShoutcastMetadataFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIShoutcastMetadataFilter.h; sourceTree = "<group>"; };
-		652834A30F085C6D001CEA65 /* FIShoutcastMetadataFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIShoutcastMetadataFilter.m; sourceTree = "<group>"; };
 		6534D16F0EDCA968008B1124 /* volume-thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "volume-thumb.png"; path = "Resources/RNERadio/volume-thumb.png"; sourceTree = "<group>"; };
 		6534D1700EDCA968008B1124 /* volume-track.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "volume-track.png"; path = "Resources/RNERadio/volume-track.png"; sourceTree = "<group>"; };
 		653A643E0F87D2BA00EDB548 /* TransparentGradientCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentGradientCell.h; sourceTree = "<group>"; };
@@ -268,8 +270,12 @@
 		653CE4300F5AFFB000445A02 /* lastfm.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = lastfm.plist; path = Resources/FIFMRadio/lastfm.plist; sourceTree = "<group>"; };
 		653F4BD00F2A7D21005067F5 /* ShoutcastAudioClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoutcastAudioClass.h; sourceTree = "<group>"; };
 		653F4BD10F2A7D21005067F5 /* ShoutcastAudioClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoutcastAudioClass.m; sourceTree = "<group>"; };
+		654504420F8BF7650001D90B /* RRQVolumeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRQVolumeView.h; sourceTree = "<group>"; };
+		654504430F8BF7650001D90B /* RRQVolumeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRQVolumeView.m; sourceTree = "<group>"; };
 		654B1E540ECDFDD500E28E7E /* RNM3UParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNM3UParser.h; sourceTree = "<group>"; };
 		654B1E550ECDFDD500E28E7E /* RNM3UParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNM3UParser.m; sourceTree = "<group>"; };
+		6558DA420F8B96FF00A80AC7 /* RRQUIView+Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RRQUIView+Description.h"; sourceTree = "<group>"; };
+		6558DA430F8B96FF00A80AC7 /* RRQUIView+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RRQUIView+Description.m"; sourceTree = "<group>"; };
 		6560FA1B0EF7B3EF007809DB /* update_build_number.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = update_build_number.rb; path = Scripts/update_build_number.rb; sourceTree = "<group>"; };
 		65652ECE0F64465B0000EB29 /* FIArtistInfo+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FIArtistInfo+Private.h"; sourceTree = "<group>"; };
 		65652ECF0F6446990000EB29 /* FIAlbumInfo+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FIAlbumInfo+Private.h"; sourceTree = "<group>"; };
@@ -307,8 +313,8 @@
 		658687A10ECF040200EB9D99 /* RNM3UParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNM3UParserTest.h; path = Test/RNM3UParserTest.h; sourceTree = "<group>"; };
 		658687A20ECF040200EB9D99 /* RNM3UParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNM3UParserTest.m; path = Test/RNM3UParserTest.m; sourceTree = "<group>"; };
 		658CC7AA0F65368800DC6372 /* default-album-cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default-album-cover.png"; path = "Resources/FIFMRadio/default-album-cover.png"; sourceTree = "<group>"; };
-		659F951F0F8A3A270034B823 /* NSString+Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Version.h"; sourceTree = "<group>"; };
-		659F95200F8A3A270034B823 /* NSString+Version.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Version.m"; sourceTree = "<group>"; };
+		659F951F0F8A3A270034B823 /* RRQNSString+Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RRQNSString+Version.h"; sourceTree = "<group>"; };
+		659F95200F8A3A270034B823 /* RRQNSString+Version.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RRQNSString+Version.m"; sourceTree = "<group>"; };
 		659F95240F8A6F6F0034B823 /* NSString+VersionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+VersionTest.h"; path = "Test/NSString+VersionTest.h"; sourceTree = "<group>"; };
 		659F95250F8A6F6F0034B823 /* NSString+VersionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+VersionTest.m"; path = "Test/NSString+VersionTest.m"; sourceTree = "<group>"; };
 		659F95BE0F8AAB930034B823 /* volume-track-l.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "volume-track-l.png"; path = "Resources/FranceRadio/volume-track-l.png"; sourceTree = "<group>"; };
@@ -337,7 +343,7 @@
 		65BD5E240F09B9F000D283D4 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/KissRadio/iTunesArtwork; sourceTree = "<group>"; };
 		65BDFF170F30F78900FAD5FD /* mail-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail-button.png"; path = "Resources/RNERadio/mail-button.png"; sourceTree = "<group>"; };
 		65BDFF180F30F78900FAD5FD /* www-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "www-button.png"; path = "Resources/RNERadio/www-button.png"; sourceTree = "<group>"; };
-		65BF601C0F6721920019FE2D /* UISlider+Volume.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISlider+Volume.h"; sourceTree = "<group>"; };
+		65BF601C0F6721920019FE2D /* RRQUISlider+Volume.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RRQUISlider+Volume.h"; sourceTree = "<group>"; };
 		65BF602B0F6729700019FE2D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/FIFMRadio/Default.png; sourceTree = "<group>"; };
 		65C452920EED3D77006AB1DD /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		65C452930EED3D77006AB1DD /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -552,11 +558,15 @@
 				A7F1FE6C0F221E01005F9CDC /* PLSParser.m */,
 				653F4BD00F2A7D21005067F5 /* ShoutcastAudioClass.h */,
 				653F4BD10F2A7D21005067F5 /* ShoutcastAudioClass.m */,
-				65BF601C0F6721920019FE2D /* UISlider+Volume.h */,
+				65BF601C0F6721920019FE2D /* RRQUISlider+Volume.h */,
 				653A643E0F87D2BA00EDB548 /* TransparentGradientCell.h */,
 				653A643F0F87D2BA00EDB548 /* TransparentGradientCell.m */,
-				659F951F0F8A3A270034B823 /* NSString+Version.h */,
-				659F95200F8A3A270034B823 /* NSString+Version.m */,
+				659F951F0F8A3A270034B823 /* RRQNSString+Version.h */,
+				659F95200F8A3A270034B823 /* RRQNSString+Version.m */,
+				6558DA420F8B96FF00A80AC7 /* RRQUIView+Description.h */,
+				6558DA430F8B96FF00A80AC7 /* RRQUIView+Description.m */,
+				654504420F8BF7650001D90B /* RRQVolumeView.h */,
+				654504430F8BF7650001D90B /* RRQVolumeView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -654,8 +664,6 @@
 				656BFC370F03A4FD006A3F15 /* FIAppDelegate.m */,
 				656BFC420F03A80E006A3F15 /* FIViewController.h */,
 				656BFC430F03A80E006A3F15 /* FIViewController.m */,
-				652834A20F085C6D001CEA65 /* FIShoutcastMetadataFilter.h */,
-				652834A30F085C6D001CEA65 /* FIShoutcastMetadataFilter.m */,
 				65B6E6DC0F5479C6006E28B2 /* FIAlbumView.h */,
 				65B6E6DD0F5479C6006E28B2 /* FIAlbumView.m */,
 				65F8171B0F5833D100B7990A /* FILastFMDataProvider.h */,
@@ -1281,6 +1289,7 @@
 				654B1E560ECDFDD500E28E7E /* RNM3UParser.m in Sources */,
 				65C452940EED3D77006AB1DD /* Reachability.m in Sources */,
 				65FD71870EF9AC4600C6FBD6 /* RNFileLogger.m in Sources */,
+				654504460F8BF7650001D90B /* RRQVolumeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1311,6 +1320,7 @@
 				65F817950F58551500B7990A /* FITrackInfo.m in Sources */,
 				653CE3700F5AE15C00445A02 /* FIAlbumInfo.m in Sources */,
 				653CE3790F5AE69B00445A02 /* FIArtistInfo.m in Sources */,
+				654504450F8BF7650001D90B /* RRQVolumeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1324,7 +1334,7 @@
 				658687A00ECF03A000EB9D99 /* RNM3UParser.m in Sources */,
 				658687A30ECF040200EB9D99 /* RNM3UParserTest.m in Sources */,
 				659F95260F8A6F6F0034B823 /* NSString+VersionTest.m in Sources */,
-				659F95300F8A78E00034B823 /* NSString+Version.m in Sources */,
+				659F95300F8A78E00034B823 /* RRQNSString+Version.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1353,7 +1363,9 @@
 				A7A738B20F1AAEB900CBD73A /* FRViewController.m in Sources */,
 				A7F1FE6D0F221E01005F9CDC /* PLSParser.m in Sources */,
 				653A64400F87D2BA00EDB548 /* TransparentGradientCell.m in Sources */,
-				659F95210F8A3A270034B823 /* NSString+Version.m in Sources */,
+				659F95210F8A3A270034B823 /* RRQNSString+Version.m in Sources */,
+				6558DA440F8B96FF00A80AC7 /* RRQUIView+Description.m in Sources */,
+				654504440F8BF7650001D90B /* RRQVolumeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
