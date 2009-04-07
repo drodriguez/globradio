@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSString (Version)
+@interface NSString (RRQVersion)
 
 - (BOOL)checkVersion:(NSString *)version;
 

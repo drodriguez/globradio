@@ -7,7 +7,7 @@
  *
  */
 
-@interface UISlider (Volume)
+@interface UISlider (RRQVolume)
 
 - _updateVolumeFromAVSystemController;
 

@@ -6,7 +6,7 @@
 //  Copyright 2009 Daniel Rodríguez Troitiño. All rights reserved.
 //
 
-#import "NSString+Version.h"
+#import "RRQNSString+Version.h"
 
 #ifdef TESTING
 #  define STATIC_MODIFIER
@@ -90,7 +90,7 @@ STATIC_MODIFIER BOOL versionCompatible(NSMutableArray *a1, NSMutableArray *a2) {
   return compareVersions(a1, a2) >= 0 && compareVersions(a1, a3) < 0;
 }
 
-@implementation NSString (Version)
+@implementation NSString (RRQVersion)
 
 - (BOOL)checkVersion:(NSString *)version {
   int startIndex;
