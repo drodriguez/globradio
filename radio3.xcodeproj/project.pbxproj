@@ -43,7 +43,7 @@
 		65255AD90EE574C100F4142C /* play-hl.png in Resources */ = {isa = PBXBuildFile; fileRef = 65255AD80EE574C100F4142C /* play-hl.png */; };
 		6534D1710EDCA968008B1124 /* volume-thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 6534D16F0EDCA968008B1124 /* volume-thumb.png */; };
 		6534D1720EDCA968008B1124 /* volume-track.png in Resources */ = {isa = PBXBuildFile; fileRef = 6534D1700EDCA968008B1124 /* volume-track.png */; };
-		653A64400F87D2BA00EDB548 /* TransparentGradientCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 653A643F0F87D2BA00EDB548 /* TransparentGradientCell.m */; };
+		653A64400F87D2BA00EDB548 /* RRQTransparentGradientCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 653A643F0F87D2BA00EDB548 /* RRQTransparentGradientCell.m */; };
 		653CE3700F5AE15C00445A02 /* FIAlbumInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 653CE36F0F5AE15C00445A02 /* FIAlbumInfo.m */; };
 		653CE3790F5AE69B00445A02 /* FIArtistInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 653CE3780F5AE69B00445A02 /* FIArtistInfo.m */; };
 		653CE4310F5AFFB000445A02 /* lastfm.plist in Resources */ = {isa = PBXBuildFile; fileRef = 653CE4300F5AFFB000445A02 /* lastfm.plist */; };
@@ -261,8 +261,8 @@
 		65255AD80EE574C100F4142C /* play-hl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play-hl.png"; path = "Resources/RNERadio/play-hl.png"; sourceTree = "<group>"; };
 		6534D16F0EDCA968008B1124 /* volume-thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "volume-thumb.png"; path = "Resources/RNERadio/volume-thumb.png"; sourceTree = "<group>"; };
 		6534D1700EDCA968008B1124 /* volume-track.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "volume-track.png"; path = "Resources/RNERadio/volume-track.png"; sourceTree = "<group>"; };
-		653A643E0F87D2BA00EDB548 /* TransparentGradientCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentGradientCell.h; sourceTree = "<group>"; };
-		653A643F0F87D2BA00EDB548 /* TransparentGradientCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentGradientCell.m; sourceTree = "<group>"; };
+		653A643E0F87D2BA00EDB548 /* RRQTransparentGradientCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRQTransparentGradientCell.h; sourceTree = "<group>"; };
+		653A643F0F87D2BA00EDB548 /* RRQTransparentGradientCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRQTransparentGradientCell.m; sourceTree = "<group>"; };
 		653CE36E0F5AE15C00445A02 /* FIAlbumInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIAlbumInfo.h; sourceTree = "<group>"; };
 		653CE36F0F5AE15C00445A02 /* FIAlbumInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIAlbumInfo.m; sourceTree = "<group>"; };
 		653CE3770F5AE69B00445A02 /* FIArtistInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIArtistInfo.h; sourceTree = "<group>"; };
@@ -559,8 +559,8 @@
 				653F4BD00F2A7D21005067F5 /* ShoutcastAudioClass.h */,
 				653F4BD10F2A7D21005067F5 /* ShoutcastAudioClass.m */,
 				65BF601C0F6721920019FE2D /* RRQUISlider+Volume.h */,
-				653A643E0F87D2BA00EDB548 /* TransparentGradientCell.h */,
-				653A643F0F87D2BA00EDB548 /* TransparentGradientCell.m */,
+				653A643E0F87D2BA00EDB548 /* RRQTransparentGradientCell.h */,
+				653A643F0F87D2BA00EDB548 /* RRQTransparentGradientCell.m */,
 				659F951F0F8A3A270034B823 /* RRQNSString+Version.h */,
 				659F95200F8A3A270034B823 /* RRQNSString+Version.m */,
 				6558DA420F8B96FF00A80AC7 /* RRQUIView+Description.h */,
@@ -1362,7 +1362,7 @@
 				A7A738B10F1AAEB100CBD73A /* RNM3UParser.m in Sources */,
 				A7A738B20F1AAEB900CBD73A /* FRViewController.m in Sources */,
 				A7F1FE6D0F221E01005F9CDC /* PLSParser.m in Sources */,
-				653A64400F87D2BA00EDB548 /* TransparentGradientCell.m in Sources */,
+				653A64400F87D2BA00EDB548 /* RRQTransparentGradientCell.m in Sources */,
 				659F95210F8A3A270034B823 /* RRQNSString+Version.m in Sources */,
 				6558DA440F8B96FF00A80AC7 /* RRQUIView+Description.m in Sources */,
 				654504440F8BF7650001D90B /* RRQVolumeView.m in Sources */,

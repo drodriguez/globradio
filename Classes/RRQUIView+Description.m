@@ -50,9 +50,9 @@
 		cx = v.center.x;
 		cy = v.center.y;
 		
-		[str appendFormat:@"+%@ <%s> retain:%d - tag:%d - bgcolor:(%@)\n"
+		[str appendFormat:@"+%@ <%s> retain:%d - tag:%d - bgcolor:(%@) - opaque:%@\n"
 		 @"%@ bounds: x:%.0f y:%.0f w:%.0f h:%.0f - frame: x:%.0f y:%.0f w:%.0f h:%.0f - center: x:%.0f, y:%.0f\n", 
-     indentString1, class_getName([v class]), v.retainCount, v.tag, [self listColor:v.backgroundColor],
+     indentString1, class_getName([v class]), v.retainCount, v.tag, [self listColor:v.backgroundColor], self.opaque ? @"YES" : @"NO",
 		 indentString2, bx, by, bw, bh, fx, fy, fw, fh, cx, cy];
 		if ([v isKindOfClass:[UILabel class]]) {
 			UILabel* label = (UILabel*) v;

@@ -13,7 +13,7 @@
 #import "Reachability.h"
 #import "RRQNSString+Version.h"
 #import "RRQVolumeView.h"
-#import "TransparentGradientCell.h"
+#import "RRQTransparentGradientCell.h"
 
 
 
@@ -450,20 +450,13 @@ static NSString *kSupportMailURL =
 	
 	static NSString *CellIdentifier = @"Cell";
 	
-	UITableViewCell *cell =
+	RRQTransparentGradientCell *cell = (RRQTransparentGradientCell *)
     [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil) {
-		cell = [[[UITableViewCell alloc]
+		cell = [[[RRQTransparentGradientCell alloc]
              initWithFrame:CGRectZero
              reuseIdentifier:CellIdentifier] autorelease];
-    cell.textColor = [UIColor whiteColor];
-    
-    UIImageView *backgroundView =
-      [[UIImageView alloc] initWithImage:self.rowBackgroundImage];
-    backgroundView.opaque = NO;
-    cell.backgroundView = backgroundView;
-    [backgroundView release];
-	}
+  }
 	
 	cell.text = [radiosList objectAtIndex:indexPath.row];
 	
@@ -475,7 +468,7 @@ static NSString *kSupportMailURL =
 	} else {
 		[cell setAccessoryView:nil];
 	}
-	
+    
 	return cell;
 }
 
