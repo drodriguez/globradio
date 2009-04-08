@@ -11,7 +11,7 @@
 #import "Reachability.h"
 #import "FIAlbumView.h"
 #import "FILastFMDataProvider.h"
-#import "UISlider+Volume.h"
+#import "RRQVolumeView.h"
 
 NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
 // NSString *kFIFMRadioURL = @"http://scfire-ntc-aa10.stream.aol.com:80/stream/1040";
@@ -254,11 +254,6 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
                         context:context];
 }
 
-- (void)volumeChanged:(NSNotification *)notify {
-  RNLog(@"volume changed");
-  [volumeSlider _updateVolumeFromAVSystemController];
-}
-
 - (UILabel *)changeLabel:(UILabel *)label withString:(NSString *)newString orElse:(NSString *)defaultString {
   UILabel *newLabel = [[[UILabel alloc] initWithFrame:label.frame] autorelease];
   newLabel.font = label.font;
@@ -349,38 +344,11 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
   [loadingFiles release];
   
   // Set up the volume slider
-  MPVolumeView *volumeView =
-    [[[MPVolumeView alloc] initWithFrame:volumeViewHolder.bounds] autorelease];
+  RRQVolumeView *volumeView =
+    [[[RRQVolumeView alloc] initWithFrame:volumeViewHolder.bounds] autorelease];
   [volumeViewHolder addSubview:volumeView];
-  
-  // Find the slider
-  id temp = [volumeView valueForKey:@"_internal"];
-  volumeSlider = [temp valueForKey:@"_volumeSlider"];
-  CGRect frame = volumeView.frame;
-  frame.size.height = 53;
-  volumeSlider.frame = frame;
-  NSLog(@"volumeSlider.frame.size.height %d", volumeSlider.frame.size.height);
-  
-  UIImage *volumeMinimumTrackImage = [[UIImage imageNamed:@"volume-track.png"]
-                                      stretchableImageWithLeftCapWidth:38.0
-                                                          topCapHeight:0.0];
-  UIImage *volumeMaximumTrackImage = [[UIImage imageNamed:@"volume-track.png"]
-                                      stretchableImageWithLeftCapWidth:38.0
-                                                          topCapHeight:0.0];
-  UIImage *volumeThumbImage = [UIImage imageNamed:@"volume-thumb.png"];
-  
-  [volumeSlider setMinimumTrackImage:volumeMinimumTrackImage
-                            forState:UIControlStateNormal];
-  [volumeSlider setMaximumTrackImage:volumeMaximumTrackImage
-                            forState:UIControlStateNormal];
-  [volumeSlider setThumbImage:volumeThumbImage
-                     forState:UIControlStateNormal];
-  
-  [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(volumeChanged:)
-                                               name:@"AVSystemController_SystemVolumeDidChangeNotification"
-                                             object:nil];
-  
+  [volumeView finalSetup];
+    
   // Setup the data provider
   NSString *lastFMConfigPath = [[NSBundle mainBundle] pathForResource:@"lastfm"
                                                                ofType:@"plist"];

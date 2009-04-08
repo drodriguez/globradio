@@ -41,7 +41,6 @@
 	UIImage *playHighlightImage;
 	UIImage *pauseImage;
 	UIImage *pauseHighlightImage;
-	UIImage *rowBackgroundImage;
 	
 	UIImageView *soundOnView;
 	UIImageView *soundOffView;

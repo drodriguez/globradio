@@ -11,7 +11,6 @@
 #import "PLSParser.h"
 #import "RNM3UParser.h"
 #import "Reachability.h"
-#import "RRQNSString+Version.h"
 #import "RRQVolumeView.h"
 #import "RRQTransparentGradientCell.h"
 
@@ -54,7 +53,6 @@ static NSString *kSupportMailURL =
 @property (nonatomic, retain) UIImage *playHighlightImage;
 @property (nonatomic, retain) UIImage *pauseImage;
 @property (nonatomic, retain) UIImage *pauseHighlightImage;
-@property (nonatomic, retain) UIImage *rowBackgroundImage;
 
 - (void)stopRadio;
 
@@ -73,8 +71,7 @@ static NSString *kSupportMailURL =
 
 @implementation FRViewController
 
-@synthesize playImage, playHighlightImage, pauseImage, pauseHighlightImage,
-  rowBackgroundImage;
+@synthesize playImage, playHighlightImage, pauseImage, pauseHighlightImage;
 
 - (IBAction)controlButtonClicked:(UIButton *)button {
 	if (isPlaying) {
@@ -499,7 +496,6 @@ static NSString *kSupportMailURL =
 	self.playHighlightImage = [UIImage imageNamed:@"play-hl.png"];
 	self.pauseImage = [UIImage imageNamed:@"pause.png"];
 	self.pauseHighlightImage = [UIImage imageNamed:@"pause-hl.png"];
-	self.rowBackgroundImage = [UIImage imageNamed:@"rowBackground.png"];
     
 	NSMutableArray *loadingFiles = [[NSMutableArray alloc] init];
 	for (int index = 0; index < 4; index++) {
@@ -597,7 +593,6 @@ static NSString *kSupportMailURL =
 	self.playHighlightImage = nil;
 	self.pauseImage = nil;
 	self.pauseHighlightImage = nil;
-	self.rowBackgroundImage = nil;
 	
 	[soundOnView release];
 	[soundOffView release];

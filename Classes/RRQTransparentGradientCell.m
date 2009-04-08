@@ -24,6 +24,7 @@
     self.backgroundView = backgroundView;
     [backgroundView release];
     self.opaque = NO;
+    // FIX: There is a warning in this line, but I don't know why exactly.
     [self.layer setBackgroundColor:[UIColor clearColor].CGColor];
   }
   
