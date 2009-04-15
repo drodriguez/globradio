@@ -1,5 +1,5 @@
 //
-//  PLSParser.h
+//  RRQPLSParser.h
 //  radio3
 //
 //  Created by Javier Quevedo on 1/17/09.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PLSParser : NSObject {
+@interface RRQPLSParser : NSObject {
 @private
 	NSString *contents;
 }

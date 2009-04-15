@@ -1,15 +1,15 @@
 //
-//  PLSParser.m
+//  RRQPLSParser.m
 //  radio3
 //
 //  Created by Javier Quevedo on 1/17/09.
 //  Copyright Daniel Rodríguez and Javier Quevedo 2009. All rights reserved.
 //
 
-#import "PLSParser.h"
+#import "RRQPLSParser.h"
 
 
-@implementation PLSParser
+@implementation RRQPLSParser
 
 - (id)init {
 	return [self initWithContents:nil];
@@ -29,8 +29,8 @@
 }
 
 + (NSArray *)parse:(NSString *)c {
-	PLSParser *parser =
-    [[[PLSParser alloc] initWithContents:c] autorelease];
+	RRQPLSParser *parser =
+    [[[RRQPLSParser alloc] initWithContents:c] autorelease];
 	
 	return [parser parse];
 }

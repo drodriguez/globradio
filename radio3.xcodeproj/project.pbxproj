@@ -221,7 +221,7 @@
 		A7F1FE0B0F220F0A005F9CDC /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDFB0F220F0A005F9CDC /* play.png */; };
 		A7F1FE0C0F220F0A005F9CDC /* rowBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDFC0F220F0A005F9CDC /* rowBackground.png */; };
 		A7F1FE0D0F220F0A005F9CDC /* volume-thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDFD0F220F0A005F9CDC /* volume-thumb.png */; };
-		A7F1FE6D0F221E01005F9CDC /* PLSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F1FE6C0F221E01005F9CDC /* PLSParser.m */; };
+		A7F1FE6D0F221E01005F9CDC /* RRQPLSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F1FE6C0F221E01005F9CDC /* RRQPLSParser.m */; };
 		A7F458000F1AA48D005BF6F5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761150EE9C4BF00E2F2BE /* AudioToolbox.framework */; };
 		A7F458010F1AA48D005BF6F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761160EE9C4BF00E2F2BE /* CoreGraphics.framework */; };
 		A7F458020F1AA48D005BF6F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761720EE9C5F100E2F2BE /* Foundation.framework */; };
@@ -455,8 +455,8 @@
 		A7F1FDFB0F220F0A005F9CDC /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.png; path = Resources/FranceRadio/play.png; sourceTree = "<group>"; };
 		A7F1FDFC0F220F0A005F9CDC /* rowBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rowBackground.png; path = Resources/FranceRadio/rowBackground.png; sourceTree = "<group>"; };
 		A7F1FDFD0F220F0A005F9CDC /* volume-thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "volume-thumb.png"; path = "Resources/FranceRadio/volume-thumb.png"; sourceTree = "<group>"; };
-		A7F1FE6B0F221E01005F9CDC /* PLSParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLSParser.h; sourceTree = "<group>"; };
-		A7F1FE6C0F221E01005F9CDC /* PLSParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLSParser.m; sourceTree = "<group>"; };
+		A7F1FE6B0F221E01005F9CDC /* RRQPLSParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRQPLSParser.h; sourceTree = "<group>"; };
+		A7F1FE6C0F221E01005F9CDC /* RRQPLSParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRQPLSParser.m; sourceTree = "<group>"; };
 		A7F4585B0F1AA61F005BF6F5 /* FranceRadio-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "FranceRadio-Info.plist"; path = "Resources/FranceRadio/FranceRadio-Info.plist"; sourceTree = "<group>"; };
 		A7FA127F0F16A5B10067633A /* COPEAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COPEAppDelegate.h; sourceTree = "<group>"; };
 		A7FA12800F16A5B10067633A /* COPEAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COPEAppDelegate.m; sourceTree = "<group>"; };
@@ -562,8 +562,8 @@
 				A7EF8EB60EC6E85A004FE559 /* RRQAudioPlayer.m */,
 				65FD71850EF9AC4600C6FBD6 /* RNFileLogger.h */,
 				65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */,
-				A7F1FE6B0F221E01005F9CDC /* PLSParser.h */,
-				A7F1FE6C0F221E01005F9CDC /* PLSParser.m */,
+				A7F1FE6B0F221E01005F9CDC /* RRQPLSParser.h */,
+				A7F1FE6C0F221E01005F9CDC /* RRQPLSParser.m */,
 				653F4BD00F2A7D21005067F5 /* ShoutcastAudioClass.h */,
 				653F4BD10F2A7D21005067F5 /* ShoutcastAudioClass.m */,
 				6546186D0F86871000FACBFB /* isArrrrr.m */,
@@ -1377,7 +1377,7 @@
 				A7A738AC0F1AAE8C00CBD73A /* RNFileLogger.m in Sources */,
 				A7A738B10F1AAEB100CBD73A /* RNM3UParser.m in Sources */,
 				A7A738B20F1AAEB900CBD73A /* FRViewController.m in Sources */,
-				A7F1FE6D0F221E01005F9CDC /* PLSParser.m in Sources */,
+				A7F1FE6D0F221E01005F9CDC /* RRQPLSParser.m in Sources */,
 				653A64400F87D2BA00EDB548 /* RRQTransparentGradientCell.m in Sources */,
 				659F95210F8A3A270034B823 /* RRQNSString+Version.m in Sources */,
 				6558DA440F8B96FF00A80AC7 /* RRQUIView+Description.m in Sources */,

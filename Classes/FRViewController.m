@@ -8,7 +8,7 @@
 
 #import "FRViewController.h"
 #import "RRQAudioPlayer.h"
-#import "PLSParser.h"
+#import "RRQPLSParser.h"
 #import "RNM3UParser.h"
 #import "Reachability.h"
 #import "RRQVolumeView.h"
@@ -217,7 +217,7 @@ static NSString *kSupportMailURL =
 		NSURL *plsUrl = [NSURL URLWithString:radioAddress];
 		NSString *plsContent = [NSString stringWithContentsOfURL:plsUrl];
 	
-		NSArray *tracks = [PLSParser parse:plsContent];
+		NSArray *tracks = [RRQPLSParser parse:plsContent];
 		if ([tracks count] > 0) {
 			NSString *location = [[tracks objectAtIndex:0] retain];
 			RNLog(@"getRadioURL location %@", location);
