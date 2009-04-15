@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'radio3' target in the 'radio3' project
+// Prefix header for all source files.
 //
 
 #ifdef __OBJC__
