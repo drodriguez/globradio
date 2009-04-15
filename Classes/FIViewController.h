@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
-#import "ShoutcastAudioClass.h"
 
+@class RRQShoutcastAudioPlayer;
 @class FILastFMDataProvider;
 @class FIAlbumView;
 
-@interface FIViewController : UIViewController <ShoutcastPlayerDelegate> {
+@interface FIViewController : UIViewController <RRQShoutcastAudioPlayerDelegate> {
  @private
   IBOutlet UIButton *controlButton;
   IBOutlet UIView *volumeViewHolder;
@@ -29,7 +29,7 @@
   UIImage *pauseHighlightImage;
   UIImage *albumArtDefaultImage;
   
-  ShoutcastPlayer *player;
+  RRQShoutcastAudioPlayer *player;
   
   BOOL isPlaying;
   BOOL interruptedDuringPlayback;

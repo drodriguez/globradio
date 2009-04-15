@@ -1,5 +1,5 @@
 //
-//  ShoutcastAudioClass.h
+//  RRQShoutcastAudioPlayer.h
 //  radio3
 //
 //  Created by Daniel Rodríguez Troitiño on 23/01/09.
@@ -9,10 +9,10 @@
 #import "RRQAudioPlayer.h"
 
 
-@protocol ShoutcastPlayerDelegate;
+@protocol RRQShoutcastAudioPlayerDelegate;
 
 
-@interface ShoutcastPlayer : RRQAudioPlayer {
+@interface RRQShoutcastAudioPlayer : RRQAudioPlayer {
  @private
   unsigned int metadataInterval;
   unsigned int byteCounter;
@@ -35,10 +35,10 @@
 
 
 
-@protocol ShoutcastPlayerDelegate
+@protocol RRQShoutcastAudioPlayerDelegate
 
 @optional
-- (void)player:(ShoutcastPlayer *)player
+- (void)player:(RRQShoutcastAudioPlayer *)player
 updatedMetadata:(NSDictionary *)metadataDictionary;
 
 @end

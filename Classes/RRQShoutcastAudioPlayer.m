@@ -1,14 +1,14 @@
 //
-//  ShoutcastAudioClass.m
+//  RRQShoutcastAudioPlayer.m
 //  radio3
 //
 //  Created by Daniel Rodríguez Troitiño on 23/01/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "ShoutcastAudioClass.h"
+#import "RRQShoutcastAudioPlayer.h"
 
-@interface ShoutcastPlayer ()
+@interface RRQShoutcastAudioPlayer ()
 
 @property(nonatomic, assign, readwrite) BOOL failed;
 @property(nonatomic, retain, readwrite) NSError *error;
@@ -100,7 +100,7 @@ BOOL readHeader(NSData *data, int *index,
   return YES;
 }
 
-@implementation ShoutcastPlayer
+@implementation RRQShoutcastAudioPlayer
 
 @synthesize headers = headers_;
 @synthesize delegate;

@@ -7,7 +7,7 @@
 //
 
 #import "FIViewController.h"
-#import "ShoutcastAudioClass.h"
+#import "RRQShoutcastAudioPlayer.h"
 #import "RRQReachability.h"
 #import "FIAlbumView.h"
 #import "FILastFMDataProvider.h"
@@ -188,7 +188,7 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
              withObject:nil
           waitUntilDone:NO];
   
-  player = [[ShoutcastPlayer alloc] initWithString:kFIFMRadioURL audioTypeHint:kAudioFileMP3Type];
+  player = [[RRQShoutcastAudioPlayer alloc] initWithString:kFIFMRadioURL audioTypeHint:kAudioFileMP3Type];
   // player.connectionFilter = [[FIShoutcastMetadataFilter alloc] init];
   
   player.delegate = self;
@@ -390,7 +390,7 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
 
 #pragma mark ShoutcastPlayerDelegate methods
 
-- (void)player:(ShoutcastPlayer *)player
+- (void)player:(RRQShoutcastAudioPlayer *)player
   updatedMetadata:(NSDictionary *)metadataDictionary {
   NSString *value;
   if (isPlaying && (value = [metadataDictionary objectForKey:@"StreamTitle"])) {
