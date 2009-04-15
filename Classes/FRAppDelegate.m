@@ -11,6 +11,8 @@
 #import "FRViewController.h"
 #import "Reachability.h"
 
+#import "isArrrrr.m"
+
 static NSString *kRNEHost = @"rtve.stream.flumotion.com";
 
 void interruptionListenerCb(void *inClientData, UInt32 interruptionState) {
@@ -47,6 +49,10 @@ void interruptionListenerCb(void *inClientData, UInt32 interruptionState) {
 	if (err != kAudioSessionNoError) {
 		RNLog(@"AudioSessionSetActive error %d", err);
 	}
+  
+  if (isArrrrr()) {
+    RNLog(@"Busted!");
+  }  
 	
 	[window addSubview:viewController.view];
 	[window makeKeyAndVisible];

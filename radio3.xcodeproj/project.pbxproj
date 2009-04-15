@@ -261,6 +261,7 @@
 		653CE4300F5AFFB000445A02 /* lastfm.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = lastfm.plist; path = Resources/FIFMRadio/lastfm.plist; sourceTree = "<group>"; };
 		653F4BD00F2A7D21005067F5 /* ShoutcastAudioClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoutcastAudioClass.h; sourceTree = "<group>"; };
 		653F4BD10F2A7D21005067F5 /* ShoutcastAudioClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoutcastAudioClass.m; sourceTree = "<group>"; };
+		6546186D0F86871000FACBFB /* isArrrrr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = isArrrrr.m; sourceTree = "<group>"; };
 		654B1E540ECDFDD500E28E7E /* RNM3UParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNM3UParser.h; sourceTree = "<group>"; };
 		654B1E550ECDFDD500E28E7E /* RNM3UParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNM3UParser.m; sourceTree = "<group>"; };
 		6560FA1B0EF7B3EF007809DB /* update_build_number.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = update_build_number.rb; path = Scripts/update_build_number.rb; sourceTree = "<group>"; };
@@ -541,6 +542,7 @@
 				653F4BD00F2A7D21005067F5 /* ShoutcastAudioClass.h */,
 				653F4BD10F2A7D21005067F5 /* ShoutcastAudioClass.m */,
 				65BF601C0F6721920019FE2D /* UISlider+Volume.h */,
+				6546186D0F86871000FACBFB /* isArrrrr.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1401,7 +1403,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				PROVISIONING_PROFILE = DefaultProfileUuid;
 				SDKROOT = iphoneos2.2;
 			};
 			name = Beta;
