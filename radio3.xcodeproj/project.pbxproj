@@ -88,8 +88,6 @@
 		659F95210F8A3A270034B823 /* RRQNSString+Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95200F8A3A270034B823 /* RRQNSString+Version.m */; };
 		659F95260F8A6F6F0034B823 /* NSString+VersionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95250F8A6F6F0034B823 /* NSString+VersionTest.m */; };
 		659F95300F8A78E00034B823 /* RRQNSString+Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95200F8A3A270034B823 /* RRQNSString+Version.m */; };
-		659F95C00F8AAB930034B823 /* volume-track-l.png in Resources */ = {isa = PBXBuildFile; fileRef = 659F95BE0F8AAB930034B823 /* volume-track-l.png */; };
-		659F95C10F8AAB930034B823 /* volume-track-r.png in Resources */ = {isa = PBXBuildFile; fileRef = 659F95BF0F8AAB930034B823 /* volume-track-r.png */; };
 		65AC95670ED4AEEF00ADD701 /* radios.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65AC95660ED4AEEF00ADD701 /* radios.plist */; };
 		65B6E6BA0F545F99006E28B2 /* bottom-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B6E6AF0F545F99006E28B2 /* bottom-bar.png */; };
 		65B6E6BB0F545F99006E28B2 /* loading_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B6E6B00F545F99006E28B2 /* loading_0.png */; };
@@ -125,10 +123,8 @@
 		65D36A010ED9FD36009A548C /* altavoz.png in Resources */ = {isa = PBXBuildFile; fileRef = 65D36A000ED9FD36009A548C /* altavoz.png */; };
 		65DD48B40F8D0D690009F8A2 /* RRQNSString+Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95200F8A3A270034B823 /* RRQNSString+Version.m */; };
 		65DD48BB0F8D0DEB0009F8A2 /* volume-track-l.png in Resources */ = {isa = PBXBuildFile; fileRef = 65DD48B90F8D0DEB0009F8A2 /* volume-track-l.png */; };
-		65DD48BC0F8D0DEB0009F8A2 /* volume-track-r.png in Resources */ = {isa = PBXBuildFile; fileRef = 65DD48BA0F8D0DEB0009F8A2 /* volume-track-r.png */; };
 		65DD48BD0F8D0DEB0009F8A2 /* volume-track-l.png in Resources */ = {isa = PBXBuildFile; fileRef = 65DD48B90F8D0DEB0009F8A2 /* volume-track-l.png */; };
 		65DD48BE0F8D0DEB0009F8A2 /* volume-track-r.png in Resources */ = {isa = PBXBuildFile; fileRef = 65DD48BA0F8D0DEB0009F8A2 /* volume-track-r.png */; };
-		65DD48C10F8D0E030009F8A2 /* volume-track-l.png in Resources */ = {isa = PBXBuildFile; fileRef = 65DD48BF0F8D0E030009F8A2 /* volume-track-l.png */; };
 		65DD48C20F8D0E030009F8A2 /* volume-track-r.png in Resources */ = {isa = PBXBuildFile; fileRef = 65DD48C00F8D0E030009F8A2 /* volume-track-r.png */; };
 		65DD48C30F8D0E030009F8A2 /* volume-track-l.png in Resources */ = {isa = PBXBuildFile; fileRef = 65DD48BF0F8D0E030009F8A2 /* volume-track-l.png */; };
 		65DD48C40F8D0E030009F8A2 /* volume-track-r.png in Resources */ = {isa = PBXBuildFile; fileRef = 65DD48C00F8D0E030009F8A2 /* volume-track-r.png */; };
@@ -278,9 +274,9 @@
 		653CE4300F5AFFB000445A02 /* lastfm.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = lastfm.plist; path = Resources/FIFMRadio/lastfm.plist; sourceTree = "<group>"; };
 		653F4BD00F2A7D21005067F5 /* ShoutcastAudioClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoutcastAudioClass.h; sourceTree = "<group>"; };
 		653F4BD10F2A7D21005067F5 /* ShoutcastAudioClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoutcastAudioClass.m; sourceTree = "<group>"; };
-		6546186D0F86871000FACBFB /* isArrrrr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = isArrrrr.m; sourceTree = "<group>"; };
 		654504420F8BF7650001D90B /* RRQVolumeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRQVolumeView.h; sourceTree = "<group>"; };
 		654504430F8BF7650001D90B /* RRQVolumeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRQVolumeView.m; sourceTree = "<group>"; };
+		6546186D0F86871000FACBFB /* isArrrrr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = isArrrrr.m; sourceTree = "<group>"; };
 		654B1E540ECDFDD500E28E7E /* RNM3UParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNM3UParser.h; sourceTree = "<group>"; };
 		654B1E550ECDFDD500E28E7E /* RNM3UParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNM3UParser.m; sourceTree = "<group>"; };
 		6558DA420F8B96FF00A80AC7 /* RRQUIView+Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RRQUIView+Description.h"; sourceTree = "<group>"; };
@@ -1165,11 +1161,7 @@
 				65E762B10F3A52E3005E3E64 /* mail-button-pressed.png in Resources */,
 				65E762B20F3A52E4005E3E64 /* www-button-pressed.png in Resources */,
 				65F8AB0E0F6877CA003CF9F0 /* bottom-bar.png in Resources */,
-				659F95C00F8AAB930034B823 /* volume-track-l.png in Resources */,
-				659F95C10F8AAB930034B823 /* volume-track-r.png in Resources */,
 				65DD48BB0F8D0DEB0009F8A2 /* volume-track-l.png in Resources */,
-				65DD48BC0F8D0DEB0009F8A2 /* volume-track-r.png in Resources */,
-				65DD48C10F8D0E030009F8A2 /* volume-track-l.png in Resources */,
 				65DD48C20F8D0E030009F8A2 /* volume-track-r.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
