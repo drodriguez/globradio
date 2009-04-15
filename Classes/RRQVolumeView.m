@@ -34,7 +34,7 @@
     return [self valueForKeyPath:@"_internal._volumeSlider"];
   }
   @catch (NSException *e) {
-    if ([[e name] isEqualTo:NSUndefinedKeyException]) {
+    if ([[e name] isEqualToString:NSUndefinedKeyException]) {
       return [self valueForKey:@"_volumeSlider"];
     }
     @throw;
