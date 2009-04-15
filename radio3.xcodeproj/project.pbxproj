@@ -94,10 +94,10 @@
 		658687910ECF023100EB9D99 /* GTMIPhoneUnitTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6586878D0ECF023100EB9D99 /* GTMIPhoneUnitTestMain.m */; };
 		658687920ECF023100EB9D99 /* GTMSenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6586878F0ECF023100EB9D99 /* GTMSenTestCase.m */; };
 		658687A00ECF03A000EB9D99 /* RRQM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RRQM3UParser.m */; };
-		658687A30ECF040200EB9D99 /* RNM3UParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 658687A20ECF040200EB9D99 /* RNM3UParserTest.m */; };
+		658687A30ECF040200EB9D99 /* RRQM3UParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 658687A20ECF040200EB9D99 /* RRQM3UParserTest.m */; };
 		658CC7AB0F65368800DC6372 /* default-album-cover.png in Resources */ = {isa = PBXBuildFile; fileRef = 658CC7AA0F65368800DC6372 /* default-album-cover.png */; };
 		659F95210F8A3A270034B823 /* RRQNSString+Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95200F8A3A270034B823 /* RRQNSString+Version.m */; };
-		659F95260F8A6F6F0034B823 /* NSString+VersionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95250F8A6F6F0034B823 /* NSString+VersionTest.m */; };
+		659F95260F8A6F6F0034B823 /* RRQNSString+VersionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95250F8A6F6F0034B823 /* RRQNSString+VersionTest.m */; };
 		659F95300F8A78E00034B823 /* RRQNSString+Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95200F8A3A270034B823 /* RRQNSString+Version.m */; };
 		65AC95670ED4AEEF00ADD701 /* radios.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65AC95660ED4AEEF00ADD701 /* radios.plist */; };
 		65B6E6BA0F545F99006E28B2 /* bottom-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B6E6AF0F545F99006E28B2 /* bottom-bar.png */; };
@@ -333,13 +333,13 @@
 		6586878D0ECF023100EB9D99 /* GTMIPhoneUnitTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMIPhoneUnitTestMain.m; path = GTM/GTMIPhoneUnitTestMain.m; sourceTree = "<group>"; };
 		6586878E0ECF023100EB9D99 /* GTMSenTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMSenTestCase.h; path = GTM/GTMSenTestCase.h; sourceTree = "<group>"; };
 		6586878F0ECF023100EB9D99 /* GTMSenTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMSenTestCase.m; path = GTM/GTMSenTestCase.m; sourceTree = "<group>"; };
-		658687A10ECF040200EB9D99 /* RNM3UParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNM3UParserTest.h; path = Test/RNM3UParserTest.h; sourceTree = "<group>"; };
-		658687A20ECF040200EB9D99 /* RNM3UParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNM3UParserTest.m; path = Test/RNM3UParserTest.m; sourceTree = "<group>"; };
+		658687A10ECF040200EB9D99 /* RRQM3UParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RRQM3UParserTest.h; path = Test/RRQM3UParserTest.h; sourceTree = "<group>"; };
+		658687A20ECF040200EB9D99 /* RRQM3UParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RRQM3UParserTest.m; path = Test/RRQM3UParserTest.m; sourceTree = "<group>"; };
 		658CC7AA0F65368800DC6372 /* default-album-cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default-album-cover.png"; path = "Resources/FIFMRadio/default-album-cover.png"; sourceTree = "<group>"; };
 		659F951F0F8A3A270034B823 /* RRQNSString+Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RRQNSString+Version.h"; sourceTree = "<group>"; };
 		659F95200F8A3A270034B823 /* RRQNSString+Version.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RRQNSString+Version.m"; sourceTree = "<group>"; };
-		659F95240F8A6F6F0034B823 /* NSString+VersionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+VersionTest.h"; path = "Test/NSString+VersionTest.h"; sourceTree = "<group>"; };
-		659F95250F8A6F6F0034B823 /* NSString+VersionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+VersionTest.m"; path = "Test/NSString+VersionTest.m"; sourceTree = "<group>"; };
+		659F95240F8A6F6F0034B823 /* RRQNSString+VersionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RRQNSString+VersionTest.h"; path = "Test/RRQNSString+VersionTest.h"; sourceTree = "<group>"; };
+		659F95250F8A6F6F0034B823 /* RRQNSString+VersionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RRQNSString+VersionTest.m"; path = "Test/RRQNSString+VersionTest.m"; sourceTree = "<group>"; };
 		659F95BE0F8AAB930034B823 /* volume-track-l.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "volume-track-l.png"; path = "Resources/FranceRadio/volume-track-l.png"; sourceTree = "<group>"; };
 		659F95BF0F8AAB930034B823 /* volume-track-r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "volume-track-r.png"; path = "Resources/FranceRadio/volume-track-r.png"; sourceTree = "<group>"; };
 		65AC95660ED4AEEF00ADD701 /* radios.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = radios.plist; path = Resources/RNERadio/radios.plist; sourceTree = "<group>"; };
@@ -787,10 +787,10 @@
 		6586879F0ECF033900EB9D99 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				658687A10ECF040200EB9D99 /* RNM3UParserTest.h */,
-				658687A20ECF040200EB9D99 /* RNM3UParserTest.m */,
-				659F95240F8A6F6F0034B823 /* NSString+VersionTest.h */,
-				659F95250F8A6F6F0034B823 /* NSString+VersionTest.m */,
+				658687A10ECF040200EB9D99 /* RRQM3UParserTest.h */,
+				658687A20ECF040200EB9D99 /* RRQM3UParserTest.m */,
+				659F95240F8A6F6F0034B823 /* RRQNSString+VersionTest.h */,
+				659F95250F8A6F6F0034B823 /* RRQNSString+VersionTest.m */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -1366,8 +1366,8 @@
 				658687910ECF023100EB9D99 /* GTMIPhoneUnitTestMain.m in Sources */,
 				658687920ECF023100EB9D99 /* GTMSenTestCase.m in Sources */,
 				658687A00ECF03A000EB9D99 /* RRQM3UParser.m in Sources */,
-				658687A30ECF040200EB9D99 /* RNM3UParserTest.m in Sources */,
-				659F95260F8A6F6F0034B823 /* NSString+VersionTest.m in Sources */,
+				658687A30ECF040200EB9D99 /* RRQM3UParserTest.m in Sources */,
+				659F95260F8A6F6F0034B823 /* RRQNSString+VersionTest.m in Sources */,
 				659F95300F8A78E00034B823 /* RRQNSString+Version.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

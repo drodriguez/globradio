@@ -1,16 +1,16 @@
 //
-//  RNM3UParserTest.m
+//  RRQM3UParserTest.m
 //  radio3
 //
 //  Created by Daniel Rodríguez Troitiño on 15/11/08.
 //  Copyright 2008 Daniel Rodríguez and Javier Quevedo. All rights reserved.
 //
 
-#import "RNM3UParserTest.h"
-#import "RNM3UParser.h"
+#import "RRQM3UParserTest.h"
+#import "RRQM3UParser.h"
 
 
-@implementation RNM3UParserTest
+@implementation RRQM3UParserTest
 
 - (void)testExtractLastComponentWithFileName {
   NSString *r = extractLastComponent(@"/tmp/scratch.tiff");

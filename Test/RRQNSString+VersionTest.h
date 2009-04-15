@@ -1,5 +1,5 @@
 //
-//  NSString+VersionTest.h
+//  RRQNSString+VersionTest.h
 //  radio3
 //
 //  Created by Daniel Rodríguez Troitiño on 06/04/09.
@@ -9,7 +9,7 @@
 #import "GTMSenTestCase.h"
 
 
-@interface NSStringVersionTest : SenTestCase {
+@interface RRQNSStringVersionTest : SenTestCase {
 }
 
 @end

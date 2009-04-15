@@ -1,16 +1,26 @@
 //
-//  NSString+VersionTest.m
+//  RRQNSString+VersionTest.m
 //  radio3
 //
 //  Created by Daniel Rodríguez Troitiño on 06/04/09.
 //  Copyright 2009 Daniel Rodríguez y Javier Quevedo. All rights reserved.
 //
 
-#import "NSString+VersionTest.h"
+#import "RRQNSString+VersionTest.h"
 
-#import "NSString+Version.h"
+#import "RRQNSString+Version.h"
 
-@implementation NSStringVersionTest
+extern void normalizeVersion(NSMutableArray *version);
+extern int compareVersions(NSArray *a1, NSArray *a2);
+extern BOOL versionEquals(NSArray *a1, NSArray *a2);
+extern BOOL versionDifferent(NSArray *a1, NSArray *a2);
+extern BOOL versionGreaterOrEquals(NSArray *a1, NSArray *a2);
+extern BOOL versionLowerOrEquals(NSArray *a1, NSArray *a2);
+extern BOOL versionGreater(NSArray *a1, NSArray *a2);
+extern BOOL versionLower(NSArray *a1, NSArray *a2);
+extern BOOL versionCompatible(NSArray *a1, NSArray *a2);
+
+@implementation RRQNSStringVersionTest
 
 - (void)testNormalizeWithOneComponentVersion {
   NSMutableArray *a1 = [NSMutableArray arrayWithObjects:@"1", nil];
