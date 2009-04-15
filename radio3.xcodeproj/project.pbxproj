@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
+		65A68F1F0F962D6000B5919B /* Update RNE Radio Build Number */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 65A68F240F962D7F00B5919B /* Build configuration list for PBXAggregateTarget "Update RNE Radio Build Number" */;
+			buildPhases = (
+				65A68F1E0F962D6000B5919B /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "Update RNE Radio Build Number";
+			productName = "Update RNE Radio Build Number";
+		};
 		65BF60060F671FC30019FE2D /* Update FI-FM Radio Build Number */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 65BF600D0F67200C0019FE2D /* Build configuration list for PBXAggregateTarget "Update FI-FM Radio Build Number" */;
@@ -234,6 +245,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		65A68F270F962DB000B5919B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65A68F1F0F962D6000B5919B /* Update RNE Radio Build Number */;
+			remoteInfo = "Update RNE Radio Build Number";
+		};
 		65BF600B0F671FD80019FE2D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -927,7 +945,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "RNERadio" */;
 			buildPhases = (
-				656354910EF9472C00AD52AE /* Update build number */,
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
@@ -935,6 +952,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				65A68F280F962DB000B5919B /* PBXTargetDependency */,
 			);
 			name = RNERadio;
 			productName = radio3;
@@ -1051,6 +1069,7 @@
 				A72A70220F1AA12500A2BFD9 /* FranceRadio */,
 				65BF60060F671FC30019FE2D /* Update FI-FM Radio Build Number */,
 				65F8AAFF0F6838C5003CF9F0 /* Update France Radio Build Number */,
+				65A68F1F0F962D6000B5919B /* Update RNE Radio Build Number */,
 			);
 		};
 /* End PBXProject section */
@@ -1201,21 +1220,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		656354910EF9472C00AD52AE /* Update build number */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Update build number";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "update_build_number() {\n\tPATH=$PATH:/opt/local/bin\n\n\t/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/${INFOPLIST_FILE}\n}\n\ncase \"$CONFIGURATION\" in\n\tBeta|Distribution)\n\t\tupdate_build_number\n\t\t;;\n\t*)\nesac";
-			showEnvVarsInLog = 0;
-		};
 		658687630ECEFC0700EB9D99 /* Run Unit Tests */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1229,6 +1233,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/google-toolbox-for-mac-1-5-1/UnitTesting/RunIPhoneUnitTest.sh\n";
+		};
+		65A68F1E0F962D6000B5919B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "update_build_number() {\n\tPATH=$PATH:/opt/local/bin\n\n\t/usr/bin/env ruby ${PROJECT_DIR}/Scripts/update_build_number.rb ${PROJECT_DIR} ${PROJECT_DIR}/Resources/RNERadio/Info.plist\n}\n\ncase \"$CONFIGURATION\" in\n\tBeta|Distribution)\n\t\tupdate_build_number\n\t\t;;\n\t*)\nesac";
+			showEnvVarsInLog = 0;
 		};
 		65BD5E120F09B11700D283D4 /* Update build number */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1403,6 +1421,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		65A68F280F962DB000B5919B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65A68F1F0F962D6000B5919B /* Update RNE Radio Build Number */;
+			targetProxy = 65A68F270F962DB000B5919B /* PBXContainerItemProxy */;
+		};
 		65BF600C0F671FD80019FE2D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 65BF60060F671FC30019FE2D /* Update FI-FM Radio Build Number */;
@@ -1710,6 +1733,41 @@
 				ZERO_LINK = NO;
 			};
 			name = Release;
+		};
+		65A68F200F962D6100B5919B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Update RNE Radio Build Number";
+			};
+			name = Debug;
+		};
+		65A68F210F962D6100B5919B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Update RNE Radio Build Number";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		65A68F220F962D6100B5919B /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "Update RNE Radio Build Number";
+			};
+			name = Distribution;
+		};
+		65A68F230F962D6100B5919B /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "Update RNE Radio Build Number";
+			};
+			name = Beta;
 		};
 		65BD5E090F09B08200D283D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2132,6 +2190,17 @@
 				658687570ECEFB9200EB9D99 /* Release */,
 				656A60950EF19BCC004CE686 /* Distribution */,
 				656A60780EF197EC004CE686 /* Beta */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65A68F240F962D7F00B5919B /* Build configuration list for PBXAggregateTarget "Update RNE Radio Build Number" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65A68F200F962D6100B5919B /* Debug */,
+				65A68F210F962D6100B5919B /* Release */,
+				65A68F220F962D6100B5919B /* Distribution */,
+				65A68F230F962D6100B5919B /* Beta */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
