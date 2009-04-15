@@ -9,7 +9,7 @@
 #import "COPEViewController.h"
 #import "RRQAudioPlayer.h"
 #import "RRQReachability.h"
-#import "RNM3UParser.h"
+#import "RRQM3UParser.h"
 #import "COPENeedleView.h"
 
 @interface COPEViewController ()
@@ -214,7 +214,7 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
 	NSURL *m3UUrl = [[NSURL alloc] initWithString:radioAddress];
 	NSString *m3UContent = [NSString stringWithContentsOfURL:m3UUrl];
 	
-	NSArray *tracks = [RNM3UParser parse:m3UContent];
+	NSArray *tracks = [RRQM3UParser parse:m3UContent];
 	if ([tracks count] > 0) {
 		NSString *location = [[[tracks objectAtIndex:0] objectForKey:@"location"]
 							  retain];

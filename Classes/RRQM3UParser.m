@@ -1,12 +1,12 @@
 //
-//  RNM3UParser.m
+//  RRQM3UParser.m
 //  radio3
 //
 //  Created by Daniel Rodríguez Troitiño on 14/11/08.
 //  Copyright 2008 Daniel Rodríguez and Javier Quevedo. All rights reserved.
 //
 
-#import "RNM3UParser.h"
+#import "RRQM3UParser.h"
 
 #ifndef TESTING
 NSString *extractLastComponent(NSString *path);
@@ -90,7 +90,7 @@ void parseEXTINF
     }
 }
 
-@implementation RNM3UParser
+@implementation RRQM3UParser
 
 - (id)init {
   return [self initWithContents:nil];
@@ -110,8 +110,8 @@ void parseEXTINF
 }
 
 + (NSArray *)parse:(NSString *)c {
-  RNM3UParser *parser =
-    [[[RNM3UParser alloc] initWithContents:c] autorelease];
+  RRQM3UParser *parser =
+    [[[RRQM3UParser alloc] initWithContents:c] autorelease];
   
   return [parser parse];
 }

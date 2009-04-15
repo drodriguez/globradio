@@ -50,7 +50,7 @@
 		654504440F8BF7650001D90B /* RRQVolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 654504430F8BF7650001D90B /* RRQVolumeView.m */; };
 		654504450F8BF7650001D90B /* RRQVolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 654504430F8BF7650001D90B /* RRQVolumeView.m */; };
 		654504460F8BF7650001D90B /* RRQVolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 654504430F8BF7650001D90B /* RRQVolumeView.m */; };
-		654B1E560ECDFDD500E28E7E /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
+		654B1E560ECDFDD500E28E7E /* RRQM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RRQM3UParser.m */; };
 		6558DA440F8B96FF00A80AC7 /* RRQUIView+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 6558DA430F8B96FF00A80AC7 /* RRQUIView+Description.m */; };
 		656BFC380F03A4FD006A3F15 /* FIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 656BFC370F03A4FD006A3F15 /* FIAppDelegate.m */; };
 		656BFC440F03A80E006A3F15 /* FIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656BFC430F03A80E006A3F15 /* FIViewController.m */; };
@@ -82,7 +82,7 @@
 		658687900ECF023100EB9D99 /* GTMIPhoneUnitTestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6586878C0ECF023100EB9D99 /* GTMIPhoneUnitTestDelegate.m */; };
 		658687910ECF023100EB9D99 /* GTMIPhoneUnitTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6586878D0ECF023100EB9D99 /* GTMIPhoneUnitTestMain.m */; };
 		658687920ECF023100EB9D99 /* GTMSenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6586878F0ECF023100EB9D99 /* GTMSenTestCase.m */; };
-		658687A00ECF03A000EB9D99 /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
+		658687A00ECF03A000EB9D99 /* RRQM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RRQM3UParser.m */; };
 		658687A30ECF040200EB9D99 /* RNM3UParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 658687A20ECF040200EB9D99 /* RNM3UParserTest.m */; };
 		658CC7AB0F65368800DC6372 /* default-album-cover.png in Resources */ = {isa = PBXBuildFile; fileRef = 658CC7AA0F65368800DC6372 /* default-album-cover.png */; };
 		659F95210F8A3A270034B823 /* RRQNSString+Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95200F8A3A270034B823 /* RRQNSString+Version.m */; };
@@ -139,7 +139,7 @@
 		65F6F07F0F18F55700B0B070 /* COPEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FA12830F16A5C70067633A /* COPEViewController.m */; };
 		65F6F0800F18F56100B0B070 /* RRQReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C452930EED3D77006AB1DD /* RRQReachability.m */; };
 		65F6F0810F18F56300B0B070 /* RRQFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RRQFileLogger.m */; };
-		65F6F0820F18F56900B0B070 /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
+		65F6F0820F18F56900B0B070 /* RRQM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RRQM3UParser.m */; };
 		65F6F0830F18F57300B0B070 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		65F6F0840F18F57F00B0B070 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761150EE9C4BF00E2F2BE /* AudioToolbox.framework */; };
 		65F6F0850F18F58200B0B070 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761720EE9C5F100E2F2BE /* Foundation.framework */; };
@@ -198,7 +198,7 @@
 		A7A28D8B0EC7781700963966 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A28D8A0EC7781700963966 /* Icon.png */; };
 		A7A738AB0F1AAE8900CBD73A /* RRQReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C452930EED3D77006AB1DD /* RRQReachability.m */; };
 		A7A738AC0F1AAE8C00CBD73A /* RRQFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RRQFileLogger.m */; };
-		A7A738B10F1AAEB100CBD73A /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
+		A7A738B10F1AAEB100CBD73A /* RRQM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RRQM3UParser.m */; };
 		A7A738B20F1AAEB900CBD73A /* FRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72A702E0F1AA15800A2BFD9 /* FRViewController.m */; };
 		A7E7611A0EE9C4BF00E2F2BE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761150EE9C4BF00E2F2BE /* AudioToolbox.framework */; };
 		A7E7611B0EE9C4BF00E2F2BE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761160EE9C4BF00E2F2BE /* CoreGraphics.framework */; };
@@ -277,8 +277,8 @@
 		654504420F8BF7650001D90B /* RRQVolumeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRQVolumeView.h; sourceTree = "<group>"; };
 		654504430F8BF7650001D90B /* RRQVolumeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRQVolumeView.m; sourceTree = "<group>"; };
 		6546186D0F86871000FACBFB /* isArrrrr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = isArrrrr.m; sourceTree = "<group>"; };
-		654B1E540ECDFDD500E28E7E /* RNM3UParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNM3UParser.h; sourceTree = "<group>"; };
-		654B1E550ECDFDD500E28E7E /* RNM3UParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNM3UParser.m; sourceTree = "<group>"; };
+		654B1E540ECDFDD500E28E7E /* RRQM3UParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRQM3UParser.h; sourceTree = "<group>"; };
+		654B1E550ECDFDD500E28E7E /* RRQM3UParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRQM3UParser.m; sourceTree = "<group>"; };
 		6558DA420F8B96FF00A80AC7 /* RRQUIView+Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RRQUIView+Description.h"; sourceTree = "<group>"; };
 		6558DA430F8B96FF00A80AC7 /* RRQUIView+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RRQUIView+Description.m"; sourceTree = "<group>"; };
 		6560FA1B0EF7B3EF007809DB /* update_build_number.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = update_build_number.rb; path = Scripts/update_build_number.rb; sourceTree = "<group>"; };
@@ -555,8 +555,8 @@
 				656BFC350F03A4C4006A3F15 /* FIFMRadio */,
 				65C452920EED3D77006AB1DD /* RRQReachability.h */,
 				65C452930EED3D77006AB1DD /* RRQReachability.m */,
-				654B1E540ECDFDD500E28E7E /* RNM3UParser.h */,
-				654B1E550ECDFDD500E28E7E /* RNM3UParser.m */,
+				654B1E540ECDFDD500E28E7E /* RRQM3UParser.h */,
+				654B1E550ECDFDD500E28E7E /* RRQM3UParser.m */,
 				656BFC340F03A4B8006A3F15 /* RNERadio */,
 				A7EF8EB50EC6E85A004FE559 /* RRQAudioPlayer.h */,
 				A7EF8EB60EC6E85A004FE559 /* RRQAudioPlayer.m */,
@@ -1299,7 +1299,7 @@
 				1D3623260D0F684500981E51 /* RNEAppDelegate.m in Sources */,
 				28D7ACF80DDB3853001CB0EB /* RNEViewController.m in Sources */,
 				A7EF8EB70EC6E85A004FE559 /* RRQAudioPlayer.m in Sources */,
-				654B1E560ECDFDD500E28E7E /* RNM3UParser.m in Sources */,
+				654B1E560ECDFDD500E28E7E /* RRQM3UParser.m in Sources */,
 				65C452940EED3D77006AB1DD /* RRQReachability.m in Sources */,
 				65FD71870EF9AC4600C6FBD6 /* RRQFileLogger.m in Sources */,
 				654504460F8BF7650001D90B /* RRQVolumeView.m in Sources */,
@@ -1347,7 +1347,7 @@
 				658687900ECF023100EB9D99 /* GTMIPhoneUnitTestDelegate.m in Sources */,
 				658687910ECF023100EB9D99 /* GTMIPhoneUnitTestMain.m in Sources */,
 				658687920ECF023100EB9D99 /* GTMSenTestCase.m in Sources */,
-				658687A00ECF03A000EB9D99 /* RNM3UParser.m in Sources */,
+				658687A00ECF03A000EB9D99 /* RRQM3UParser.m in Sources */,
 				658687A30ECF040200EB9D99 /* RNM3UParserTest.m in Sources */,
 				659F95260F8A6F6F0034B823 /* NSString+VersionTest.m in Sources */,
 				659F95300F8A78E00034B823 /* RRQNSString+Version.m in Sources */,
@@ -1375,7 +1375,7 @@
 				A7F4580F0F1AA4B3005BF6F5 /* main.m in Sources */,
 				A7A738AB0F1AAE8900CBD73A /* RRQReachability.m in Sources */,
 				A7A738AC0F1AAE8C00CBD73A /* RRQFileLogger.m in Sources */,
-				A7A738B10F1AAEB100CBD73A /* RNM3UParser.m in Sources */,
+				A7A738B10F1AAEB100CBD73A /* RRQM3UParser.m in Sources */,
 				A7A738B20F1AAEB900CBD73A /* FRViewController.m in Sources */,
 				A7F1FE6D0F221E01005F9CDC /* RRQPLSParser.m in Sources */,
 				653A64400F87D2BA00EDB548 /* RRQTransparentGradientCell.m in Sources */,
@@ -1394,7 +1394,7 @@
 				65F6F07F0F18F55700B0B070 /* COPEViewController.m in Sources */,
 				65F6F0800F18F56100B0B070 /* RRQReachability.m in Sources */,
 				65F6F0810F18F56300B0B070 /* RRQFileLogger.m in Sources */,
-				65F6F0820F18F56900B0B070 /* RNM3UParser.m in Sources */,
+				65F6F0820F18F56900B0B070 /* RRQM3UParser.m in Sources */,
 				65F6F0830F18F57300B0B070 /* main.m in Sources */,
 				6579C4660F19E90100C2CA3F /* COPENeedleView.m in Sources */,
 			);

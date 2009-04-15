@@ -1,5 +1,5 @@
 //
-//  RNM3UParser.h
+//  RRQM3UParser.h
 //  radio3
 //
 //  Created by Daniel Rodríguez Troitiño on 14/11/08.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RNM3UParser : NSObject {
+@interface RRQM3UParser : NSObject {
  @private
   NSString *contents;
 }
