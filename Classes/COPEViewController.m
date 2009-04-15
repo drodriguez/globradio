@@ -7,7 +7,7 @@
 //
 
 #import "COPEViewController.h"
-#import "AudioClass.h"
+#import "RRQAudioPlayer.h"
 #import "Reachability.h"
 #import "RNM3UParser.h"
 #import "COPENeedleView.h"
@@ -322,7 +322,7 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
   NSString *radioAddress = [radiosURLS objectAtIndex:activeRadio];
   NSString *radioURL = [self getRadioURL:radioAddress];
   
-	player = [[Player alloc] initWithString:radioURL];
+	player = [[RRQAudioPlayer alloc] initWithString:radioURL];
 	
 	[player addObserver:self forKeyPath:@"isPlaying" options:0 context:nil];
 	[player addObserver:self forKeyPath:@"failed" options:0 context:nil];

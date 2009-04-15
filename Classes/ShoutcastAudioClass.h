@@ -6,13 +6,13 @@
 //  Copyright 2009 Daniel Rodríguez y Javier Quevedo. All rights reserved.
 //
 
-#import "AudioClass.h"
+#import "RRQAudioPlayer.h"
 
 
 @protocol ShoutcastPlayerDelegate;
 
 
-@interface ShoutcastPlayer : Player {
+@interface ShoutcastPlayer : RRQAudioPlayer {
  @private
   unsigned int metadataInterval;
   unsigned int byteCounter;

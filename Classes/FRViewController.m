@@ -7,7 +7,7 @@
 //
 
 #import "FRViewController.h"
-#import "AudioClass.h"
+#import "RRQAudioPlayer.h"
 #import "PLSParser.h"
 #import "RNM3UParser.h"
 #import "Reachability.h"
@@ -359,7 +359,7 @@ static NSString *kSupportMailURL =
   }
 	NSString *radioURL = [self getRadioURL:radioAddress];
 
-	myPlayer = [[Player alloc] initWithString:radioURL audioTypeHint:kAudioFileMP3Type];
+	myPlayer = [[RRQAudioPlayer alloc] initWithString:radioURL audioTypeHint:kAudioFileMP3Type];
 	[myPlayer addObserver:self forKeyPath:@"isPlaying" options:0 context:nil];
 	[myPlayer addObserver:self forKeyPath:@"failed" options:0 context:nil];
 	[myPlayer start];

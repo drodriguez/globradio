@@ -54,7 +54,7 @@
 		6558DA440F8B96FF00A80AC7 /* RRQUIView+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 6558DA430F8B96FF00A80AC7 /* RRQUIView+Description.m */; };
 		656BFC380F03A4FD006A3F15 /* FIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 656BFC370F03A4FD006A3F15 /* FIAppDelegate.m */; };
 		656BFC440F03A80E006A3F15 /* FIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656BFC430F03A80E006A3F15 /* FIViewController.m */; };
-		656BFC4B0F03B6E0006A3F15 /* AudioClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* AudioClass.m */; };
+		656BFC4B0F03B6E0006A3F15 /* RRQAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* RRQAudioPlayer.m */; };
 		656BFC4C0F03B6E3006A3F15 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C452930EED3D77006AB1DD /* Reachability.m */; };
 		656BFC4D0F03B6E6006A3F15 /* RNFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */; };
 		656BFC4E0F03B6F5006A3F15 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761150EE9C4BF00E2F2BE /* AudioToolbox.framework */; };
@@ -134,7 +134,7 @@
 		65E1033A0EE069B3009FA316 /* RadiosView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E103390EE069B3009FA316 /* RadiosView.xib */; };
 		65E762B10F3A52E3005E3E64 /* mail-button-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 65E762AF0F3A52E3005E3E64 /* mail-button-pressed.png */; };
 		65E762B20F3A52E4005E3E64 /* www-button-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 65E762B00F3A52E3005E3E64 /* www-button-pressed.png */; };
-		65F6F07D0F18F55400B0B070 /* AudioClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* AudioClass.m */; };
+		65F6F07D0F18F55400B0B070 /* RRQAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* RRQAudioPlayer.m */; };
 		65F6F07E0F18F55600B0B070 /* COPEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FA12800F16A5B10067633A /* COPEAppDelegate.m */; };
 		65F6F07F0F18F55700B0B070 /* COPEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FA12830F16A5C70067633A /* COPEViewController.m */; };
 		65F6F0800F18F56100B0B070 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C452930EED3D77006AB1DD /* Reachability.m */; };
@@ -186,7 +186,7 @@
 		65FBA6BA0F2B68920049574C /* www-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 65FBA6B80F2B68920049574C /* www-button.png */; };
 		65FD71870EF9AC4600C6FBD6 /* RNFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */; };
 		A72A702F0F1AA15800A2BFD9 /* FRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A72A702C0F1AA15800A2BFD9 /* FRAppDelegate.m */; };
-		A72A703E0F1AA1E500A2BFD9 /* AudioClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* AudioClass.m */; };
+		A72A703E0F1AA1E500A2BFD9 /* RRQAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* RRQAudioPlayer.m */; };
 		A72A70450F1AA2F400A2BFD9 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72A70440F1AA2F400A2BFD9 /* MainWindow.xib */; };
 		A72A70470F1AA31100A2BFD9 /* FRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72A70460F1AA31100A2BFD9 /* FRViewController.xib */; };
 		A72A704B0F1AA33F00A2BFD9 /* radios.plist in Resources */ = {isa = PBXBuildFile; fileRef = A72A704A0F1AA33F00A2BFD9 /* radios.plist */; };
@@ -205,7 +205,7 @@
 		A7E7611D0EE9C4BF00E2F2BE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761180EE9C4BF00E2F2BE /* Security.framework */; };
 		A7E7611E0EE9C4BF00E2F2BE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761190EE9C4BF00E2F2BE /* UIKit.framework */; };
 		A7E761730EE9C5F100E2F2BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761720EE9C5F100E2F2BE /* Foundation.framework */; };
-		A7EF8EB70EC6E85A004FE559 /* AudioClass.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* AudioClass.m */; };
+		A7EF8EB70EC6E85A004FE559 /* RRQAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* RRQAudioPlayer.m */; };
 		A7F1FDFF0F220F0A005F9CDC /* altavoz-on.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDEF0F220F0A005F9CDC /* altavoz-on.png */; };
 		A7F1FE000F220F0A005F9CDC /* altavoz.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDF00F220F0A005F9CDC /* altavoz.png */; };
 		A7F1FE010F220F0A005F9CDC /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F1FDF10F220F0A005F9CDC /* background.png */; };
@@ -438,8 +438,8 @@
 		A7E761180EE9C4BF00E2F2BE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A7E761190EE9C4BF00E2F2BE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A7E761720EE9C5F100E2F2BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		A7EF8EB50EC6E85A004FE559 /* AudioClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioClass.h; sourceTree = "<group>"; };
-		A7EF8EB60EC6E85A004FE559 /* AudioClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioClass.m; sourceTree = "<group>"; };
+		A7EF8EB50EC6E85A004FE559 /* RRQAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRQAudioPlayer.h; sourceTree = "<group>"; };
+		A7EF8EB60EC6E85A004FE559 /* RRQAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRQAudioPlayer.m; sourceTree = "<group>"; };
 		A7F1FDEF0F220F0A005F9CDC /* altavoz-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "altavoz-on.png"; path = "Resources/FranceRadio/altavoz-on.png"; sourceTree = "<group>"; };
 		A7F1FDF00F220F0A005F9CDC /* altavoz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = altavoz.png; path = Resources/FranceRadio/altavoz.png; sourceTree = "<group>"; };
 		A7F1FDF10F220F0A005F9CDC /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = Resources/FranceRadio/background.png; sourceTree = "<group>"; };
@@ -558,8 +558,8 @@
 				654B1E540ECDFDD500E28E7E /* RNM3UParser.h */,
 				654B1E550ECDFDD500E28E7E /* RNM3UParser.m */,
 				656BFC340F03A4B8006A3F15 /* RNERadio */,
-				A7EF8EB50EC6E85A004FE559 /* AudioClass.h */,
-				A7EF8EB60EC6E85A004FE559 /* AudioClass.m */,
+				A7EF8EB50EC6E85A004FE559 /* RRQAudioPlayer.h */,
+				A7EF8EB60EC6E85A004FE559 /* RRQAudioPlayer.m */,
 				65FD71850EF9AC4600C6FBD6 /* RNFileLogger.h */,
 				65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */,
 				A7F1FE6B0F221E01005F9CDC /* PLSParser.h */,
@@ -1298,7 +1298,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* radio3AppDelegate.m in Sources */,
 				28D7ACF80DDB3853001CB0EB /* radio3ViewController.m in Sources */,
-				A7EF8EB70EC6E85A004FE559 /* AudioClass.m in Sources */,
+				A7EF8EB70EC6E85A004FE559 /* RRQAudioPlayer.m in Sources */,
 				654B1E560ECDFDD500E28E7E /* RNM3UParser.m in Sources */,
 				65C452940EED3D77006AB1DD /* Reachability.m in Sources */,
 				65FD71870EF9AC4600C6FBD6 /* RNFileLogger.m in Sources */,
@@ -1314,7 +1314,7 @@
 			files = (
 				656BFC380F03A4FD006A3F15 /* FIAppDelegate.m in Sources */,
 				656BFC440F03A80E006A3F15 /* FIViewController.m in Sources */,
-				656BFC4B0F03B6E0006A3F15 /* AudioClass.m in Sources */,
+				656BFC4B0F03B6E0006A3F15 /* RRQAudioPlayer.m in Sources */,
 				656BFC4C0F03B6E3006A3F15 /* Reachability.m in Sources */,
 				656BFC4D0F03B6E6006A3F15 /* RNFileLogger.m in Sources */,
 				656BFC540F03B724006A3F15 /* main.m in Sources */,
@@ -1371,7 +1371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A72A702F0F1AA15800A2BFD9 /* FRAppDelegate.m in Sources */,
-				A72A703E0F1AA1E500A2BFD9 /* AudioClass.m in Sources */,
+				A72A703E0F1AA1E500A2BFD9 /* RRQAudioPlayer.m in Sources */,
 				A7F4580F0F1AA4B3005BF6F5 /* main.m in Sources */,
 				A7A738AB0F1AAE8900CBD73A /* Reachability.m in Sources */,
 				A7A738AC0F1AAE8C00CBD73A /* RNFileLogger.m in Sources */,
@@ -1389,7 +1389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65F6F07D0F18F55400B0B070 /* AudioClass.m in Sources */,
+				65F6F07D0F18F55400B0B070 /* RRQAudioPlayer.m in Sources */,
 				65F6F07E0F18F55600B0B070 /* COPEAppDelegate.m in Sources */,
 				65F6F07F0F18F55700B0B070 /* COPEViewController.m in Sources */,
 				65F6F0800F18F56100B0B070 /* Reachability.m in Sources */,

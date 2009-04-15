@@ -1,5 +1,5 @@
 //
-//  AudioClass.h
+//  RRQAudioPlayer.h
 //  radio3
 //
 //  Created by Javier Quevedo on 11/9/08.
@@ -18,7 +18,7 @@
 
 
 
-@interface Player : NSObject
+@interface RRQAudioPlayer : NSObject
 {
  @private
   AudioFileTypeID audioHint; // Audio type hint provided by the user.

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #include <pthread.h>
 
-@class Player;
+@class RRQAudioPlayer;
 
 @interface FRViewController : UIViewController < UITableViewDelegate , UITableViewDataSource >{
 @private
@@ -26,7 +26,7 @@
 	NSArray *highRadiosURLS;
   NSArray *lowRadiosURLS;
 	
-	Player *myPlayer;
+	RRQAudioPlayer *myPlayer;
 	
 	BOOL isPlaying;
 	BOOL infoViewVisible;

@@ -1,15 +1,15 @@
 //
-//  AudioClass.m
+//  RRQAudioPlayer.m
 //  radio3
 //
 //  Created by Javier Quevedo on 11/9/08.
 //  Copyright Daniel Rodríguez and Javier Quevedo 2008. All rights reserved.
 //
 
-#import "AudioClass.h"
+#import "RRQAudioPlayer.h"
 
 // Private implementation
-@interface Player ()
+@interface RRQAudioPlayer ()
 
 @property(nonatomic, assign, readwrite) BOOL isPlaying;
 @property(nonatomic, assign, readwrite) BOOL failed;
@@ -48,7 +48,7 @@ void MyPropertyListenerProc(void *inClientData,
                             AudioFileStreamID inAudioFileStream,
                             AudioFileStreamPropertyID	inPropertyID,
                             UInt32 * ioFlags) {
-	Player *player = (Player *)inClientData;
+	RRQAudioPlayer *player = (RRQAudioPlayer *)inClientData;
 	[player propertyChanged:inPropertyID flags:ioFlags];
 }
 
@@ -62,7 +62,7 @@ void MyPacketsProc(void *inClientData,
                    UInt32 inNumberPackets,
                    const void *inInputData,
                    AudioStreamPacketDescription	*inPacketDescriptions) {
-	Player *player = (Player *)inClientData;
+	RRQAudioPlayer *player = (RRQAudioPlayer *)inClientData;
 	[player packetData:inInputData
      numberOfPackets:inNumberPackets
        numberOfBytes:inNumberBytes
@@ -78,7 +78,7 @@ void MyAudioQueueOutputCallback(void *inClientData,
                                 AudioQueueRef inAQ,
                                 AudioQueueBufferRef inBuffer)
 {
-	Player *player = (Player *)inClientData;
+	RRQAudioPlayer *player = (RRQAudioPlayer *)inClientData;
 	[player outputCallbackWithBufferReference:inBuffer];
 }
 
@@ -90,13 +90,13 @@ void MyAudioQueueOutputCallback(void *inClientData,
 void MyAudioQueueIsRunningCallback(void *inClientData,
                                    AudioQueueRef inAQ,
                                    AudioQueuePropertyID inID) {
-  Player *player = (Player *)inClientData;
+  RRQAudioPlayer *player = (RRQAudioPlayer *)inClientData;
   [player isRunning];
 }
 
 
 
-@implementation Player
+@implementation RRQAudioPlayer
 
 @synthesize isPlaying, failed, error;
 

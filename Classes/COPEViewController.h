@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 
-@class Player;
+@class RRQAudioPlayer;
 @class COPENeedleView;
 
 @interface COPEViewController : UIViewController {
@@ -24,7 +24,7 @@
   IBOutlet UIView *backgroundView;
   IBOutlet COPENeedleView *needleView;
 	
-	Player *player;
+	RRQAudioPlayer *player;
 	NSInteger activeRadio;
 	NSArray *radiosList;
 	NSArray *radiosURLS;	
