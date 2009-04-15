@@ -9,7 +9,7 @@
 #import "COPEAppDelegate.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "COPEViewController.h"
-#import "Reachability.h"
+#import "RRQReachability.h"
 
 static NSString *kCOPEHost = @"cope.stream.flumotion.com";
 
@@ -24,8 +24,8 @@ void interruptionListenerCb(void *inClientData, UInt32 interruptionState) {
 @synthesize viewController;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
-  [[Reachability sharedReachability] setHostName:kCOPEHost];
-  [[Reachability sharedReachability] setNetworkStatusNotificationsEnabled:YES];
+  [[RRQReachability sharedReachability] setHostName:kCOPEHost];
+  [[RRQReachability sharedReachability] setNetworkStatusNotificationsEnabled:YES];
   
   OSStatus err = AudioSessionInitialize(NULL, NULL,
                                         interruptionListenerCb,

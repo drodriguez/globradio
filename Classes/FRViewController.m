@@ -10,7 +10,7 @@
 #import "RRQAudioPlayer.h"
 #import "RRQPLSParser.h"
 #import "RNM3UParser.h"
-#import "Reachability.h"
+#import "RRQReachability.h"
 #import "RRQVolumeView.h"
 #import "RRQTransparentGradientCell.h"
 
@@ -194,7 +194,7 @@ static NSString *kSupportMailURL =
 }
 
 - (void)reachabilityChanged:(NSNotification *)notification {
-	if ([[Reachability sharedReachability] remoteHostStatus] == NotReachable) {
+	if ([[RRQReachability sharedReachability] remoteHostStatus] == NotReachable) {
 		[self showNetworkProblemsAlert];
 	}
 }
@@ -283,7 +283,7 @@ static NSString *kSupportMailURL =
 - (void)setFailedState:(NSError *)error {
 	// If we loose network reachability both callbacks will get call, so we
 	// step aside if a network lose has happened.
-	if ([[Reachability sharedReachability] remoteHostStatus] == NotReachable) {
+	if ([[RRQReachability sharedReachability] remoteHostStatus] == NotReachable) {
 		// The reachability callback will show its own AlertView.
 		return;
 	}
@@ -320,7 +320,7 @@ static NSString *kSupportMailURL =
 }
 
 - (void)playRadio {
-	if ([[Reachability sharedReachability] remoteHostStatus] == NotReachable) {
+	if ([[RRQReachability sharedReachability] remoteHostStatus] == NotReachable) {
 		[self showNetworkProblemsAlert];
 		return;
 	}
@@ -352,7 +352,7 @@ static NSString *kSupportMailURL =
           waitUntilDone:NO];
 	
   NSString *radioAddress = nil;
-  if ([[Reachability sharedReachability] remoteHostStatus] == ReachableViaWiFiNetwork) {
+  if ([[RRQReachability sharedReachability] remoteHostStatus] == ReachableViaWiFiNetwork) {
     radioAddress = [highRadiosURLS objectAtIndex:activeRadio];
   } else {
     radioAddress = [lowRadiosURLS objectAtIndex:activeRadio];
@@ -571,7 +571,7 @@ static NSString *kSupportMailURL =
 
 - (void)viewDidAppear:(BOOL)animated {
 	// Needed to start receiving reachibility status notifications
-	[[Reachability sharedReachability] remoteHostStatus];
+	[[RRQReachability sharedReachability] remoteHostStatus];
     
 	[super viewDidAppear:animated];
 }

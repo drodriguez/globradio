@@ -8,7 +8,7 @@
 
 #import "FIViewController.h"
 #import "ShoutcastAudioClass.h"
-#import "Reachability.h"
+#import "RRQReachability.h"
 #import "FIAlbumView.h"
 #import "FILastFMDataProvider.h"
 #import "RRQVolumeView.h"
@@ -79,7 +79,7 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
 }
 
 - (void)reachabilityChanged:(NSNotification *)notification {
-  if ([[Reachability sharedReachability] remoteHostStatus] == NotReachable) {
+  if ([[RRQReachability sharedReachability] remoteHostStatus] == NotReachable) {
     [self showNetworkProblemsAlert];
   }
 }
@@ -126,7 +126,7 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
 - (void)setFailedState:(NSError *)error {
   // If we loose network reachability both callbacks will get call, so we
   // step aside if a network lose has happened.
-  if ([[Reachability sharedReachability] remoteHostStatus] == NotReachable) {
+  if ([[RRQReachability sharedReachability] remoteHostStatus] == NotReachable) {
     // The reachability callback will show its own AlertView.
     return;
   }
@@ -165,7 +165,7 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
 }
 
 - (void)playRadio {
-  if ([[Reachability sharedReachability] remoteHostStatus] == NotReachable) {
+  if ([[RRQReachability sharedReachability] remoteHostStatus] == NotReachable) {
     [self showNetworkProblemsAlert];
     return;
   }
@@ -376,7 +376,7 @@ NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
 
 - (void)viewDidAppear:(BOOL)animated {
   // Needed to start receiving reachability status notifications
-  [[Reachability sharedReachability] remoteHostStatus];
+  [[RRQReachability sharedReachability] remoteHostStatus];
     
   [super viewDidAppear:animated];
 }

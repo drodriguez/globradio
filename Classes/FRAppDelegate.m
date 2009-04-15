@@ -9,7 +9,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "FRAppDelegate.h"
 #import "FRViewController.h"
-#import "Reachability.h"
+#import "RRQReachability.h"
 
 #import "isArrrrr.m"
 
@@ -27,8 +27,8 @@ void interruptionListenerCb(void *inClientData, UInt32 interruptionState) {
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
-	[[Reachability sharedReachability] setHostName:kRNEHost];
-	[[Reachability sharedReachability] setNetworkStatusNotificationsEnabled:YES];
+	[[RRQReachability sharedReachability] setHostName:kRNEHost];
+	[[RRQReachability sharedReachability] setNetworkStatusNotificationsEnabled:YES];
 	
 	OSStatus err = AudioSessionInitialize(NULL, NULL,
 										  interruptionListenerCb,

@@ -8,7 +8,7 @@
 
 #import "COPEViewController.h"
 #import "RRQAudioPlayer.h"
-#import "Reachability.h"
+#import "RRQReachability.h"
 #import "RNM3UParser.h"
 #import "COPENeedleView.h"
 
@@ -176,7 +176,7 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
 }
 
 - (void)reachabilityChanged:(NSNotification *)notification {
-	if ([[Reachability sharedReachability] remoteHostStatus] == NotReachable) {
+	if ([[RRQReachability sharedReachability] remoteHostStatus] == NotReachable) {
 		[self showNetworkProblemsAlert];
 	}
 }
@@ -255,7 +255,7 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
 - (void)setFailedState:(NSError *)error {
 	// If we loose network reachability both callbacks will get call, so we
 	// step aside if a network lose has happened.
-	if ([[Reachability sharedReachability] remoteHostStatus] == NotReachable) {
+	if ([[RRQReachability sharedReachability] remoteHostStatus] == NotReachable) {
 		// The reachability callback will show its own AlertView.
 		return;
 	}
@@ -290,7 +290,7 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
 }
 
 - (void)playRadio {
-	if ([[Reachability sharedReachability] remoteHostStatus] == NotReachable) {
+	if ([[RRQReachability sharedReachability] remoteHostStatus] == NotReachable) {
 		[self showNetworkProblemsAlert];
 		return;
 	}
@@ -513,7 +513,7 @@ volumeMinimumTrackImage, volumeMaximumTrackImage, volumeThumbImage;
 
 - (void)viewDidAppear:(BOOL)animated {
 	// Needed to start receiving reachability status notifications
-	[[Reachability sharedReachability] remoteHostStatus];
+	[[RRQReachability sharedReachability] remoteHostStatus];
   
   [needleView showAtRadioIndex:activeRadio];
   

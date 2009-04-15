@@ -1,6 +1,6 @@
 /*
 
-File: Reachability.m
+File: RRQReachability.m
 Abstract: SystemConfiguration framework wrapper.
 
 Version: 1.5
@@ -52,16 +52,16 @@ Copyright (C) 2008 Apple Inc. All Rights Reserved.
 #import <ifaddrs.h>
 #include <netdb.h>
 
-#import "Reachability.h"
+#import "RRQReachability.h"
 #import <SystemConfiguration/SCNetworkReachability.h>
 
 static NSString *kLinkLocalAddressKey = @"169.254.0.0";
 static NSString *kDefaultRouteKey = @"0.0.0.0";
 
-static Reachability *_sharedReachability;
+static RRQReachability *_sharedReachability;
 
 // A class extension that declares internal methods for this class.
-@interface Reachability()
+@interface RRQReachability()
 - (BOOL)isAdHocWiFiNetworkAvailableFlags:(SCNetworkReachabilityFlags *)outFlags;
 - (BOOL)isNetworkAvailableFlags:(SCNetworkReachabilityFlags *)outFlags;
 - (BOOL)isReachableWithoutRequiringConnection:(SCNetworkReachabilityFlags)flags;
@@ -71,17 +71,17 @@ static Reachability *_sharedReachability;
 - (void)stopListeningForReachabilityChanges;
 @end
 
-@implementation Reachability
+@implementation RRQReachability
 
 @synthesize networkStatusNotificationsEnabled = _networkStatusNotificationsEnabled;
 @synthesize hostName = _hostName;
 @synthesize address = _address;
 @synthesize reachabilityQueries = _reachabilityQueries;
 
-+ (Reachability *)sharedReachability
++ (RRQReachability *)sharedReachability
 {
 	if (!_sharedReachability) {
-		_sharedReachability = [[Reachability alloc] init];
+		_sharedReachability = [[RRQReachability alloc] init];
 		// Clients of Reachability will typically call [[Reachability sharedReachability] setHostName:]
 		// before calling one of the status methods.
         _sharedReachability.hostName = nil;
@@ -541,7 +541,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 - (void)scheduleOnRunLoop:(NSRunLoop *)inRunLoop
 {
 	// Only register for network state changes if the client has specifically enabled them.
-	if ([[Reachability sharedReachability] networkStatusNotificationsEnabled] == NO) {
+	if ([[RRQReachability sharedReachability] networkStatusNotificationsEnabled] == NO) {
 		return;
 	}
 	

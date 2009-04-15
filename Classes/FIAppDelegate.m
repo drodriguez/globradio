@@ -9,7 +9,7 @@
 #import "FIAppDelegate.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "FIViewController.h"
-#import "Reachability.h"
+#import "RRQReachability.h"
 
 static NSString *kFIFMHost = @"radio.asoc.fi.upm.es";
 
@@ -24,8 +24,8 @@ void interruptionListenerCb(void *inClientData, UInt32 interruptionState) {
 @synthesize viewController;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
-  [[Reachability sharedReachability] setHostName:kFIFMHost];
-  [[Reachability sharedReachability] setNetworkStatusNotificationsEnabled:YES];
+  [[RRQReachability sharedReachability] setHostName:kFIFMHost];
+  [[RRQReachability sharedReachability] setNetworkStatusNotificationsEnabled:YES];
   
   OSStatus err = AudioSessionInitialize(NULL, NULL,
                                         interruptionListenerCb,
