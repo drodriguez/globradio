@@ -92,7 +92,7 @@ static NSString *kSupportMailURL =
 		case SUPPORT_MAIL_BUTTON: { // email url
 #if defined(DEBUG)
       NSString *log = [NSString stringWithContentsOfFile:
-                       [[RNFileLogger sharedLogger] logFile]];
+                       [[RRQFileLogger sharedLogger] logFile]];
       NSString *encodedLog = (NSString *)
         CFURLCreateStringByAddingPercentEscapes(NULL,
                                                 (CFStringRef)log,

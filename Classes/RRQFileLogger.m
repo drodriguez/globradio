@@ -1,14 +1,14 @@
 //
-//  RNFileLogger.m
+//  RRQFileLogger.m
 //  radio3
 //
 //  Created by Daniel Rodríguez Troitiño on 17/12/08.
 //  Copyright 2008 Daniel Rodríguez and Javier Quevedo. All rights reserved.
 //
 
-#import "RNFileLogger.h"
+#import "RRQFileLogger.h"
 
-@interface RNFileLogger ()
+@interface RRQFileLogger ()
 
 - (id)init;
 - (void)closeFile;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation RNFileLogger
+@implementation RRQFileLogger
 
 @synthesize fileHandle, logFile;
 

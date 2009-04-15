@@ -56,7 +56,7 @@
 		656BFC440F03A80E006A3F15 /* FIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656BFC430F03A80E006A3F15 /* FIViewController.m */; };
 		656BFC4B0F03B6E0006A3F15 /* RRQAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* RRQAudioPlayer.m */; };
 		656BFC4C0F03B6E3006A3F15 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C452930EED3D77006AB1DD /* Reachability.m */; };
-		656BFC4D0F03B6E6006A3F15 /* RNFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */; };
+		656BFC4D0F03B6E6006A3F15 /* RRQFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RRQFileLogger.m */; };
 		656BFC4E0F03B6F5006A3F15 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761150EE9C4BF00E2F2BE /* AudioToolbox.framework */; };
 		656BFC4F0F03B6F6006A3F15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761160EE9C4BF00E2F2BE /* CoreGraphics.framework */; };
 		656BFC500F03B6F7006A3F15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761720EE9C5F100E2F2BE /* Foundation.framework */; };
@@ -108,7 +108,7 @@
 		65BD5E180F09B18A00D283D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761190EE9C4BF00E2F2BE /* UIKit.framework */; };
 		65BD5E190F09B1A100D283D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		65BD5E1A0F09B1AD00D283D4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C452930EED3D77006AB1DD /* Reachability.m */; };
-		65BD5E1B0F09B1AF00D283D4 /* RNFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */; };
+		65BD5E1B0F09B1AF00D283D4 /* RRQFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RRQFileLogger.m */; };
 		65BD5E210F09B2CF00D283D4 /* KSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BD5E200F09B2CF00D283D4 /* KSViewController.m */; };
 		65BD5E220F09B2D300D283D4 /* KSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BD5E1D0F09B1E500D283D4 /* KSAppDelegate.m */; };
 		65BD5E250F09B9F000D283D4 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 65BD5E230F09B9F000D283D4 /* Icon.png */; };
@@ -138,7 +138,7 @@
 		65F6F07E0F18F55600B0B070 /* COPEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FA12800F16A5B10067633A /* COPEAppDelegate.m */; };
 		65F6F07F0F18F55700B0B070 /* COPEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FA12830F16A5C70067633A /* COPEViewController.m */; };
 		65F6F0800F18F56100B0B070 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C452930EED3D77006AB1DD /* Reachability.m */; };
-		65F6F0810F18F56300B0B070 /* RNFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */; };
+		65F6F0810F18F56300B0B070 /* RRQFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RRQFileLogger.m */; };
 		65F6F0820F18F56900B0B070 /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
 		65F6F0830F18F57300B0B070 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		65F6F0840F18F57F00B0B070 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761150EE9C4BF00E2F2BE /* AudioToolbox.framework */; };
@@ -184,7 +184,7 @@
 		65F8AB0E0F6877CA003CF9F0 /* bottom-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F8AB0D0F6877CA003CF9F0 /* bottom-bar.png */; };
 		65FBA6B90F2B68920049574C /* mail-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 65FBA6B70F2B68920049574C /* mail-button.png */; };
 		65FBA6BA0F2B68920049574C /* www-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 65FBA6B80F2B68920049574C /* www-button.png */; };
-		65FD71870EF9AC4600C6FBD6 /* RNFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */; };
+		65FD71870EF9AC4600C6FBD6 /* RRQFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RRQFileLogger.m */; };
 		A72A702F0F1AA15800A2BFD9 /* FRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A72A702C0F1AA15800A2BFD9 /* FRAppDelegate.m */; };
 		A72A703E0F1AA1E500A2BFD9 /* RRQAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* RRQAudioPlayer.m */; };
 		A72A70450F1AA2F400A2BFD9 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72A70440F1AA2F400A2BFD9 /* MainWindow.xib */; };
@@ -197,7 +197,7 @@
 		A756BCB60EE9497200BECFFA /* entl.plist in Resources */ = {isa = PBXBuildFile; fileRef = A756BCB50EE9497200BECFFA /* entl.plist */; };
 		A7A28D8B0EC7781700963966 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A28D8A0EC7781700963966 /* Icon.png */; };
 		A7A738AB0F1AAE8900CBD73A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C452930EED3D77006AB1DD /* Reachability.m */; };
-		A7A738AC0F1AAE8C00CBD73A /* RNFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */; };
+		A7A738AC0F1AAE8C00CBD73A /* RRQFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD71860EF9AC4600C6FBD6 /* RRQFileLogger.m */; };
 		A7A738B10F1AAEB100CBD73A /* RNM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RNM3UParser.m */; };
 		A7A738B20F1AAEB900CBD73A /* FRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72A702E0F1AA15800A2BFD9 /* FRViewController.m */; };
 		A7E7611A0EE9C4BF00E2F2BE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E761150EE9C4BF00E2F2BE /* AudioToolbox.framework */; };
@@ -416,8 +416,8 @@
 		65FBA6B70F2B68920049574C /* mail-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mail-button.png"; path = "Resources/FranceRadio/mail-button.png"; sourceTree = "<group>"; };
 		65FBA6B80F2B68920049574C /* www-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "www-button.png"; path = "Resources/FranceRadio/www-button.png"; sourceTree = "<group>"; };
 		65FBA6EE0F2B6F340049574C /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/FranceRadio/iTunesArtwork; sourceTree = "<group>"; };
-		65FD71850EF9AC4600C6FBD6 /* RNFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNFileLogger.h; sourceTree = "<group>"; };
-		65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNFileLogger.m; sourceTree = "<group>"; };
+		65FD71850EF9AC4600C6FBD6 /* RRQFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRQFileLogger.h; sourceTree = "<group>"; };
+		65FD71860EF9AC4600C6FBD6 /* RRQFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRQFileLogger.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/RNERadio/Info.plist; sourceTree = "<group>"; };
 		A72A70230F1AA12500A2BFD9 /* FranceRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FranceRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A72A702B0F1AA15800A2BFD9 /* FRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRAppDelegate.h; sourceTree = "<group>"; };
@@ -560,8 +560,8 @@
 				656BFC340F03A4B8006A3F15 /* RNERadio */,
 				A7EF8EB50EC6E85A004FE559 /* RRQAudioPlayer.h */,
 				A7EF8EB60EC6E85A004FE559 /* RRQAudioPlayer.m */,
-				65FD71850EF9AC4600C6FBD6 /* RNFileLogger.h */,
-				65FD71860EF9AC4600C6FBD6 /* RNFileLogger.m */,
+				65FD71850EF9AC4600C6FBD6 /* RRQFileLogger.h */,
+				65FD71860EF9AC4600C6FBD6 /* RRQFileLogger.m */,
 				A7F1FE6B0F221E01005F9CDC /* RRQPLSParser.h */,
 				A7F1FE6C0F221E01005F9CDC /* RRQPLSParser.m */,
 				653F4BD00F2A7D21005067F5 /* ShoutcastAudioClass.h */,
@@ -1301,7 +1301,7 @@
 				A7EF8EB70EC6E85A004FE559 /* RRQAudioPlayer.m in Sources */,
 				654B1E560ECDFDD500E28E7E /* RNM3UParser.m in Sources */,
 				65C452940EED3D77006AB1DD /* Reachability.m in Sources */,
-				65FD71870EF9AC4600C6FBD6 /* RNFileLogger.m in Sources */,
+				65FD71870EF9AC4600C6FBD6 /* RRQFileLogger.m in Sources */,
 				654504460F8BF7650001D90B /* RRQVolumeView.m in Sources */,
 				65DD48C80F8D0E2C0009F8A2 /* RRQTransparentGradientCell.m in Sources */,
 				65DD48C90F8D0E460009F8A2 /* RRQNSString+Version.m in Sources */,
@@ -1316,7 +1316,7 @@
 				656BFC440F03A80E006A3F15 /* FIViewController.m in Sources */,
 				656BFC4B0F03B6E0006A3F15 /* RRQAudioPlayer.m in Sources */,
 				656BFC4C0F03B6E3006A3F15 /* Reachability.m in Sources */,
-				656BFC4D0F03B6E6006A3F15 /* RNFileLogger.m in Sources */,
+				656BFC4D0F03B6E6006A3F15 /* RRQFileLogger.m in Sources */,
 				656BFC540F03B724006A3F15 /* main.m in Sources */,
 				653F4BD20F2A7D21005067F5 /* ShoutcastAudioClass.m in Sources */,
 				65B6E6DE0F5479C6006E28B2 /* FIAlbumView.m in Sources */,
@@ -1360,7 +1360,7 @@
 			files = (
 				65BD5E190F09B1A100D283D4 /* main.m in Sources */,
 				65BD5E1A0F09B1AD00D283D4 /* Reachability.m in Sources */,
-				65BD5E1B0F09B1AF00D283D4 /* RNFileLogger.m in Sources */,
+				65BD5E1B0F09B1AF00D283D4 /* RRQFileLogger.m in Sources */,
 				65BD5E210F09B2CF00D283D4 /* KSViewController.m in Sources */,
 				65BD5E220F09B2D300D283D4 /* KSAppDelegate.m in Sources */,
 			);
@@ -1374,7 +1374,7 @@
 				A72A703E0F1AA1E500A2BFD9 /* RRQAudioPlayer.m in Sources */,
 				A7F4580F0F1AA4B3005BF6F5 /* main.m in Sources */,
 				A7A738AB0F1AAE8900CBD73A /* Reachability.m in Sources */,
-				A7A738AC0F1AAE8C00CBD73A /* RNFileLogger.m in Sources */,
+				A7A738AC0F1AAE8C00CBD73A /* RRQFileLogger.m in Sources */,
 				A7A738B10F1AAEB100CBD73A /* RNM3UParser.m in Sources */,
 				A7A738B20F1AAEB900CBD73A /* FRViewController.m in Sources */,
 				A7F1FE6D0F221E01005F9CDC /* RRQPLSParser.m in Sources */,
@@ -1393,7 +1393,7 @@
 				65F6F07E0F18F55600B0B070 /* COPEAppDelegate.m in Sources */,
 				65F6F07F0F18F55700B0B070 /* COPEViewController.m in Sources */,
 				65F6F0800F18F56100B0B070 /* Reachability.m in Sources */,
-				65F6F0810F18F56300B0B070 /* RNFileLogger.m in Sources */,
+				65F6F0810F18F56300B0B070 /* RRQFileLogger.m in Sources */,
 				65F6F0820F18F56900B0B070 /* RNM3UParser.m in Sources */,
 				65F6F0830F18F57300B0B070 /* main.m in Sources */,
 				6579C4660F19E90100C2CA3F /* COPENeedleView.m in Sources */,

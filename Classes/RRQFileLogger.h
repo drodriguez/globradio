@@ -1,5 +1,5 @@
 //
-//  RNFileLogger.h
+//  RRQFileLogger.h
 //  radio3
 //
 //  Created by Daniel Rodríguez Troitiño on 17/12/08.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface RNFileLogger : NSObject {
+@interface RRQFileLogger : NSObject {
  @private
   NSString *logFile;
   NSFileHandle *fileHandle;
@@ -24,3 +24,9 @@
 @property(nonatomic, copy, readonly) NSString *logFile;
 
 @end
+
+#if defined(DEBUG) || defined(BETA)
+#  define RNLog(s, ...) NSLog(s,##__VA_ARGS__), [[RRQFileLogger sharedLogger] logFile:__FILE__ lineNumber:__LINE__ format:(s),##__VA_ARGS__]
+#else
+#  define RNLog(s, ...)
+#endif

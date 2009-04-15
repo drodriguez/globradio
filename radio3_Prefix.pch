@@ -7,10 +7,4 @@
     #import <UIKit/UIKit.h>
 #endif
 
-#import "RNFileLogger.h"
-
-#if defined(DEBUG) || defined(BETA)
-#  define RNLog(s, ...) NSLog(s,##__VA_ARGS__), [[RNFileLogger sharedLogger] logFile:__FILE__ lineNumber:__LINE__ format:(s),##__VA_ARGS__]
-#else
-#  define RNLog(s, ...)
-#endif
+#import "RRQFileLogger.h"
