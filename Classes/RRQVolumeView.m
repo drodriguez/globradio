@@ -10,6 +10,7 @@
 #import "RRQNSString+Version.h"
 #import "RRQUISlider+Volume.h"
 
+// Avoid warnings about not defined messages.
 @interface MPVolumeView (RRQRouteButton)
 
 - (UIButton *)routeButton;
@@ -21,21 +22,24 @@
 @implementation RRQVolumeView
 
 - (void)layoutSubviews {
-  if ([[[UIDevice currentDevice] systemVersion] checkVersion:@">=3.0"]) {
-    if ([self routeButton]) {
-      [[self routeButton] removeFromSuperview];
-      [self setValue:nil forKeyPath:@"_internal._routeButton"];
-    }
+  if ([self respondsToSelector:@selector(routeButton)]) {
+    [[self routeButton] removeFromSuperview];
+    [self setValue:nil forKeyPath:@"_internal._routeButton"];
   }
 }
 
 - (UISlider *)volumeSlider {
   // Find the slider
-  if ([[[UIDevice currentDevice] systemVersion] checkVersion:@">=3.0"]) {
+  @try {
     return [self valueForKeyPath:@"_internal._volumeSlider"];
-  } else {
-    return [self valueForKeyPath:@"_volumeSlider"];
   }
+  @catch (NSException *e) {
+    if ([[e name] isEqualTo:NSUndefinedKeyException]) {
+      return [self valueForKey:@"_volumeSlider"];
+    }
+    @throw;
+  }
+  return nil;
 }
 
 - (void)finalSetup {
