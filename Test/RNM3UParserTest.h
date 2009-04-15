@@ -3,7 +3,7 @@
 //  radio3
 //
 //  Created by Daniel Rodríguez Troitiño on 15/11/08.
-//  Copyright 2008 __MyCompanyName__. All rights reserved.
+//  Copyright 2008 Daniel Rodríguez and Javier Quevedo. All rights reserved.
 //
 
 #import "GTMSenTestCase.h"

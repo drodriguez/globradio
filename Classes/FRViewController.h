@@ -41,18 +41,12 @@
 	UIImage *playHighlightImage;
 	UIImage *pauseImage;
 	UIImage *pauseHighlightImage;
-	UIImage *rowBackgroundImage;
-	UIImage *volumeMinimumTrackImage;
-	UIImage *volumeMaximumTrackImage;
-	UIImage *volumeThumbImage;
 	
 	UIImageView *soundOnView;
 	UIImageView *soundOffView;
 	
 	UIView *infoView;
 	UIView *radiosView;
-	
-	UISlider *volumeSlider;
 }
 
 - (IBAction)controlButtonClicked:(UIButton *)button;

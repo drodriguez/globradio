@@ -11,8 +11,10 @@
 #import "PLSParser.h"
 #import "RNM3UParser.h"
 #import "Reachability.h"
-#import "UISlider+Volume.h"
-#import <MediaPlayer/MediaPlayer.h>
+#import "RRQVolumeView.h"
+#import "RRQTransparentGradientCell.h"
+
+
 
 enum FRSections {
 	FRRadioSection,
@@ -51,10 +53,6 @@ static NSString *kSupportMailURL =
 @property (nonatomic, retain) UIImage *playHighlightImage;
 @property (nonatomic, retain) UIImage *pauseImage;
 @property (nonatomic, retain) UIImage *pauseHighlightImage;
-@property (nonatomic, retain) UIImage *rowBackgroundImage;
-@property (nonatomic, retain) UIImage *volumeMinimumTrackImage;
-@property (nonatomic, retain) UIImage *volumeMaximumTrackImage;
-@property (nonatomic, retain) UIImage *volumeThumbImage;
 
 - (void)stopRadio;
 
@@ -73,14 +71,7 @@ static NSString *kSupportMailURL =
 
 @implementation FRViewController
 
-@synthesize playImage, playHighlightImage, pauseImage, pauseHighlightImage,
-  rowBackgroundImage, volumeMinimumTrackImage,
-  volumeMaximumTrackImage, volumeThumbImage;
-
-
-- (void)volumeChanged:(NSNotification *)notify {
-	[volumeSlider _updateVolumeFromAVSystemController];
-}
+@synthesize playImage, playHighlightImage, pauseImage, pauseHighlightImage;
 
 - (IBAction)controlButtonClicked:(UIButton *)button {
 	if (isPlaying) {
@@ -220,7 +211,7 @@ static NSString *kSupportMailURL =
 
 
 - (NSString *)getRadioURL:(NSString *)radioAddress {
-
+  
 	if ([radioAddress rangeOfString:@".pls"].length > 0) {
     RNLog(@"getRadioURL pls radioAddress %@", radioAddress);
 		NSURL *plsUrl = [NSURL URLWithString:radioAddress];
@@ -456,24 +447,13 @@ static NSString *kSupportMailURL =
 	
 	static NSString *CellIdentifier = @"Cell";
 	
-	UITableViewCell *cell =
+	RRQTransparentGradientCell *cell = (RRQTransparentGradientCell *)
     [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil) {
-		cell = [[[UITableViewCell alloc]
-				 initWithFrame:CGRectZero
-				 reuseIdentifier:CellIdentifier] autorelease];
-		cell.textColor = [UIColor whiteColor];
-		
-		UIView *backgroundView =
-      [[UIView alloc] initWithFrame:cell.bounds];
-		backgroundView.backgroundColor =
-      [UIColor colorWithPatternImage:rowBackgroundImage];
-		backgroundView.opaque = NO;
-		cell.backgroundView = backgroundView;
-		[backgroundView release];
-		
-		cell.selectionStyle = UITableViewCellSelectionStyleNone;
-	}
+		cell = [[[RRQTransparentGradientCell alloc]
+             initWithFrame:CGRectZero
+             reuseIdentifier:CellIdentifier] autorelease];
+  }
 	
 	cell.text = [radiosList objectAtIndex:indexPath.row];
 	
@@ -485,7 +465,7 @@ static NSString *kSupportMailURL =
 	} else {
 		[cell setAccessoryView:nil];
 	}
-	
+    
 	return cell;
 }
 
@@ -516,14 +496,6 @@ static NSString *kSupportMailURL =
 	self.playHighlightImage = [UIImage imageNamed:@"play-hl.png"];
 	self.pauseImage = [UIImage imageNamed:@"pause.png"];
 	self.pauseHighlightImage = [UIImage imageNamed:@"pause-hl.png"];
-	self.rowBackgroundImage = [UIImage imageNamed:@"rowBackground.png"];
-	self.volumeMinimumTrackImage = [[UIImage imageNamed:@"volume-track.png"]
-									stretchableImageWithLeftCapWidth:38.0
-									topCapHeight:0.0];
-	self.volumeMaximumTrackImage = [[UIImage imageNamed:@"volume-track.png"]
-									stretchableImageWithLeftCapWidth:38.0
-									topCapHeight:0.0];
-	self.volumeThumbImage = [UIImage imageNamed:@"volume-thumb.png"];
     
 	NSMutableArray *loadingFiles = [[NSMutableArray alloc] init];
 	for (int index = 0; index < 4; index++) {
@@ -540,35 +512,13 @@ static NSString *kSupportMailURL =
 	// Build accessory views
 	soundOnView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"altavoz-on.png"]];
 	soundOffView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"altavoz.png"]];
-	/*
-	 accessoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 37, 33)];
-	 accessoryView.backgroundColor = self.soundOffColor;
-	 accessoryView.opaque = NO;
-	 */
 	
 	// Set up slider
-	MPVolumeView *volumeView =
-    [[[MPVolumeView alloc] initWithFrame:volumeViewHolder.bounds] autorelease];
+	RRQVolumeView *volumeView =
+    [[[RRQVolumeView alloc] initWithFrame:volumeViewHolder.bounds] autorelease];
 	[volumeViewHolder addSubview:volumeView];
-	
-	// Find the slider
-	volumeSlider = [volumeView valueForKey:@"_volumeSlider"];
-	CGRect frame = volumeView.frame;
-	frame.size.height = 53;
-	volumeSlider.frame = frame;
-	
-	[volumeSlider setMinimumTrackImage:volumeMinimumTrackImage
-							  forState:UIControlStateNormal];
-	[volumeSlider setMaximumTrackImage:volumeMaximumTrackImage
-							  forState:UIControlStateNormal];
-	[volumeSlider setThumbImage:volumeThumbImage
-					   forState:UIControlStateNormal];
-	
-	[[NSNotificationCenter defaultCenter] addObserver:self 
-											 selector:@selector(volumeChanged:) 
-												 name:@"AVSystemController_SystemVolumeDidChangeNotification" 
-											   object:nil];
-	
+  [volumeView finalSetup];
+  	
 	// Loading subviews from the nib files
 	NSBundle *mainBundle = [NSBundle mainBundle];
 	[mainBundle loadNibNamed:@"InfoView"
@@ -622,7 +572,7 @@ static NSString *kSupportMailURL =
 - (void)viewDidAppear:(BOOL)animated {
 	// Needed to start receiving reachibility status notifications
 	[[Reachability sharedReachability] remoteHostStatus];
-	
+    
 	[super viewDidAppear:animated];
 }
 
@@ -643,10 +593,6 @@ static NSString *kSupportMailURL =
 	self.playHighlightImage = nil;
 	self.pauseImage = nil;
 	self.pauseHighlightImage = nil;
-	self.rowBackgroundImage = nil;
-	self.volumeMinimumTrackImage = nil;
-	self.volumeMaximumTrackImage = nil;
-	self.volumeThumbImage = nil;
 	
 	[soundOnView release];
 	[soundOffView release];
