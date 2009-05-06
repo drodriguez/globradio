@@ -34,8 +34,6 @@
   BOOL isPlaying;
   BOOL interruptedDuringPlayback;
   
-  UISlider *volumeSlider;
-  
   FILastFMDataProvider *dataProvider;
 }
 
