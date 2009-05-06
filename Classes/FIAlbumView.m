@@ -11,7 +11,7 @@
 
 #define DEFAULT_IMAGE_SIZE 300
 #define SHADOW_RADIUS 10.0
-#define MARGIN 10
+#define MARGIN 15
 
 #pragma mark FIAlbumView private interface
 
@@ -214,7 +214,7 @@
     }
     if (imageSize.height*scaleHeight + MARGIN > bounds.size.height) {
       scaleWidth /= imageSize.height*scaleHeight / (bounds.size.height - MARGIN);
-      scaleHeight /= imageSize.width*scaleWidth / (bounds.size.height - MARGIN);
+      scaleHeight /= imageSize.height*scaleHeight / (bounds.size.height - MARGIN);
     }
     
     [CATransaction begin];
