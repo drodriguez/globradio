@@ -123,12 +123,12 @@ static NSArray *imageSizePreference;
           NSURL *url = [NSURL URLWithString:[image stringValue]];
           [images_ setValue:url forKey:size];
         }
-        
-        NSURL *xlargeImage;
-        if (xlargeImage = [FIImageProvider extraLargeImageFrom:self.image]) {
-          [images_ setValue:xlargeImage forKey:@"xlarge"];
-        }
       }
+      
+      NSURL *xlargeImage;
+      if (xlargeImage = [FIImageProvider extraLargeImageFrom:self.image]) {
+        [images_ setValue:xlargeImage forKey:@"xlarge"];
+      }      
     }    
   }
   
