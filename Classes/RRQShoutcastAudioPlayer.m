@@ -15,7 +15,7 @@
 @property(nonatomic, retain, readwrite) NSDictionary *headers;
 
 - (void)filterMetadataFrom:(NSData *)data;
-- (void)parseMetadataAt:(unsigned int)offset;
+- (void)parseMetadata;
 - (int)parseHeader:(NSData *)data;
 
 @end
@@ -193,13 +193,21 @@ BOOL readHeader(NSData *data, int *index,
     memcpy(metadata+metadataCounter, bytes, copyLength);
     left -= copyLength;
     metadataCounter += copyLength;
-    [self parseMetadataAt:0];
+    [self parseMetadata];
   }
   
   // RNLog(@"length %d", length);
   while (left > 0) {
     // RNLog(@"left %d", left);
     if (byteCounter + left > metadataInterval) {
+      
+      // RNLog(@"Musica");
+      int audioLength = metadataInterval - byteCounter;
+      // RNLog(@"1st audioLength %d", audioLength);
+      [self audioFileStream:audioFileStream
+                 parseBytes:bytes+(length-left)
+                     length:audioLength];
+      
       // RNLog(@"metadatos!");
       left -= metadataInterval - byteCounter;
       int metadataStart = length - left;
@@ -212,12 +220,12 @@ BOOL readHeader(NSData *data, int *index,
       if (metadata) {
         memcpy(metadata, bytes+metadataStart+1, copyLength);
         metadataCounter += copyLength;
-        [self parseMetadataAt:metadataStart];
+        [self parseMetadata];
       }
       
       // RNLog(@"-left %d", left);
-      int audioLength = left > metadataInterval ? metadataInterval : left;
-      // RNLog(@"audioLength %d", audioLength);
+      audioLength = left > metadataInterval ? metadataInterval : left;
+      // RNLog(@"2nd audioLength %d", audioLength);
       [self audioFileStream:audioFileStream
                  parseBytes:bytes+metadataStart+1+copyLength
                      length:audioLength];
@@ -235,7 +243,7 @@ BOOL readHeader(NSData *data, int *index,
   // RNLog(@"no more left");
 }
 
-- (void)parseMetadataAt:(unsigned int)offset {
+- (void)parseMetadata {
   if (metadataCounter < metadataLength) return;
     
   if (metadataLength > 0) {

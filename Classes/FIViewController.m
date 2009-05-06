@@ -14,7 +14,7 @@
 #import "RRQVolumeView.h"
 
 NSString *kFIFMRadioURL = @"http://radio.asoc.fi.upm.es:8000/";
-// NSString *kFIFMRadioURL = @"http://scfire-ntc-aa10.stream.aol.com:80/stream/1040";
+// NSString *kFIFMRadioURL = @"http://scfire-mtc-aa05.stream.aol.com:80/stream/1074";
 
 NSString *kDefaultTitle = @"Radio FI-FM";
 NSString *kDefaultArtist = @"http://radio.asoc.fi.upm.es/";
