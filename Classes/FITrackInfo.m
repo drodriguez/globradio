@@ -57,13 +57,21 @@ static NSString *kAlbumNodeXPath = @"album";
       rootElement = [[rootElement elementsForName:kTrackNodeName] objectAtIndex:0];
     }
     
-    CXMLNode *idNode = [[rootElement nodesForXPath:kIdNodeXPath error:nil] objectAtIndex:0];
-    NSAssert(idNode, @"Track info id node not found!");
-    lastFMId_ = [[idNode stringValue] intValue];
+    NSArray *idNodes = [rootElement nodesForXPath:kIdNodeXPath error:nil];
+    if ([idNodes count] > 0) {
+      CXMLNode *idNode = [idNodes objectAtIndex:0];
+      lastFMId_ = [[idNode stringValue] intValue];
+    } else {
+      RNLog(@"Track info id node not found!");
+    }
     
-    CXMLNode *nameNode = [[rootElement nodesForXPath:kNameNodeXPath error:nil] objectAtIndex:0];
-    NSAssert(nameNode, @"Track info name node not found!");
-    self.name = [nameNode stringValue];
+    NSArray *nameNodes = [rootElement nodesForXPath:kNameNodeXPath error:nil];
+    if ([nameNodes count] > 0) {
+      CXMLNode *nameNode = [nameNodes objectAtIndex:0];
+      self.name = [nameNode stringValue];
+    } else {
+      RNLog(@"Track info name node not found!");
+    }
         
     NSArray *mbidNodes = [rootElement nodesForXPath:kMbidNodeXPath error:nil];
     if ([mbidNodes count] > 0) {

@@ -249,7 +249,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 65A68F1F0F962D6000B5919B /* Update RNE Radio Build Number */;
+			remoteGlobalIDString = 65A68F1F0F962D6000B5919B;
 			remoteInfo = "Update RNE Radio Build Number";
 		};
 		65BF600B0F671FD80019FE2D /* PBXContainerItemProxy */ = {
