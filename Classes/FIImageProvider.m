@@ -9,14 +9,17 @@
 #import "FIImageProvider.h"
 
 static NSDictionary *providers;
-static NSInvocation *providerInvocation;
 
 @implementation FIImageProvider
 
 + (NSURL *)extraLargeImageFrom:(NSURL *)image {
   for (NSString *host in providers) {
     if ([host isEqualToString:[image host]]) {
-      providerInvocation.selector = NSSelectorFromString([providers objectForKey:host]);
+      NSInvocation *providerInvocation = [NSInvocation invocationWithMethodSignature:
+                            [FIImageProvider methodSignatureForSelector:
+                             @selector(extraLargeImageFrom:)]];
+      providerInvocation.target = [FIImageProvider class];
+      [providerInvocation setSelector:NSSelectorFromString([providers objectForKey:host])];
       [providerInvocation setArgument:&image atIndex:2];
       [providerInvocation invoke];
       NSURL *result;
@@ -34,10 +37,6 @@ static NSInvocation *providerInvocation;
                @"extraLargeImageFromLastFM:", @"userserve-ak.last.fm",
                @"extraLargeImageFromAmazon:", @"images.amazon.com",
                nil];
-  providerInvocation = [NSInvocation invocationWithMethodSignature:
-                        [FIImageProvider methodSignatureForSelector:
-                         @selector(extraLargeImageFrom:)]];
-  providerInvocation.target = [FIImageProvider class];
 }
 
 + (NSURL *)extraLargeImageFromLastFM:(NSURL *)image {
