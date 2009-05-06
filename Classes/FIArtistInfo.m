@@ -8,6 +8,7 @@
 
 #import "FIArtistInfo.h"
 #import "FIArtistInfo+Private.h"
+#import "FIImageProvider.h"
 #import "TouchXML.h"
 
 static NSString *kStatus = @"status";
@@ -33,7 +34,8 @@ static NSArray *imageSizePreference;
 @synthesize images = images_;
 
 + (void)initialize {
-  imageSizePreference = [[NSArray alloc] initWithObjects:@"large",
+  imageSizePreference = [[NSArray alloc] initWithObjects:@"xlarge",
+                         @"large",
                          @"medium",
                          @"small", nil];
 }
@@ -113,13 +115,18 @@ static NSArray *imageSizePreference;
     
     NSArray *images = [rootElement nodesForXPath:kImageNodeXPath error:nil];
     if ([images count] > 0) {
-      images_ = [[NSMutableDictionary alloc] initWithCapacity:[images count]];
+      images_ = [[NSMutableDictionary alloc] initWithCapacity:[images count]+1];
       for (CXMLElement *image in images) {
         NSString *size = [[image attributeForName:kSizeAttribute] stringValue];
         NSString *urlStr = [image stringValue];
         if (urlStr) {
           NSURL *url = [NSURL URLWithString:[image stringValue]];
           [images_ setValue:url forKey:size];
+        }
+        
+        NSURL *xlargeImage;
+        if (xlargeImage = [FIImageProvider extraLargeImageFrom:self.image]) {
+          [images_ setValue:xlargeImage forKey:@"xlarge"];
         }
       }
     }    

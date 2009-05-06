@@ -51,6 +51,7 @@
 		651606940ED883BC0031CDBE /* rowBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 651606930ED883BC0031CDBE /* rowBackground.png */; };
 		651606CA0ED8A2C00031CDBE /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 651606C90ED8A2C00031CDBE /* play.png */; };
 		651606CD0ED8A5D70031CDBE /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 651606CC0ED8A5D70031CDBE /* pause.png */; };
+		651E87AD0FAF469A005B67F7 /* FIImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 651E87AC0FAF469A005B67F7 /* FIImageProvider.m */; };
 		65255AD90EE574C100F4142C /* play-hl.png in Resources */ = {isa = PBXBuildFile; fileRef = 65255AD80EE574C100F4142C /* play-hl.png */; };
 		6534D1710EDCA968008B1124 /* volume-thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 6534D16F0EDCA968008B1124 /* volume-thumb.png */; };
 		653A64400F87D2BA00EDB548 /* RRQTransparentGradientCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 653A643F0F87D2BA00EDB548 /* RRQTransparentGradientCell.m */; };
@@ -281,6 +282,8 @@
 		651606930ED883BC0031CDBE /* rowBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rowBackground.png; path = Resources/RNERadio/rowBackground.png; sourceTree = "<group>"; };
 		651606C90ED8A2C00031CDBE /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.png; path = Resources/RNERadio/play.png; sourceTree = "<group>"; };
 		651606CC0ED8A5D70031CDBE /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = Resources/RNERadio/pause.png; sourceTree = "<group>"; };
+		651E87AB0FAF469A005B67F7 /* FIImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIImageProvider.h; sourceTree = "<group>"; };
+		651E87AC0FAF469A005B67F7 /* FIImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIImageProvider.m; sourceTree = "<group>"; };
 		65255AD80EE574C100F4142C /* play-hl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play-hl.png"; path = "Resources/RNERadio/play-hl.png"; sourceTree = "<group>"; };
 		6534D16F0EDCA968008B1124 /* volume-thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "volume-thumb.png"; path = "Resources/RNERadio/volume-thumb.png"; sourceTree = "<group>"; };
 		653A643E0F87D2BA00EDB548 /* RRQTransparentGradientCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRQTransparentGradientCell.h; sourceTree = "<group>"; };
@@ -705,6 +708,8 @@
 				653CE3780F5AE69B00445A02 /* FIArtistInfo.m */,
 				65652ECE0F64465B0000EB29 /* FIArtistInfo+Private.h */,
 				65652ECF0F6446990000EB29 /* FIAlbumInfo+Private.h */,
+				651E87AB0FAF469A005B67F7 /* FIImageProvider.h */,
+				651E87AC0FAF469A005B67F7 /* FIImageProvider.m */,
 			);
 			name = FIFMRadio;
 			sourceTree = "<group>";
@@ -1355,6 +1360,7 @@
 				653CE3790F5AE69B00445A02 /* FIArtistInfo.m in Sources */,
 				654504450F8BF7650001D90B /* RRQVolumeView.m in Sources */,
 				65DD48B40F8D0D690009F8A2 /* RRQNSString+Version.m in Sources */,
+				651E87AD0FAF469A005B67F7 /* FIImageProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
