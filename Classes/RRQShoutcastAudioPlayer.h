@@ -25,11 +25,11 @@
   
   void *metadata;
   
-  NSObject<ShoutcastPlayerDelegate> *delegate;
+  NSObject<RRQShoutcastAudioPlayerDelegate> *delegate;
 }
 
 @property(nonatomic, readonly, retain) NSDictionary *headers;
-@property(nonatomic, assign) NSObject<ShoutcastPlayerDelegate> *delegate;
+@property(nonatomic, assign) NSObject<RRQShoutcastAudioPlayerDelegate> *delegate;
 
 @end
 

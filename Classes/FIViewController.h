@@ -6,10 +6,10 @@
 //  Copyright 2008 Daniel Rodríguez and Javier Quevedo. All rights reserved.
 //
 
+#import "RRQShoutcastAudioPlayer.h"
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 
-@class RRQShoutcastAudioPlayer;
 @class FILastFMDataProvider;
 @class FIAlbumView;
 
