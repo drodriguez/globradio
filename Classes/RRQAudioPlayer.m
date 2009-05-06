@@ -137,6 +137,8 @@ void MyAudioQueueIsRunningCallback(void *inClientData,
   if (self != nil) {
     url = [newUrl retain];
     audioHint = newAudioHint;
+    // Just to be sure.
+    memset(audioQueueBuffer, 0, sizeof(audioQueueBuffer));
   }
   
   return self;
@@ -674,11 +676,17 @@ packetDescriptions:(AudioStreamPacketDescription*)packetDescriptions {
       // If the audio was terminated while waiting for a buffer, then exit.
       if (finished) {
         pthread_mutex_unlock(&audioQueueBufferMutex);
+        RNLog(@"already finished in VBR data received");
         return;
       }
       
       // Copy data to the audio buffer queue.
       AudioQueueBufferRef fillBuf = audioQueueBuffer[fillBufferIndex];
+      if (!fillBuf) { // Some error must have happened.
+        pthread_mutex_unlock(&audioQueueBufferMutex);
+        RNLog(@"fillBuf not initialized in VBR data received");
+        return;
+      }
       memcpy((char*) fillBuf->mAudioData + bytesFilled,
              (const char*) data + packetOffset,
              packetSize);
@@ -711,11 +719,17 @@ packetDescriptions:(AudioStreamPacketDescription*)packetDescriptions {
       // If the audio was terminated while waiting for a buffer, then exit.
       if (finished) {
         pthread_mutex_unlock(&audioQueueBufferMutex);
+        RNLog(@"already finished in CBR data received");
         return;
       }
       
       // Copy data to the audio buffer queue.
       AudioQueueBufferRef fillBuf = audioQueueBuffer[fillBufferIndex];
+      if (!fillBuf) { // Some error must have happened.
+        pthread_mutex_unlock(&audioQueueBufferMutex);
+        RNLog(@"fillBuf not initialized in CBR data received");
+        return;
+      }
       bufSpaceRemaining = kAQBufSize - bytesFilled;
       size_t copySize =
         (bufSpaceRemaining < numBytes) ? bufSpaceRemaining : numBytes;
