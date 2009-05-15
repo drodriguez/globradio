@@ -97,6 +97,7 @@
 		658687A00ECF03A000EB9D99 /* RRQM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RRQM3UParser.m */; };
 		658687A30ECF040200EB9D99 /* RRQM3UParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 658687A20ECF040200EB9D99 /* RRQM3UParserTest.m */; };
 		658CC7AB0F65368800DC6372 /* default-album-cover.png in Resources */ = {isa = PBXBuildFile; fileRef = 658CC7AA0F65368800DC6372 /* default-album-cover.png */; };
+		65959B120FB6CF20006937E2 /* RNEUpdateMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65959B110FB6CF20006937E2 /* RNEUpdateMessageController.m */; };
 		659F95210F8A3A270034B823 /* RRQNSString+Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95200F8A3A270034B823 /* RRQNSString+Version.m */; };
 		659F95260F8A6F6F0034B823 /* RRQNSString+VersionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95250F8A6F6F0034B823 /* RRQNSString+VersionTest.m */; };
 		659F95300F8A78E00034B823 /* RRQNSString+Version.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F95200F8A3A270034B823 /* RRQNSString+Version.m */; };
@@ -339,6 +340,8 @@
 		658687A10ECF040200EB9D99 /* RRQM3UParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RRQM3UParserTest.h; path = Test/RRQM3UParserTest.h; sourceTree = "<group>"; };
 		658687A20ECF040200EB9D99 /* RRQM3UParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RRQM3UParserTest.m; path = Test/RRQM3UParserTest.m; sourceTree = "<group>"; };
 		658CC7AA0F65368800DC6372 /* default-album-cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default-album-cover.png"; path = "Resources/FIFMRadio/default-album-cover.png"; sourceTree = "<group>"; };
+		65959B100FB6CF20006937E2 /* RNEUpdateMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNEUpdateMessageController.h; sourceTree = "<group>"; };
+		65959B110FB6CF20006937E2 /* RNEUpdateMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNEUpdateMessageController.m; sourceTree = "<group>"; };
 		659F951F0F8A3A270034B823 /* RRQNSString+Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RRQNSString+Version.h"; sourceTree = "<group>"; };
 		659F95200F8A3A270034B823 /* RRQNSString+Version.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RRQNSString+Version.m"; sourceTree = "<group>"; };
 		659F95240F8A6F6F0034B823 /* RRQNSString+VersionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RRQNSString+VersionTest.h"; path = "Test/RRQNSString+VersionTest.h"; sourceTree = "<group>"; };
@@ -683,6 +686,8 @@
 				1D3623250D0F684500981E51 /* RNEAppDelegate.m */,
 				28D7ACF60DDB3853001CB0EB /* RNEViewController.h */,
 				28D7ACF70DDB3853001CB0EB /* RNEViewController.m */,
+				65959B100FB6CF20006937E2 /* RNEUpdateMessageController.h */,
+				65959B110FB6CF20006937E2 /* RNEUpdateMessageController.m */,
 			);
 			name = RNERadio;
 			sourceTree = "<group>";
@@ -1328,6 +1333,7 @@
 				654504460F8BF7650001D90B /* RRQVolumeView.m in Sources */,
 				65DD48C80F8D0E2C0009F8A2 /* RRQTransparentGradientCell.m in Sources */,
 				65DD48C90F8D0E460009F8A2 /* RRQNSString+Version.m in Sources */,
+				65959B120FB6CF20006937E2 /* RNEUpdateMessageController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
