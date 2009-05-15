@@ -1,5 +1,5 @@
 //
-//  FINSString+URLQuery.h
+//  RRQNSString+URLQuery.h
 //  radio3
 //
 //  Created by Daniel Rodríguez Troitiño on 27/02/09.
@@ -11,7 +11,7 @@
 // Taken from http://www.cocoadev.com/index.pl?URLParsing
 
 
-@interface NSString (FIURLQuery)
+@interface NSString (RRQURLQuery)
 
 // NSString has a method for decoding percent escapes but none for encoding
 // So, here they are:

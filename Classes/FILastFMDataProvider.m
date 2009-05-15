@@ -7,9 +7,9 @@
 //
 
 #import "FILastFMDataProvider.h"
-#import "FINSString+URLQuery.h"
 #import "FITrackInfo.h"
 #import "FIArtistInfo.h"
+#import "RRQNSString+URLQuery.h"
 
 static NSString *kLastFMApiURL = @"http://ws.audioscrobbler.com/2.0/";
 static NSString *kMethodParameter = @"method";

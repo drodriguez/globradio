@@ -1,17 +1,17 @@
 //
-//  FINSString+URLQuery.m
+//  RRQNSString+URLQuery.m
 //  radio3
 //
 //  Created by Daniel Rodríguez Troitiño on 27/02/09.
 //  Copyright 2009 Javier Quevedo and Daniel Rodríguez. All rights reserved.
 //
 
-#import "FINSString+URLQuery.h"
+#import "RRQNSString+URLQuery.h"
 
 // Taken from http://www.cocoadev.com/index.pl?URLParsing
 
 
-@implementation NSString (FIURLQuery)
+@implementation NSString (RRQURLQuery)
 
 - (NSString*)encodePercentEscapesPerRFC2396 {
   return (NSString*)[(NSString*)
