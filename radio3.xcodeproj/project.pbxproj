@@ -1531,7 +1531,7 @@
 				INFOPLIST_FILE = Resources/RNERadio/Info.plist;
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = RNERadio;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "30DB0352-B806-4E33-A91F-3C72A3ADAF25";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "858315C2-469F-4821-9631-9B2A9602069A";
 			};
 			name = Beta;
 		};
