@@ -3,7 +3,7 @@
 //  radio3
 //
 //  Created by Daniel Rodríguez Troitiño on 07/04/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 Daniel Rodríguez and Javier Quevedo. All rights reserved.
 //
 
 #import "RRQVolumeView.h"
