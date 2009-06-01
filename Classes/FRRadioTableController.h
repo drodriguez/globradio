@@ -9,16 +9,18 @@
 #import <UIKit/UIKit.h>
 
 @class FRRadio;
+@class FRRadioGroupControllerDelegate;
 @protocol FRRadioTableControllerDelegate;
 
 @interface FRRadioTableController : UITableViewController {
+ @private
+  FRRadioGroupControllerDelegate *helperDelegate_;
  @protected
   NSInteger activeRadio_;
- @protected
-  id<FRRadioTableControllerDelegate> delegate_;
+  NSObject<FRRadioTableControllerDelegate> *delegate_;
 }
 
-@property (nonatomic, assign) id delegate;
+@property (nonatomic, assign) NSObject<FRRadioTableControllerDelegate> *delegate;
 
 - (id)init;
 
