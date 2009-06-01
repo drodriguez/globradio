@@ -13,6 +13,7 @@
  @private
   NSInteger parentId_;
   NSMutableArray *items_;
+  NSTimer *timeoutTimer_;
 }
 
 @property (nonatomic, assign) NSInteger parentId;
