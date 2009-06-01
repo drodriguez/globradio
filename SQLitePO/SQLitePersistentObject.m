@@ -1539,6 +1539,9 @@ NSMutableArray *checkedTables;
 		
 		if (sqlite3_exec (database, "CREATE TABLE IF NOT EXISTS \"SQLITESEQUENCE\" (\"name\" TEXT PRIMARY KEY, \"seq\" INTEGER)", NULL, NULL, &errmsg) != SQLITE_OK)		
 			NSLog(@"Error Message: %s", errmsg);
+    
+    if (sqlite3_exec(database, "CREATE INDEX IF NOT EXISTS \"SQLITESEQUENCE_name\" ON \"SQLITESEQUENCE\" (\"name\")", NULL, NULL, &errmsg) != SQLITE_OK)
+      NSLog(@"Error Message: %s", errmsg);
 		
 		NSMutableString *addSequenceSQL = [NSMutableString stringWithFormat:@"INSERT OR IGNORE INTO \"SQLITESEQUENCE\" (\"name\", \"seq\") VALUES ('%@', 0)", [[self class] tableName]];
 		if (sqlite3_exec (database, [addSequenceSQL UTF8String], NULL, NULL, &errmsg) != SQLITE_OK)		
