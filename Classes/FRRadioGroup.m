@@ -18,7 +18,7 @@ static NSString *kTableName = @"radio_groups";
 
 - (NSString *)name {
   if (!name_) {
-    if (!selected_) {
+    if (selected_) {
       name_ = self.selected.name;
     } else {
       name_ = self.groupName;
