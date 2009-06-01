@@ -17,20 +17,7 @@
 @implementation FRRadioGroupController
 
 @synthesize parentId = parentId_;
-
-- (id)initWithNibName:(NSString *)nibName bundle:(NSBundle *)bundle {
-  if (self = [super initWithNibName:nibName bundle:bundle]) {
-    // FIXME: This timer should be better in viewWillAppear, but seems not to
-    // be fired.
-    timeoutTimer_ = [[NSTimer scheduledTimerWithTimeInterval:kTimeout
-                                                      target:self
-                                                    selector:@selector(timerFired:)
-                                                    userInfo:nil
-                                                     repeats:NO] retain];
-  }
-  
-  return self;
-}  
+@synthesize subdelegate = subdelegate_;
 
 - (NSMutableArray *)items {
   if (!items_) {
@@ -70,12 +57,29 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   FRRadioGroup *radioGroup = parent.radioGroup;
   radioGroup.selected = item.radio;
   [radioGroup save];
+  
+  // Call subdelegate
+  [subdelegate_ radioGroupController:self selectedRadioDidChangeForParent:parent];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
   timeoutTimer_.fireDate = [NSDate dateWithTimeIntervalSinceNow:kTimeout];
   // super do not implement it, so leave it commented out
   // [super scrollViewDidScroll:scrollView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+  timeoutTimer_ = [[NSTimer scheduledTimerWithTimeInterval:kTimeout
+                                                    target:self
+                                                  selector:@selector(timerFired:)
+                                                  userInfo:nil
+                                                   repeats:NO] retain];
+  [super viewDidAppear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+  [timeoutTimer_ invalidate];
+  [super viewDidDisappear:animated];
 }
 
 - (void)dealloc {
