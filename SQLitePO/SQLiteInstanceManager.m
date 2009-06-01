@@ -23,11 +23,6 @@
 
 static SQLiteInstanceManager *sharedSQLiteManager = nil;
 
-#pragma mark Private Method Declarations
-@interface SQLiteInstanceManager (private)
-- (NSString *)databaseFilepath;
-@end
-
 @implementation SQLiteInstanceManager
 
 @synthesize databaseFilepath;

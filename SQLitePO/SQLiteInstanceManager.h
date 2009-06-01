@@ -65,4 +65,6 @@ typedef enum SQLITE3LockingMode
 - (void)deleteDatabase;
 - (void)vacuum;
 - (void)executeUpdateSQL:(NSString *) updateSQL;
+- (NSString *)databaseFilepath;
+
 @end
