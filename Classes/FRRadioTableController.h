@@ -21,8 +21,11 @@
 }
 
 @property (nonatomic, assign) NSObject<FRRadioTableControllerDelegate> *delegate;
+@property (nonatomic, assign) NSInteger activeRadio;
 
 - (id)init;
+
+- (void)setActiveRadioWithRadio:(FRRadio *)radio;
 
 @end
 

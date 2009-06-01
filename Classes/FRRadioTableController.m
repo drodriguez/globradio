@@ -25,7 +25,6 @@ static UIImage *soundOn;
 @interface FRRadioTableController ()
 
 @property (nonatomic, retain) NSMutableArray *items;
-@property (nonatomic, assign) NSInteger activeRadio;
 @property (nonatomic, retain) FRRadioGroupControllerDelegate *helperDelegate;
 
 @end
@@ -144,6 +143,19 @@ static UIImage *soundOn;
   }
 }
 
+- (void)setActiveRadioWithRadio:(FRRadio *)radio {
+  if (radio) {
+    for(FRTableViewItem *item in self.items) {
+      if (item.finalRadio == radio) {
+        activeRadio_ = item.position - 1;
+        return;
+      }
+    }
+  }
+  
+  activeRadio_ = -1;
+}
+
 - (FRRadioGroupControllerDelegate *)helperDelegate {
   if (!helperDelegate_) {
     helperDelegate_ = [[FRRadioGroupControllerDelegate alloc]
@@ -223,9 +235,9 @@ static UIImage *soundOn;
   if (item.group) {
     cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
   }
-  	
+  
+  FRRadio *radio = item.finalRadio;
 	if (activeRadio_ == indexPath.row) {
-    FRRadio *radio = item.finalRadio;
     if (radio != nil &&
         radio == [self.delegate activeRadio] &&
         [self.delegate isPlaying]) {

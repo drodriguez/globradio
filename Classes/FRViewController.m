@@ -72,9 +72,9 @@ static NSString *kSupportMailURL =
 - (IBAction)controlButtonClicked:(UIButton *)button {
 	if (isPlaying) {
 		[self stopRadio];
-	}	/* TODO: else if (activeRadio != -1) {
-		[self playRadio];
-	} */
+	}	else if (activeRadio != nil) {
+		[self playRadio:activeRadio];
+	}
 }
 
 #define SUPPORT_WEB_BUTTON 1001
@@ -148,9 +148,9 @@ static NSString *kSupportMailURL =
 }
 
 - (void)saveApplicationState {
-	/* [[NSUserDefaults standardUserDefaults]
-	 setObject:[NSNumber numberWithInt:activeRadio]
-	 forKey:@"activeRadio"]; */
+	[[NSUserDefaults standardUserDefaults]
+	 setObject:[NSNumber numberWithInt:activeRadio.pk]
+	 forKey:@"activeRadio"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -276,7 +276,7 @@ static NSString *kSupportMailURL =
 		[loadingImage stopAnimating];
 	[controlButton setImage:playImage forState:UIControlStateNormal];
 	[controlButton setImage:playHighlightImage forState:UIControlStateHighlighted];
-	// [radiosTable reloadData];
+	// TODO: [radiosTable reloadData]; ???
 	
 	NSString *message;
 	if (error != nil) {
@@ -451,14 +451,13 @@ static NSString *kSupportMailURL =
 	pthread_cond_init(&stopCondition, NULL);
 		
 	// Initialize saved values
-  /* FIXME
-	NSNumber *result =
-	[[NSUserDefaults standardUserDefaults] objectForKey:@"activeRadio"];
-	if (result != nil) {
-		activeRadio = [result intValue];
-	} else
-		activeRadio = -1;
-  */
+	NSNumber *activeRadioId =
+    [[NSUserDefaults standardUserDefaults] objectForKey:@"activeRadio"];
+	if (activeRadioId != nil) {
+		activeRadio = (FRRadio *) [FRRadio findByPK:[activeRadioId intValue]];
+	} else {
+		activeRadio = nil;
+  }
   
   navigationController = [[UINavigationController alloc] init];
   navigationController.view.frame = flippableView.bounds;
@@ -466,6 +465,7 @@ static NSString *kSupportMailURL =
   
   FRRadioTableController *radioTableController = [[FRMainRadiosController alloc] init];
   radioTableController.delegate = self;
+  [radioTableController setActiveRadioWithRadio:activeRadio];
   [navigationController pushViewController:radioTableController animated:YES];
   [radioTableController release];
   
