@@ -1,14 +1,14 @@
 PRAGMA encoding = "UTF-8";
 
-# Radios
+/* Radios */
 INSERT INTO "radios" ("pk", "name", "high_u_r_l", "low_u_r_l") VALUES (1, 'France Inter', 'http://www.tv-radio.com/station/france_inter_mp3/france_inter_mp3-128k.m3u', 'http://www.tv-radio.com/station/france_inter_mp3/france_inter_mp3-32k.m3u');
 INSERT INTO "radios" ("pk", "name", "high_u_r_l", "low_u_r_l") VALUES (2, 'France Info', 'http://str2.creacast.com/france_info_64.m3u', 'http://str2.creacast.com/france_info_64.m3u');
 INSERT INTO "radios" ("pk", "name", "high_u_r_l", "low_u_r_l") VALUES (3, 'France Culture', 'http://www.tv-radio.com/station/france_culture_mp3/france_culture_mp3-128k.m3u', 'http://www.tv-radio.com/station/france_culture_mp3/france_culture_mp3-32k.m3u');
 INSERT INTO "radios" ("pk", "name", "high_u_r_l", "low_u_r_l") VALUES (4, 'France Musique', 'http://www.tv-radio.com/station/france_musique_mp3/france_musique_mp3-128k.m3u', 'http://www.tv-radio.com/station/france_musique_mp3/france_musique_mp3-32k.m3u');
 INSERT INTO "radios" ("pk", "name", "high_u_r_l", "low_u_r_l") VALUES (5, 'France FIP', 'http://www.tv-radio.com/station/fip_mp3/fip_mp3-128k.m3u', 'http://www.tv-radio.com/station/fip_mp3/fip_mp3-32k.m3u');
 INSERT INTO "radios" ("pk", "name", "high_u_r_l", "low_u_r_l") VALUES (6, 'France Le Mouv’', 'http://www.tv-radio.com/station/le_mouv_mp3/le_mouv_mp3-128k.m3u', 'http://www.tv-radio.com/station/le_mouv_mp3/le_mouv_mp3-32k.m3u');
-INSERT INTO "radios" ("pk", "name", "high_u_r_l", "low_u_r_l") VALUES (7, 'France Vivace', 'http://www.tv-radio.com/station/france_vivace_mp3/france_vivace_mp3-128k.m3u', 'http://www.tv-radio.com/station/france_vivace_mp3/france_vivace_mp3-32k.m3u')
-# France Bleu radios only have low URL, so high is the same
+INSERT INTO "radios" ("pk", "name", "high_u_r_l", "low_u_r_l") VALUES (7, 'France Vivace', 'http://www.tv-radio.com/station/france_vivace_mp3/france_vivace_mp3-128k.m3u', 'http://www.tv-radio.com/station/france_vivace_mp3/france_vivace_mp3-32k.m3u');
+/* France Bleu radios only have low URL, so high is the same */
 INSERT INTO "radios" ("pk", "name", "high_u_r_l", "low_u_r_l") VALUES (8, 'France Bleu Alsace', 'http://www.tv-radio.com/station/france_bleu_alsace_mp3/france_bleu_alsace_mp3-32k.m3u', 'http://www.tv-radio.com/station/france_bleu_alsace_mp3/france_bleu_alsace_mp3-32k.m3u');
 INSERT INTO "radios" ("pk", "name", "high_u_r_l", "low_u_r_l") VALUES (9, 'France Bleu Armorique', 'http://www.tv-radio.com/station/france_bleu_alsace_mp3/france_bleu_armorique_mp3-32k.m3u', 'http://www.tv-radio.com/station/france_bleu_alsace_mp3/france_bleu_armorique_mp3-32k.m3u');
 INSERT INTO "radios" ("pk", "name", "high_u_r_l", "low_u_r_l") VALUES (10, 'France Bleu Auxerre', 'http://www.tv-radio.com/station/france_bleu_alsace_mp3/france_bleu_auxerre_mp3-32k.m3u', 'http://www.tv-radio.com/station/france_bleu_alsace_mp3/france_bleu_auxerre_mp3-32k.m3u');
@@ -49,14 +49,14 @@ INSERT INTO "radios" ("pk", "name", "high_u_r_l", "low_u_r_l") VALUES (44, 'Fran
 INSERT INTO "radios" ("pk", "name", "high_u_r_l", "low_u_r_l") VALUES (45, 'France Bleu Sud Lorraine', 'http://www.tv-radio.com/station/france_bleu_sud_lorraine_mp3/france_bleu_sud_lorraine_mp3-32k.m3u', 'http://www.tv-radio.com/station/france_bleu_sud_lorraine_mp3/france_bleu_sud_lorraine_mp3-32k.m3u');
 INSERT INTO "radios" ("pk", "name", "high_u_r_l", "low_u_r_l") VALUES (46, 'France Bleu Touraine', 'http://www.tv-radio.com/station/france_bleu_touraine_mp3/france_bleu_touraine_mp3-32k.m3u', 'http://www.tv-radio.com/station/france_bleu_touraine_mp3/france_bleu_touraine_mp3-32k.m3u');
 INSERT INTO "radios" ("pk", "name", "high_u_r_l", "low_u_r_l") VALUES (47, 'France Bleu Vaucluse', 'http://www.tv-radio.com/station/france_bleu_vaucluse_mp3/france_bleu_vaucluse_mp3-32k.m3u', 'http://www.tv-radio.com/station/france_bleu_vaucluse_mp3/france_bleu_vaucluse_mp3-32k.m3u');
-# Keep SQLITESEQUENCE up to date
-UPDATE "SQLITESEQUENCE" SET "seq" = 47 WHERE "name" = 'radios'
+/* Keep SQLITESEQUENCE up to date */
+UPDATE "SQLITESEQUENCE" SET "seq" = 47 WHERE "name" = 'radios';
 
-# Radio groups
+/* Radio groups */
 INSERT INTO "radio_groups" ("pk", "group_name") VALUES (1, 'France Bleu');
 UPDATE "SQLITESEQUENCE" SET "seq" = 1 WHERE "name" = 'radio_groups';
 
-# Table view items
+/* Table view items */
 INSERT INTO "table_view_items" ("pk", "parent", "position", "radio") VALUES (1, 0, 1, 'FRRadio-1');
 INSERT INTO "table_view_items" ("pk", "parent", "position", "radio") VALUES (2, 0, 2, 'FRRadio-2');
 INSERT INTO "table_view_items" ("pk", "parent", "position", "radio") VALUES (3, 0, 3, 'FRRadio-3');

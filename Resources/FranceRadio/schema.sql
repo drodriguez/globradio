@@ -1,8 +1,8 @@
-# SQLITESEQUENCE TABLE (SqlitePersistentObjects internal table)
+/* SQLITESEQUENCE TABLE (SqlitePersistentObjects internal table) */
 CREATE TABLE "SQLITESEQUENCE" ("name" TEXT, "seq" INTEGER);
 CREATE INDEX "SQLITESEQUENCE_name" ON "SQLITESEQUENCE" ("name");
 
-# Table view items
+/* Table view items */
 CREATE TABLE "table_view_items" (
   "pk" INTEGER PRIMARY KEY,
   "parent" INTEGER,
@@ -15,7 +15,7 @@ CREATE INDEX "table_view_items_parent" ON "table_view_items" ("parent");
 CREATE INDEX "table_view_items_parent_position" ON "table_view_items" ("parent", "position");
 INSERT INTO "SQLITESEQUENCE" ("name", "seq") VALUES ('table_view_items', 0);
 
-# Radios
+/* Radios */
 CREATE TABLE "radios" (
   "pk" INTEGER PRIMARY KEY,
   "name" TEXT,
@@ -24,7 +24,7 @@ CREATE TABLE "radios" (
 );
 INSERT INTO "SQLITESEQUENCE" ("name", "seq") VALUES ('radios', 0);
 
-# Radio groups
+/* Radio groups */
 CREATE TABLE "radio_groups" (
   "pk" INTEGER PRIMARY KEY,
   "group_name" TEXT,
@@ -32,7 +32,7 @@ CREATE TABLE "radio_groups" (
 );
 INSERT INTO "SQLITESEQUENCE" ("name", "seq") VALUES ('radio_groups', 0);
 
-# Version table
+/* Version table */
 CREATE TABLE "db_schema" (
   "version" INTEGER
 );

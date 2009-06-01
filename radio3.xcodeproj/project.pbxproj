@@ -1374,11 +1374,12 @@
 			);
 			name = "Create database";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/franceradio.sqlite3",
+				"$(BUILT_PRODUCTS_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/franceradio.sqlite3",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "rm \"$DERIVED_FILE_DIR/franceradio.sqlite3\"\nsqlite3 \"$DERIVED_FILE_DIR/franceradio.sqlite3\" < \"$SRCROOT/Resources/FranceRadio/schema.sql\"\nsqlite3 \"$DERIVED_FILE_DIR/franceradio.sqlite3\" < \"$SRCROOT/Resources/FranceRadio/data.sql\"\n";
+			shellScript = "DBFILE=\"$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/franceradio.sqlite3\"\n\nif [ -f \"$DBFILE\" ]; then\n\trm \"$DBFILE\"\nfi\n\nsqlite3 \"$DBFILE\" < \"$SRCROOT/Resources/FranceRadio/schema.sql\"\nsqlite3 \"$DBFILE\" < \"$SRCROOT/Resources/FranceRadio/data.sql\"\n";
+			showEnvVarsInLog = 0;
 		};
 		65A68F1E0F962D6000B5919B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
