@@ -96,7 +96,7 @@ void interruptionListenerCb(void *inClientData, UInt32 interruptionState) {
     NSError *error;
     
     if (![fileMgr copyItemAtPath:bundledDb toPath:dbPath error:&error]) {
-      RNLog(@"Can not copy metadata file with error (%d) '%@'",
+      RNLog(@"Can not copy database file with error (%d) '%@'",
             [error code], [error description]);
     }
   }
