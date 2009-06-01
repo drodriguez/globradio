@@ -26,7 +26,7 @@
     // FIX: There is a warning in this line, but I don't know why exactly.
     [self.layer setBackgroundColor:[UIColor clearColor].CGColor];
     
-    textLabel_ = [[UILabel alloc] initWithFrame:CGRectMake(49, 5, 271, 35)];
+    textLabel_ = [[UILabel alloc] initWithFrame:CGRectMake(49, 5, 261, 35)];
     textLabel_.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
     textLabel_.backgroundColor = [UIColor clearColor];
     textLabel_.textColor = [UIColor whiteColor];
@@ -68,7 +68,7 @@
 - (void)setAccessoryType:(UITableViewCellAccessoryType)accessoryType {
   if (accessoryType == UITableViewCellAccessoryDetailDisclosureButton) {
     CGRect frame = textLabel_.frame;
-    frame.size.width = 241;
+    frame.size.width = 236;
     textLabel_.frame = frame;
   }
   
