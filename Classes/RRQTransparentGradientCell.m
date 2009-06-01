@@ -68,7 +68,7 @@
 - (void)setAccessoryType:(UITableViewCellAccessoryType)accessoryType {
   if (accessoryType == UITableViewCellAccessoryDetailDisclosureButton) {
     CGRect frame = textLabel_.frame;
-    frame.size.width = 251;
+    frame.size.width = 241;
     textLabel_.frame = frame;
   }
   
