@@ -274,11 +274,12 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     } else if (item.group) {
       [[self.tableView cellForRowAtIndexPath:indexPath] setImage:soundOff];
       [self.delegate playRadio:item.radioGroup.selected];
+      activeRadio_ = indexPath.row;
     } else {
       [[self.tableView cellForRowAtIndexPath:indexPath] setImage:soundOff];
       [self.delegate playRadio:item.radio];
+      activeRadio_ = indexPath.row;
     }
-    activeRadio_ = indexPath.row;
 	}
 }
 
