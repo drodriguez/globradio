@@ -54,6 +54,11 @@ static UIImage *soundOn;
 - (id)initWithController:(FRRadioTableController *)parentController {
   if (self = [super init]) {
     parentController_ = [parentController retain];
+    
+    [parentController_.delegate addObserver:self
+                                 forKeyPath:@"isPlaying"
+                                     options:0
+                                     context:nil];
   }
   
   return self;
@@ -69,10 +74,33 @@ static UIImage *soundOn;
 }
 
 - (void)dealloc {
+  [parentController_.delegate removeObserver:self forKeyPath:@"isPlaying"];
+  
   [parentController_ release];
   [tableViewItem_ release];
   
   [super dealloc];
+}
+
+#pragma mark NSKeyValueObserving methods
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context {
+  if (object == parentController_.delegate) {
+    if ([keyPath isEqualToString:@"isPlaying"]) {
+      // Simulate that the underlaying value is changing.
+      [self willChangeValueForKey:@"isPlaying"];
+      [self didChangeValueForKey:@"isPlaying"];
+      return;
+    }
+  }
+  
+  [super observeValueForKeyPath:keyPath
+                       ofObject:object
+                         change:change
+                        context:context];
 }
 
 @end
@@ -141,6 +169,7 @@ static UIImage *soundOn;
   if (object == delegate_) {
     if ([keyPath isEqualToString:@"isPlaying"]) {
       [self.tableView reloadData];
+      return;
     }
   }
   
