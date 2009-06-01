@@ -9,7 +9,7 @@
 #import "FRRadioTableController.h"
 #import "FRTableViewItem.h"
 #import "FRRadioGroup.h"
-#import "FRMainRadiosController.h"
+#import "FRRadioGroupController.h"
 #import "RRQTransparentGradientCell.h"
 
 enum FRSections {
@@ -36,6 +36,14 @@ static UIImage *soundOn;
 + (void)initialize {
   soundOn = [UIImage imageNamed:@"altavoz-on.png"];
   soundOff = [UIImage imageNamed:@"altavoz.png"];
+}
+
+- (id)initWithNibName:(NSString *)nibName bundle:(NSBundle *)bundle {
+  if (self = [super initWithNibName:nibName bundle:bundle]) {
+    activeRadio_ = -1;
+  }
+  
+  return self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -100,24 +108,26 @@ static UIImage *soundOn;
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   if (activeRadio_ != indexPath.row || ![self.delegate isPlaying]) {
+    FRTableViewItem *item = [self.items objectAtIndex:indexPath.row];
+    
     if (activeRadio_ != -1) {
       NSIndexPath *oldIndexPath =
         [NSIndexPath indexPathForRow:activeRadio_ inSection:0];
       [[self.tableView cellForRowAtIndexPath:oldIndexPath] setImage:nil];
     }
-    [[self.tableView cellForRowAtIndexPath:indexPath] setImage:soundOff];
-		activeRadio_ = indexPath.row;
     
-    FRTableViewItem *item = [self.items objectAtIndex:activeRadio_];
     if (item.group && !item.radioGroup.selected) {
-      // TODO: show better the next controller.
-      FRRadioTableController *subcontroller = [[FRMainRadiosController alloc] initWithNibName:@"RadiosView" bundle:nil];
+      FRRadioGroupController *subcontroller = [[FRRadioGroupController alloc] initWithNibName:@"RadiosView" bundle:nil];
+      subcontroller.parentId = [item pk];
       [self.navigationController pushViewController:subcontroller animated:YES];
     } else if (item.group) {
+      [[self.tableView cellForRowAtIndexPath:indexPath] setImage:soundOff];
       [self.delegate playRadio:item.radioGroup.selected];
     } else {
+      [[self.tableView cellForRowAtIndexPath:indexPath] setImage:soundOff];
       [self.delegate playRadio:item.radio];
     }
+    activeRadio_ = indexPath.row;
 	}
 }
 
