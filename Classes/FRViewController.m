@@ -47,7 +47,7 @@ static NSString *kSupportMailURL =
 @property (nonatomic, retain) UIImage *playHighlightImage;
 @property (nonatomic, retain) UIImage *pauseImage;
 @property (nonatomic, retain) UIImage *pauseHighlightImage;
-@property (nonatomic, assign, readwrite, getter=isPlaying) BOOL playing;
+@property (nonatomic, assign, readwrite) BOOL isPlaying;
 
 - (void)stopRadio;
 
@@ -66,7 +66,7 @@ static NSString *kSupportMailURL =
 @implementation FRViewController
 
 @synthesize playImage, playHighlightImage, pauseImage, pauseHighlightImage;
-@synthesize playing = isPlaying;
+@synthesize isPlaying;
 
 - (IBAction)controlButtonClicked:(UIButton *)button {
 	if (isPlaying) {
@@ -121,11 +121,11 @@ static NSString *kSupportMailURL =
 	
 	UIView *inView, *outView;
 	if (infoViewVisible) {
-		// TODO: inView = radiosView;
+		inView = navigationController.view;
 		outView = infoView;
 	} else {
 		inView = infoView;
-		/* TODO: outView = radiosView; */
+		outView = navigationController.view;
 	}
 	
 	CGContextRef context = UIGraphicsGetCurrentContext();
@@ -147,7 +147,7 @@ static NSString *kSupportMailURL =
 }
 
 - (void)saveApplicationState {
-	/* TODO: [[NSUserDefaults standardUserDefaults]
+	/* [[NSUserDefaults standardUserDefaults]
 	 setObject:[NSNumber numberWithInt:activeRadio]
 	 forKey:@"activeRadio"]; */
 	[[NSUserDefaults standardUserDefaults] synchronize];
@@ -250,7 +250,6 @@ static NSString *kSupportMailURL =
 	[controlButton setImage:pauseImage forState:UIControlStateNormal];
 	[controlButton setImage:pauseHighlightImage
 				   forState:UIControlStateHighlighted];
-	// [radiosTable reloadData];
 }
 
 - (void)setStopState {
@@ -260,7 +259,6 @@ static NSString *kSupportMailURL =
 		[loadingImage stopAnimating];
 	[controlButton setImage:playImage forState:UIControlStateNormal];
 	[controlButton setImage:playHighlightImage forState:UIControlStateHighlighted];
-	// [radiosTable reloadData];
 }
 
 - (void)setFailedState:(NSError *)error {
@@ -347,7 +345,7 @@ static NSString *kSupportMailURL =
 	[myPlayer addObserver:self forKeyPath:@"failed" options:0 context:nil];
 	[myPlayer start];
     
-	self.playing = YES;
+	self.isPlaying = YES;
   tryingToPlay = FALSE;
 	
 	[pool release];
@@ -361,9 +359,7 @@ static NSString *kSupportMailURL =
 		if ([keyPath isEqual:@"isPlaying"]) {
 			NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 			
-			if ([myPlayer isPlaying]) { // Started playing
-				// [myPlayer setGain:[volumeSlider value]];
-				
+			if ([myPlayer isPlaying]) { // Started playing				
 				[self performSelector:@selector(setPlayState)
                      onThread:[NSThread mainThread]
                    withObject:nil
@@ -375,7 +371,7 @@ static NSString *kSupportMailURL =
 				myPlayer = nil;
 				
 				pthread_mutex_lock(&stopMutex);
-				self.playing = NO;
+				self.isPlaying = NO;
 				pthread_cond_signal(&stopCondition);
 				pthread_mutex_unlock(&stopMutex);
 				

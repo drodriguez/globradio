@@ -40,7 +40,7 @@
 	UIView *infoView;
 }
 
-@property (nonatomic, readonly, getter=isPlaying) BOOL playing;
+@property (nonatomic, readonly) BOOL isPlaying;
 
 - (IBAction)controlButtonClicked:(UIButton *)button;
 - (IBAction)infoButtonClicked:(UIButton *)button;
