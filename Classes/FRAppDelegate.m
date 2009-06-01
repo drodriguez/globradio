@@ -10,6 +10,7 @@
 #import "FRAppDelegate.h"
 #import "FRViewController.h"
 #import "RRQReachability.h"
+#import "SQLiteInstanceManager.h"
 
 #import "isArrrrr.m"
 
@@ -20,11 +21,18 @@ void interruptionListenerCb(void *inClientData, UInt32 interruptionState) {
 	[controller audioSessionInterruption:interruptionState];
 }
 
+#pragma mark Private interface
+@interface FRAppDelegate ()
+
+- (void)installUserDatabase;
+
+@end
+
+#pragma mark Public implementation
 @implementation FRAppDelegate
 
 @synthesize window;
 @synthesize viewController;
-
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	[[RRQReachability sharedReachability] setHostName:kRNEHost];
@@ -61,6 +69,8 @@ void interruptionListenerCb(void *inClientData, UInt32 interruptionState) {
 											 selector:@selector(reachabilityChanged:)
 												 name:@"kNetworkReachabilityChangedNotification"
 											   object:nil];
+  
+  [self installUserDatabase];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -73,5 +83,23 @@ void interruptionListenerCb(void *inClientData, UInt32 interruptionState) {
     [super dealloc];
 }
 
+#pragma mark Private methods implementation
+
+- (void)installUserDatabase {
+  SQLiteInstanceManager *mgr = [SQLiteInstanceManager sharedManager];
+  NSString *dbPath = [mgr databaseFilepath];
+  NSString *appResources = [[NSBundle mainBundle] resourcePath];
+  NSString *bundledDb = [appResources stringByAppendingPathComponent:@"franceradio.sqlite3"];
+  
+  NSFileManager *fileMgr = [NSFileManager defaultManager];
+  if (![fileMgr fileExistsAtPath:dbPath]) {
+    NSError *error;
+    
+    if (![fileMgr copyItemAtPath:bundledDb toPath:dbPath error:&error]) {
+      RNLog(@"Can not copy metadata file with error (%d) '%@'",
+            [error code], [error description]);
+    }
+  }
+}
 
 @end
