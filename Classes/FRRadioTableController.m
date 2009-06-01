@@ -131,6 +131,14 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	}
 }
 
+- (void)tableView:(UITableView *)tableView
+accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+  FRTableViewItem *item = [self.items objectAtIndex:indexPath.row];
+  FRRadioGroupController *subcontroller = [[FRRadioGroupController alloc] initWithNibName:@"RadiosView" bundle:nil];
+  subcontroller.parentId = [item pk];
+  [self.navigationController pushViewController:subcontroller animated:YES];
+}
+
 - (void)dealloc {
     [super dealloc];
 }
