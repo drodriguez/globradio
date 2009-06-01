@@ -47,6 +47,7 @@ static NSString *kSupportMailURL =
 @property (nonatomic, retain) UIImage *playHighlightImage;
 @property (nonatomic, retain) UIImage *pauseImage;
 @property (nonatomic, retain) UIImage *pauseHighlightImage;
+@property (nonatomic, assign, readwrite, getter=isPlaying) BOOL playing;
 
 - (void)stopRadio;
 
@@ -346,7 +347,7 @@ static NSString *kSupportMailURL =
 	[myPlayer addObserver:self forKeyPath:@"failed" options:0 context:nil];
 	[myPlayer start];
     
-	isPlaying = YES;
+	self.playing = YES;
   tryingToPlay = FALSE;
 	
 	[pool release];
@@ -374,7 +375,7 @@ static NSString *kSupportMailURL =
 				myPlayer = nil;
 				
 				pthread_mutex_lock(&stopMutex);
-				isPlaying = NO;
+				self.playing = NO;
 				pthread_cond_signal(&stopCondition);
 				pthread_mutex_unlock(&stopMutex);
 				
