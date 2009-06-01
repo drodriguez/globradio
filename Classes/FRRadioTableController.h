@@ -10,15 +10,18 @@
 
 @class FRRadio;
 @protocol FRRadioTableControllerDelegate;
+@protocol FRRadioGroupControllerDelegate;
 
-@interface FRRadioTableController : UITableViewController {
- @private
+@interface FRRadioTableController : UITableViewController <FRRadioGroupControllerDelegate> {
+ @protected
   NSInteger activeRadio_;
  @protected
   id<FRRadioTableControllerDelegate> delegate_;
 }
 
 @property (nonatomic, assign) id delegate;
+
+- (id)init;
 
 @end
 

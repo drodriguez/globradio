@@ -38,8 +38,8 @@ static UIImage *soundOn;
   soundOff = [UIImage imageNamed:@"altavoz.png"];
 }
 
-- (id)initWithNibName:(NSString *)nibName bundle:(NSBundle *)bundle {
-  if (self = [super initWithNibName:nibName bundle:bundle]) {
+- (id)init {
+  if (self = [super initWithNibName:@"RadiosView" bundle:nil]) {
     activeRadio_ = -1;
   }
   
@@ -117,8 +117,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     }
     
     if (item.group && !item.radioGroup.selected) {
-      FRRadioGroupController *subcontroller = [[FRRadioGroupController alloc] initWithNibName:@"RadiosView" bundle:nil];
+      FRRadioGroupController *subcontroller = [[FRRadioGroupController alloc] init];
       subcontroller.parentId = [item pk];
+      subcontroller.delegate = self.delegate;
+      subcontroller.subdelegate = self;
       [self.navigationController pushViewController:subcontroller animated:YES];
     } else if (item.group) {
       [[self.tableView cellForRowAtIndexPath:indexPath] setImage:soundOff];
@@ -134,9 +136,17 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void)tableView:(UITableView *)tableView
 accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
   FRTableViewItem *item = [self.items objectAtIndex:indexPath.row];
-  FRRadioGroupController *subcontroller = [[FRRadioGroupController alloc] initWithNibName:@"RadiosView" bundle:nil];
+  FRRadioGroupController *subcontroller = [[FRRadioGroupController alloc] init];
   subcontroller.parentId = [item pk];
+  subcontroller.delegate = self.delegate;
+  subcontroller.subdelegate = self;
   [self.navigationController pushViewController:subcontroller animated:YES];
+}
+
+- (void)radioGroupController:(FRRadioGroupController *)radioGroupController
+      selectedRadioDidChangeForParent:(FRTableViewItem *)parentItem {
+  activeRadio_ = parentItem.position - 1;
+  [self.tableView reloadData];
 }
 
 - (void)dealloc {
