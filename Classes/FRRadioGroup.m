@@ -17,20 +17,15 @@ static NSString *kTableName = @"radio_groups";
 @synthesize selected = selected_;
 
 - (NSString *)name {
-  if (!name_) {
-    if (selected_) {
-      name_ = self.selected.name;
-    } else {
-      name_ = self.groupName;
-    }
+  if (selected_) {
+    return self.selected.name;
+  } else {
+    return self.groupName;
   }
-  
-  return name_;
 }
 
 - (void)dealloc {
   [groupName_ release];
-  [name_ release];
   [selected_ release];
   
   [super dealloc];

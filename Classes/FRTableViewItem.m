@@ -21,19 +21,14 @@ static NSString *kTableName = @"table_view_items";
 @synthesize radioGroup = radioGroup_;
 
 - (NSString *)name {
-  if (!name_) {
-    if (self.group) {
-      name_ = self.radioGroup.name;
-    } else {
-      name_ = self.radio.name;
-    }
+  if (self.group) {
+    return self.radioGroup.name;
+  } else {
+    return self.radio.name;
   }
-  
-  return name_;
 }
 
 - (void)dealloc {
-  [name_ release];
   [radio_ release];
   [radioGroup_ release];
   

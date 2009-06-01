@@ -15,8 +15,6 @@
  @private
   NSString *groupName_;
   FRRadio *selected_;
-  
-  NSString *name_;
 }
 
 @property (nonatomic, copy) NSString *groupName;

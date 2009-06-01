@@ -19,8 +19,6 @@
   BOOL isGroup_;
   FRRadio *radio_;
   FRRadioGroup *radioGroup_;
-  
-  NSString *name_;
 }
 
 @property (nonatomic, assign) NSUInteger position;
