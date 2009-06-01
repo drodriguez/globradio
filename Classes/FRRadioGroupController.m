@@ -35,6 +35,13 @@
     
     [items_ release];
     items_ = nil;
+    
+    if (parentItem_.radioGroup.selected) {
+      FRRadio *selectedRadio = parentItem_.radioGroup.selected;
+      FRTableViewItem *selectedTableViewItem = (FRTableViewItem *)
+        [FRTableViewItem findFirstByCriteria:@"WHERE radio = 'FRRadio-%d'", selectedRadio.pk];
+      activeRadio_ = selectedTableViewItem.position - 1;
+    }
   }
 }
 
@@ -67,6 +74,16 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   timeoutTimer_.fireDate = [NSDate dateWithTimeIntervalSinceNow:kTimeout];
   // super do not implement it, so leave it commented out
   // [super scrollViewDidScroll:scrollView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  
+  if (activeRadio_ != -1) {
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:activeRadio_ inSection:0]
+     atScrollPosition:UITableViewScrollPositionMiddle
+     animated:YES];
+  }  
 }
 
 - (void)viewDidAppear:(BOOL)animated {
