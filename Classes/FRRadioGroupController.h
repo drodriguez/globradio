@@ -10,24 +10,14 @@
 #import "FRRadioTableController.h"
 
 @class FRTableViewItem;
-@protocol FRRadioGroupControllerDelegate;
 
 @interface FRRadioGroupController : FRRadioTableController {
  @private
-  NSInteger parentId_;
+  FRTableViewItem *parentItem_;
   NSMutableArray *items_;
   NSTimer *timeoutTimer_;
-  id<FRRadioGroupControllerDelegate> subdelegate_;
 }
 
-@property (nonatomic, assign) NSInteger parentId;
-@property (nonatomic, assign) id<FRRadioGroupControllerDelegate> subdelegate;
-
-@end
-
-@protocol FRRadioGroupControllerDelegate
-
-- (void)radioGroupController:(FRRadioGroupController *)radioGroupController
-selectedRadioDidChangeForParent:(FRTableViewItem *)parentItem;
+@property (nonatomic, retain) FRTableViewItem *parentItem;
 
 @end

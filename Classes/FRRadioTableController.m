@@ -118,9 +118,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (item.group && !item.radioGroup.selected) {
       FRRadioGroupController *subcontroller = [[FRRadioGroupController alloc] init];
-      subcontroller.parentId = [item pk];
+      subcontroller.parentItem = item;
       subcontroller.delegate = self.delegate;
-      subcontroller.subdelegate = self;
       [self.navigationController pushViewController:subcontroller animated:YES];
     } else if (item.group) {
       [[self.tableView cellForRowAtIndexPath:indexPath] setImage:soundOff];
@@ -137,9 +136,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
   FRTableViewItem *item = [self.items objectAtIndex:indexPath.row];
   FRRadioGroupController *subcontroller = [[FRRadioGroupController alloc] init];
-  subcontroller.parentId = [item pk];
+  subcontroller.parentItem = item;
   subcontroller.delegate = self.delegate;
-  subcontroller.subdelegate = self;
   [self.navigationController pushViewController:subcontroller animated:YES];
 }
 

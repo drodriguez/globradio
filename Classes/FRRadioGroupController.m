@@ -16,21 +16,26 @@
 
 @implementation FRRadioGroupController
 
-@synthesize parentId = parentId_;
-@synthesize subdelegate = subdelegate_;
+@synthesize parentItem = parentItem_;
 
 - (NSMutableArray *)items {
   if (!items_) {
     items_ = [[NSMutableArray alloc]
-              initWithArray:[FRTableViewItem findByCriteria:@"WHERE parent=%d ORDER BY position ASC", parentId_]];
+              initWithArray:[FRTableViewItem findByCriteria:@"WHERE parent=%d ORDER BY position ASC", self.parentItem.pk]];
   }
   
   return items_;
 }
 
-- (void)setParentId:(NSInteger)parentId {
-  [items_ release];
-  parentId_ = parentId;
+- (void)setParentItem:(FRTableViewItem *)newItem {
+  if (parentItem_ != newItem) {
+    [newItem retain];
+    [parentItem_ release];
+    parentItem_ = newItem;
+    
+    [items_ release];
+    items_ = nil;
+  }
 }
 
 - (void)timerFired:(NSTimer *)timer {
@@ -53,13 +58,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   
   // Update the parent selected field
   FRTableViewItem *item = [self.items objectAtIndex:indexPath.row];
-  FRTableViewItem *parent = (FRTableViewItem *)[FRTableViewItem findByPK:item.parent];
-  FRRadioGroup *radioGroup = parent.radioGroup;
+  FRRadioGroup *radioGroup = self.parentItem.radioGroup;
   radioGroup.selected = item.radio;
   [radioGroup save];
-  
-  // Call subdelegate
-  [subdelegate_ radioGroupController:self selectedRadioDidChangeForParent:parent];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

@@ -10,9 +10,8 @@
 
 @class FRRadio;
 @protocol FRRadioTableControllerDelegate;
-@protocol FRRadioGroupControllerDelegate;
 
-@interface FRRadioTableController : UITableViewController <FRRadioGroupControllerDelegate> {
+@interface FRRadioTableController : UITableViewController {
  @protected
   NSInteger activeRadio_;
  @protected
