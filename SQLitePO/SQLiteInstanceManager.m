@@ -106,7 +106,7 @@ static SQLiteInstanceManager *sharedSQLiteManager = nil;
 {
 	BOOL ret = NO;
 	// pragma table_info(i_c_project);
-	NSString *query = [NSString stringWithFormat:@"pragma table_info(%@);", tableName];
+	NSString *query = [NSString stringWithFormat:@"pragma table_info(\"%@\");", tableName];
 	sqlite3_stmt *stmt;
 	if (sqlite3_prepare_v2( database,  [query UTF8String], -1, &stmt, nil) == SQLITE_OK) {
 		if (sqlite3_step(stmt) == SQLITE_ROW)
