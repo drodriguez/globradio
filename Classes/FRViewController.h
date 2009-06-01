@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FRRadioTableController.h"
 #include <pthread.h>
 
 @class RRQAudioPlayer;
 
-@interface FRViewController : UIViewController {
+@interface FRViewController : UIViewController <FRRadioTableControllerDelegate> {
 @private
   UINavigationController *navigationController;
 	IBOutlet UIButton *controlButton;
