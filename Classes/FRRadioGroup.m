@@ -7,7 +7,9 @@
 //
 
 #import "FRRadioGroup.h"
+#import "FRRadio.h"
 
+static NSString *kTableName = @"radio_groups";
 
 @implementation FRRadioGroup
 
@@ -15,7 +17,7 @@
 @synthesize selected = selected_;
 
 - (NSString *)name {
-  if (!name) {
+  if (!name_) {
     if (!selected_) {
       name_ = self.selected.name;
     } else {
@@ -28,7 +30,7 @@
 
 - (void)dealloc {
   [groupName_ release];
-  [name_ release]
+  [name_ release];
   [selected_ release];
   
   [super dealloc];

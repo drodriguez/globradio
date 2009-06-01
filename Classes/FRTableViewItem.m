@@ -48,7 +48,7 @@ static NSString *kTableName = @"table_view_items";
 
 + (NSArray *)indices {
   return [NSArray arrayWithObjects:
-          [NSArray arrayWithObject:@"position"],
+          [NSArray arrayWithObjects:@"parent", @"position", nil],
           [NSArray arrayWithObject:@"parent"],
           nil];
 }
