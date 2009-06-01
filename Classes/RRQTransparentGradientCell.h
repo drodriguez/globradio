@@ -10,7 +10,9 @@
 
 
 @interface RRQTransparentGradientCell : UITableViewCell {
-
+ @private
+  UILabel *textLabel_;
+  UIImageView *image_;
 }
 
 @end
