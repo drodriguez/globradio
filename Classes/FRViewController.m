@@ -8,6 +8,7 @@
 
 #import "FRViewController.h"
 #import "FRMainRadiosController.h"
+#import "FRRadio.h"
 #import "RRQAudioPlayer.h"
 #import "RRQPLSParser.h"
 #import "RRQM3UParser.h"
@@ -49,8 +50,7 @@ static NSString *kSupportMailURL =
 
 - (void)stopRadio;
 
-- (void)playRadio;
-- (void)privatePlayRadio;
+- (void)privatePlayRadio:(FRRadio *)radio;
 
 - (void)showNetworkProblemsAlert;
 
@@ -65,6 +65,7 @@ static NSString *kSupportMailURL =
 @implementation FRViewController
 
 @synthesize playImage, playHighlightImage, pauseImage, pauseHighlightImage;
+@synthesize playing = isPlaying;
 
 - (IBAction)controlButtonClicked:(UIButton *)button {
 	if (isPlaying) {
@@ -300,7 +301,7 @@ static NSString *kSupportMailURL =
 		[loadingImage startAnimating];
 }
 
-- (void)playRadio {
+- (void)playRadio:(FRRadio *)radio {
 	if ([[RRQReachability sharedReachability] remoteHostStatus] == NotReachable) {
 		[self showNetworkProblemsAlert];
 		return;
@@ -308,13 +309,13 @@ static NSString *kSupportMailURL =
 	
   if (!tryingToPlay) {
     tryingToPlay = YES;
-    [NSThread detachNewThreadSelector:@selector(privatePlayRadio)
+    [NSThread detachNewThreadSelector:@selector(privatePlayRadio:)
                              toTarget:self
-                           withObject:nil];
+                           withObject:radio];
   }
 }
 
-- (void)privatePlayRadio {
+- (void)privatePlayRadio:(FRRadio *)radio {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
 	if (isPlaying) {
@@ -334,9 +335,9 @@ static NSString *kSupportMailURL =
 	
   NSString *radioAddress = nil;
   if ([[RRQReachability sharedReachability] remoteHostStatus] == ReachableViaWiFiNetwork) {
-    // radioAddress = [highRadiosURLS objectAtIndex:activeRadio];
+    radioAddress = radio.highURL;
   } else {
-    // radioAddress = [lowRadiosURLS objectAtIndex:activeRadio];
+    radioAddress = radio.lowURL;
   }
 	NSString *radioURL = [self getRadioURL:radioAddress];
 
@@ -452,20 +453,18 @@ static NSString *kSupportMailURL =
 		activeRadio = -1;
   */
   
-  UINavigationController *navigationController =
-    [[UINavigationController alloc] init];
+  navigationController = [[UINavigationController alloc] init];
   navigationController.view.frame = flippableView.bounds;
   navigationController.navigationBarHidden = YES;
   
-  FRRadioTableController *radioTableController =
-    [[FRMainRadiosController alloc] initWithNibName:@"RadiosView" bundle:nil];
+  FRRadioTableController *radioTableController = [[FRMainRadiosController alloc] init];
+  radioTableController.delegate = self;
   [navigationController pushViewController:radioTableController animated:YES];
-  // [radioTableController release];
+  [radioTableController release];
   
   [navigationController viewWillAppear:NO];
   [flippableView addSubview:navigationController.view];
   [navigationController viewDidAppear:NO];
-  // [navigationController release];
 	
 	[super viewDidLoad];
 }
@@ -494,6 +493,8 @@ static NSString *kSupportMailURL =
 	self.playHighlightImage = nil;
 	self.pauseImage = nil;
 	self.pauseHighlightImage = nil;	
+  
+  [navigationController release];
   
 	[super dealloc];
 }

@@ -13,6 +13,7 @@
 
 @interface FRViewController : UIViewController {
 @private
+  UINavigationController *navigationController;
 	IBOutlet UIButton *controlButton;
 	IBOutlet UIView *volumeViewHolder;
 	IBOutlet UIView *flippableView;
@@ -37,6 +38,8 @@
   
 	UIView *infoView;
 }
+
+@property (nonatomic, readonly, getter=isPlaying) BOOL playing;
 
 - (IBAction)controlButtonClicked:(UIButton *)button;
 - (IBAction)infoButtonClicked:(UIButton *)button;
