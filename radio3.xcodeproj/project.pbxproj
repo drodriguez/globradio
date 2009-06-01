@@ -236,7 +236,6 @@
 		A72A70450F1AA2F400A2BFD9 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72A70440F1AA2F400A2BFD9 /* MainWindow.xib */; };
 		A72A70470F1AA31100A2BFD9 /* FRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72A70460F1AA31100A2BFD9 /* FRViewController.xib */; };
 		A72A704B0F1AA33F00A2BFD9 /* radios.plist in Resources */ = {isa = PBXBuildFile; fileRef = A72A704A0F1AA33F00A2BFD9 /* radios.plist */; };
-		A72A704D0F1AA36D00A2BFD9 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72A704C0F1AA36D00A2BFD9 /* InfoView.xib */; };
 		A72A704F0F1AA38900A2BFD9 /* RadiosView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72A704E0F1AA38900A2BFD9 /* RadiosView.xib */; };
 		A72D13BD0EC7A06800CBB890 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A72D13BC0EC7A06800CBB890 /* Default.png */; };
 		A73C066A0EC851E700A1B6F5 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A73C06690EC851E700A1B6F5 /* background.png */; };
@@ -1302,7 +1301,6 @@
 				A72A70450F1AA2F400A2BFD9 /* MainWindow.xib in Resources */,
 				A72A70470F1AA31100A2BFD9 /* FRViewController.xib in Resources */,
 				A72A704B0F1AA33F00A2BFD9 /* radios.plist in Resources */,
-				A72A704D0F1AA36D00A2BFD9 /* InfoView.xib in Resources */,
 				A72A704F0F1AA38900A2BFD9 /* RadiosView.xib in Resources */,
 				A7F1FDFF0F220F0A005F9CDC /* altavoz-on.png in Resources */,
 				A7F1FE000F220F0A005F9CDC /* altavoz.png in Resources */,

@@ -22,6 +22,7 @@
 	IBOutlet UIImageView *loadingImage;
   IBOutlet UIView *bottomBarView;
   IBOutlet UIView *bgView;
+  IBOutlet UIView *infoView;
 		
 	RRQAudioPlayer *myPlayer;
 	
@@ -38,9 +39,7 @@
 	UIImage *playHighlightImage;
 	UIImage *pauseImage;
 	UIImage *pauseHighlightImage;
-  
-	UIView *infoView;
-  
+    
   FRRadio *activeRadio;
 }
 
