@@ -66,11 +66,11 @@ static NSString *kSupportMailURL =
 @implementation FRViewController
 
 @synthesize playImage, playHighlightImage, pauseImage, pauseHighlightImage;
-@synthesize isPlaying;
+@synthesize isPlaying = isReallyPlaying;
 @synthesize activeRadio;
 
 - (IBAction)controlButtonClicked:(UIButton *)button {
-	if (isPlaying) {
+	if (internalPlaying) {
 		[self stopRadio];
 	}	else if (activeRadio != nil) {
 		[self playRadio:activeRadio];
@@ -238,12 +238,13 @@ static NSString *kSupportMailURL =
 }
 
 - (void)stopRadio {
-	if (isPlaying) {
+	if (internalPlaying) {
 		[myPlayer stop];
 	}
 }
 
 - (void)setPlayState {
+  self.isPlaying = YES;
 	controlButton.hidden = NO;
 	loadingImage.hidden = YES;
 	if (loadingImage.isAnimating)
@@ -254,6 +255,7 @@ static NSString *kSupportMailURL =
 }
 
 - (void)setStopState {
+  self.isPlaying = NO;
 	controlButton.hidden = NO;
 	loadingImage.hidden = YES;
 	if (loadingImage.isAnimating)
@@ -270,6 +272,7 @@ static NSString *kSupportMailURL =
 		return;
 	}
 	
+  self.isPlaying = NO;
 	controlButton.hidden = NO;
 	loadingImage.hidden = YES;
 	if (loadingImage.isAnimating)
@@ -307,7 +310,7 @@ static NSString *kSupportMailURL =
 		return;
 	}
 	
-  if (!tryingToPlay && !isLoading) {
+  if (!tryingToPlay) {
     tryingToPlay = YES;
     
     if (activeRadio != radio) {
@@ -325,12 +328,12 @@ static NSString *kSupportMailURL =
 - (void)privatePlayRadio:(FRRadio *)radio {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
-	if (isPlaying || isLoading) {
+	if (internalPlaying) {
 		[self stopRadio];
 		
 		// Wait for stop
 		pthread_mutex_lock(&stopMutex);
-		while (isPlaying || isLoading)
+		while (internalPlaying)
 			pthread_cond_wait(&stopCondition, &stopMutex);
 		pthread_mutex_unlock(&stopMutex);
 	}
@@ -353,7 +356,7 @@ static NSString *kSupportMailURL =
 	[myPlayer addObserver:self forKeyPath:@"failed" options:0 context:nil];
 	[myPlayer start];
     
-	isLoading = YES;
+	internalPlaying = YES;
   tryingToPlay = FALSE;
 	
 	[pool release];
@@ -368,8 +371,6 @@ static NSString *kSupportMailURL =
 			NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 			
 			if ([myPlayer isPlaying]) { // Started playing
-        isLoading = NO;
-        self.isPlaying = YES;
 				[self performSelector:@selector(setPlayState)
                      onThread:[NSThread mainThread]
                    withObject:nil
@@ -381,8 +382,7 @@ static NSString *kSupportMailURL =
 				myPlayer = nil;
 				
 				pthread_mutex_lock(&stopMutex);
-				self.isPlaying = NO;
-        isLoading = NO;
+        internalPlaying = NO;
 				pthread_cond_signal(&stopCondition);
 				pthread_mutex_unlock(&stopMutex);
 				
@@ -455,7 +455,7 @@ static NSString *kSupportMailURL =
 	NSNumber *activeRadioId =
     [[NSUserDefaults standardUserDefaults] objectForKey:@"activeRadio"];
 	if (activeRadioId != nil) {
-		activeRadio = (FRRadio *) [FRRadio findByPK:[activeRadioId intValue]];
+		activeRadio = [(FRRadio *) [FRRadio findByPK:[activeRadioId intValue]] retain];
 	} else {
 		activeRadio = nil;
   }

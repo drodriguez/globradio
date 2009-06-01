@@ -26,8 +26,8 @@
 		
 	RRQAudioPlayer *myPlayer;
 	
-	BOOL isPlaying;
-  BOOL isLoading;
+	BOOL internalPlaying;
+  BOOL isReallyPlaying;
 	BOOL infoViewVisible;
 	BOOL flipping;
   BOOL tryingToPlay;

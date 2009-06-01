@@ -78,7 +78,6 @@ static UIImage *soundOn;
 
 - (void)dealloc {
   [parentController_.delegate removeObserver:self forKeyPath:@"isPlaying"];
-  
   [parentController_ release];
   [tableViewItem_ release];
   
@@ -171,6 +170,7 @@ static UIImage *soundOn;
 }
 
 - (void)dealloc {
+  [delegate_ removeObserver:self forKeyPath:@"isPlaying"];
   [helperDelegate_ release];
   
   [super dealloc];

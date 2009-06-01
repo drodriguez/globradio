@@ -96,8 +96,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-  [timeoutTimer_ invalidate];
   [super viewDidDisappear:animated];
+  [timeoutTimer_ invalidate];
 }
 
 - (void)dealloc {
