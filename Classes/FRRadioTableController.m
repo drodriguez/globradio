@@ -271,6 +271,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
       self.helperDelegate.tableViewItem = item;
       subcontroller.delegate = self.helperDelegate;
       [self.navigationController pushViewController:subcontroller animated:YES];
+      [subcontroller release];
     } else if (item.group) {
       [[self.tableView cellForRowAtIndexPath:indexPath] setImage:soundOff];
       [self.delegate playRadio:item.radioGroup.selected];
@@ -291,6 +292,7 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
   self.helperDelegate.tableViewItem = item;
   subcontroller.delegate = self.helperDelegate;
   [self.navigationController pushViewController:subcontroller animated:YES];
+  [subcontroller release];
 }
 
 @end

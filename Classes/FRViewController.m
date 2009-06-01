@@ -203,7 +203,7 @@ static NSString *kSupportMailURL =
 	
 		NSArray *tracks = [RRQPLSParser parse:plsContent];
 		if ([tracks count] > 0) {
-			NSString *location = [[tracks objectAtIndex:0] retain];
+			NSString *location = [tracks objectAtIndex:0];
 			RNLog(@"getRadioURL location %@", location);
 			return location;
 		} else {
