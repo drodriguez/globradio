@@ -35,6 +35,8 @@ void interruptionListenerCb(void *inClientData, UInt32 interruptionState) {
 @synthesize viewController;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
+  [self installUserDatabase];
+  
 	[[RRQReachability sharedReachability] setHostName:kRNEHost];
 	[[RRQReachability sharedReachability] setNetworkStatusNotificationsEnabled:YES];
 	
@@ -69,8 +71,6 @@ void interruptionListenerCb(void *inClientData, UInt32 interruptionState) {
 											 selector:@selector(reachabilityChanged:)
 												 name:@"kNetworkReachabilityChangedNotification"
 											   object:nil];
-  
-  [self installUserDatabase];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -99,6 +99,8 @@ void interruptionListenerCb(void *inClientData, UInt32 interruptionState) {
       RNLog(@"Can not copy database file with error (%d) '%@'",
             [error code], [error description]);
     }
+  } else {
+    NSLog(@"Database already in place, skipping");
   }
 }
 
