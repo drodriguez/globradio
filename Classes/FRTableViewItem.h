@@ -28,5 +28,6 @@
 @property (nonatomic, retain) FRRadioGroup *radioGroup;
 
 @property (nonatomic, retain, readonly) NSString *name;
+@property (nonatomic, retain, readonly) FRRadio *finalRadio;
 
 @end

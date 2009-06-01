@@ -28,6 +28,14 @@ static NSString *kTableName = @"table_view_items";
   }
 }
 
+- (FRRadio *)finalRadio {
+  if (self.group) {
+    return self.radioGroup.selected;
+  } else {
+    return self.radio;
+  }
+}
+
 - (void)dealloc {
   [radio_ release];
   [radioGroup_ release];
