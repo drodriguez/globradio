@@ -51,6 +51,8 @@
 		651606940ED883BC0031CDBE /* rowBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 651606930ED883BC0031CDBE /* rowBackground.png */; };
 		651606CA0ED8A2C00031CDBE /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 651606C90ED8A2C00031CDBE /* play.png */; };
 		651606CD0ED8A5D70031CDBE /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 651606CC0ED8A5D70031CDBE /* pause.png */; };
+		651DD6F50FC5956E001DA94D /* FRRadioTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 651DD6F40FC5956E001DA94D /* FRRadioTableController.m */; };
+		651DD7D90FC5CB40001DA94D /* FRMainRadiosController.m in Sources */ = {isa = PBXBuildFile; fileRef = 651DD7D80FC5CB40001DA94D /* FRMainRadiosController.m */; };
 		651E87AD0FAF469A005B67F7 /* FIImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 651E87AC0FAF469A005B67F7 /* FIImageProvider.m */; };
 		65255AD90EE574C100F4142C /* play-hl.png in Resources */ = {isa = PBXBuildFile; fileRef = 65255AD80EE574C100F4142C /* play-hl.png */; };
 		6534D1710EDCA968008B1124 /* volume-thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 6534D16F0EDCA968008B1124 /* volume-thumb.png */; };
@@ -313,6 +315,10 @@
 		651606930ED883BC0031CDBE /* rowBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rowBackground.png; path = Resources/RNERadio/rowBackground.png; sourceTree = "<group>"; };
 		651606C90ED8A2C00031CDBE /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.png; path = Resources/RNERadio/play.png; sourceTree = "<group>"; };
 		651606CC0ED8A5D70031CDBE /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = Resources/RNERadio/pause.png; sourceTree = "<group>"; };
+		651DD6F30FC5956E001DA94D /* FRRadioTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRRadioTableController.h; sourceTree = "<group>"; };
+		651DD6F40FC5956E001DA94D /* FRRadioTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRRadioTableController.m; sourceTree = "<group>"; };
+		651DD7D70FC5CB40001DA94D /* FRMainRadiosController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRMainRadiosController.h; sourceTree = "<group>"; };
+		651DD7D80FC5CB40001DA94D /* FRMainRadiosController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRMainRadiosController.m; sourceTree = "<group>"; };
 		651E87AB0FAF469A005B67F7 /* FIImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIImageProvider.h; sourceTree = "<group>"; };
 		651E87AC0FAF469A005B67F7 /* FIImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIImageProvider.m; sourceTree = "<group>"; };
 		65255AD80EE574C100F4142C /* play-hl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play-hl.png"; path = "Resources/RNERadio/play-hl.png"; sourceTree = "<group>"; };
@@ -977,6 +983,10 @@
 				6590D1410FBF229000E248C2 /* FRRadio.m */,
 				6590D1850FBF23A700E248C2 /* FRRadioGroup.h */,
 				6590D1860FBF23A700E248C2 /* FRRadioGroup.m */,
+				651DD6F30FC5956E001DA94D /* FRRadioTableController.h */,
+				651DD6F40FC5956E001DA94D /* FRRadioTableController.m */,
+				651DD7D70FC5CB40001DA94D /* FRMainRadiosController.h */,
+				651DD7D80FC5CB40001DA94D /* FRMainRadiosController.m */,
 			);
 			name = FranceRadio;
 			sourceTree = "<group>";
@@ -1579,6 +1589,8 @@
 				6590D1830FBF233000E248C2 /* UIColor-SQLitePersistentObject.m in Sources */,
 				6590D1840FBF233000E248C2 /* UIImage-SQLitePersistence.m in Sources */,
 				6590D1870FBF23A700E248C2 /* FRRadioGroup.m in Sources */,
+				651DD6F50FC5956E001DA94D /* FRRadioTableController.m in Sources */,
+				651DD7D90FC5CB40001DA94D /* FRMainRadiosController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

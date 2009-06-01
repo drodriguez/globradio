@@ -7,19 +7,12 @@
 //
 
 #import "FRViewController.h"
+#import "FRMainRadiosController.h"
 #import "RRQAudioPlayer.h"
 #import "RRQPLSParser.h"
 #import "RRQM3UParser.h"
 #import "RRQReachability.h"
 #import "RRQVolumeView.h"
-#import "RRQTransparentGradientCell.h"
-
-
-
-enum FRSections {
-	FRRadioSection,
-	FR_NUM_SECTIONS
-};
 
 /*
  e-mail message string, in french (translated by Google) says:
@@ -76,9 +69,9 @@ static NSString *kSupportMailURL =
 - (IBAction)controlButtonClicked:(UIButton *)button {
 	if (isPlaying) {
 		[self stopRadio];
-	}	else if (activeRadio != -1) {
+	}	/* TODO: else if (activeRadio != -1) {
 		[self playRadio];
-	}
+	} */
 }
 
 #define SUPPORT_WEB_BUTTON 1001
@@ -126,11 +119,11 @@ static NSString *kSupportMailURL =
 	
 	UIView *inView, *outView;
 	if (infoViewVisible) {
-		inView = radiosView;
+		// TODO: inView = radiosView;
 		outView = infoView;
 	} else {
 		inView = infoView;
-		outView = radiosView;
+		/* TODO: outView = radiosView; */
 	}
 	
 	CGContextRef context = UIGraphicsGetCurrentContext();
@@ -149,19 +142,12 @@ static NSString *kSupportMailURL =
 	[flippableView addSubview:inView];
 	
 	[UIView commitAnimations];
-	
-#if defined(DEBUG)
-	if (!interruptedDuringPlayback)
-		[self audioSessionInterruption:kAudioSessionBeginInterruption];
-	else
-		[self audioSessionInterruption:kAudioSessionEndInterruption];
-#endif
 }
 
 - (void)saveApplicationState {
-	[[NSUserDefaults standardUserDefaults]
+	/* TODO: [[NSUserDefaults standardUserDefaults]
 	 setObject:[NSNumber numberWithInt:activeRadio]
-	 forKey:@"activeRadio"];
+	 forKey:@"activeRadio"]; */
 	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -169,18 +155,13 @@ static NSString *kSupportMailURL =
 	RNLog(@"audioSessionInterruption %d", interruptionState);
 	if (interruptionState == kAudioSessionBeginInterruption) {
 		RNLog(@"AudioSessionBeginInterruption");
-		BOOL playing = isPlaying;
 		[self stopRadio];
 		OSStatus status = AudioSessionSetActive(false);
 		if (status) { RNLog(@"AudioSessionSetActive err %d", status); }
-		interruptedDuringPlayback = playing;
 	} else if (interruptionState == kAudioSessionEndInterruption) {
 		RNLog(@"AudioSessionEndInterruption && interruptedDuringPlayback");
 		OSStatus status = AudioSessionSetActive(true);
 		if (status != kAudioSessionNoError) { RNLog(@"AudioSessionSetActive err %d", status); }
-		// if (interruptedDuringPlayback)
-		// [self playRadio];
-		interruptedDuringPlayback = NO;
 	}
 }
 
@@ -267,7 +248,7 @@ static NSString *kSupportMailURL =
 	[controlButton setImage:pauseImage forState:UIControlStateNormal];
 	[controlButton setImage:pauseHighlightImage
 				   forState:UIControlStateHighlighted];
-	[radiosTable reloadData];
+	// [radiosTable reloadData];
 }
 
 - (void)setStopState {
@@ -277,7 +258,7 @@ static NSString *kSupportMailURL =
 		[loadingImage stopAnimating];
 	[controlButton setImage:playImage forState:UIControlStateNormal];
 	[controlButton setImage:playHighlightImage forState:UIControlStateHighlighted];
-	[radiosTable reloadData];
+	// [radiosTable reloadData];
 }
 
 - (void)setFailedState:(NSError *)error {
@@ -294,7 +275,7 @@ static NSString *kSupportMailURL =
 		[loadingImage stopAnimating];
 	[controlButton setImage:playImage forState:UIControlStateNormal];
 	[controlButton setImage:playHighlightImage forState:UIControlStateHighlighted];
-	[radiosTable reloadData];
+	// [radiosTable reloadData];
 	
 	NSString *message;
 	if (error != nil) {
@@ -353,9 +334,9 @@ static NSString *kSupportMailURL =
 	
   NSString *radioAddress = nil;
   if ([[RRQReachability sharedReachability] remoteHostStatus] == ReachableViaWiFiNetwork) {
-    radioAddress = [highRadiosURLS objectAtIndex:activeRadio];
+    // radioAddress = [highRadiosURLS objectAtIndex:activeRadio];
   } else {
-    radioAddress = [lowRadiosURLS objectAtIndex:activeRadio];
+    // radioAddress = [lowRadiosURLS objectAtIndex:activeRadio];
   }
 	NSString *radioURL = [self getRadioURL:radioAddress];
 
@@ -428,64 +409,6 @@ static NSString *kSupportMailURL =
 						  context:context];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	return FR_NUM_SECTIONS;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section {
-	switch (section) {
-		case FRRadioSection:
-			return [radiosList count];
-		default:
-			return 1;
-	}
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	
-	static NSString *CellIdentifier = @"Cell";
-	
-	RRQTransparentGradientCell *cell = (RRQTransparentGradientCell *)
-    [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-	if (cell == nil) {
-		cell = [[[RRQTransparentGradientCell alloc]
-             initWithFrame:CGRectZero
-             reuseIdentifier:CellIdentifier] autorelease];
-  }
-	
-	cell.text = [radiosList objectAtIndex:indexPath.row];
-	
-	if (activeRadio == indexPath.row) {
-		if (isPlaying)
-			[cell setAccessoryView:soundOnView];
-		else
-			[cell setAccessoryView:soundOffView];
-	} else {
-		[cell setAccessoryView:nil];
-	}
-    
-	return cell;
-}
-
-
-- (void)tableView:(UITableView *)tableView
-  didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	if (activeRadio != indexPath.row || !isPlaying) {
-		if (activeRadio != -1) {
-			[[tableView cellForRowAtIndexPath:
-			  [NSIndexPath indexPathForRow:activeRadio inSection:0]]
-			 setAccessoryView:nil];
-		}
-		[[tableView cellForRowAtIndexPath:indexPath] setAccessoryView:soundOffView];
-		activeRadio = indexPath.row;
-		[self playRadio];
-	}
-}
-
-
-
 - (void)viewDidLoad {
 	// Load some images
 	bgView.backgroundColor =
@@ -508,63 +431,39 @@ static NSString *kSupportMailURL =
 	loadingImage.animationImages = loadingFiles;
 	loadingImage.animationDuration = 1.2f;
 	[loadingFiles release];
-	
-	// Build accessory views
-	soundOnView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"altavoz-on.png"]];
-	soundOffView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"altavoz.png"]];
-	
+		
 	// Set up slider
 	RRQVolumeView *volumeView =
     [[[RRQVolumeView alloc] initWithFrame:volumeViewHolder.bounds] autorelease];
 	[volumeViewHolder addSubview:volumeView];
   [volumeView finalSetup];
-  	
-	// Loading subviews from the nib files
-	NSBundle *mainBundle = [NSBundle mainBundle];
-	[mainBundle loadNibNamed:@"InfoView"
-					   owner:self
-					 options:nil];
-	
-	[mainBundle loadNibNamed:@"RadiosView"
-					   owner:self
-					 options:nil];
-	[flippableView addSubview:radiosView];
-	
+  
 	// Initialize mutexes
 	pthread_mutex_init(&stopMutex, NULL);
 	pthread_cond_init(&stopCondition, NULL);
-	
-	// Initialize radios list
-	NSString *radiosFilePath = [mainBundle pathForResource:@"radios"
-													ofType:@"plist"];
-	NSData *radiosData;
-	NSString *error;
-	NSPropertyListFormat format;
-	NSDictionary *radiosInfo;
-	
-	radiosData = [NSData dataWithContentsOfFile:radiosFilePath];
-	radiosInfo = (NSDictionary *) [NSPropertyListSerialization
-								   propertyListFromData:radiosData
-								   mutabilityOption:NSPropertyListImmutable
-								   format:&format
-								   errorDescription:&error];
-	
-	if (radiosInfo) {
-		radiosList = [[radiosInfo objectForKey:@"radioNames"] retain];
-		highRadiosURLS = [[radiosInfo objectForKey:@"highRadioURLs"] retain];
-    lowRadiosURLS = [[radiosInfo objectForKey:@"lowRadioURLs"] retain];
-	} else {
-		RNLog(@"Error loading radios information");
-		// TODO: show error to user... but it should not happen
-	}
-	
+		
 	// Initialize saved values
+  /* FIXME
 	NSNumber *result =
 	[[NSUserDefaults standardUserDefaults] objectForKey:@"activeRadio"];
 	if (result != nil) {
 		activeRadio = [result intValue];
 	} else
 		activeRadio = -1;
+  */
+  
+  UINavigationController *navigationController =
+    [[UINavigationController alloc] init];
+  navigationController.view.frame = flippableView.bounds;
+  navigationController.navigationBarHidden = YES;
+  
+  FRRadioTableController *radioTableController =
+    [[FRMainRadiosController alloc] initWithNibName:@"RadiosView" bundle:nil];
+  [navigationController pushViewController:radioTableController animated:YES];
+  // [radioTableController release];
+  
+  [flippableView addSubview:navigationController.view];
+  // [navigationController release];
 	
 	[super viewDidLoad];
 }
@@ -592,17 +491,7 @@ static NSString *kSupportMailURL =
 	self.playImage = nil;
 	self.playHighlightImage = nil;
 	self.pauseImage = nil;
-	self.pauseHighlightImage = nil;
-	
-	[soundOnView release];
-	[soundOffView release];
-	
-	[infoView release];
-	[radiosView release];
-	
-	[radiosList release];
-	[highRadiosURLS release];
-  [lowRadiosURLS release];
+	self.pauseHighlightImage = nil;	
   
 	[super dealloc];
 }
