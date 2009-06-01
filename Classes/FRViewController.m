@@ -67,6 +67,7 @@ static NSString *kSupportMailURL =
 
 @synthesize playImage, playHighlightImage, pauseImage, pauseHighlightImage;
 @synthesize isPlaying;
+@synthesize activeRadio;
 
 - (IBAction)controlButtonClicked:(UIButton *)button {
 	if (isPlaying) {
@@ -306,8 +307,15 @@ static NSString *kSupportMailURL =
 		return;
 	}
 	
-  if (!tryingToPlay) {
+  if (!tryingToPlay && !isLoading) {
     tryingToPlay = YES;
+    
+    if (activeRadio != radio) {
+      [radio retain];
+      [activeRadio release];
+      activeRadio = radio;
+    }
+    
     [NSThread detachNewThreadSelector:@selector(privatePlayRadio:)
                              toTarget:self
                            withObject:radio];
@@ -317,7 +325,7 @@ static NSString *kSupportMailURL =
 - (void)privatePlayRadio:(FRRadio *)radio {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
-	if (isPlaying) {
+	if (isPlaying || isLoading) {
 		[self stopRadio];
 		
 		// Wait for stop
@@ -345,7 +353,7 @@ static NSString *kSupportMailURL =
 	[myPlayer addObserver:self forKeyPath:@"failed" options:0 context:nil];
 	[myPlayer start];
     
-	self.isPlaying = YES;
+	isLoading = YES;
   tryingToPlay = FALSE;
 	
 	[pool release];
@@ -359,7 +367,9 @@ static NSString *kSupportMailURL =
 		if ([keyPath isEqual:@"isPlaying"]) {
 			NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 			
-			if ([myPlayer isPlaying]) { // Started playing				
+			if ([myPlayer isPlaying]) { // Started playing
+        isLoading = NO;
+        self.isPlaying = YES;
 				[self performSelector:@selector(setPlayState)
                      onThread:[NSThread mainThread]
                    withObject:nil

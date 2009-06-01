@@ -11,6 +11,7 @@
 #include <pthread.h>
 
 @class RRQAudioPlayer;
+@class FRRadio;
 
 @interface FRViewController : UIViewController <FRRadioTableControllerDelegate> {
 @private
@@ -25,6 +26,7 @@
 	RRQAudioPlayer *myPlayer;
 	
 	BOOL isPlaying;
+  BOOL isLoading;
 	BOOL infoViewVisible;
 	BOOL flipping;
   BOOL tryingToPlay;
@@ -38,9 +40,12 @@
 	UIImage *pauseHighlightImage;
   
 	UIView *infoView;
+  
+  FRRadio *activeRadio;
 }
 
 @property (nonatomic, readonly) BOOL isPlaying;
+@property (nonatomic, retain, readonly) FRRadio *activeRadio;
 
 - (IBAction)controlButtonClicked:(UIButton *)button;
 - (IBAction)infoButtonClicked:(UIButton *)button;
