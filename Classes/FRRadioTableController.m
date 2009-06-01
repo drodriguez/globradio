@@ -73,6 +73,10 @@ static UIImage *soundOn;
   [parentController_.delegate playRadio:radio];
 }
 
+- (FRRadio *)activeRadio {
+  return [parentController_.delegate activeRadio];
+}
+
 - (void)dealloc {
   [parentController_.delegate removeObserver:self forKeyPath:@"isPlaying"];
   
@@ -219,9 +223,12 @@ static UIImage *soundOn;
   if (item.group) {
     cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
   }
-	
+  	
 	if (activeRadio_ == indexPath.row) {
-    if ([self.delegate isPlaying]) {
+    FRRadio *radio = item.finalRadio;
+    if (radio != nil &&
+        radio == [self.delegate activeRadio] &&
+        [self.delegate isPlaying]) {
       cell.image = soundOn;
 		} else {
       cell.image = soundOff;
@@ -235,7 +242,9 @@ static UIImage *soundOn;
 
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  if (activeRadio_ != indexPath.row || ![self.delegate isPlaying]) {
+  FRTableViewItem *item = [self.items objectAtIndex:indexPath.row];
+  if ([self.delegate activeRadio] != item.radio ||
+      ![self.delegate isPlaying]) {
     FRTableViewItem *item = [self.items objectAtIndex:indexPath.row];
     
     if (activeRadio_ != -1) {

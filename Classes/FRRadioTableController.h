@@ -29,6 +29,7 @@
 @protocol FRRadioTableControllerDelegate
 
 - (BOOL)isPlaying;
+- (FRRadio *)activeRadio;
 - (void)playRadio:(FRRadio *)radio;
 
 @end
