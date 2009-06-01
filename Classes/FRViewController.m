@@ -462,7 +462,9 @@ static NSString *kSupportMailURL =
   [navigationController pushViewController:radioTableController animated:YES];
   // [radioTableController release];
   
+  [navigationController viewWillAppear:NO];
   [flippableView addSubview:navigationController.view];
+  [navigationController viewDidAppear:NO];
   // [navigationController release];
 	
 	[super viewDidLoad];
