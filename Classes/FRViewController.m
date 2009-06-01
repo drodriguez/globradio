@@ -330,7 +330,7 @@ static NSString *kSupportMailURL =
 		
 		// Wait for stop
 		pthread_mutex_lock(&stopMutex);
-		while (isPlaying)
+		while (isPlaying || isLoading)
 			pthread_cond_wait(&stopCondition, &stopMutex);
 		pthread_mutex_unlock(&stopMutex);
 	}
@@ -382,6 +382,7 @@ static NSString *kSupportMailURL =
 				
 				pthread_mutex_lock(&stopMutex);
 				self.isPlaying = NO;
+        isLoading = NO;
 				pthread_cond_signal(&stopCondition);
 				pthread_mutex_unlock(&stopMutex);
 				
