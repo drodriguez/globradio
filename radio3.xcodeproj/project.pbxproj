@@ -2137,9 +2137,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "Don't Code Sign";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "Don't Code Sign";
-				"CODE_SIGN_IDENTITY[sdk=iphonesimulator2.2]" = "Don't Code Sign";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -2156,6 +2154,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = FranceRadio;
+				"PROVISIONING_PROFILE[sdk=*]" = "";
 				SDKROOT = iphoneos2.2;
 			};
 			name = Debug;
