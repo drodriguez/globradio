@@ -19,7 +19,7 @@
 
 
 
-const NSString *kSelectDBSchemaVersion =
+const static NSString *kSelectDBSchemaVersion =
   @"SELECT \"version\" FROM \"db_schema\" LIMIT 1";
 
 @implementation SQLiteInstanceManager (RRQMigrator)
@@ -43,8 +43,10 @@ const NSString *kSelectDBSchemaVersion =
   } else {
     NSLog(@"Copying database from executable bundle");
     
-    return [self copyFileFromBundle];
+    return [self copyDatabaseFromBundle];
   }
+  
+  return YES;
 }
 
 - (BOOL)isDatabaseInPlace {
@@ -52,7 +54,7 @@ const NSString *kSelectDBSchemaVersion =
           [self databaseFilepath]];
 }
 
-- (BOOL)copyFileFromBundle {
+- (BOOL)copyDatabaseFromBundle {
   NSString *dbPath = [self databaseFilepath];
   NSString *appResources = [[NSBundle mainBundle] resourcePath];
   NSString *bundledDb = [appResources stringByAppendingPathComponent:
@@ -96,7 +98,7 @@ const NSString *kSelectDBSchemaVersion =
   char *errorMsg;
   for (int migrationNumber = from+1; migrationNumber <= to; migrationNumber++) {
     NSString *migrationName = [NSString stringWithFormat:migrationPattern,
-                               migrationName];
+                               migrationNumber];
     if ([fileMgr fileExistsAtPath:migrationName]) {
       if (sqlite3_exec([self database],
                        [[NSString stringWithContentsOfFile:migrationName] UTF8String] ,

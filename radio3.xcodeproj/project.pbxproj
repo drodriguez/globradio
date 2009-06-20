@@ -99,6 +99,8 @@
 		658687920ECF023100EB9D99 /* GTMSenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6586878F0ECF023100EB9D99 /* GTMSenTestCase.m */; };
 		658687A00ECF03A000EB9D99 /* RRQM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RRQM3UParser.m */; };
 		658687A30ECF040200EB9D99 /* RRQM3UParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 658687A20ECF040200EB9D99 /* RRQM3UParserTest.m */; };
+		658971210FED4485002E170E /* RRQSQLiteInstanceManager+Migrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 658971200FED4485002E170E /* RRQSQLiteInstanceManager+Migrator.m */; };
+		658971820FED781B002E170E /* migration-0002.sql in Resources */ = {isa = PBXBuildFile; fileRef = 658971810FED781B002E170E /* migration-0002.sql */; };
 		658CC7AB0F65368800DC6372 /* default-album-cover.png in Resources */ = {isa = PBXBuildFile; fileRef = 658CC7AA0F65368800DC6372 /* default-album-cover.png */; };
 		6590D13F0FBF12E300E248C2 /* FRTableViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6590D13E0FBF12E300E248C2 /* FRTableViewItem.m */; };
 		6590D1420FBF229000E248C2 /* FRRadio.m in Sources */ = {isa = PBXBuildFile; fileRef = 6590D1410FBF229000E248C2 /* FRRadio.m */; };
@@ -235,7 +237,6 @@
 		A72A703E0F1AA1E500A2BFD9 /* RRQAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* RRQAudioPlayer.m */; };
 		A72A70450F1AA2F400A2BFD9 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72A70440F1AA2F400A2BFD9 /* MainWindow.xib */; };
 		A72A70470F1AA31100A2BFD9 /* FRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72A70460F1AA31100A2BFD9 /* FRViewController.xib */; };
-		A72A704B0F1AA33F00A2BFD9 /* radios.plist in Resources */ = {isa = PBXBuildFile; fileRef = A72A704A0F1AA33F00A2BFD9 /* radios.plist */; };
 		A72A704F0F1AA38900A2BFD9 /* RadiosView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72A704E0F1AA38900A2BFD9 /* RadiosView.xib */; };
 		A72D13BD0EC7A06800CBB890 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A72D13BC0EC7A06800CBB890 /* Default.png */; };
 		A73C066A0EC851E700A1B6F5 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A73C06690EC851E700A1B6F5 /* background.png */; };
@@ -377,6 +378,9 @@
 		6586878F0ECF023100EB9D99 /* GTMSenTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMSenTestCase.m; path = GTM/GTMSenTestCase.m; sourceTree = "<group>"; };
 		658687A10ECF040200EB9D99 /* RRQM3UParserTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RRQM3UParserTest.h; path = Test/RRQM3UParserTest.h; sourceTree = "<group>"; };
 		658687A20ECF040200EB9D99 /* RRQM3UParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RRQM3UParserTest.m; path = Test/RRQM3UParserTest.m; sourceTree = "<group>"; };
+		6589711F0FED4485002E170E /* RRQSQLiteInstanceManager+Migrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RRQSQLiteInstanceManager+Migrator.h"; sourceTree = "<group>"; };
+		658971200FED4485002E170E /* RRQSQLiteInstanceManager+Migrator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RRQSQLiteInstanceManager+Migrator.m"; sourceTree = "<group>"; };
+		658971810FED781B002E170E /* migration-0002.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "migration-0002.sql"; path = "Resources/FranceRadio/migration-0002.sql"; sourceTree = "<group>"; };
 		658CC7AA0F65368800DC6372 /* default-album-cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default-album-cover.png"; path = "Resources/FIFMRadio/default-album-cover.png"; sourceTree = "<group>"; };
 		6590D13D0FBF12E300E248C2 /* FRTableViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRTableViewItem.h; sourceTree = "<group>"; };
 		6590D13E0FBF12E300E248C2 /* FRTableViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRTableViewItem.m; sourceTree = "<group>"; };
@@ -680,6 +684,8 @@
 				6558DA430F8B96FF00A80AC7 /* RRQUIView+Description.m */,
 				654504420F8BF7650001D90B /* RRQVolumeView.h */,
 				654504430F8BF7650001D90B /* RRQVolumeView.m */,
+				6589711F0FED4485002E170E /* RRQSQLiteInstanceManager+Migrator.h */,
+				658971200FED4485002E170E /* RRQSQLiteInstanceManager+Migrator.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -998,6 +1004,7 @@
 		A72A70310F1AA18F00A2BFD9 /* FranceRadio */ = {
 			isa = PBXGroup;
 			children = (
+				658971810FED781B002E170E /* migration-0002.sql */,
 				659F95BE0F8AAB930034B823 /* volume-track-l.png */,
 				659F95BF0F8AAB930034B823 /* volume-track-r.png */,
 				65F8AB0D0F6877CA003CF9F0 /* bottom-bar.png */,
@@ -1300,7 +1307,6 @@
 			files = (
 				A72A70450F1AA2F400A2BFD9 /* MainWindow.xib in Resources */,
 				A72A70470F1AA31100A2BFD9 /* FRViewController.xib in Resources */,
-				A72A704B0F1AA33F00A2BFD9 /* radios.plist in Resources */,
 				A72A704F0F1AA38900A2BFD9 /* RadiosView.xib in Resources */,
 				A7F1FDFF0F220F0A005F9CDC /* altavoz-on.png in Resources */,
 				A7F1FE000F220F0A005F9CDC /* altavoz.png in Resources */,
@@ -1324,6 +1330,7 @@
 				65F8AB0E0F6877CA003CF9F0 /* bottom-bar.png in Resources */,
 				65DD48BB0F8D0DEB0009F8A2 /* volume-track-l.png in Resources */,
 				65DD48C20F8D0E030009F8A2 /* volume-track-r.png in Resources */,
+				658971820FED781B002E170E /* migration-0002.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1384,6 +1391,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Resources/FranceRadio/data.sql",
 				"$(SRCROOT)/Resources/FranceRadio/schema.sql",
+				"$(SRCROOT)/Resources/FranceRadio/migration-0001.sql",
 			);
 			name = "Create database";
 			outputPaths = (
@@ -1391,7 +1399,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "DBFILE=\"$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/franceradio.sqlite3\"\n\nif [ -f \"$DBFILE\" ]; then\n\trm \"$DBFILE\"\nfi\n\nsqlite3 \"$DBFILE\" < \"$SRCROOT/Resources/FranceRadio/schema.sql\"\nsqlite3 \"$DBFILE\" < \"$SRCROOT/Resources/FranceRadio/data.sql\"\n";
+			shellScript = "DBFILE=\"$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/franceradio.sqlite3\"\n\nif [ -f \"$DBFILE\" ]; then\n\trm \"$DBFILE\"\nfi\n\nsqlite3 \"$DBFILE\" < \"$SRCROOT/Resources/FranceRadio/schema.sql\"\nsqlite3 \"$DBFILE\" < \"$SRCROOT/Resources/FranceRadio/data.sql\"\nsqlite3 \"$DBFILE\" < \"$SRCROOT/Resources/FranceRadio/migration-0002.sql\"";
 			showEnvVarsInLog = 0;
 		};
 		65A68F1E0F962D6000B5919B /* ShellScript */ = {
@@ -1595,6 +1603,7 @@
 				651DD6F50FC5956E001DA94D /* FRRadioTableController.m in Sources */,
 				651DD7D90FC5CB40001DA94D /* FRMainRadiosController.m in Sources */,
 				65407BCA0FC9E10F00FA4E6B /* FRRadioGroupController.m in Sources */,
+				658971210FED4485002E170E /* RRQSQLiteInstanceManager+Migrator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,22 +11,17 @@
 #import "FRViewController.h"
 #import "RRQReachability.h"
 #import "SQLiteInstanceManager.h"
+#import "RRQSQLiteInstanceManager+Migrator.h"
 
 #import "isArrrrr.m"
 
 static NSString *kRNEHost = @"rtve.stream.flumotion.com";
+const static NSUInteger kDbSchemaVersion = 2;
 
 void interruptionListenerCb(void *inClientData, UInt32 interruptionState) {
 	FRViewController *controller = (FRViewController *) inClientData;
 	[controller audioSessionInterruption:interruptionState];
 }
-
-#pragma mark Private interface
-@interface FRAppDelegate ()
-
-- (void)installUserDatabase;
-
-@end
 
 #pragma mark Public implementation
 @implementation FRAppDelegate
@@ -35,7 +30,7 @@ void interruptionListenerCb(void *inClientData, UInt32 interruptionState) {
 @synthesize viewController;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
-  [self installUserDatabase];
+  [[SQLiteInstanceManager sharedManager] migrate:kDbSchemaVersion];
   
 	[[RRQReachability sharedReachability] setHostName:kRNEHost];
 	[[RRQReachability sharedReachability] setNetworkStatusNotificationsEnabled:YES];
@@ -81,27 +76,6 @@ void interruptionListenerCb(void *inClientData, UInt32 interruptionState) {
     [viewController release];
     [window release];
     [super dealloc];
-}
-
-#pragma mark Private methods implementation
-
-- (void)installUserDatabase {
-  SQLiteInstanceManager *mgr = [SQLiteInstanceManager sharedManager];
-  NSString *dbPath = [mgr databaseFilepath];
-  NSString *appResources = [[NSBundle mainBundle] resourcePath];
-  NSString *bundledDb = [appResources stringByAppendingPathComponent:@"franceradio.sqlite3"];
-  
-  NSFileManager *fileMgr = [NSFileManager defaultManager];
-  if (![fileMgr fileExistsAtPath:dbPath]) {
-    NSError *error;
-    
-    if (![fileMgr copyItemAtPath:bundledDb toPath:dbPath error:&error]) {
-      RNLog(@"Can not copy database file with error (%d) '%@'",
-            [error code], [error description]);
-    }
-  } else {
-    NSLog(@"Database already in place, skipping");
-  }
 }
 
 @end

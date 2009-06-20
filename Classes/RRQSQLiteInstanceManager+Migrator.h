@@ -6,10 +6,10 @@
 //  Copyright 2009 Daniel Rodríguez Troitiño. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "SQLiteInstanceManager.h"
 
 
-@interface SQLiteInstanceManage (RRQMigrator)
+@interface SQLiteInstanceManager (RRQMigrator)
 
 - (BOOL)migrate:(NSUInteger)version;
 

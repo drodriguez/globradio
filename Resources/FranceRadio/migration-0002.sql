@@ -20,6 +20,8 @@ INSERT INTO "table_view_items" ("pk", "parent", "position", "radio") VALUES (50,
 INSERT INTO "table_view_items" ("pk", "parent", "position", "radio") VALUES (51, 3, 1, 'FRRadio-3');
 INSERT INTO "table_view_items" ("pk", "parent", "position", "radio") VALUES (52, 3, 2, 'FRRadio-49');
 INSERT INTO "table_view_items" ("pk", "parent", "position", "radio") VALUES (53, 3, 3, 'FRRadio-50');
+UPDATE "table_view_items" SET "position" = "position" + 1 WHERE "parent" = 8 AND "position" >= 22;
+INSERT INTO "table_view_items" ("pk", "parent", "position", "radio") VALUES (54, 8, 22, 'FRRadio-48');
 UPDATE "SQLITESEQUENCE" SET "seq" = 48 WHERE "name" = 'table_view_items';
 
 UPDATE "db_schema" SET "version" = 2;
