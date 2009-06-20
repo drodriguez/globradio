@@ -2154,6 +2154,7 @@
 				GCC_PREFIX_HEADER = RRQPrefix.pch;
 				INFOPLIST_FILE = "resources/FranceRadio/FranceRadio-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				IPHONEOS_DEPLOYMENT_TARGET = 2.2;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -2164,7 +2165,7 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = FranceRadio;
 				"PROVISIONING_PROFILE[sdk=*]" = "";
-				SDKROOT = iphoneos2.2;
+				SDKROOT = iphoneos3.0;
 			};
 			name = Debug;
 		};
@@ -2180,6 +2181,7 @@
 				GCC_PREFIX_HEADER = RRQPrefix.pch;
 				INFOPLIST_FILE = "resources/FranceRadio/FranceRadio-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				IPHONEOS_DEPLOYMENT_TARGET = 2.2;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -2189,7 +2191,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = FranceRadio;
-				SDKROOT = iphoneos2.2;
+				SDKROOT = iphoneos3.0;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -2204,6 +2206,7 @@
 				GCC_PREFIX_HEADER = RRQPrefix.pch;
 				INFOPLIST_FILE = "resources/FranceRadio/FranceRadio-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				IPHONEOS_DEPLOYMENT_TARGET = 2.2;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -2215,7 +2218,7 @@
 				PRODUCT_NAME = FranceRadio;
 				PROVISIONING_PROFILE = "A1A47762-F15A-41A9-9ED0-493F64EEFACA";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A1A47762-F15A-41A9-9ED0-493F64EEFACA";
-				SDKROOT = iphoneos2.2;
+				SDKROOT = iphoneos3.0;
 			};
 			name = Distribution;
 		};
@@ -2230,6 +2233,7 @@
 				GCC_PREFIX_HEADER = RRQPrefix.pch;
 				INFOPLIST_FILE = "resources/FranceRadio/FranceRadio-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				IPHONEOS_DEPLOYMENT_TARGET = 2.2;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -2241,7 +2245,7 @@
 				PRODUCT_NAME = FranceRadio;
 				PROVISIONING_PROFILE = "858315C2-469F-4821-9631-9B2A9602069A";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "858315C2-469F-4821-9631-9B2A9602069A";
-				SDKROOT = iphoneos2.2;
+				SDKROOT = iphoneos3.0;
 			};
 			name = Beta;
 		};
