@@ -255,7 +255,7 @@ static UIImage *soundOn;
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   FRTableViewItem *item = [self.items objectAtIndex:indexPath.row];
-  if ([self.delegate activeRadio] != item.radio ||
+  if ([self.delegate activeRadio] != item.finalRadio ||
       ![self.delegate isPlaying]) {
     FRTableViewItem *item = [self.items objectAtIndex:indexPath.row];
     
