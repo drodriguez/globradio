@@ -82,7 +82,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   if (activeRadio_ != -1) {
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:activeRadio_ inSection:0]
      atScrollPosition:UITableViewScrollPositionMiddle
-     animated:YES];
+     animated:NO];
   }  
 }
 
