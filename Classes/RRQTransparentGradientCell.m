@@ -14,7 +14,6 @@
 
 - (id)initWithFrame:(CGRect)frame reuseIdentifier:(NSString *)reuseIdentifier {
   if (self = [super initWithFrame:frame reuseIdentifier:reuseIdentifier]) {
-    
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     UIImageView *backgroundView =
@@ -24,7 +23,7 @@
     [backgroundView release];
     self.opaque = NO;
     // FIX: There is a warning in this line, but I don't know why exactly.
-    [self.layer setBackgroundColor:[UIColor clearColor].CGColor];
+    [self.layer setBackgroundColor:[[UIColor clearColor] CGColor]];
     
     textLabel_ = [[UILabel alloc] initWithFrame:CGRectMake(49, 5, 261, 35)];
     textLabel_.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
@@ -68,7 +67,7 @@
 - (void)setAccessoryType:(UITableViewCellAccessoryType)accessoryType {
   if (accessoryType == UITableViewCellAccessoryDetailDisclosureButton) {
     CGRect frame = textLabel_.frame;
-    frame.size.width = 236;
+    frame.size.width = 225;
     textLabel_.frame = frame;
   }
   
