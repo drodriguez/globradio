@@ -19,7 +19,7 @@ INSERT INTO "table_view_items" ("pk", "parent", "position", "radio") VALUES (49,
 INSERT INTO "table_view_items" ("pk", "parent", "position", "radio") VALUES (50, 1, 2, 'FRRadio-51');
 INSERT INTO "table_view_items" ("pk", "parent", "position", "radio") VALUES (51, 3, 1, 'FRRadio-3');
 INSERT INTO "table_view_items" ("pk", "parent", "position", "radio") VALUES (52, 3, 2, 'FRRadio-49');
-INSERT INTO "table_view_items" ("pk", "parent", "position", "radio") VALUES (52, 3, 2, 'FRRadio-50');
+INSERT INTO "table_view_items" ("pk", "parent", "position", "radio") VALUES (53, 3, 3, 'FRRadio-50');
 UPDATE "SQLITESEQUENCE" SET "seq" = 48 WHERE "name" = 'table_view_items';
 
 UPDATE "db_schema" SET "version" = 2;
