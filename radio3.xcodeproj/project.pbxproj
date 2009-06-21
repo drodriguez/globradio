@@ -2200,8 +2200,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Daniel Rodríguez Troitiño";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Rodríguez Troitiño";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Daniel Rodr√≠guez Troiti√±o";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Rodr√≠guez Troiti√±o";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RRQPrefix.pch;
 				INFOPLIST_FILE = "resources/FranceRadio/FranceRadio-Info.plist";
@@ -2216,8 +2216,8 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = FranceRadio;
-				PROVISIONING_PROFILE = "A1A47762-F15A-41A9-9ED0-493F64EEFACA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A1A47762-F15A-41A9-9ED0-493F64EEFACA";
+				PROVISIONING_PROFILE = "2B28EFDD-720A-4A61-9EB7-DDA06FA0621B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2B28EFDD-720A-4A61-9EB7-DDA06FA0621B";
 				SDKROOT = iphoneos3.0;
 			};
 			name = Distribution;
@@ -2227,8 +2227,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = resources/entl.plist;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Daniel Rodríguez Troitiño";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Rodríguez Troitiño";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Daniel Rodr√≠guez Troiti√±o";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Rodr√≠guez Troiti√±o";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RRQPrefix.pch;
 				INFOPLIST_FILE = "resources/FranceRadio/FranceRadio-Info.plist";
@@ -2243,8 +2243,8 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = FranceRadio;
-				PROVISIONING_PROFILE = "858315C2-469F-4821-9631-9B2A9602069A";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "858315C2-469F-4821-9631-9B2A9602069A";
+				PROVISIONING_PROFILE = "D5118A80-C816-43C8-A75A-8A46BEB1AEEA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D5118A80-C816-43C8-A75A-8A46BEB1AEEA";
 				SDKROOT = iphoneos3.0;
 			};
 			name = Beta;
