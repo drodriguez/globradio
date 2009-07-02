@@ -7,8 +7,6 @@
 //
 
 #import "RRQVolumeView.h"
-#import "RRQNSString+Version.h"
-#import "RRQUISlider+Volume.h"
 
 // Avoid warnings about not defined messages.
 @interface MPVolumeView (RRQRouteButton)
@@ -56,15 +54,6 @@
                forState:UIControlStateNormal];
   
   slider.frame = self.bounds;
-	
-	[[NSNotificationCenter defaultCenter] addObserver:self 
-                                           selector:@selector(volumeChanged:) 
-                                               name:@"AVSystemController_SystemVolumeDidChangeNotification" 
-                                             object:nil];
-}
-
-- (void)volumeChanged:(NSNotification *)notify {
-	[[self volumeSlider] _updateVolumeFromAVSystemController];
 }
 
 @end
