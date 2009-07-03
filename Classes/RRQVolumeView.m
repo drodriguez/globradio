@@ -20,18 +20,11 @@
 
 @implementation RRQVolumeView
 
-/*
+
 - (void)layoutSubviews {
-  if (!layoutDone) {
-    NSLog(@"layoutSubviews");
-    layoutDone = TRUE;
-    if ([self respondsToSelector:@selector(routeButton)]) {
-      [[self routeButton] removeFromSuperview];
-      [self setValue:nil forKeyPath:@"_internal._routeButton"];
-    }
-  }
+  // Layout subviews must be overriden, but do not have to do nothing.
 }
- */
+
 
 - (void)setShowsRouteButton:(BOOL)value animated:(BOOL)animated {
   NSLog(@"setShowsRouteButton:%@ animated:%@",
@@ -71,14 +64,25 @@
 }
 
 - (void)_createSubviews {
-  [super _createSubviews];
+  // The same than [super _createSubviews]
+  IMP methodImp = [MPVolumeView instanceMethodForSelector:_cmd];
+  methodImp(self, _cmd);
   
-  NSLog(@"_createSubviews\n%@", self);
+  // Brittle, but Apple get us if we use the other way.
+  // Lets hope they do not use _internal._routeButton a lot.
+  for (UIView *view in self.subviews) {
+    if ([view isKindOfClass:[UIButton class]]) {
+      [view removeFromSuperview];
+    }
+  }
   
+  // Alternative implementation, using private APIs
+  /*
   if ([self respondsToSelector:@selector(routeButton)]) {
     [[self routeButton] removeFromSuperview];
     [self setValue:nil forKeyPath:@"_internal._routeButton"];
   }
+  /**/
 }
 
 @end
