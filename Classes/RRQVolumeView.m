@@ -20,6 +20,7 @@
 
 @implementation RRQVolumeView
 
+/*
 - (void)layoutSubviews {
   if (!layoutDone) {
     NSLog(@"layoutSubviews");
@@ -30,6 +31,7 @@
     }
   }
 }
+ */
 
 - (void)setShowsRouteButton:(BOOL)value animated:(BOOL)animated {
   NSLog(@"setShowsRouteButton:%@ animated:%@",
@@ -66,6 +68,17 @@
                forState:UIControlStateNormal];
   
   slider.frame = self.bounds;
+}
+
+- (void)_createSubviews {
+  [super _createSubviews];
+  
+  NSLog(@"_createSubviews\n%@", self);
+  
+  if ([self respondsToSelector:@selector(routeButton)]) {
+    [[self routeButton] removeFromSuperview];
+    [self setValue:nil forKeyPath:@"_internal._routeButton"];
+  }
 }
 
 @end
