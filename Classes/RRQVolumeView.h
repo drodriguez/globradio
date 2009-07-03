@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 
-@interface RRQVolumeView : MPVolumeView
+@interface RRQVolumeView : MPVolumeView {
+ @private
+  BOOL layoutDone;
+}
 
 - (void)finalSetup;
 

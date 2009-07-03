@@ -7,6 +7,7 @@
 //
 
 #import "RRQVolumeView.h"
+#import "RRQUIView+Description.h"
 
 // Avoid warnings about not defined messages.
 @interface MPVolumeView (RRQRouteButton)
@@ -20,10 +21,21 @@
 @implementation RRQVolumeView
 
 - (void)layoutSubviews {
-  if ([self respondsToSelector:@selector(routeButton)]) {
-    [[self routeButton] removeFromSuperview];
-    [self setValue:nil forKeyPath:@"_internal._routeButton"];
+  if (!layoutDone) {
+    NSLog(@"layoutSubviews");
+    layoutDone = TRUE;
+    if ([self respondsToSelector:@selector(routeButton)]) {
+      [[self routeButton] removeFromSuperview];
+      [self setValue:nil forKeyPath:@"_internal._routeButton"];
+    }
   }
+}
+
+- (void)setShowsRouteButton:(BOOL)value animated:(BOOL)animated {
+  NSLog(@"setShowsRouteButton:%@ animated:%@",
+        value ? @"TRUE" : @"FALSE",
+        animated ? @"TRUE" : @"FALSE");
+  // eat this method call, so the slider do not move
 }
 
 - (UISlider *)volumeSlider {
