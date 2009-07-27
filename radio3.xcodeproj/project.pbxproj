@@ -67,6 +67,7 @@
 		654504460F8BF7650001D90B /* RRQVolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 654504430F8BF7650001D90B /* RRQVolumeView.m */; };
 		654B1E560ECDFDD500E28E7E /* RRQM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RRQM3UParser.m */; };
 		6558DA440F8B96FF00A80AC7 /* RRQUIView+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 6558DA430F8B96FF00A80AC7 /* RRQUIView+Description.m */; };
+		6562D9320FFD550A0089D95B /* RRQUIView+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 6558DA430F8B96FF00A80AC7 /* RRQUIView+Description.m */; };
 		656BFC380F03A4FD006A3F15 /* FIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 656BFC370F03A4FD006A3F15 /* FIAppDelegate.m */; };
 		656BFC440F03A80E006A3F15 /* FIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656BFC430F03A80E006A3F15 /* FIViewController.m */; };
 		656BFC4B0F03B6E0006A3F15 /* RRQAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A7EF8EB60EC6E85A004FE559 /* RRQAudioPlayer.m */; };
@@ -1503,6 +1504,7 @@
 				65D2D3900FB74B59002581AA /* CXMLNode_PrivateExtensions.m in Sources */,
 				65D2D3910FB74B5B002581AA /* CXMLNode_XPathExtensions.m in Sources */,
 				65D2D3960FB74D00002581AA /* RRQNSString+URLQuery.m in Sources */,
+				6562D9320FFD550A0089D95B /* RRQUIView+Description.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1647,7 +1649,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1657,6 +1659,7 @@
 				INFOPLIST_FILE = Resources/RNERadio/Info.plist;
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = RNERadio;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 			};
 			name = Debug;
 		};
@@ -2351,15 +2354,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos2.1]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				PROVISIONING_PROFILE = DefaultProfileUuid;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos2.2;
 			};
 			name = Debug;

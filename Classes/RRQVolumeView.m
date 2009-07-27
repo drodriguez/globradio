@@ -7,25 +7,27 @@
 //
 
 #import "RRQVolumeView.h"
-#import "RRQNSString+Version.h"
-#import "RRQUISlider+Volume.h"
 
 // Avoid warnings about not defined messages.
+/*
 @interface MPVolumeView (RRQRouteButton)
 
 - (UIButton *)routeButton;
 
 @end
-
+*/
 
 
 @implementation RRQVolumeView
 
+
 - (void)layoutSubviews {
-  if ([self respondsToSelector:@selector(routeButton)]) {
-    [[self routeButton] removeFromSuperview];
-    [self setValue:nil forKeyPath:@"_internal._routeButton"];
-  }
+  // Layout subviews must be overriden, but do not have to do nothing.
+}
+
+
+- (void)setShowsRouteButton:(BOOL)value animated:(BOOL)animated {
+  // eat this method call, so the slider do not move
 }
 
 - (UISlider *)volumeSlider {
@@ -56,15 +58,28 @@
                forState:UIControlStateNormal];
   
   slider.frame = self.bounds;
-	
-	[[NSNotificationCenter defaultCenter] addObserver:self 
-                                           selector:@selector(volumeChanged:) 
-                                               name:@"AVSystemController_SystemVolumeDidChangeNotification" 
-                                             object:nil];
 }
 
-- (void)volumeChanged:(NSNotification *)notify {
-	[[self volumeSlider] _updateVolumeFromAVSystemController];
+- (void)_createSubviews {
+  // The same than [super _createSubviews]
+  IMP methodImp = [MPVolumeView instanceMethodForSelector:_cmd];
+  methodImp(self, _cmd);
+  
+  // Brittle, but Apple get us if we use the other way.
+  // Lets hope they do not use _internal._routeButton a lot.
+  for (UIView *view in self.subviews) {
+    if ([view isKindOfClass:[UIButton class]]) {
+      [view removeFromSuperview];
+    }
+  }
+  
+  // Alternative implementation, using private APIs
+  /*
+  if ([self respondsToSelector:@selector(routeButton)]) {
+    [[self routeButton] removeFromSuperview];
+    [self setValue:nil forKeyPath:@"_internal._routeButton"];
+  }
+  /**/
 }
 
 @end
