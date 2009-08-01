@@ -1,5 +1,5 @@
 //
-//  FRFavoritesController.h
+//  FRDirectoryController.h
 //  radio3
 //
 //  Created by Daniel Rodríguez Troitiño on 31/07/09.
@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FRFavoritesController : UITableViewController {
+
+@interface FRDirectoryController : UITableViewController {
  @private
   NSArray *items_;
   NSInteger activeRadio_;
+  NSInteger groupId_;
 }
 
-@property (nonatomic, assign) NSInteger activeRadio;
-
-- (void)addRadio:(FRRadio *)radio;
+- (id)initWithGroupId:(NSInteger)groupId;
 
 @end
