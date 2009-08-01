@@ -8,10 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "SQLitePersistentObject.h"
+#import "FRRadio.h"
 
-@class FRRadio;
-
-@interface FRRadioGroup : SQLitePersistentObject {
+@interface FRRadioGroup : SQLitePersistentObject <FRRadio> {
  @private
   NSString *name_;
 }
