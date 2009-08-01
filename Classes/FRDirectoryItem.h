@@ -23,4 +23,6 @@
 
 @property (nonatomic, retain, readonly) NSString *name;
 
+- (NSArray *)findByParent:(NSInteger)parentId;
+
 @end

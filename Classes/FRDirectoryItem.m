@@ -28,6 +28,11 @@ static NSString *kTableName = @"table_view_items";
   [super dealloc];
 }
 
+- (NSArray *)findByParent:(NSInteger)parentId {
+  return [self findByCriteria:@"WHERE parent=%d ORDER BY position DESC",
+          parentId];
+}
+
 #pragma mark SQLitePersistentObject private methods
 
 + (NSString *)tableName {
