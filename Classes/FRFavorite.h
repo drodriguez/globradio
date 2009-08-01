@@ -24,4 +24,8 @@
 
 @property (nonatomic, retain, readonly) NSString *name;
 
+- (FRFavorite *)findLeastRecentlyUsed;
+
+- (NSArray *)allByPosition;
+
 @end
