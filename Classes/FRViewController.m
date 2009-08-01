@@ -7,7 +7,7 @@
 //
 
 #import "FRViewController.h"
-#import "FRMainRadiosController.h"
+#import "FRFavoritesController.h"
 #import "FRRadio.h"
 #import "RRQAudioPlayer.h"
 #import "RRQPLSParser.h"
@@ -68,6 +68,7 @@ static NSString *kSupportMailURL =
 @synthesize playImage, playHighlightImage, pauseImage, pauseHighlightImage;
 @synthesize isPlaying = isReallyPlaying;
 @synthesize activeRadio;
+@synthesize favoritesManager;
 
 - (IBAction)controlButtonClicked:(UIButton *)button {
 	if (internalPlaying) {
@@ -86,26 +87,7 @@ static NSString *kSupportMailURL =
 			url = [NSURL URLWithString:@"http://apps.yoteinvoco.com/franceradio"];
 			break;
 		case SUPPORT_MAIL_BUTTON: { // email url
-#if defined(DEBUG)
-      NSString *log = [NSString stringWithContentsOfFile:
-                       [[RRQFileLogger sharedLogger] logFile]];
-      NSString *encodedLog = (NSString *)
-        CFURLCreateStringByAddingPercentEscapes(NULL,
-                                                (CFStringRef)log,
-                                                NULL,
-                                                (CFStringRef)@";/?:@&=+$,",
-                                                kCFStringEncodingUTF8);
-      if (encodedLog) {
-         url = [NSURL URLWithString:[NSString stringWithFormat:
-                                     @"mailto://support@yoteinvoco.com?body=%@",
-                                     encodedLog]];
-      } else {
-         url = [NSURL URLWithString:@"mailto://support@yoteinvoco.com?body=No+es+posible+recuperar+el+log"];
-      }
-      [encodedLog release];
-#else
 			url = [NSURL URLWithString:kSupportMailURL];
-#endif
 		break; }
 	}
 	
@@ -155,16 +137,16 @@ static NSString *kSupportMailURL =
 }
 
 - (void)audioSessionInterruption:(UInt32)interruptionState {
-	RNLog(@"audioSessionInterruption %d", interruptionState);
+	NSLog(@"audioSessionInterruption %d", interruptionState);
 	if (interruptionState == kAudioSessionBeginInterruption) {
-		RNLog(@"AudioSessionBeginInterruption");
+		NSLog(@"AudioSessionBeginInterruption");
 		[self stopRadio];
 		OSStatus status = AudioSessionSetActive(false);
-		if (status) { RNLog(@"AudioSessionSetActive err %d", status); }
+		if (status) { NSLog(@"AudioSessionSetActive err %d", status); }
 	} else if (interruptionState == kAudioSessionEndInterruption) {
-		RNLog(@"AudioSessionEndInterruption && interruptedDuringPlayback");
+		NSLog(@"AudioSessionEndInterruption && interruptedDuringPlayback");
 		OSStatus status = AudioSessionSetActive(true);
-		if (status != kAudioSessionNoError) { RNLog(@"AudioSessionSetActive err %d", status); }
+		if (status != kAudioSessionNoError) { NSLog(@"AudioSessionSetActive err %d", status); }
 	}
 }
 
@@ -463,12 +445,11 @@ static NSString *kSupportMailURL =
   navigationController = [[UINavigationController alloc] init];
   navigationController.view.frame = flippableView.bounds;
   navigationController.navigationBarHidden = YES;
+  navigationController.delegate = self;
   
-  FRRadioTableController *radioTableController = [[FRMainRadiosController alloc] init];
-  radioTableController.delegate = self;
-  [radioTableController setActiveRadioWithRadio:activeRadio];
-  [navigationController pushViewController:radioTableController animated:YES];
-  [radioTableController release];
+  FRFavoritesController *favoritesController = [[FRFavoritesController alloc] init];
+  [navigationController pushViewController:favoritesController animated:YES];
+  [favoritesController release];
   
   [navigationController viewWillAppear:NO];
   [flippableView addSubview:navigationController.view];
