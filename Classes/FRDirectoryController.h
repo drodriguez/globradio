@@ -7,14 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FRViewController.h"
 
-
-@interface FRDirectoryController : UITableViewController {
+@interface FRDirectoryController : UITableViewController <FRTableViewController> {
  @private
   NSArray *items_;
   NSInteger activeRadio_;
   NSInteger groupId_;
+  
+  FRViewController *parentController_;
 }
+
+@property (nonatomic, assign) NSInteger activeRadio;
+
+@property (nonatomic, assign) FRViewController *parentController;
 
 - (id)initWithGroupId:(NSInteger)groupId;
 

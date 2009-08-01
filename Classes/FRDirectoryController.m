@@ -7,6 +7,10 @@
 //
 
 #import "FRDirectoryController.h"
+#import "FRDirectoryItem.h"
+#import "FRRadio.h"
+#import "FRRadioGroup.h"
+#import "RRQTransparentGradientCell.h"
 
 enum FRDirectorySections {
   FRDirectorySection,
@@ -15,6 +19,7 @@ enum FRDirectorySections {
 
 static UIImage *soundOff;
 static UIImage *soundOn;
+static UIImageView *whiteDisclosure;
 
 @interface FRDirectoryController ()
 
@@ -22,18 +27,35 @@ static UIImage *soundOn;
 
 @end
 
+@interface FRRadioBase (FRDirectoryControllerBehaviour)
+
+- (void)controller:(FRDirectoryController *)controller
+         tableView:(UITableView *)tableView
+  accessoryForCell:(UITableViewCell *)
+       atIndexPath:(NSIndexPath *)indexPath;
+
+- (void)controller:(FRDirectoryController *)controller
+         tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
+
 
 @implementation FRDirectoryController
 
 @synthesize activeRadio = activeRadio_;
+@synthesize parentController = parentController_;
 
 + (void)initialize {
   soundOn = [UIImage imageNamed:@"altavoz-on.png"];
   soundOff = [UIImage imageNamed:@"altavoz.png"];
+  whiteDisclosure = [[UIImageView alloc] initWithImage:
+                     [UIImage imageNamed:@"white-disclosure.png"]];
 }
 
 - (id)initWithGroupId:(NSInteger)groupId {
-  if (self = [super init]) {
+  if (self = [super initWithNibName:@"RadiosView" bundle:nil]) {
     activeRadio_ = -1;
     groupId_ = groupId;
   }
@@ -70,10 +92,11 @@ static UIImage *soundOn;
   }
   
   FRDirectoryItem *item = [self.items objectAtIndex:indexPath.row];
-  cell.text = item.radio.name;
-  cell.accessoryType = [item.radio controller:self
-                        tableView:tableView
-                        accessoryTypeForCellAtIndexPath:indexPath];
+  cell.text = item.name;
+  [item.radio controller:self
+               tableView:tableView
+        accessoryForCell:cell
+             atIndexPath:indexPath];
   
   if (activeRadio_ == indexPath.row) {
     cell.image = soundOn;
@@ -101,6 +124,28 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   }
   
   return items_;
+}
+
+@end
+
+@implementation FRRadio (FRDirectoryControllerBehaviour)
+
+- (void)controller:(FRDirectoryController *)controller
+         tableView:(UITableView *)tableView
+  accessoryForCell:(UITableViewCell *)cell
+       atIndexPath:(NSIndexPath *)indexPath {
+  cell.accessoryType = UITableViewCellAccessoryNone;
+}
+
+@end
+
+@implementation FRRadioGroup (FRDirectoryControllerBehaviour)
+
+- (void)controller:(FRDirectoryController *)controller
+         tableView:(UITableView *)tableView
+  accessoryForCell:(UITableViewCell *)cell
+       atIndexPath:(NSIndexPath *)indexPath {
+  cell.accessoryView = whiteDisclosure;
 }
 
 @end

@@ -12,8 +12,9 @@
 
 @class RRQAudioPlayer;
 @class FRRadio;
+@class FRFavoritesManager;
 
-@interface FRViewController : UIViewController <FRRadioTableControllerDelegate> {
+@interface FRViewController : UIViewController <UINavigationControllerDelegate> {
 @private
   UINavigationController *navigationController;
 	IBOutlet UIButton *controlButton;
@@ -41,11 +42,14 @@
 	UIImage *pauseHighlightImage;
     
   FRRadio *activeRadio;
+  FRFavoritesManager *favoritesManager;
 }
 
 @property (nonatomic, readonly) BOOL isPlaying;
 @property (nonatomic, retain, readonly) FRRadio *activeRadio;
+@property (nonatomic, retain, readonly) FRFavoritesManager *favoritesManager;
 
+- (void)playRadio:(FRRadio *)radio;
 - (IBAction)controlButtonClicked:(UIButton *)button;
 - (IBAction)infoButtonClicked:(UIButton *)button;
 - (IBAction)openInfoURL:(UIButton *)button;
@@ -55,3 +59,8 @@
 
 @end
 
+@protocol FRTableViewController
+
+
+
+@end

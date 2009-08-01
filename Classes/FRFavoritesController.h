@@ -7,15 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FRViewController.h"
 
-@interface FRFavoritesController : UITableViewController {
+@interface FRFavoritesController : UITableViewController <FRTableViewController> {
  @private
-  NSArray *items_;
   NSInteger activeRadio_;
+  
+  FRViewController *parentController_;
 }
 
 @property (nonatomic, assign) NSInteger activeRadio;
 
-- (void)addRadio:(FRRadio *)radio;
+@property (nonatomic, assign) FRViewController *parentController;
 
 @end

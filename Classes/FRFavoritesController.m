@@ -9,6 +9,9 @@
 #import "FRFavoritesController.h"
 #import "FRFavorite.h"
 #import "FRViewController.h"
+#import "FRFavoritesManager.h"
+#import "FRDirectoryController.h"
+#import "RRQTransparentGradientCell.h"
 
 enum FRFavoritesSections {
   FRFavoritesSection,
@@ -17,10 +20,9 @@ enum FRFavoritesSections {
 
 static UIImage *soundOff;
 static UIImage *soundOn;
+static UIImageView *whiteDisclosure;
 
 @interface FRFavoritesController ()
-
-@property (nonatomic, retain) FRViewController *parentController;
 
 - (NSArray *)items;
 
@@ -33,24 +35,18 @@ static UIImage *soundOn;
 @synthesize parentController = parentController_;
 
 + (void)initialize {
-  soundOn = [UIImage imageNamed:@"altavoz-on.png"];
-  soundOff = [UIImage imageNamed:@"altavoz.png"];
+  soundOn = [[UIImage imageNamed:@"altavoz-on.png"] retain];
+  soundOff = [[UIImage imageNamed:@"altavoz.png"] retain];
+  whiteDisclosure = [[UIImageView alloc] initWithImage:
+                     [UIImage imageNamed:@"white-disclosure.png"]];
 }
 
-- (id)initWithParentController:(FRViewController *)parentController {
-  if (self = [super init]) {
-    parentController_ = [parentController retain];
+- (id)init {
+  if (self = [super initWithNibName:@"RadiosView" bundle:nil]) {
     activeRadio_ = -1; // TODO: search for the real active radio
   }
   
   return self;
-}
-
-- (void)dealloc {
-  [items_ release];
-  [parentController_ release];
-  
-  [super dealloc];
 }
 
 - (void)addRadio:(FRRadio *)radio {
@@ -69,7 +65,7 @@ static UIImage *soundOn;
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
   switch (section) {
-    case FRRadioSection:
+    case FRFavoritesSection:
       return self.items.count + 1;
     default:
       return 0;
@@ -88,17 +84,17 @@ static UIImage *soundOn;
              reuseIdentifier:kFavoritesCell] autorelease];
   }
   
-  if (indexPath.row > self.items.count) {
+  if (indexPath.row >= self.items.count) {
     // This is the last row
-    cell.text = @"Plus..."
-    UIFont *font = cell.font;
-    cell.font = [UIFont italicSystemFontOfSize:cell.font.pointSize];
+    cell.text = @"Plus...";
+    cell.font = [UIFont fontWithName:@"Helvetica-BoldOblique" size:18];
+    cell.accessoryView = whiteDisclosure;
   } else {
-    FRFavorite *item = [self.items objectAtIndex:indexPath.row]
+    FRFavorite *item = [self.items objectAtIndex:indexPath.row];
     cell.text = item.name;
-    cell.font = [UIFont systemFontOfSize:cell.font.pointSize];
+    cell.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
+    cell.accessoryType = UITableViewCellAccessoryNone;
     
-    FRRadio *radio = item.radio;
     if (activeRadio_ == indexPath.row) {
       if (self.parentController.isPlaying) {
         cell.image = soundOn;
@@ -115,30 +111,31 @@ static UIImage *soundOn;
 
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  // TODO: check the last row
-  FRFavorite *item = [self.items objectAtIndex:indexPath.row];
-  if (self.parentController.activeRadio != item.radio ||
-      !self.parentController.isPlaying) {
-    if (activeRadio_ != -1) {
-      NSIndexPath *oldIndexPath =
-        [NSIndexPath indexPathForRow:activeRadio_ inSection:0];
-      [[tableView cellForRowAtIndexPath:oldIndexPath] setImage:nil];
+  if (indexPath.row >= self.items.count) {
+    FRDirectoryController *directoryController = [[FRDirectoryController alloc] initWithGroupId:0];
+    [self.navigationController pushViewController:directoryController animated:YES];
+    [directoryController release];
+  } else {
+    FRFavorite *item = [self.items objectAtIndex:indexPath.row];
+    if (self.parentController.activeRadio != item.radio ||
+        !self.parentController.isPlaying) {
+      if (activeRadio_ != -1) {
+        NSIndexPath *oldIndexPath =
+          [NSIndexPath indexPathForRow:activeRadio_ inSection:0];
+        [[tableView cellForRowAtIndexPath:oldIndexPath] setImage:nil];
+      }
+      
+      [[tableView cellForRowAtIndexPath:indexPath] setImage:soundOff];
+      [self.parentController playRadio:item.radio];
+      activeRadio_ = indexPath.row;
     }
-    
-    [[tableView cellForRowAtIndexPath:indexPath] setImage:soundOff];
-    [self.parentController playRadio:item.radio];
-    activeRadio_ = indexPath.row;
   }
 }
 
 #pragma mark Private methods
 
 - (NSArray *)items {
-  if (!items_) {
-    items = [FRFavorite allByPosition];
-  }
-  
-  return items_;
+  return self.parentController.favoritesManager.items;
 }
 
 @end
