@@ -13,13 +13,9 @@
 
 @interface FRRadioGroup : SQLitePersistentObject {
  @private
-  NSString *groupName_;
-  FRRadio *selected_;
+  NSString *name_;
 }
 
-@property (nonatomic, copy) NSString *groupName;
-@property (nonatomic, retain) FRRadio *selected;
-
-@property (nonatomic, retain, readonly) NSString *name;
+@property (nonatomic, copy) NSString *name;
 
 @end

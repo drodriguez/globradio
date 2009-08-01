@@ -13,20 +13,10 @@ static NSString *kTableName = @"radio_groups";
 
 @implementation FRRadioGroup
 
-@synthesize groupName = groupName_;
-@synthesize selected = selected_;
-
-- (NSString *)name {
-  if (selected_) {
-    return self.selected.name;
-  } else {
-    return self.groupName;
-  }
-}
+@synthesize name = name_;
 
 - (void)dealloc {
-  [groupName_ release];
-  [selected_ release];
+  [name_ release];
   
   [super dealloc];
 }
@@ -35,10 +25,6 @@ static NSString *kTableName = @"radio_groups";
 
 + (NSString *)tableName {
   return kTableName;
-}
-
-+ (NSArray *)transients {
-  return [NSArray arrayWithObject:@"name"];
 }
 
 @end
