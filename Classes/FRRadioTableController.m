@@ -7,7 +7,7 @@
 //
 
 #import "FRRadioTableController.h"
-#import "FRTableViewItem.h"
+#import "FRDirectoryItem.h"
 #import "FRRadioGroup.h"
 #import "FRRadioGroupController.h"
 #import "RRQTransparentGradientCell.h"
@@ -35,11 +35,11 @@ static UIImage *soundOn;
 @interface FRRadioGroupControllerDelegate : NSObject <FRRadioTableControllerDelegate> {
  @private
   FRRadioTableController *parentController_;
-  FRTableViewItem *tableViewItem_;
+  FRDirectoryItem *tableViewItem_;
 }
 
 @property (nonatomic, retain) FRRadioTableController *parentController;
-@property (nonatomic, retain) FRTableViewItem *tableViewItem;
+@property (nonatomic, retain) FRDirectoryItem *tableViewItem;
 
 - (id)initWithController:(FRRadioTableController *)parentController;
 
@@ -144,7 +144,7 @@ static UIImage *soundOn;
 
 - (void)setActiveRadioWithRadio:(FRRadio *)radio {
   if (radio) {
-    for(FRTableViewItem *item in self.items) {
+    for(FRDirectoryItem *item in self.items) {
       if (item.finalRadio == radio) {
         activeRadio_ = item.position - 1;
         return;
@@ -230,7 +230,7 @@ static UIImage *soundOn;
              reuseIdentifier:CellIdentifier] autorelease];
   }
 	
-  FRTableViewItem *item = [self.items objectAtIndex:indexPath.row];
+  FRDirectoryItem *item = [self.items objectAtIndex:indexPath.row];
   cell.text = item.name;
   if (item.group) {
     cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
@@ -254,10 +254,10 @@ static UIImage *soundOn;
 
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  FRTableViewItem *item = [self.items objectAtIndex:indexPath.row];
+  FRDirectoryItem *item = [self.items objectAtIndex:indexPath.row];
   if ([self.delegate activeRadio] != item.finalRadio ||
       ![self.delegate isPlaying]) {
-    FRTableViewItem *item = [self.items objectAtIndex:indexPath.row];
+    FRDirectoryItem *item = [self.items objectAtIndex:indexPath.row];
     
     if (activeRadio_ != -1) {
       NSIndexPath *oldIndexPath =
@@ -286,7 +286,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)tableView:(UITableView *)tableView
 accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
-  FRTableViewItem *item = [self.items objectAtIndex:indexPath.row];
+  FRDirectoryItem *item = [self.items objectAtIndex:indexPath.row];
   FRRadioGroupController *subcontroller = [[FRRadioGroupController alloc] init];
   subcontroller.parentItem = item;
   self.helperDelegate.tableViewItem = item;

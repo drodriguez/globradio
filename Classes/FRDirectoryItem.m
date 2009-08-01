@@ -6,39 +6,24 @@
 //  Copyright 2009 Daniel Rodríguez Troitiño. All rights reserved.
 //
 
-#import "FRTableViewItem.h"
+#import "FRDirectoryItem.h"
 #import "FRRadio.h"
 #import "FRRadioGroup.h"
 
 static NSString *kTableName = @"table_view_items";
 
-@implementation FRTableViewItem
+@implementation FRDirectoryItem
 
 @synthesize position = position_;
 @synthesize parent = parent_;
-@synthesize group = isGroup_;
 @synthesize radio = radio_;
-@synthesize radioGroup = radioGroup_;
 
 - (NSString *)name {
-  if (self.group) {
-    return self.radioGroup.name;
-  } else {
-    return self.radio.name;
-  }
-}
-
-- (FRRadio *)finalRadio {
-  if (self.group) {
-    return self.radioGroup.selected;
-  } else {
-    return self.radio;
-  }
+  return [self.radio name];
 }
 
 - (void)dealloc {
   [radio_ release];
-  [radioGroup_ release];
   
   [super dealloc];
 }

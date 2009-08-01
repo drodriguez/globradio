@@ -8,26 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "SQLitePersistentObject.h"
+#import "FRRadio.h"
 
-@class FRRadio;
-@class FRRadioGroup;
-
-@interface FRTableViewItem : SQLitePersistentObject {
+@interface FRDirectoryItem : SQLitePersistentObject {
  @private
   NSUInteger position_;
   NSUInteger parent_;
-  BOOL isGroup_;
-  FRRadio *radio_;
-  FRRadioGroup *radioGroup_;
+  id<FRRadio> *radio_;
 }
 
 @property (nonatomic, assign) NSUInteger position;
 @property (nonatomic, assign) NSUInteger parent;
-@property (nonatomic, assign) BOOL group;
-@property (nonatomic, retain) FRRadio *radio;
-@property (nonatomic, retain) FRRadioGroup *radioGroup;
+@property (nonatomic, retain) id<FRRadio> *radio;
 
 @property (nonatomic, retain, readonly) NSString *name;
-@property (nonatomic, retain, readonly) FRRadio *finalRadio;
 
 @end

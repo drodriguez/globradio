@@ -9,15 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "FRRadioTableController.h"
 
-@class FRTableViewItem;
+@class FRDirectoryItem;
 
 @interface FRRadioGroupController : FRRadioTableController {
  @private
-  FRTableViewItem *parentItem_;
+  FRDirectoryItem *parentItem_;
   NSMutableArray *items_;
   NSTimer *timeoutTimer_;
 }
 
-@property (nonatomic, retain) FRTableViewItem *parentItem;
+@property (nonatomic, retain) FRDirectoryItem *parentItem;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "FRRadioGroupController.h"
-#import "FRTableViewItem.h"
+#import "FRDirectoryItem.h"
 #import "FRRadio.h"
 #import "FRRadioGroup.h"
 
@@ -21,13 +21,13 @@
 - (NSMutableArray *)items {
   if (!items_) {
     items_ = [[NSMutableArray alloc]
-              initWithArray:[FRTableViewItem findByCriteria:@"WHERE parent=%d ORDER BY position ASC", self.parentItem.pk]];
+              initWithArray:[FRDirectoryItem findByCriteria:@"WHERE parent=%d ORDER BY position ASC", self.parentItem.pk]];
   }
   
   return items_;
 }
 
-- (void)setParentItem:(FRTableViewItem *)newItem {
+- (void)setParentItem:(FRDirectoryItem *)newItem {
   if (parentItem_ != newItem) {
     [newItem retain];
     [parentItem_ release];
@@ -38,8 +38,8 @@
     
     if (parentItem_.radioGroup.selected) {
       FRRadio *selectedRadio = parentItem_.radioGroup.selected;
-      FRTableViewItem *selectedTableViewItem = (FRTableViewItem *)
-        [FRTableViewItem findFirstByCriteria:@"WHERE radio = 'FRRadio-%d'", selectedRadio.pk];
+      FRDirectoryItem *selectedTableViewItem = (FRDirectoryItem *)
+        [FRDirectoryItem findFirstByCriteria:@"WHERE radio = 'FRRadio-%d'", selectedRadio.pk];
       activeRadio_ = selectedTableViewItem.position - 1;
     }
   }
@@ -64,7 +64,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [super tableView:tableView didSelectRowAtIndexPath:indexPath];
   
   // Update the parent selected field
-  FRTableViewItem *item = [self.items objectAtIndex:indexPath.row];
+  FRDirectoryItem *item = [self.items objectAtIndex:indexPath.row];
   FRRadioGroup *radioGroup = self.parentItem.radioGroup;
   radioGroup.selected = item.radio;
   [radioGroup save];

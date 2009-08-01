@@ -7,14 +7,14 @@
 //
 
 #import "FRMainRadiosController.h"
-#import "FRTableViewItem.h"
+#import "FRDirectoryItem.h"
 
 @implementation FRMainRadiosController
 
 - (NSMutableArray *)items {
   if (!items_) {
     items_ = [[NSMutableArray alloc]
-              initWithArray:[FRTableViewItem findByCriteria:@"WHERE parent=0 ORDER BY position ASC"]];
+              initWithArray:[FRDirectoryItem findByCriteria:@"WHERE parent=0 ORDER BY position ASC"]];
   }
   
   return items_;
