@@ -16,7 +16,7 @@
 #import "isArrrrr.m"
 
 static NSString *kRNEHost = @"rtve.stream.flumotion.com";
-const static NSUInteger kDbSchemaVersion = 2;
+const static NSUInteger kDbSchemaVersion = 1;
 
 void interruptionListenerCb(void *inClientData, UInt32 interruptionState) {
 	FRViewController *controller = (FRViewController *) inClientData;

@@ -25,7 +25,7 @@ const static NSString *kSelectDBSchemaVersion =
 @implementation SQLiteInstanceManager (RRQMigrator)
 
 - (BOOL)migrate:(NSUInteger)version {
-  if ([self isDatabaseInPlace]) {
+  /* if ([self isDatabaseInPlace]) {
     NSInteger schemaVersion = [self dbSchemaVersion];
     if (schemaVersion < 0) {
       NSLog(@"Can not found database schema version! Aborting migration");
@@ -40,11 +40,11 @@ const static NSString *kSelectDBSchemaVersion =
       
       return NO;
     }
-  } else {
+  } else { */
     NSLog(@"Copying database from executable bundle");
     
     return [self copyDatabaseFromBundle];
-  }
+  /* } */
   
   return YES;
 }
@@ -62,6 +62,14 @@ const static NSString *kSelectDBSchemaVersion =
   
   NSFileManager *fileMgr = [NSFileManager defaultManager];
   NSError *error;
+  
+  if ([fileMgr fileExistsAtPath:dbPath]) {
+    if (![fileMgr removeItemAtPath:dbPath error:&error]) {
+      NSLog(@"Can not delete old database file with error (%d) '%@'",
+            [error code], [error description]);
+      return NO;
+    }
+  }
   
   if (![fileMgr copyItemAtPath:bundledDb toPath:dbPath error:&error]) {
     NSLog(@"Can not copy database file with error (%d) '%@'",
