@@ -9,14 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "SQLitePersistentObject.h"
 
-@protocol FRRadio <NSObject>
+@class FRDirectoryController;
 
-- (NSString *)radio;
+@interface FRRadioBase : SQLitePersistentObject
+
+- (NSString *)name;
 
 @end
 
 
-@interface FRRadio : SQLitePersistentObject <FRRadio> {
+@interface FRRadio : FRRadioBase {
  @private
   NSString *name_;
   NSString *lowURL_;

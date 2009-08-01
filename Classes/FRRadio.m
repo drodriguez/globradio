@@ -31,3 +31,12 @@ static NSString *kTableName = @"radios";
 }
 
 @end
+
+@implementation FRRadioBase
+
+- (NSString *)name {
+  [self doesNotRecognizeSelector:_cmd];
+  return nil;
+}
+
+@end
