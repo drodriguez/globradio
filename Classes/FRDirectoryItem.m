@@ -10,7 +10,7 @@
 #import "FRRadio.h"
 #import "FRRadioGroup.h"
 
-static NSString *kTableName = @"table_view_items";
+static NSString *kTableName = @"directory_items";
 
 @implementation FRDirectoryItem
 
@@ -28,7 +28,7 @@ static NSString *kTableName = @"table_view_items";
   [super dealloc];
 }
 
-- (NSArray *)findByParent:(NSInteger)parentId {
++ (NSArray *)findByParent:(NSInteger)parentId {
   return [self findByCriteria:@"WHERE parent=%d ORDER BY position DESC",
           parentId];
 }
