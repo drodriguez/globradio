@@ -14,15 +14,15 @@
  @private
   NSUInteger position_;
   NSUInteger parent_;
-  id<FRRadio> *radio_;
+  FRRadioBase *radio_;
 }
 
 @property (nonatomic, assign) NSUInteger position;
 @property (nonatomic, assign) NSUInteger parent;
-@property (nonatomic, retain) id<FRRadio> *radio;
+@property (nonatomic, retain) FRRadioBase *radio;
 
 @property (nonatomic, retain, readonly) NSString *name;
 
-- (NSArray *)findByParent:(NSInteger)parentId;
++ (NSArray *)findByParent:(NSInteger)parentId;
 
 @end
