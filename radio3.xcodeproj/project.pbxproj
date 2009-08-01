@@ -51,8 +51,6 @@
 		651606940ED883BC0031CDBE /* rowBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 651606930ED883BC0031CDBE /* rowBackground.png */; };
 		651606CA0ED8A2C00031CDBE /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 651606C90ED8A2C00031CDBE /* play.png */; };
 		651606CD0ED8A5D70031CDBE /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 651606CC0ED8A5D70031CDBE /* pause.png */; };
-		651DD6F50FC5956E001DA94D /* FRRadioTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 651DD6F40FC5956E001DA94D /* FRRadioTableController.m */; };
-		651DD7D90FC5CB40001DA94D /* FRMainRadiosController.m in Sources */ = {isa = PBXBuildFile; fileRef = 651DD7D80FC5CB40001DA94D /* FRMainRadiosController.m */; };
 		651E87AD0FAF469A005B67F7 /* FIImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 651E87AC0FAF469A005B67F7 /* FIImageProvider.m */; };
 		65255AD90EE574C100F4142C /* play-hl.png in Resources */ = {isa = PBXBuildFile; fileRef = 65255AD80EE574C100F4142C /* play-hl.png */; };
 		6534D1710EDCA968008B1124 /* volume-thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 6534D16F0EDCA968008B1124 /* volume-thumb.png */; };
@@ -61,12 +59,16 @@
 		653CE3790F5AE69B00445A02 /* FIArtistInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 653CE3780F5AE69B00445A02 /* FIArtistInfo.m */; };
 		653CE4310F5AFFB000445A02 /* lastfm.plist in Resources */ = {isa = PBXBuildFile; fileRef = 653CE4300F5AFFB000445A02 /* lastfm.plist */; };
 		653F4BD20F2A7D21005067F5 /* RRQShoutcastAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 653F4BD10F2A7D21005067F5 /* RRQShoutcastAudioPlayer.m */; };
-		65407BCA0FC9E10F00FA4E6B /* FRRadioGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65407BC90FC9E10F00FA4E6B /* FRRadioGroupController.m */; };
 		654504440F8BF7650001D90B /* RRQVolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 654504430F8BF7650001D90B /* RRQVolumeView.m */; };
 		654504450F8BF7650001D90B /* RRQVolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 654504430F8BF7650001D90B /* RRQVolumeView.m */; };
 		654504460F8BF7650001D90B /* RRQVolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 654504430F8BF7650001D90B /* RRQVolumeView.m */; };
 		654B1E560ECDFDD500E28E7E /* RRQM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RRQM3UParser.m */; };
 		6558DA440F8B96FF00A80AC7 /* RRQUIView+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 6558DA430F8B96FF00A80AC7 /* RRQUIView+Description.m */; };
+		65620A8410232CE20070F99A /* FRFavoritesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65620A8310232CE20070F99A /* FRFavoritesController.m */; };
+		65620AA8102334810070F99A /* FRFavorite.m in Sources */ = {isa = PBXBuildFile; fileRef = 65620AA7102334810070F99A /* FRFavorite.m */; };
+		65620AAB102343BB0070F99A /* FRDirectoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65620AAA102343BB0070F99A /* FRDirectoryController.m */; };
+		65620AB1102434640070F99A /* FRFavoritesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65620AB0102434640070F99A /* FRFavoritesManager.m */; };
+		65620C3F102454EA0070F99A /* white-disclosure.png in Resources */ = {isa = PBXBuildFile; fileRef = 65620C3E102454EA0070F99A /* white-disclosure.png */; };
 		6562D9320FFD550A0089D95B /* RRQUIView+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 6558DA430F8B96FF00A80AC7 /* RRQUIView+Description.m */; };
 		656BFC380F03A4FD006A3F15 /* FIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 656BFC370F03A4FD006A3F15 /* FIAppDelegate.m */; };
 		656BFC440F03A80E006A3F15 /* FIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656BFC430F03A80E006A3F15 /* FIViewController.m */; };
@@ -101,9 +103,8 @@
 		658687A00ECF03A000EB9D99 /* RRQM3UParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 654B1E550ECDFDD500E28E7E /* RRQM3UParser.m */; };
 		658687A30ECF040200EB9D99 /* RRQM3UParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 658687A20ECF040200EB9D99 /* RRQM3UParserTest.m */; };
 		658971210FED4485002E170E /* RRQSQLiteInstanceManager+Migrator.m in Sources */ = {isa = PBXBuildFile; fileRef = 658971200FED4485002E170E /* RRQSQLiteInstanceManager+Migrator.m */; };
-		658971820FED781B002E170E /* migration-0002.sql in Resources */ = {isa = PBXBuildFile; fileRef = 658971810FED781B002E170E /* migration-0002.sql */; };
 		658CC7AB0F65368800DC6372 /* default-album-cover.png in Resources */ = {isa = PBXBuildFile; fileRef = 658CC7AA0F65368800DC6372 /* default-album-cover.png */; };
-		6590D13F0FBF12E300E248C2 /* FRTableViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6590D13E0FBF12E300E248C2 /* FRTableViewItem.m */; };
+		6590D13F0FBF12E300E248C2 /* FRDirectoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6590D13E0FBF12E300E248C2 /* FRDirectoryItem.m */; };
 		6590D1420FBF229000E248C2 /* FRRadio.m in Sources */ = {isa = PBXBuildFile; fileRef = 6590D1410FBF229000E248C2 /* FRRadio.m */; };
 		6590D1750FBF233000E248C2 /* NSData-SQLitePersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 6590D1560FBF233000E248C2 /* NSData-SQLitePersistence.m */; };
 		6590D1760FBF233000E248C2 /* NSDate-SQLitePersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 6590D1580FBF233000E248C2 /* NSDate-SQLitePersistence.m */; };
@@ -344,6 +345,15 @@
 		6558DA420F8B96FF00A80AC7 /* RRQUIView+Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RRQUIView+Description.h"; sourceTree = "<group>"; };
 		6558DA430F8B96FF00A80AC7 /* RRQUIView+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RRQUIView+Description.m"; sourceTree = "<group>"; };
 		6560FA1B0EF7B3EF007809DB /* update_build_number.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = update_build_number.rb; path = Scripts/update_build_number.rb; sourceTree = "<group>"; };
+		65620A8210232CE20070F99A /* FRFavoritesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRFavoritesController.h; sourceTree = "<group>"; };
+		65620A8310232CE20070F99A /* FRFavoritesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRFavoritesController.m; sourceTree = "<group>"; };
+		65620AA6102334810070F99A /* FRFavorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRFavorite.h; sourceTree = "<group>"; };
+		65620AA7102334810070F99A /* FRFavorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRFavorite.m; sourceTree = "<group>"; };
+		65620AA9102343BB0070F99A /* FRDirectoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRDirectoryController.h; sourceTree = "<group>"; };
+		65620AAA102343BB0070F99A /* FRDirectoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRDirectoryController.m; sourceTree = "<group>"; };
+		65620AAF102434640070F99A /* FRFavoritesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRFavoritesManager.h; sourceTree = "<group>"; };
+		65620AB0102434640070F99A /* FRFavoritesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRFavoritesManager.m; sourceTree = "<group>"; };
+		65620C3E102454EA0070F99A /* white-disclosure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "white-disclosure.png"; path = "Resources/FranceRadio/white-disclosure.png"; sourceTree = "<group>"; };
 		65652ECE0F64465B0000EB29 /* FIArtistInfo+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FIArtistInfo+Private.h"; sourceTree = "<group>"; };
 		65652ECF0F6446990000EB29 /* FIAlbumInfo+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FIAlbumInfo+Private.h"; sourceTree = "<group>"; };
 		656A605C0EF196DF004CE686 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/RNERadio/iTunesArtwork; sourceTree = "<group>"; };
@@ -383,8 +393,8 @@
 		658971200FED4485002E170E /* RRQSQLiteInstanceManager+Migrator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RRQSQLiteInstanceManager+Migrator.m"; sourceTree = "<group>"; };
 		658971810FED781B002E170E /* migration-0002.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "migration-0002.sql"; path = "Resources/FranceRadio/migration-0002.sql"; sourceTree = "<group>"; };
 		658CC7AA0F65368800DC6372 /* default-album-cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "default-album-cover.png"; path = "Resources/FIFMRadio/default-album-cover.png"; sourceTree = "<group>"; };
-		6590D13D0FBF12E300E248C2 /* FRTableViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRTableViewItem.h; sourceTree = "<group>"; };
-		6590D13E0FBF12E300E248C2 /* FRTableViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRTableViewItem.m; sourceTree = "<group>"; };
+		6590D13D0FBF12E300E248C2 /* FRDirectoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRDirectoryItem.h; sourceTree = "<group>"; };
+		6590D13E0FBF12E300E248C2 /* FRDirectoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRDirectoryItem.m; sourceTree = "<group>"; };
 		6590D1400FBF229000E248C2 /* FRRadio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRRadio.h; sourceTree = "<group>"; };
 		6590D1410FBF229000E248C2 /* FRRadio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRRadio.m; sourceTree = "<group>"; };
 		6590D1550FBF233000E248C2 /* NSData-SQLitePersistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData-SQLitePersistence.h"; path = "SQLitePO/NSData-SQLitePersistence.h"; sourceTree = "<group>"; };
@@ -986,8 +996,8 @@
 				A72A702C0F1AA15800A2BFD9 /* FRAppDelegate.m */,
 				A72A702D0F1AA15800A2BFD9 /* FRViewController.h */,
 				A72A702E0F1AA15800A2BFD9 /* FRViewController.m */,
-				6590D13D0FBF12E300E248C2 /* FRTableViewItem.h */,
-				6590D13E0FBF12E300E248C2 /* FRTableViewItem.m */,
+				6590D13D0FBF12E300E248C2 /* FRDirectoryItem.h */,
+				6590D13E0FBF12E300E248C2 /* FRDirectoryItem.m */,
 				6590D1400FBF229000E248C2 /* FRRadio.h */,
 				6590D1410FBF229000E248C2 /* FRRadio.m */,
 				6590D1850FBF23A700E248C2 /* FRRadioGroup.h */,
@@ -998,6 +1008,14 @@
 				651DD7D80FC5CB40001DA94D /* FRMainRadiosController.m */,
 				65407BC80FC9E10F00FA4E6B /* FRRadioGroupController.h */,
 				65407BC90FC9E10F00FA4E6B /* FRRadioGroupController.m */,
+				65620A8210232CE20070F99A /* FRFavoritesController.h */,
+				65620A8310232CE20070F99A /* FRFavoritesController.m */,
+				65620AA6102334810070F99A /* FRFavorite.h */,
+				65620AA7102334810070F99A /* FRFavorite.m */,
+				65620AA9102343BB0070F99A /* FRDirectoryController.h */,
+				65620AAA102343BB0070F99A /* FRDirectoryController.m */,
+				65620AAF102434640070F99A /* FRFavoritesManager.h */,
+				65620AB0102434640070F99A /* FRFavoritesManager.m */,
 			);
 			name = FranceRadio;
 			sourceTree = "<group>";
@@ -1005,6 +1023,7 @@
 		A72A70310F1AA18F00A2BFD9 /* FranceRadio */ = {
 			isa = PBXGroup;
 			children = (
+				65620C3E102454EA0070F99A /* white-disclosure.png */,
 				658971810FED781B002E170E /* migration-0002.sql */,
 				659F95BE0F8AAB930034B823 /* volume-track-l.png */,
 				659F95BF0F8AAB930034B823 /* volume-track-r.png */,
@@ -1331,7 +1350,7 @@
 				65F8AB0E0F6877CA003CF9F0 /* bottom-bar.png in Resources */,
 				65DD48BB0F8D0DEB0009F8A2 /* volume-track-l.png in Resources */,
 				65DD48C20F8D0E030009F8A2 /* volume-track-r.png in Resources */,
-				658971820FED781B002E170E /* migration-0002.sql in Resources */,
+				65620C3F102454EA0070F99A /* white-disclosure.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1400,7 +1419,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "DBFILE=\"$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/franceradio.sqlite3\"\n\nif [ -f \"$DBFILE\" ]; then\n\trm \"$DBFILE\"\nfi\n\nsqlite3 \"$DBFILE\" < \"$SRCROOT/Resources/FranceRadio/schema.sql\"\nsqlite3 \"$DBFILE\" < \"$SRCROOT/Resources/FranceRadio/data.sql\"\nsqlite3 \"$DBFILE\" < \"$SRCROOT/Resources/FranceRadio/migration-0002.sql\"";
+			shellScript = "DBFILE=\"$BUILT_PRODUCTS_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/franceradio.sqlite3\"\n\nif [ -f \"$DBFILE\" ]; then\n\trm \"$DBFILE\"\nfi\n\nsqlite3 \"$DBFILE\" < \"$SRCROOT/Resources/FranceRadio/schema.sql\" &&\nsqlite3 \"$DBFILE\" < \"$SRCROOT/Resources/FranceRadio/data.sql\"\n# sqlite3 \"$DBFILE\" < \"$SRCROOT/Resources/FranceRadio/migration-0002.sql\"";
 			showEnvVarsInLog = 0;
 		};
 		65A68F1E0F962D6000B5919B /* ShellScript */ = {
@@ -1583,7 +1602,7 @@
 				659F95210F8A3A270034B823 /* RRQNSString+Version.m in Sources */,
 				6558DA440F8B96FF00A80AC7 /* RRQUIView+Description.m in Sources */,
 				654504440F8BF7650001D90B /* RRQVolumeView.m in Sources */,
-				6590D13F0FBF12E300E248C2 /* FRTableViewItem.m in Sources */,
+				6590D13F0FBF12E300E248C2 /* FRDirectoryItem.m in Sources */,
 				6590D1420FBF229000E248C2 /* FRRadio.m in Sources */,
 				6590D1750FBF233000E248C2 /* NSData-SQLitePersistence.m in Sources */,
 				6590D1760FBF233000E248C2 /* NSDate-SQLitePersistence.m in Sources */,
@@ -1602,10 +1621,11 @@
 				6590D1830FBF233000E248C2 /* UIColor-SQLitePersistentObject.m in Sources */,
 				6590D1840FBF233000E248C2 /* UIImage-SQLitePersistence.m in Sources */,
 				6590D1870FBF23A700E248C2 /* FRRadioGroup.m in Sources */,
-				651DD6F50FC5956E001DA94D /* FRRadioTableController.m in Sources */,
-				651DD7D90FC5CB40001DA94D /* FRMainRadiosController.m in Sources */,
-				65407BCA0FC9E10F00FA4E6B /* FRRadioGroupController.m in Sources */,
 				658971210FED4485002E170E /* RRQSQLiteInstanceManager+Migrator.m in Sources */,
+				65620A8410232CE20070F99A /* FRFavoritesController.m in Sources */,
+				65620AA8102334810070F99A /* FRFavorite.m in Sources */,
+				65620AAB102343BB0070F99A /* FRDirectoryController.m in Sources */,
+				65620AB1102434640070F99A /* FRFavoritesManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
