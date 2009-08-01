@@ -28,11 +28,11 @@ static NSString *kTableName = @"favorites";
   [super dealloc];
 }
 
-- (FRFavorite *)findFirstLeastRecentlyUsed {
-  return [self findFirstByCriteria:@"ORDER BY \"last_used_at\" DESC"]; 
++ (FRFavorite *)findFirstLeastRecentlyUsed {
+  return (FRFavorite *)[self findFirstByCriteria:@"ORDER BY \"last_used_at\" DESC"]; 
 }
 
-- (NSArray *)allByPosition {
++ (NSArray *)allByPosition {
   return [self findByCriteria:@"ORDER BY \"position\" DESC"];
 }
 

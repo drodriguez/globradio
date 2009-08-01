@@ -18,14 +18,14 @@
   FRRadio *radio_;
 }
 
-@property (nonatomic, assign) NSUInteger *position;
+@property (nonatomic, assign) NSUInteger position;
 @property (nonatomic, retain) NSDate *lastUsedAt;
 @property (nonatomic, retain) FRRadio *radio;
 
 @property (nonatomic, retain, readonly) NSString *name;
 
-- (FRFavorite *)findLeastRecentlyUsed;
++ (FRFavorite *)findFirstLeastRecentlyUsed;
 
-- (NSArray *)allByPosition;
++ (NSArray *)allByPosition;
 
 @end
