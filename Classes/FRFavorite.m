@@ -33,7 +33,7 @@ static NSString *kTableName = @"favorites";
 }
 
 + (NSArray *)allByPosition {
-  return [self findByCriteria:@"ORDER BY \"position\" DESC"];
+  return [self findByCriteria:@"ORDER BY \"position\" ASC"];
 }
 
 #pragma mark SQLitePersistentObject private methods

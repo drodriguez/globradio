@@ -29,7 +29,7 @@ static NSString *kTableName = @"directory_items";
 }
 
 + (NSArray *)findByParent:(NSInteger)parentId {
-  return [self findByCriteria:@"WHERE parent=%d ORDER BY position DESC",
+  return [self findByCriteria:@"WHERE parent=%d ORDER BY position ASC",
           parentId];
 }
 
