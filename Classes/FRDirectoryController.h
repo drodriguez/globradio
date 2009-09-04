@@ -16,6 +16,8 @@
   NSInteger groupId_;
   
   FRViewController *parentController_;
+  
+  NSTimer *timeoutTimer_;
 }
 
 @property (nonatomic, assign) NSInteger activeRadio;

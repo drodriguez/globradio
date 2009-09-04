@@ -17,13 +17,17 @@ enum FRDirectorySections {
   FRDirectorySectionsNumber
 };
 
+static const float kTimeout = 5.0;
+static const float kSelectionTimeout = 2.5;
+
 static UIImage *soundOff;
 static UIImage *soundOn;
 static UIImageView *whiteDisclosure;
 
 @interface FRDirectoryController ()
 
-- (NSArray *)items;
+@property (nonatomic, retain, readonly) NSArray *items;
+@property (nonatomic, retain, readonly) NSTimer *timeoutTimer;
 
 @end
 
@@ -31,7 +35,7 @@ static UIImageView *whiteDisclosure;
 
 - (void)controller:(FRDirectoryController *)controller
          tableView:(UITableView *)tableView
-  accessoryForCell:(UITableViewCell *)
+  accessoryForCell:(UITableViewCell *)cell
        atIndexPath:(NSIndexPath *)indexPath;
 
 - (void)controller:(FRDirectoryController *)controller
@@ -46,6 +50,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @synthesize activeRadio = activeRadio_;
 @synthesize parentController = parentController_;
+@synthesize timeoutTimer = timeoutTimer_;
 
 + (void)initialize {
   soundOn = [UIImage imageNamed:@"altavoz-on.png"];
@@ -61,6 +66,28 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
   }
   
   return self;
+}
+
+- (void)dealloc {
+  [timeoutTimer_ release];
+  
+  [super dealloc];
+}
+
+#pragma mark UIViewController methods
+
+- (void)viewDidAppear:(BOOL)animated {
+  timeoutTimer_ = [[NSTimer scheduledTimerWithTimeInterval:kTimeout
+                                                    target:self
+                                                  selector:@selector(timerFired:)
+                                                  userInfo:nil
+                                                   repeats:NO] retain];
+  [super viewDidAppear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+  [super viewDidDisappear:animated];
+  [timeoutTimer_ invalidate];
 }
 
 #pragma mark Table view methods
@@ -107,6 +134,12 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
   return cell;
 }
 
+- (NSIndexPath *)tableView:(UITableView *)tableView
+  willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  timeoutTimer_.fireDate = [NSDate dateWithTimeIntervalSinceNow:kTimeout];
+  return indexPath;
+}
+
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   FRDirectoryItem *item = [self.items objectAtIndex:indexPath.row];
@@ -116,14 +149,24 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
    didSelectRowAtIndexPath:indexPath];
 }
 
+#pragma mark UIScrollViewDelegate methods
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+  timeoutTimer_.fireDate = [NSDate dateWithTimeIntervalSinceNow:kTimeout];
+}
+
 #pragma mark Private methods
 
 - (NSArray *)items {
   if (!items_) {
-    items_ = [FRDirectoryItem findByParent:groupId_];
+    items_ = [[FRDirectoryItem findByParent:groupId_] retain];
   }
   
   return items_;
+}
+
+- (void)timerFired:(NSTimer *)timer {
+  [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end
@@ -137,6 +180,14 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   cell.accessoryType = UITableViewCellAccessoryNone;
 }
 
+- (void)controller:(FRDirectoryController *)controller
+         tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  // TODO
+  controller.timeoutTimer.fireDate = [NSDate dateWithTimeIntervalSinceNow:kSelectionTimeout];
+  [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 @end
 
 @implementation FRRadioGroup (FRDirectoryControllerBehaviour)
@@ -146,6 +197,16 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   accessoryForCell:(UITableViewCell *)cell
        atIndexPath:(NSIndexPath *)indexPath {
   cell.accessoryView = whiteDisclosure;
+}
+
+- (void)controller:(FRDirectoryController *)controller
+         tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  [controller.timeoutTimer invalidate];
+  FRDirectoryItem *item = [[controller items] objectAtIndex:indexPath.row];
+  FRDirectoryController *subcontroller = [[FRDirectoryController alloc] initWithGroupId:item.pk];
+  [controller.navigationController pushViewController:subcontroller animated:YES];
+  [subcontroller release];
 }
 
 @end
